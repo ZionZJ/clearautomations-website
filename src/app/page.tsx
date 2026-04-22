@@ -24,6 +24,7 @@ export default function Home() {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#phases" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Phases</a>
+            <a href="#stack-audit" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Stack Audit</a>
             <a href="#results" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Results</a>
             <a href="#faq" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">FAQ</a>
           </div>
@@ -251,6 +252,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3c. TECH STACK AUDIT */}
+      <section id="stack-audit" className="py-12 sm:py-16 bg-[var(--surface)]">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
+          <div className="max-w-[800px] mx-auto">
+            <div className="border border-[rgba(212,168,67,0.25)] rounded-lg p-8 sm:p-10 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--amber)] to-transparent opacity-40" />
+
+              <div className="relative z-10">
+                <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-3">
+                  Not sure what you need?
+                </p>
+                <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-2">
+                  Tech Stack Audit
+                </h2>
+                <p className="font-[var(--font-display)] text-[1.3rem] text-[var(--amber)] mb-6">
+                  $750 one-time
+                </p>
+                <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] mb-6">
+                  We review every tool your business pays for, map your workflows, find the waste, and deliver a clear recommendation &mdash; what to keep, what to cut, and what to automate.
+                </p>
+
+                <ul className="space-y-3 mb-8">
+                  {[
+                    "Full inventory of your current tools + monthly spend",
+                    "45-minute discovery call to map your workflows",
+                    "Waste & overlap analysis — most clients find $100-300/mo in redundant tools",
+                    "Recommended tech stack sized for your business + 3 priority automations with estimated ROI",
+                  ].map((item) => (
+                    <li key={item} className="text-[14px] text-[var(--ink-soft)] flex gap-3 items-start">
+                      <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="text-[14px] text-[var(--ink-muted)] mb-6">
+                  Delivered as a PDF report within 5 business days. No commitment to build anything &mdash; but 60% of audit clients move to Phase 1.
+                </p>
+
+                <a
+                  href="TALLY_STACK_AUDIT_FORM_URL"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
+                >
+                  Request a Stack Audit
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. BEFORE / AFTER */}
       <section id="results" className="py-12 sm:py-16 border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
@@ -355,6 +409,13 @@ export default function Home() {
                 We&apos;ll review your website, SEO, lead flow, and follow-up process. You&apos;ll get a video walkthrough of exactly what&apos;s broken and how to fix it &mdash; free, no obligation.
               </p>
               <p className="text-[var(--navy-muted)] text-[13px]">Typically delivered within 48 hours.</p>
+              <p className="text-[var(--navy-muted)] text-[13px] mt-4">
+                Already have tools in place?{" "}
+                <a href="#stack-audit" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
+                  Start with a $750 Tech Stack Audit
+                </a>{" "}
+                instead.
+              </p>
             </div>
 
             <AuditForm />
