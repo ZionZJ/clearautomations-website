@@ -1,0 +1,165 @@
+<h2>How should we handle the whitespace?</h2>
+<p class="subtitle">The current site has generous padding (py-20 to py-28 per section = 80-112px top+bottom). Here are two approaches — click the one that feels right.</p>
+
+<div class="split">
+  <div class="mockup" data-choice="a" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="mockup-header">A — Compact + Visual Breaks (Recommended)</div>
+    <div class="mockup-body" style="background:#060608;color:#F0F0F2;padding:0;font-size:11px;line-height:1.5;">
+
+      <!-- Nav -->
+      <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-style:italic;font-family:Georgia;font-size:13px;">Clear<span style="color:#D4A843">.</span>Automations</span>
+        <span style="color:#D4A843;font-size:10px;">Get a Free Audit →</span>
+      </div>
+
+      <!-- Hero (compact) -->
+      <div style="padding:32px 20px 24px;border-bottom:1px solid rgba(212,168,67,0.15);">
+        <div style="color:#D4A843;font-size:9px;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:8px;">AI automation for small business</div>
+        <div style="font-family:Georgia;font-style:italic;font-size:22px;line-height:1.15;margin-bottom:8px;">Your business runs on<br>manual processes.<br><span style="color:#5A5A6A">We replace them.</span></div>
+        <div style="color:#8A8A9A;font-size:10px;margin-bottom:12px;max-width:280px;">AI phone agents. Automated follow-ups. CRM systems. Built for businesses without a tech team.</div>
+        <div style="display:flex;gap:8px;">
+          <div style="background:#D4A843;color:#060608;padding:6px 14px;border-radius:4px;font-size:10px;font-weight:600;">Get a Free AI Audit</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);padding:6px 14px;border-radius:4px;font-size:10px;color:#8A8A9A;">See How It Works</div>
+        </div>
+      </div>
+
+      <!-- Problem (tighter) -->
+      <div style="padding:20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="color:#5A5A6A;font-size:9px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Sound familiar?</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;gap:8px;align-items:start;">
+            <span style="color:rgba(255,255,255,0.1);font-family:Georgia;font-size:16px;">01</span>
+            <span style="font-size:10px;color:#CBD5E1;">Lead submits at 7pm. Nobody calls until Monday.</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:start;">
+            <span style="color:rgba(255,255,255,0.1);font-family:Georgia;font-size:16px;">02</span>
+            <span style="font-size:10px;color:#CBD5E1;">15 hours/week on follow-ups a system could handle.</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:start;">
+            <span style="color:rgba(255,255,255,0.1);font-family:Georgia;font-size:16px;">03</span>
+            <span style="font-size:10px;color:#CBD5E1;">Paying for ads with no system to convert traffic.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phases (compact cards) -->
+      <div style="padding:20px;background:#0E0E12;">
+        <div style="color:#5A5A6A;font-size:9px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;">Three phases</div>
+        <div style="display:flex;gap:6px;">
+          <div style="flex:1;border:1px solid rgba(212,168,67,0.2);border-radius:6px;padding:10px;">
+            <div style="color:#D4A843;font-size:8px;text-transform:uppercase;letter-spacing:0.1em;">Phase 1</div>
+            <div style="font-family:Georgia;font-style:italic;font-size:13px;margin:4px 0;">Capture</div>
+            <div style="font-size:9px;color:#8A8A9A;">$2,500 + $350/mo</div>
+          </div>
+          <div style="flex:1;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px;">
+            <div style="color:#5A5A6A;font-size:8px;text-transform:uppercase;letter-spacing:0.1em;">Phase 2</div>
+            <div style="font-family:Georgia;font-style:italic;font-size:13px;margin:4px 0;">Convert</div>
+            <div style="font-size:9px;color:#8A8A9A;">$1,500 + $500/mo</div>
+          </div>
+          <div style="flex:1;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px;">
+            <div style="color:#5A5A6A;font-size:8px;text-transform:uppercase;letter-spacing:0.1em;">Phase 3</div>
+            <div style="font-family:Georgia;font-style:italic;font-size:13px;margin:4px 0;">Scale</div>
+            <div style="font-size:9px;color:#8A8A9A;">$1,000 + $150/mo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before/After strip -->
+      <div style="padding:16px 20px;border-top:1px solid rgba(212,168,67,0.1);border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex;justify-content:space-between;font-size:9px;">
+          <span style="color:#5A5A6A;">Lead at 7pm Friday</span>
+          <span style="color:#8A8A9A;">Today: sits until Monday</span>
+          <span style="color:#D4A843;">After: AI calls in 5 min</span>
+        </div>
+      </div>
+
+      <!-- Footer hint -->
+      <div style="padding:12px 20px;text-align:center;color:#5A5A6A;font-size:9px;">
+        Built by Zion John · zion@clearautomations.com
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup" data-choice="b" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="mockup-header">B — Current Spacing (Light bg, more breathing room)</div>
+    <div class="mockup-body" style="background:#F5F2ED;color:#1C1917;padding:0;font-size:11px;line-height:1.5;">
+
+      <!-- Nav -->
+      <div style="border-bottom:1px solid #D6D3CD;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:13px;font-weight:600;">Clear<span style="color:#C2742F">.</span>Automations</span>
+        <span style="color:#C2742F;font-size:10px;">Get a Free Audit →</span>
+      </div>
+
+      <!-- Hero (spacious) -->
+      <div style="padding:48px 20px 40px;">
+        <div style="color:#C2742F;font-size:9px;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:12px;">AI automation for small business</div>
+        <div style="font-family:Georgia;font-size:22px;line-height:1.15;font-weight:700;margin-bottom:12px;">Your business runs on<br>manual processes.<br><span style="color:#78716C">We replace them.</span></div>
+        <div style="color:#44403C;font-size:10px;margin-bottom:16px;max-width:280px;">AI phone agents. Automated follow-ups. CRM systems. Built for businesses without a tech team.</div>
+        <div style="display:flex;gap:8px;">
+          <div style="background:#C2742F;color:white;padding:6px 14px;border-radius:4px;font-size:10px;font-weight:600;">Get a Free AI Audit</div>
+          <div style="border:1px solid #D6D3CD;padding:6px 14px;border-radius:4px;font-size:10px;color:#44403C;">See How It Works</div>
+        </div>
+      </div>
+
+      <!-- spacer -->
+      <div style="height:24px;background:#F5F2ED;"></div>
+
+      <!-- Problem -->
+      <div style="padding:32px 20px;border-top:1px solid #D6D3CD;">
+        <div style="color:#78716C;font-size:9px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:16px;">Sound familiar?</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:8px;align-items:start;">
+            <span style="color:#D6D3CD;font-family:Georgia;font-size:16px;">01</span>
+            <span style="font-size:10px;">Lead submits at 7pm. Nobody calls until Monday.</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:start;">
+            <span style="color:#D6D3CD;font-family:Georgia;font-size:16px;">02</span>
+            <span style="font-size:10px;">15 hours/week on follow-ups a system could handle.</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:start;">
+            <span style="color:#D6D3CD;font-family:Georgia;font-size:16px;">03</span>
+            <span style="font-size:10px;">Paying for ads with no system to convert traffic.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- spacer -->
+      <div style="height:24px;background:#F5F2ED;"></div>
+
+      <!-- Phases -->
+      <div style="padding:32px 20px;background:#EBE7E0;">
+        <div style="color:#78716C;font-size:9px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Three phases</div>
+        <div style="display:flex;gap:6px;">
+          <div style="flex:1;background:#fff;border:1px solid #D6D3CD;border-radius:6px;padding:10px;">
+            <div style="color:#C2742F;font-size:8px;text-transform:uppercase;">Phase 1</div>
+            <div style="font-family:Georgia;font-size:13px;font-weight:700;margin:4px 0;">Capture</div>
+            <div style="font-size:9px;color:#78716C;">$2,500 + $350/mo</div>
+          </div>
+          <div style="flex:1;background:#fff;border:1px solid #D6D3CD;border-radius:6px;padding:10px;">
+            <div style="color:#78716C;font-size:8px;text-transform:uppercase;">Phase 2</div>
+            <div style="font-family:Georgia;font-size:13px;font-weight:700;margin:4px 0;">Convert</div>
+            <div style="font-size:9px;color:#78716C;">$1,500 + $500/mo</div>
+          </div>
+          <div style="flex:1;background:#fff;border:1px solid #D6D3CD;border-radius:6px;padding:10px;">
+            <div style="color:#78716C;font-size:8px;text-transform:uppercase;">Phase 3</div>
+            <div style="font-family:Georgia;font-size:13px;font-weight:700;margin:4px 0;">Scale</div>
+            <div style="font-size:9px;color:#78716C;">$1,000 + $150/mo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- spacer -->
+      <div style="height:24px;background:#F5F2ED;"></div>
+      <div style="height:24px;background:#F5F2ED;"></div>
+
+      <!-- Footer -->
+      <div style="padding:12px 20px;border-top:1px solid #D6D3CD;text-align:center;color:#A8A29E;font-size:9px;">
+        Built by Zion John · zion@clearautomations.com
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;">
+  <p class="subtitle"><strong>Key differences:</strong> Option A reduces section padding from 80-112px to 40-60px, uses the dark background to visually separate sections with subtle gold/white borders instead of empty space, and keeps the eye moving. Option B is the current approach with generous breathing room but reads as sparse on larger screens.</p>
+</div>

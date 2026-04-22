@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Outfit, Fraunces } from "next/font/google";
+import { Instrument_Serif, Geist } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "400",
+  style: "italic",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const geist = Geist({
+  variable: "--font-sans",
   subsets: ["latin"],
-  axes: ["SOFT", "WONK", "opsz"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${fraunces.variable} h-full`}
+      className={`${instrumentSerif.variable} ${geist.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

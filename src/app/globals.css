@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --stone: #F5F2ED;
-  --stone-dark: #EBE7E0;
-  --ink: #1C1917;
-  --ink-soft: #44403C;
-  --ink-muted: #78716C;
-  --ink-faint: #A8A29E;
-  --amber: #C2742F;
-  --amber-hover: #A8622A;
-  --amber-dim: rgba(194, 116, 47, 0.08);
+  --stone: #060608;
+  --stone-dark: #0E0E12;
+  --ink: #F0F0F2;
+  --ink-soft: #8A8A9A;
+  --ink-muted: #8A8A9A;
+  --ink-faint: #5A5A6A;
+  --amber: #D4A843;
+  --amber-hover: #E8BD52;
+  --amber-dim: rgba(212, 168, 67, 0.08);
   --navy: #1E293B;
   --navy-text: #CBD5E1;
   --navy-muted: #64748B;
-  --rule: #D6D3CD;
+  --rule: rgba(255, 255, 255, 0.08);
+  --surface: #0E0E12;
+  --border-accent: rgba(212, 168, 67, 0.2);
 }
 
 @theme inline {
@@ -21,8 +23,8 @@
   --color-ink: var(--ink);
   --color-amber: var(--amber);
   --color-navy: var(--navy);
-  --font-sans: var(--font-outfit);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
 html {
@@ -32,7 +34,7 @@ html {
 body {
   background: var(--stone);
   color: var(--ink);
-  font-family: var(--font-outfit), 'Outfit', sans-serif;
+  font-family: var(--font-sans), 'Geist', ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
