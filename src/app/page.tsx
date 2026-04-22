@@ -198,6 +198,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3b. ADD-ON SERVICES */}
+      <section className="py-12 sm:py-16 border-t border-[var(--rule)]">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
+          <p className="text-[13px] font-medium text-[var(--ink-muted)] tracking-wide uppercase mb-4">
+            Add to any phase
+          </p>
+          <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
+            Standalone automations you can add anytime.
+          </h2>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                name: "Smart Booking",
+                price: "$199/mo",
+                desc: "Clients book themselves. You stop playing phone tag.",
+                items: ["Online booking page", "SMS + email reminders", "No-show follow-ups", "Calendar sync (Google/Outlook)"],
+              },
+              {
+                name: "24/7 Chat AI",
+                price: "$249/mo",
+                desc: "An AI that answers questions and qualifies leads while you sleep.",
+                items: ["Website chat widget", "SMS conversation bot", "Trained on your business", "Auto-books appointments"],
+              },
+              {
+                name: "Social Autopilot",
+                price: "$149/mo",
+                desc: "Your social presence runs itself.",
+                items: ["Post scheduling (FB/IG/Google)", "Content calendar", "Google Business updates", "Monthly reporting"],
+              },
+            ].map((addon) => (
+              <div key={addon.name} className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--surface)]">
+                <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--ink)] mb-1">{addon.name}</h3>
+                <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">{addon.price}</p>
+                <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] mb-5">{addon.desc}</p>
+                <ul className="space-y-2.5">
+                  {addon.items.map((item) => (
+                    <li key={item} className="text-[13px] text-[var(--ink-soft)] flex gap-2.5 items-start">
+                      <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[14px] text-[var(--ink-muted)] mt-6">
+            Each add-on works independently. No phase commitment required.
+          </p>
+        </div>
+      </section>
+
       {/* 4. BEFORE / AFTER */}
       <section id="results" className="py-12 sm:py-16 border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
@@ -244,7 +297,7 @@ export default function Home() {
             {[
               { headline: "You own everything.", body: "Your website, your CRM, your AI agent, your data. Fire us and keep it all. We build on open platforms you control \u2014 no lock-in, no proprietary systems, no hostage situations." },
               { headline: "First lead in 1\u20133 weeks.", body: "Not a 6-month roadmap. Phase 1 produces results before Phase 2 starts. The system pays for itself with a single new client." },
-              { headline: "Enterprise experience. SMB prices.", body: "5 years deploying automation at a Big 4 consulting firm for companies 10x your size. Now building the same systems for businesses at a price that makes sense." },
+              { headline: "Enterprise experience. SMB prices.", body: "5 years deploying automation at a Big 4 consulting firm for companies 10x your size. Now building the same modular systems for businesses at a price that makes sense." },
             ].map((d) => (
               <div key={d.headline}>
                 <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--amber)] mb-3 leading-tight">{d.headline}</h3>
