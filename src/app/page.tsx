@@ -9,8 +9,16 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex items-center justify-between h-16">
           
           {/* Logo */}
-          <a href="/" className="font-[var(--font-display)] italic text-[18px] text-[var(--ink)] tracking-tight">
-            Clear<span className="text-[var(--amber)]">.</span>Automations
+          <a href="/" className="flex items-center gap-2.5 group">
+            <svg className="w-[22px] h-[22px] text-[var(--amber)] group-hover:scale-105 transition-transform" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M22 8 A10 10 0 1 0 22 24" />
+              <path d="M10 24 L16 8 L22 24" />
+              <path d="M12.2 18 L19.8 18" />
+            </svg>
+            <span className="font-[var(--font-display)] text-[18px] tracking-tight">
+              <span className="text-[var(--ink)] font-bold"><span className="text-[var(--amber)]">C</span>lear</span>
+              <span className="text-[var(--ink-muted)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
+            </span>
           </a>
           
           {/* Desktop Links */}
@@ -305,9 +313,17 @@ export default function Home() {
       <footer className="border-t border-[var(--rule)] py-8">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
           <div>
-            <p className="font-[var(--font-display)] italic text-[17px] text-[var(--ink)] mb-1">
-              Clear<span className="text-[var(--amber)]">.</span>Automations
-            </p>
+            <div className="flex items-center gap-2 mb-2">
+              <svg className="w-5 h-5 text-[var(--amber)]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 8 A10 10 0 1 0 22 24" />
+                <path d="M10 24 L16 8 L22 24" />
+                <path d="M12.2 18 L19.8 18" />
+              </svg>
+              <span className="font-[var(--font-display)] text-[17px] tracking-tight">
+                <span className="text-[var(--ink)] font-bold"><span className="text-[var(--amber)]">C</span>lear</span>
+                <span className="text-[var(--ink-muted)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
+              </span>
+            </div>
             <p className="text-[13px] text-[var(--ink-muted)]">
               Built by Zion John &middot; AI automation for small business
             </p>
