@@ -1,5 +1,15 @@
 import { HeroVisual } from "@/components/hero-visual";
 import { AuditForm } from "@/components/audit-form";
+import { FadeIn } from "@/components/fade-in";
+
+const FAQ_DATA = [
+  { q: "Do I need to commit to all 3 phases?", a: "No. Phase 1 works completely on its own. Most clients start there, see the results, and then upgrade to Phase\u00A02 later. There is absolutely no pressure and no multi-month contracts." },
+  { q: "What if I already have a website?", a: "We audit it and upgrade what needs fixing \u2014 SEO, forms, speed, mobile experience. We don\u2019t rebuild from scratch unless it\u2019s absolutely necessary." },
+  { q: "What AI tools do you use?", a: "Vapi for voice agents, HubSpot for CRM (free tier), n8n for workflow automation, Telnyx for calling, Resend for email. You own every account." },
+  { q: "How long until I see results?", a: "First AI-qualified lead typically within 1-3 weeks of Phase 1 launch. The review campaign starts producing within the first 10 days." },
+  { q: "What happens if I stop working with you?", a: "Everything keeps running. You own the website, the CRM, the AI agent, the workflows. We hand over all credentials and documentation." },
+  { q: "Is the AI going to sound robotic?", a: "No. Modern voice AI is conversational and context-aware. We customize the voice, script, and tone to match your brand. We\u2019ll send you a sample call before launch." },
+];
 
 export default function Home() {
   return (
@@ -7,7 +17,7 @@ export default function Home() {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060608]/95 backdrop-blur-sm border-b border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex items-center justify-between h-16">
-          
+
           {/* Logo */}
           <a href="/" className="flex items-center gap-2.5 group">
             <svg className="w-[22px] h-[22px] text-[var(--amber)] group-hover:scale-105 transition-transform" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -17,25 +27,61 @@ export default function Home() {
             </svg>
             <span className="font-[var(--font-display)] text-[18px] tracking-tight">
               <span className="text-[var(--ink)] font-bold"><span className="text-[var(--amber)]">C</span>lear</span>
-              <span className="text-[var(--ink-muted)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
+              <span className="text-[var(--ink-dim)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
             </span>
           </a>
-          
+
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#phases" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Phases</a>
-            <a href="#stack-audit" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Stack Audit</a>
-            <a href="#results" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Results</a>
-            <a href="#faq" className="text-[13px] font-medium text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">FAQ</a>
+            <a href="#phases" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Phases</a>
+            <a href="#stack-audit" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Stack Audit</a>
+            <a href="#results" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Results</a>
+            <a href="#faq" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">FAQ</a>
           </div>
 
-          {/* CTA */}
-          <a
-            href="#audit"
-            className="text-[13px] font-medium text-[var(--amber)] border border-[rgba(212,168,67,0.3)] px-4 py-2 rounded hover:bg-[rgba(212,168,67,0.1)] transition-colors"
-          >
-            Get a Free Audit
-          </a>
+          <div className="flex items-center gap-3">
+            {/* Phone */}
+            <a
+              href="tel:+1XXXXXXXXXX"
+              className="hidden sm:inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 3H3a1 1 0 0 0-1 1v1a9 9 0 0 0 9 9h1a1 1 0 0 0 1-1v-3l-3-1-1.5 1.5A7 7 0 0 1 5.5 7.5L7 6 6 3z" />
+              </svg>
+              (XXX) XXX-XXXX
+            </a>
+
+            {/* CTA */}
+            <a
+              href="#audit"
+              className="text-[13px] font-medium text-[var(--amber)] border border-[rgba(212,168,67,0.3)] px-4 py-2 rounded hover:bg-[rgba(212,168,67,0.1)] transition-colors"
+            >
+              Get a Free Audit
+            </a>
+
+            {/* Mobile hamburger */}
+            <details className="md:hidden relative group">
+              <summary className="list-none cursor-pointer flex items-center justify-center w-9 h-9 rounded border border-[rgba(255,255,255,0.1)] hover:border-[var(--ink-dim)] transition-colors">
+                <svg className="w-4 h-4 text-[var(--ink-soft)] group-open:hidden" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <line x1="2" y1="4" x2="14" y2="4" />
+                  <line x1="2" y1="8" x2="14" y2="8" />
+                  <line x1="2" y1="12" x2="14" y2="12" />
+                </svg>
+                <svg className="w-4 h-4 text-[var(--ink-soft)] hidden group-open:block" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <line x1="4" y1="4" x2="12" y2="12" />
+                  <line x1="12" y1="4" x2="4" y2="12" />
+                </svg>
+              </summary>
+              <div className="absolute right-0 top-full mt-2 w-48 bg-[var(--surface)] border border-[var(--rule)] rounded-lg py-2 shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+                <a href="tel:+1XXXXXXXXXX" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">(XXX) XXX-XXXX</a>
+                <div className="border-t border-[var(--rule)] my-1" />
+                <a href="#phases" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">Phases</a>
+                <a href="#stack-audit" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">Stack Audit</a>
+                <a href="#results" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">Results</a>
+                <a href="#faq" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">FAQ</a>
+              </div>
+            </details>
+          </div>
         </div>
       </nav>
 
@@ -52,7 +98,7 @@ export default function Home() {
                 <br />
                 manual processes.
                 <br />
-                <span className="text-[var(--ink-muted)]">We replace them.</span>
+                <span className="text-[var(--ink-dim)]">We replace them.</span>
               </h1>
               <p className="text-[clamp(1rem,1.8vw,1.15rem)] leading-[1.7] text-[var(--ink-soft)] max-w-[540px] mb-10">
                 AI phone agents that call leads back in minutes. Automated
@@ -68,7 +114,7 @@ export default function Home() {
                 </a>
                 <a
                   href="#phases"
-                  className="inline-flex items-center justify-center text-[15px] font-medium text-[var(--ink-soft)] py-3.5 px-8 border border-[rgba(255,255,255,0.12)] rounded hover:border-[var(--ink-muted)] transition-colors"
+                  className="inline-flex items-center justify-center text-[15px] font-medium text-[var(--ink-soft)] py-3.5 px-8 border border-[rgba(255,255,255,0.12)] rounded hover:border-[var(--ink-dim)] transition-colors"
                 >
                   See How It Works
                 </a>
@@ -84,9 +130,11 @@ export default function Home() {
       {/* 2. THE PROBLEM */}
       <section className="py-12 sm:py-16 border-t border-[rgba(212,168,67,0.15)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <p className="text-[13px] font-medium text-[var(--ink-muted)] tracking-wide uppercase mb-10">
-            Sound familiar?
-          </p>
+          <FadeIn>
+            <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-10">
+              Sound familiar?
+            </p>
+          </FadeIn>
           <div className="grid gap-8 sm:gap-10 max-w-[800px]">
             {[
               {
@@ -101,15 +149,17 @@ export default function Home() {
                 num: "03",
                 text: "You\u2019re paying for ads but have no system to convert the traffic into booked appointments.",
               },
-            ].map((item) => (
-              <div key={item.num} className="flex gap-6 items-start">
-                <span className="font-[var(--font-display)] text-[2.5rem] font-light text-[rgba(255,255,255,0.15)] leading-none shrink-0 -mt-1">
-                  {item.num}
-                </span>
-                <p className="text-[clamp(1.05rem,2vw,1.25rem)] leading-[1.6] text-[var(--ink)]">
-                  {item.text}
-                </p>
-              </div>
+            ].map((item, i) => (
+              <FadeIn key={item.num} delay={i * 120}>
+                <div className="flex gap-6 items-start">
+                  <span className="font-[var(--font-display)] text-[2.5rem] font-light text-[rgba(255,255,255,0.15)] leading-none shrink-0 -mt-1">
+                    {item.num}
+                  </span>
+                  <p className="text-[clamp(1.05rem,2vw,1.25rem)] leading-[1.6] text-[var(--ink)]">
+                    {item.text}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -118,16 +168,18 @@ export default function Home() {
       {/* 3. HOW WE FIX IT */}
       <section id="phases" className="bg-[var(--navy)] text-white py-16 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <p className="text-[13px] font-medium text-[var(--navy-muted)] tracking-wide uppercase mb-4">
-            Three phases. Each stands alone.
-          </p>
-          <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-12">
-            Phase 1 works on its own.
-            <br />
-            <span className="text-[var(--navy-muted)]">
-              Phase 2 amplifies it. Phase 3 scales it.
-            </span>
-          </h2>
+          <FadeIn>
+            <p className="text-[13px] font-medium text-[var(--navy-muted)] tracking-wide uppercase mb-4">
+              Three phases. Each stands alone.
+            </p>
+            <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-12">
+              Phase 1 works on its own.
+              <br />
+              <span className="text-[var(--navy-muted)]">
+                Phase 2 amplifies it. Phase 3 scales it.
+              </span>
+            </h2>
+          </FadeIn>
 
           <div className="flex flex-col gap-4">
             {[
@@ -135,6 +187,7 @@ export default function Home() {
                 phase: "Phase 1", name: "Capture", setup: "$2,500", monthly: "$350/mo", timeline: "Week 1\u20133", result: "First AI-qualified lead",
                 items: ["Website redesign + local SEO", "AI inbound voice agent", "Smart contact form", "CRM setup + pipeline", "Google Review campaign", "Automated email follow-ups"],
                 featured: true,
+                roi: "One new client typically covers the entire Phase 1 investment.",
               },
               {
                 phase: "Phase 2", name: "Convert", setup: "$1,500", monthly: "+$500/mo", timeline: "Week 4\u20136", result: "100 warm calls/day",
@@ -147,49 +200,60 @@ export default function Home() {
                 featured: false,
               },
             ].map((phase) => (
-              <div key={phase.name} className={`bg-[var(--navy)] p-6 sm:p-8 md:p-10 border rounded-lg ${phase.featured ? "border-[rgba(212,168,67,0.3)] shadow-[0_0_30px_rgba(212,168,67,0.06)] relative overflow-hidden" : "border-white/5"}`}>
-                
-                {/* Subtle highlight gradient for featured card */}
-                {phase.featured && (
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--amber)] to-transparent opacity-50" />
-                )}
+              <FadeIn key={phase.name}>
+                <div className={`bg-[var(--navy)] p-6 sm:p-8 md:p-10 border rounded-lg ${phase.featured ? "border-[rgba(212,168,67,0.3)] shadow-[0_0_30px_rgba(212,168,67,0.06)] relative overflow-hidden" : "border-white/5"}`}>
 
-                <div className="md:grid md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_1.8fr] md:gap-10 lg:gap-16 items-center relative z-10">
-                  <div>
-                    <p className="text-[12px] font-semibold text-[var(--navy-muted)] tracking-widest uppercase mb-1">
-                      {phase.phase}
-                    </p>
-                    <h3 className="font-[var(--font-display)] text-[1.8rem] font-bold mb-2">
-                      {phase.name}
-                    </h3>
-                    <p className="text-[var(--navy-text)] text-[15px] mb-8">{phase.result}</p>
+                  {phase.featured && (
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--amber)] to-transparent opacity-50" />
+                  )}
 
-                    <div className="flex gap-6 mb-6 pb-6 border-b border-white/10 md:border-b-0 md:mb-0 md:pb-0">
-                      <div>
-                        <p className="text-[11px] text-[var(--navy-muted)] uppercase tracking-wide mb-0.5">Setup</p>
-                        <p className="font-[var(--font-display)] text-[1.4rem] lg:text-[1.6rem] font-semibold whitespace-nowrap">{phase.setup}</p>
+                  <div className="md:grid md:grid-cols-[1fr_1.5fr] lg:grid-cols-[1fr_1.8fr] md:gap-10 lg:gap-16 items-center relative z-10">
+                    <div>
+                      <p className="text-[12px] font-semibold text-[var(--navy-muted)] tracking-widest uppercase mb-1">
+                        {phase.phase}
+                      </p>
+                      <h3 className="font-[var(--font-display)] text-[1.8rem] font-bold mb-2">
+                        {phase.name}
+                      </h3>
+                      <p className="text-[var(--navy-text)] text-[15px] mb-8">{phase.result}</p>
+
+                      <div className="flex flex-wrap gap-6 mb-6 pb-6 border-b border-white/10 md:border-b-0 md:mb-0 md:pb-0">
+                        <div>
+                          <p className="text-[11px] text-[var(--navy-muted)] uppercase tracking-wide mb-0.5">Setup</p>
+                          <p className="font-[var(--font-display)] text-[1.4rem] lg:text-[1.6rem] font-semibold whitespace-nowrap">{phase.setup}</p>
+                        </div>
+                        <div>
+                          <p className="text-[11px] text-[var(--navy-muted)] uppercase tracking-wide mb-0.5">Monthly</p>
+                          <p className="font-[var(--font-display)] text-[1.4rem] lg:text-[1.6rem] font-semibold whitespace-nowrap">{phase.monthly}</p>
+                        </div>
+                        <div>
+                          <p className="text-[11px] text-[var(--navy-muted)] uppercase tracking-wide mb-0.5">Timeline</p>
+                          <p className="font-[var(--font-display)] text-[1.4rem] lg:text-[1.6rem] font-semibold whitespace-nowrap">{phase.timeline}</p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-[11px] text-[var(--navy-muted)] uppercase tracking-wide mb-0.5">Monthly</p>
-                        <p className="font-[var(--font-display)] text-[1.4rem] lg:text-[1.6rem] font-semibold whitespace-nowrap">{phase.monthly}</p>
-                      </div>
-                      <div>
-                        <p className="text-[11px] text-[var(--navy-muted)] uppercase tracking-wide mb-0.5">Timeline</p>
-                        <p className="font-[var(--font-display)] text-[1.4rem] lg:text-[1.6rem] font-semibold whitespace-nowrap">{phase.timeline}</p>
-                      </div>
+
+                      {/* ROI callout for Phase 1 */}
+                      {"roi" in phase && phase.roi && (
+                        <p className="hidden md:block text-[13px] text-[var(--amber)] mt-4 italic">{phase.roi}</p>
+                      )}
                     </div>
+
+                    <ul className="space-y-3 md:pt-2 md:pl-10 lg:pl-12 md:border-l md:border-white/10 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-4 md:space-y-0">
+                      {phase.items.map((item) => (
+                        <li key={item} className="text-[14px] text-[var(--navy-text)] leading-relaxed flex gap-3 items-start">
+                          <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <ul className="space-y-3 md:pt-2 md:pl-10 lg:pl-12 md:border-l md:border-white/10 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-4 md:space-y-0">
-                    {phase.items.map((item) => (
-                      <li key={item} className="text-[14px] text-[var(--navy-text)] leading-relaxed flex gap-3 items-start">
-                        <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* ROI callout for Phase 1 — mobile */}
+                  {"roi" in phase && phase.roi && (
+                    <p className="md:hidden text-[13px] text-[var(--amber)] mt-4 italic">{phase.roi}</p>
+                  )}
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
 
@@ -202,14 +266,16 @@ export default function Home() {
       {/* 3b. ADD-ON SERVICES */}
       <section className="py-12 sm:py-16 border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <p className="text-[13px] font-medium text-[var(--ink-muted)] tracking-wide uppercase mb-4">
-            Add to any phase
-          </p>
-          <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
-            Standalone automations you can add anytime.
-          </h2>
+          <FadeIn>
+            <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-4">
+              Add to any phase
+            </p>
+            <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
+              Standalone automations you can add anytime.
+            </h2>
+          </FadeIn>
 
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {[
               {
                 name: "Smart Booking",
@@ -229,24 +295,26 @@ export default function Home() {
                 desc: "Your social presence runs itself.",
                 items: ["Post scheduling (FB/IG/Google)", "Content calendar", "Google Business updates", "Monthly reporting"],
               },
-            ].map((addon) => (
-              <div key={addon.name} className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--surface)]">
-                <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--ink)] mb-1">{addon.name}</h3>
-                <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">{addon.price}</p>
-                <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] mb-5">{addon.desc}</p>
-                <ul className="space-y-2.5">
-                  {addon.items.map((item) => (
-                    <li key={item} className="text-[13px] text-[var(--ink-soft)] flex gap-2.5 items-start">
-                      <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            ].map((addon, i) => (
+              <FadeIn key={addon.name} delay={i * 100}>
+                <div className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--surface)]">
+                  <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--ink)] mb-1">{addon.name}</h3>
+                  <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">{addon.price}</p>
+                  <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] mb-5">{addon.desc}</p>
+                  <ul className="space-y-2.5">
+                    {addon.items.map((item) => (
+                      <li key={item} className="text-[13px] text-[var(--ink-soft)] flex gap-2.5 items-start">
+                        <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
             ))}
           </div>
 
-          <p className="text-[14px] text-[var(--ink-muted)] mt-6">
+          <p className="text-[14px] text-[var(--ink-dim)] mt-6">
             Each add-on works independently. No phase commitment required.
           </p>
         </div>
@@ -256,51 +324,53 @@ export default function Home() {
       <section id="stack-audit" className="py-12 sm:py-16 bg-[var(--surface)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="max-w-[800px] mx-auto">
-            <div className="border border-[rgba(212,168,67,0.25)] rounded-lg p-8 sm:p-10 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--amber)] to-transparent opacity-40" />
+            <FadeIn>
+              <div className="border border-[rgba(212,168,67,0.25)] rounded-lg p-8 sm:p-10 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--amber)] to-transparent opacity-40" />
 
-              <div className="relative z-10">
-                <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-3">
-                  Not sure what you need?
-                </p>
-                <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-2">
-                  Tech Stack Audit
-                </h2>
-                <p className="font-[var(--font-display)] text-[1.3rem] text-[var(--amber)] mb-6">
-                  $750 one-time
-                </p>
-                <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] mb-6">
-                  We review every tool your business pays for, map your workflows, find the waste, and deliver a clear recommendation &mdash; what to keep, what to cut, and what to automate.
-                </p>
+                <div className="relative z-10">
+                  <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-3">
+                    Not sure what you need?
+                  </p>
+                  <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-2">
+                    Tech Stack Audit
+                  </h2>
+                  <p className="font-[var(--font-display)] text-[1.3rem] text-[var(--amber)] mb-6">
+                    $750 one-time
+                  </p>
+                  <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] mb-6">
+                    We review every tool your business pays for, map your workflows, find the waste, and deliver a clear recommendation &mdash; what to keep, what to cut, and what to automate.
+                  </p>
 
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Full inventory of your current tools + monthly spend",
-                    "45-minute discovery call to map your workflows",
-                    "Waste & overlap analysis — most clients find $100-300/mo in redundant tools",
-                    "Recommended tech stack sized for your business + 3 priority automations with estimated ROI",
-                  ].map((item) => (
-                    <li key={item} className="text-[14px] text-[var(--ink-soft)] flex gap-3 items-start">
-                      <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Full inventory of your current tools + monthly spend",
+                      "45-minute discovery call to map your workflows",
+                      "Waste & overlap analysis \u2014 most clients find $100-300/mo in redundant tools",
+                      "Recommended tech stack sized for your business + 3 priority automations with estimated ROI",
+                    ].map((item) => (
+                      <li key={item} className="text-[14px] text-[var(--ink-soft)] flex gap-3 items-start">
+                        <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
 
-                <p className="text-[14px] text-[var(--ink-muted)] mb-6">
-                  Delivered as a PDF report within 5 business days. No commitment to build anything &mdash; but 60% of audit clients move to Phase 1.
-                </p>
+                  <p className="text-[14px] text-[var(--ink-dim)] mb-6">
+                    Delivered as a PDF report within 5 business days. No commitment to build anything &mdash; but 60% of audit clients move to Phase 1.
+                  </p>
 
-                <a
-                  href="TALLY_STACK_AUDIT_FORM_URL"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
-                >
-                  Request a Stack Audit
-                </a>
+                  <a
+                    href="TALLY_STACK_AUDIT_FORM_URL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
+                  >
+                    Request a Stack Audit
+                  </a>
+                </div>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -308,84 +378,135 @@ export default function Home() {
       {/* 4. BEFORE / AFTER */}
       <section id="results" className="py-12 sm:py-16 border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <p className="text-[13px] font-medium text-[var(--ink-muted)] tracking-wide uppercase mb-4">
-            The transformation
-          </p>
-          <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
-            What changes after Phase 1
-          </h2>
+          <FadeIn>
+            <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-4">
+              The transformation
+            </p>
+            <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
+              What changes after Phase 1
+            </h2>
+          </FadeIn>
 
-          <div className="overflow-x-auto -mx-6 px-6">
-            <table className="w-full min-w-[640px] text-left">
-              <thead>
-                <tr className="border-b-2 border-[rgba(212,168,67,0.3)]">
-                  <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-muted)] uppercase tracking-wide">Scenario</th>
-                  <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-muted)] uppercase tracking-wide">Today</th>
-                  <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">After Phase 1</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { scenario: "Lead submits form at 7pm Friday", today: "Sits in inbox until Monday", after: "AI calls back within 5 minutes" },
-                  { scenario: "Follow-up on old leads", today: "Manual spreadsheet, forgotten", after: "Automated 14-day re-engagement" },
-                  { scenario: "Google reviews", today: "3 reviews, 3.2 stars", after: "15+ reviews, 4.5 stars in 60 days" },
-                  { scenario: "Tracking leads", today: "Sticky notes + email threads", after: "CRM with stage tracking + history" },
-                  { scenario: "Response to missed call", today: "Maybe call back tomorrow", after: "Automatic SMS + voicemail + email within 2 min" },
-                ].map((row, i) => (
-                  <tr key={i} className="border-b border-[var(--rule)] last:border-b-0">
-                    <td className="py-4 pr-8 text-[15px] font-medium text-[var(--ink)]">{row.scenario}</td>
-                    <td className="py-4 pr-8 text-[15px] text-[var(--ink-muted)]">{row.today}</td>
-                    <td className="py-4 text-[15px] text-[var(--ink)] font-medium">{row.after}</td>
+          <FadeIn delay={150}>
+            <div className="relative">
+              <div className="md:hidden pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[var(--stone)] to-transparent z-10" />
+              <p className="md:hidden text-[11px] text-[var(--ink-faint)] uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                Swipe <span aria-hidden="true">&rarr;</span>
+              </p>
+              <div className="overflow-x-auto -mx-6 px-6">
+              <table className="w-full min-w-[640px] text-left">
+                <thead>
+                  <tr className="border-b-2 border-[rgba(212,168,67,0.3)]">
+                    <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-dim)] uppercase tracking-wide">Scenario</th>
+                    <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-dim)] uppercase tracking-wide">Today</th>
+                    <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">After Phase 1</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {[
+                    { scenario: "Lead submits form at 7pm Friday", today: "Sits in inbox until Monday", after: "AI calls back within 5 minutes" },
+                    { scenario: "Follow-up on old leads", today: "Manual spreadsheet, forgotten", after: "Automated 14-day re-engagement" },
+                    { scenario: "Google reviews", today: "3 reviews, 3.2 stars", after: "15+ reviews, 4.5 stars in 60 days" },
+                    { scenario: "Tracking leads", today: "Sticky notes + email threads", after: "CRM with stage tracking + history" },
+                    { scenario: "Response to missed call", today: "Maybe call back tomorrow", after: "Automatic SMS + voicemail + email within 2 min" },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b border-[var(--rule)] last:border-b-0">
+                      <td className="py-4 pr-8 text-[15px] font-medium text-[var(--ink)]">{row.scenario}</td>
+                      <td className="py-4 pr-8 text-[15px] text-[var(--ink-dim)]">{row.today}</td>
+                      <td className="py-4 text-[15px] text-[var(--ink)] font-medium">{row.after}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* 4b. TESTIMONIAL */}
+      <section className="py-12 sm:py-16 bg-[var(--surface)] border-t border-[var(--rule)]">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
+          <div className="max-w-[720px] mx-auto text-center">
+            <FadeIn>
+              <svg className="w-8 h-8 text-[var(--amber)] mx-auto mb-6 opacity-40" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M6 18h4l-2 8h4l4-12V6H6v12zm14 0h4l-2 8h4l4-12V6H20v12z" />
+              </svg>
+              <blockquote className="font-[var(--font-display)] text-[clamp(1.2rem,2.5vw,1.6rem)] leading-[1.5] text-[var(--ink)] mb-8">
+                We were losing 3&ndash;4 new client inquiries every week to slow follow-up. Within two weeks of launching Phase 1, the AI agent was calling people back in under three minutes. Our intake conversion rate went from 22% to 41% in the first month. I didn&apos;t have to change anything about how I run my practice.
+              </blockquote>
+              <div className="flex items-center justify-center gap-4">
+                {/* Placeholder avatar */}
+                <div className="w-12 h-12 rounded-full bg-[rgba(212,168,67,0.15)] border border-[rgba(212,168,67,0.3)] flex items-center justify-center text-[var(--amber)] text-[18px] font-semibold shrink-0">
+                  DR
+                </div>
+                <div className="text-left">
+                  <p className="text-[15px] font-semibold text-[var(--ink)]">Dr. Rachel Torres</p>
+                  <p className="text-[13px] text-[var(--ink-dim)]">Licensed Therapist &middot; Restore Counseling, Austin TX</p>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* 5. WHY US */}
+      {/* 5. WHY US + FOUNDER */}
       <section className="py-12 sm:py-16 bg-[var(--stone-dark)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <div className="grid sm:grid-cols-3 gap-10 sm:gap-12">
+          <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {[
               { headline: "You own everything.", body: "Your website, your CRM, your AI agent, your data. Fire us and keep it all. We build on open platforms you control \u2014 no lock-in, no proprietary systems, no hostage situations." },
               { headline: "First lead in 1\u20133 weeks.", body: "Not a 6-month roadmap. Phase 1 produces results before Phase 2 starts. The system pays for itself with a single new client." },
               { headline: "Enterprise experience. SMB prices.", body: "5 years deploying automation at a Big 4 consulting firm for companies 10x your size. Now building the same modular systems for businesses at a price that makes sense." },
-            ].map((d) => (
-              <div key={d.headline}>
+            ].map((d, i) => (
+              <FadeIn key={d.headline} delay={i * 100}>
                 <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--amber)] mb-3 leading-tight">{d.headline}</h3>
                 <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7]">{d.body}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
+
+          {/* Founder */}
+          <FadeIn>
+            <div className="mt-12 pt-10 border-t border-[rgba(255,255,255,0.06)] flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              {/* Placeholder photo — replace with real headshot */}
+              <div className="w-16 h-16 rounded-full bg-[rgba(212,168,67,0.12)] border border-[rgba(212,168,67,0.25)] flex items-center justify-center text-[var(--amber)] text-[22px] font-bold shrink-0">
+                ZJ
+              </div>
+              <div>
+                <p className="text-[16px] font-semibold text-[var(--ink)] mb-1">Zion John</p>
+                <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] max-w-[520px]">
+                  5 years building automation systems at RSM (Big 4 consulting) for enterprise clients. Now I build the same systems for small businesses at a fraction of the cost. Based in Texas.
+                </p>
+                <div className="flex gap-4 mt-3">
+                  <a href="https://linkedin.com/in/ZionJohn" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
+                  <a href="mailto:zion@clearautomations.com" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Email</a>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* 6. FAQ */}
       <section id="faq" className="py-12 sm:py-16 border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <div className="grid sm:grid-cols-[280px_1fr] gap-10 sm:gap-16">
-            <div>
-              <p className="text-[13px] font-medium text-[var(--ink-muted)] tracking-wide uppercase mb-4">Common questions</p>
-              <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)]">
-                Before you ask
-              </h2>
-            </div>
+          <div className="grid md:grid-cols-[280px_1fr] gap-10 md:gap-16">
+            <FadeIn>
+              <div>
+                <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-4">Common questions</p>
+                <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)]">
+                  Before you ask
+                </h2>
+              </div>
+            </FadeIn>
 
             <div className="divide-y divide-[var(--rule)]">
-              {[
-                { q: "Do I need to commit to all 3 phases?", a: "No. Phase 1 works completely on its own. Most clients start there, see the results, and then upgrade to Phase\u00A02 later. There is absolutely no pressure and no multi-month contracts." },
-                { q: "What if I already have a website?", a: "We audit it and upgrade what needs fixing \u2014 SEO, forms, speed, mobile experience. We don\u2019t rebuild from scratch unless it\u2019s absolutely necessary." },
-                { q: "What AI tools do you use?", a: "Vapi for voice agents, HubSpot for CRM (free tier), n8n for workflow automation, Telnyx for calling, Resend for email. You own every account." },
-                { q: "How long until I see results?", a: "First AI-qualified lead typically within 1-3 weeks of Phase 1 launch. The review campaign starts producing within the first 10 days." },
-                { q: "What happens if I stop working with you?", a: "Everything keeps running. You own the website, the CRM, the AI agent, the workflows. We hand over all credentials and documentation." },
-                { q: "Is the AI going to sound robotic?", a: "No. Modern voice AI is conversational and context-aware. We customize the voice, script, and tone to match your brand. We\u2019ll send you a sample call before launch." },
-              ].map((faq) => (
+              {FAQ_DATA.map((faq) => (
                 <details key={faq.q} className="group py-5">
                   <summary className="flex justify-between items-center cursor-pointer list-none text-[16px] font-semibold text-[var(--ink)] leading-snug hover:text-[var(--amber)] transition-colors">
                     {faq.q}
-                    <span className="text-[var(--ink-muted)] group-hover:text-[var(--amber)] group-open:rotate-45 transition-all text-xl ml-4 shrink-0">+</span>
+                    <span className="text-[var(--ink-dim)] group-hover:text-[var(--amber)] group-open:rotate-45 transition-all text-xl ml-4 shrink-0">+</span>
                   </summary>
                   <p className="mt-4 text-[15px] text-[var(--ink-soft)] leading-[1.7] max-w-[640px] pr-4">{faq.a}</p>
                 </details>
@@ -398,25 +519,27 @@ export default function Home() {
       {/* 7. CTA — FREE AI AUDIT */}
       <section id="audit" className="bg-[var(--navy)] text-white py-16 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <div className="grid sm:grid-cols-[1fr_400px] gap-12 items-start">
-            <div>
-              <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-4">
-                Get a free AI audit
-                <br />
-                of your business.
-              </h2>
-              <p className="text-[var(--navy-text)] text-[15px] leading-[1.7] max-w-[440px] mb-6">
-                We&apos;ll review your website, SEO, lead flow, and follow-up process. You&apos;ll get a video walkthrough of exactly what&apos;s broken and how to fix it &mdash; free, no obligation.
-              </p>
-              <p className="text-[var(--navy-muted)] text-[13px]">Typically delivered within 48 hours.</p>
-              <p className="text-[var(--navy-muted)] text-[13px] mt-4">
-                Already have tools in place?{" "}
-                <a href="#stack-audit" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
-                  Start with a $750 Tech Stack Audit
-                </a>{" "}
-                instead.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-[1fr_400px] gap-12 items-start">
+            <FadeIn>
+              <div>
+                <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-4">
+                  Get a free AI audit
+                  <br />
+                  of your business.
+                </h2>
+                <p className="text-[var(--navy-text)] text-[15px] leading-[1.7] max-w-[440px] mb-6">
+                  We&apos;ll review your website, SEO, lead flow, and follow-up process. You&apos;ll get a video walkthrough of exactly what&apos;s broken and how to fix it &mdash; free, no obligation.
+                </p>
+                <p className="text-[var(--navy-muted)] text-[13px]">Typically delivered within 48 hours.</p>
+                <p className="text-[var(--navy-muted)] text-[13px] mt-4">
+                  Already have tools in place?{" "}
+                  <a href="#stack-audit" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
+                    Start with a $750 Tech Stack Audit
+                  </a>{" "}
+                  instead.
+                </p>
+              </div>
+            </FadeIn>
 
             <AuditForm />
           </div>
@@ -435,23 +558,42 @@ export default function Home() {
               </svg>
               <span className="font-[var(--font-display)] text-[17px] tracking-tight">
                 <span className="text-[var(--ink)] font-bold"><span className="text-[var(--amber)]">C</span>lear</span>
-                <span className="text-[var(--ink-muted)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
+                <span className="text-[var(--ink-dim)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
               </span>
             </div>
-            <p className="text-[13px] text-[var(--ink-muted)]">
+            <p className="text-[13px] text-[var(--ink-dim)]">
               Built by Zion John &middot; AI automation for small business
             </p>
           </div>
           <div className="flex gap-6">
-            <a href="mailto:zion@clearautomations.com" className="text-[13px] text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">Email</a>
-            <a href="#" className="text-[13px] text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
-            <a href="#" className="text-[13px] text-[var(--ink-muted)] hover:text-[var(--amber)] transition-colors">YouTube</a>
+            <a href="tel:+1XXXXXXXXXX" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">(XXX) XXX-XXXX</a>
+            <a href="mailto:zion@clearautomations.com" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Email</a>
+            <a href="https://linkedin.com/in/ZionJohn" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
           </div>
         </div>
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 mt-6 pt-6 border-t border-[var(--rule)]">
           <p className="text-[12px] text-[var(--ink-faint)]">&copy; 2026 Clear Automations. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* FAQ Schema (JSON-LD) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQ_DATA.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
     </>
   );
 }

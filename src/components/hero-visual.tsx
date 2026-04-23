@@ -254,7 +254,7 @@ export function HeroVisual() {
           <line key={i} x1="200" y1="200" x2={n.x} y2={n.y}
             stroke="#D4A843" strokeWidth="1"
             strokeDasharray="150" strokeDashoffset="150"
-            className="hero-anim" style={{ animationName: "line-draw", animationDelay: `${i * 0.1}s` }}
+            className="hero-anim" style={{ animationName: "line-draw" }}
           />
         ))}
 
@@ -304,8 +304,10 @@ export function HeroVisual() {
             LAYER 5: THE CHAOTIC ICONS
         ======================================================= */}
         <g className="hero-anim" style={{ animationName: "icon-phone" }}>
+          <circle r="22" fill="#060608" />
           <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <path d="M-6,-7 L-3,-7 L-3,7 L-6,7 Z M3,-7 L6,-7 L6,7 L3,7 Z M-3,-4 L3,-4 L3,4 L-3,4 Z" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
+          <rect x="-5" y="-8" width="10" height="16" rx="2" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" />
+          <path d="M-1.5,-5 h3 M-2.5,4 h5" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
           <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">Call</text>
           <g className="hero-anim" style={{ animationName: "missed-blink" }}>
             <text x="18" y="-12" textAnchor="middle" fill="#EF4444" fontSize="7" fontWeight="bold" fontFamily="inherit" filter="url(#glowSm)">MISSED</text>
@@ -313,6 +315,7 @@ export function HeroVisual() {
         </g>
 
         <g className="hero-anim" style={{ animationName: "icon-msg" }}>
+          <circle r="22" fill="#060608" />
           <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
           <path d="M-7,-5 L7,-5 L7,3 L2,3 L0,6 L-2,3 L-7,3 Z" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
           <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">SMS</text>
@@ -323,6 +326,7 @@ export function HeroVisual() {
         </g>
 
         <g className="hero-anim" style={{ animationName: "icon-sms" }}>
+          <circle r="22" fill="#060608" />
           <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
           <path d="M-5,-6 L5,-6 L5,6 L-5,6 Z M-3,-3 L3,-3 M-3,0 L3,0 M-3,3 L1,3" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
           <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">Form</text>
@@ -333,6 +337,7 @@ export function HeroVisual() {
         </g>
 
         <g className="hero-anim" style={{ animationName: "icon-email" }}>
+          <circle r="22" fill="#060608" />
           <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
           <path d="M-7,-4 L7,-4 L7,5 L-7,5 Z M-7,-4 L0,1 L7,-4" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
           <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">Email</text>
@@ -344,8 +349,12 @@ export function HeroVisual() {
         </g>
 
         <g className="hero-anim" style={{ animationName: "icon-crm" }}>
+          <circle r="22" fill="#060608" />
           <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <path d="M-6,5 L-6,-1 M-2,5 L-2,-4 M2,5 L2,-6 M6,5 L6,-2" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
+          <circle cx="-3" cy="-3" r="2" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" />
+          <path d="M-7,5 A4,3 0 0,1 1,5" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
+          <circle cx="4" cy="-1" r="2.5" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" />
+          <path d="M-1,6 A4.5,3.5 0 0,1 9,6" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
           <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">CRM</text>
         </g>
 
