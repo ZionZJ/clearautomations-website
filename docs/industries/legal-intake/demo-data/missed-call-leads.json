@@ -1,0 +1,34 @@
+[
+  {
+    "callerName": "Diane Whitfield",
+    "phone": "+15125550172",
+    "callTime": "2026-07-14T19:08:00-05:00",
+    "voicemailText": "I was in a car accident today, the other driver ran a red light. Need a callback as soon as possible.",
+    "caseTypeHint": "personal-injury",
+    "repeatCaller": false
+  },
+  {
+    "callerName": "Henrik Larsen",
+    "phone": "+15125550218",
+    "callTime": "2026-07-14T20:35:00-05:00",
+    "voicemailText": "I was just served papers for divorce and I need to know what to do.",
+    "caseTypeHint": "family",
+    "repeatCaller": false
+  },
+  {
+    "callerName": "Beatriz Solano",
+    "phone": "+15125550299",
+    "callTime": "2026-07-15T07:42:00-05:00",
+    "voicemailText": "Calling about an estate planning question for my mother's house.",
+    "caseTypeHint": "estate",
+    "repeatCaller": true
+  },
+  {
+    "callerName": "Devon Marshall",
+    "phone": "+15125550353",
+    "callTime": "2026-07-14T22:14:00-05:00",
+    "voicemailText": "My brother was arrested an hour ago, I need legal help.",
+    "caseTypeHint": "criminal",
+    "repeatCaller": false
+  }
+]

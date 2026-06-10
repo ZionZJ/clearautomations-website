@@ -1,0 +1,61 @@
+{
+  "name": "DEMO - Therapist Practice - 02 - Speed-to-Lead Callback Queue - Non-PHI",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "therapist-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const leads = [\n  { leadId: 'DEMO-THER-1001', practiceName: 'Cedar Park Counseling Collective', contactName: 'Morgan Ellis', workPhone: '+1-512-555-0198', workEmail: 'morgan.ellis@example-demo.com', source: 'Website audit form', adminPain: 'slow-lead-response', submittedAt: '2026-05-02T14:10:00-05:00' },\n  { leadId: 'DEMO-THER-1002', practiceName: 'Hill Country Therapy Group', contactName: 'Jamie Porter', workPhone: '+1-512-555-0144', workEmail: 'jamie.porter@example-demo.com', source: 'Directory outreach', adminPain: 'consult-no-shows', submittedAt: '2026-05-02T17:40:00-05:00' }\n];\nreturn leads.map((lead) => ({ json: lead }));"
+      },
+      "id": "therapist-demo-02-demo-leads",
+      "name": "Load Demo Leads",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map((item, index) => {\n  const lead = item.json;\n  const priority = lead.adminPain === 'slow-lead-response' ? 'high' : 'normal';\n  return {\n    json: {\n      taskId: `CALLBACK-${lead.leadId}`,\n      priority,\n      dueInMinutes: priority === 'high' ? 2 : 15,\n      contactName: lead.contactName,\n      workPhone: lead.workPhone,\n      practiceName: lead.practiceName,\n      callbackScript: 'Call back about the practice automation audit. Keep questions limited to practice operations, availability for a discovery call, and current admin workflow. Do not ask for patient details, symptoms, diagnosis, insurance member IDs, or clinical notes.',\n      source: lead.source,\n      createdFromLead: lead.leadId,\n      demoOnly: true,\n      sortOrder: index + 1\n    }\n  };\n});"
+      },
+      "id": "therapist-demo-02-queue",
+      "name": "Create Callback Tasks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Demo Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Demo Leads": {
+      "main": [
+        [
+          {
+            "node": "Create Callback Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

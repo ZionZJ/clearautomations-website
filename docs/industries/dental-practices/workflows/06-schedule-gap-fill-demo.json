@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Dental Practices - 06 - Schedule Gap Fill - Demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dental-demo-06-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const slots = $json.openSlots ?? [];\nconst contacts = $json.eligibleContacts ?? [];\nconst matches = slots.map((slot) => {\n  const eligible = contacts.filter((contact) => contact.contactAllowed && contact.eligibleFor === slot.slotType).sort((a, b) => Number(b.lastTouchDays ?? 0) - Number(a.lastTouchDays ?? 0));\n  return { slotId: slot.slotId, startsAt: slot.startsAt, slotType: slot.slotType, suggestedContact: eligible[0] ?? null, nextAction: eligible[0] ? 'Create approved short-notice fill task.' : 'No eligible fake contact found.' };\n});\nreturn matches.map((match) => ({ json: match }));"
+      },
+      "id": "dental-demo-06-match",
+      "name": "Match Gaps to Contacts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Match Gaps to Contacts", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

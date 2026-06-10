@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Plumbing Contractors - 03 - Estimate Follow-Up",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "plumbing-demo-03-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst lostReasons = ['price', 'timing', 'competitor', 'no-response', 'scope'];\nreturn input.map((deal) => {\n  const quoteAgeDays = Number(deal.quoteAgeDays ?? 0);\n  const estimateValue = Number(deal.estimateValue ?? 0);\n  const type = `${deal.estimateType ?? ''}`.toLowerCase();\n  const jobFamily = type.includes('repipe')\n    ? 'repipe'\n    : type.includes('water heater') || type.includes('tankless')\n      ? 'water-heater'\n      : type.includes('sewer')\n        ? 'sewer'\n        : 'fixture';\n  const lostReason = lostReasons.includes(deal.lostReason) ? deal.lostReason : null;\n  const cadence = lostReason\n    ? 'closed-lost'\n    : quoteAgeDays >= 14\n      ? 'manager-review'\n      : quoteAgeDays >= 5\n        ? 'follow-up-now'\n        : 'wait';\n  const financeReminderEligible = estimateValue >= 5000;\n  const messageTheme = financeReminderEligible ? `${jobFamily}-value-and-finance-options` : `${jobFamily}-scope-and-schedule`;\n  const nextAction = cadence === 'closed-lost'\n    ? `Tag lost reason (${lostReason}) and feed the owner report.`\n    : cadence === 'wait'\n      ? 'No message today.'\n      : 'Send approved estimate follow-up.';\n  return { json: { ...deal, jobFamily, lostReason, cadence, financeReminderEligible, messageTheme, nextAction } };\n});"
+      },
+      "id": "plumbing-demo-03-classify",
+      "name": "Classify Estimate Follow-Up",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Classify Estimate Follow-Up", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

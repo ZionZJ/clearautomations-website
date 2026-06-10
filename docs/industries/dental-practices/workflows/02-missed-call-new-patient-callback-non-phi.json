@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Dental Practices - 02 - Missed Call New-Patient Callback - Non-PHI",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dental-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst rows = input.map((call) => {\n  const text = `${call.voicemailText ?? ''}`.toLowerCase();\n  const newPatient = call.newPatientIntent || text.includes('new dental office') || text.includes('new patient');\n  const repeat = call.repeatCaller ? 1 : 0;\n  const priorityScore = (newPatient ? 3 : 1) + repeat;\n  return { ...call, priorityScore, queue: priorityScore >= 3 ? 'call-now' : 'office-callback-block' };\n});\nreturn rows.sort((a, b) => b.priorityScore - a.priorityScore).map((row) => ({ json: row }));"
+      },
+      "id": "dental-demo-02-prioritize",
+      "name": "Prioritize Missed Calls",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Prioritize Missed Calls", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

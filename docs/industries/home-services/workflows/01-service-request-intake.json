@@ -1,0 +1,52 @@
+{
+  "name": "DEMO - Home Services - 01 - Service Request Intake (Sub-Vertical-Aware)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-home-services-form-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "homesvc-demo-01-webhook",
+      "name": "Service Request Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst subVertical = `${payload.subVertical ?? 'other'}`.toLowerCase();\nconst text = `${payload.biggestLeak ?? ''} ${payload.afterHoursCoverage ?? ''} ${payload.currentTools ?? ''}`.toLowerCase();\nconst urgencyTermsBySubVertical = {\n  plumbing: ['leak', 'flooding', 'no water', 'no-water', 'sewage', 'gas smell', 'water heater'],\n  electrical: ['sparking', 'smoke', 'burning', 'no power', 'breaker tripping', 'panel'],\n  'tree-service': ['tree on', 'power lines', 'blocking road', 'storm damage', 'leaning'],\n  'pest-control': ['infestation', 'in the house', 'aggressive', 'allergic'],\n  landscaping: ['recurring', 'design', 'install', 'cleanup'],\n  'garage-doors': ['stuck', 'spring', 'opener', 'broken'],\n  'fence-deck': ['damaged', 'install', 'repair'],\n  'junk-removal': ['estate', 'cleanout', 'today', 'urgent'],\n  painting: ['interior', 'exterior', 'cabinet'],\n  'pressure-washing': ['driveway', 'house', 'deck'],\n  other: []\n};\nconst safetyTriggersBySubVertical = {\n  plumbing: ['gas smell', 'sewage', 'flooding', 'active leak'],\n  electrical: ['sparking', 'smoke', 'burning', 'fire'],\n  'tree-service': ['power lines', 'tree on house', 'tree on power'],\n  'pest-control': [],\n  landscaping: [],\n  'garage-doors': [],\n  'fence-deck': [],\n  'junk-removal': [],\n  painting: [],\n  'pressure-washing': [],\n  other: []\n};\nconst urgencyTerms = urgencyTermsBySubVertical[subVertical] ?? [];\nconst safetyTriggers = safetyTriggersBySubVertical[subVertical] ?? [];\nconst urgencyHits = urgencyTerms.filter((term) => text.includes(term)).length;\nconst safetyHits = safetyTriggers.filter((term) => text.includes(term)).length;\nlet priority;\nif (safetyHits > 0) priority = 'safety-emergency';\nelse if (urgencyHits >= 2) priority = 'urgent-callback';\nelse if (urgencyHits === 1) priority = 'same-day';\nelse priority = 'standard';\nconst leadId = `DEMO-HOMESVC-${subVertical.toUpperCase()}-${Date.now()}`;\nreturn [{ json: { leadId, subVertical, priority, urgencyHits, safetyHits, voiceAgent: `home-services-${subVertical}`, nextAction: priority === 'safety-emergency' ? 'Trigger voice-agent safety branch + internal SMS to dispatcher.' : priority === 'urgent-callback' ? 'Create dispatcher callback task now.' : 'Add to service queue.', lead: payload } }];"
+      },
+      "id": "homesvc-demo-01-score",
+      "name": "Sub-Vertical Urgency Scoring",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "homesvc-demo-01-response",
+      "name": "Return Routing Decision",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Service Request Webhook": {
+      "main": [[{ "node": "Sub-Vertical Urgency Scoring", "type": "main", "index": 0 }]]
+    },
+    "Sub-Vertical Urgency Scoring": {
+      "main": [[{ "node": "Return Routing Decision", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

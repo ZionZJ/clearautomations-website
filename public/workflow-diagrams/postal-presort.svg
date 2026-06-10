@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="0%" r="75%">
+      <stop offset="0%" stop-color="#D4A843" stop-opacity="0.05"/>
+      <stop offset="55%" stop-color="#060608" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardBorder" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4A843" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#D4A843" stop-opacity="0.08"/>
+    </linearGradient>
+    <filter id="cardLift" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="500" fill="#060608"/>
+  <rect width="1200" height="500" fill="url(#bgGlow)"/>
+  <rect x="0" y="0" width="1200" height="2" fill="#707070" opacity="0.55"/>
+
+  <g transform="translate(60, 50)">
+    <path d="M22 8 A10 10 0 1 0 22 24" fill="none" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 24 L16 8 L22 24" fill="none" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12.2 18 L19.8 18" fill="none" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="100" y="73" font-family="'Geist', 'Inter', sans-serif" font-size="13" font-weight="600" letter-spacing="2.8" fill="#F0F0F2">CLEARAUTOMATIONS</text>
+  <text x="1140" y="73" font-family="'Geist', sans-serif" font-size="10.5" font-weight="500" letter-spacing="2" fill="#D4A843" text-anchor="end">PRESORT MAILING · PHASE 1</text>
+
+  <text x="60" y="150" font-family="'Instrument Serif', Georgia, serif" font-size="42" font-weight="400" fill="#F0F0F2" letter-spacing="-0.5">Speed-to-lead, audited.</text>
+  <text x="60" y="184" font-family="'Geist', sans-serif" font-size="14.5" font-weight="400" fill="#9A9AAA">30 to 45 seconds to a live conversation. The 2-minute industry standard, beat.</text>
+
+  <g filter="url(#cardLift)">
+    <g transform="translate(60, 230)">
+      <rect width="200" height="220" rx="14" fill="#0E0E12" stroke="url(#cardBorder)" stroke-width="1"/>
+      <rect x="20" y="22" width="56" height="22" rx="11" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.32)" stroke-width="0.6"/>
+      <text x="48" y="37" font-family="'Geist', sans-serif" font-size="10" font-weight="600" letter-spacing="1.6" fill="#D4A843" text-anchor="middle">STEP 01</text>
+      <g transform="translate(20, 64)">
+        <rect x="0" y="4" width="28" height="20" rx="1.5" fill="none" stroke="#D4A843" stroke-width="1.6"/>
+        <path d="M0 7 L14 16 L28 7" fill="none" stroke="#D4A843" stroke-width="1.4"/>
+      </g>
+      <text x="20" y="146" font-family="'Instrument Serif', Georgia, serif" font-size="18" font-weight="400" fill="#F0F0F2" letter-spacing="-0.2">Inbound Inquiry</text>
+      <text x="20" y="174" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">Form or call,</text>
+      <text x="20" y="192" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">savings calculator</text>
+      <text x="20" y="210" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">delivers ROI hint.</text>
+    </g>
+
+    <g transform="translate(280, 230)">
+      <rect width="200" height="220" rx="14" fill="#0E0E12" stroke="url(#cardBorder)" stroke-width="1"/>
+      <rect x="20" y="22" width="56" height="22" rx="11" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.32)" stroke-width="0.6"/>
+      <text x="48" y="37" font-family="'Geist', sans-serif" font-size="10" font-weight="600" letter-spacing="1.6" fill="#D4A843" text-anchor="middle">STEP 02</text>
+      <g transform="translate(20, 64)">
+        <path d="M16 0 L4 16 L12 16 L10 28 L24 12 L16 12 Z" fill="none" stroke="#D4A843" stroke-width="1.6" stroke-linejoin="round"/>
+      </g>
+      <text x="20" y="146" font-family="'Instrument Serif', Georgia, serif" font-size="18" font-weight="400" fill="#F0F0F2" letter-spacing="-0.2">AI Speed-to-Lead</text>
+      <text x="20" y="174" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">SMS warm-up,</text>
+      <text x="20" y="192" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">callback in 30-45s,</text>
+      <text x="20" y="210" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">5-way branching.</text>
+    </g>
+
+    <g transform="translate(500, 230)">
+      <rect width="200" height="220" rx="14" fill="#0E0E12" stroke="url(#cardBorder)" stroke-width="1"/>
+      <rect x="20" y="22" width="56" height="22" rx="11" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.32)" stroke-width="0.6"/>
+      <text x="48" y="37" font-family="'Geist', sans-serif" font-size="10" font-weight="600" letter-spacing="1.6" fill="#D4A843" text-anchor="middle">STEP 03</text>
+      <g transform="translate(20, 64)">
+        <ellipse cx="14" cy="3" rx="13" ry="3" fill="none" stroke="#D4A843" stroke-width="1.5"/>
+        <path d="M1 3 L1 22 Q1 25 14 25 Q27 25 27 22 L27 3" fill="none" stroke="#D4A843" stroke-width="1.5"/>
+        <path d="M1 12 Q1 15 14 15 Q27 15 27 12" fill="none" stroke="#D4A843" stroke-width="1.5"/>
+      </g>
+      <text x="20" y="146" font-family="'Instrument Serif', Georgia, serif" font-size="18" font-weight="400" fill="#F0F0F2" letter-spacing="-0.2">HubSpot Pipeline</text>
+      <text x="20" y="174" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">8 stages, 13 custom</text>
+      <text x="20" y="192" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">properties, daily +</text>
+      <text x="20" y="210" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">weekly digests.</text>
+    </g>
+
+    <g transform="translate(720, 230)">
+      <rect width="200" height="220" rx="14" fill="#0E0E12" stroke="url(#cardBorder)" stroke-width="1"/>
+      <rect x="20" y="22" width="56" height="22" rx="11" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.32)" stroke-width="0.6"/>
+      <text x="48" y="37" font-family="'Geist', sans-serif" font-size="10" font-weight="600" letter-spacing="1.6" fill="#D4A843" text-anchor="middle">STEP 04</text>
+      <g transform="translate(20, 64)">
+        <circle cx="14" cy="14" r="13" fill="none" stroke="#D4A843" stroke-width="1.6"/>
+        <line x1="14" y1="6" x2="14" y2="14" stroke="#D4A843" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="14" y1="14" x2="21" y2="17" stroke="#D4A843" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+      <text x="20" y="146" font-family="'Instrument Serif', Georgia, serif" font-size="18" font-weight="400" fill="#F0F0F2" letter-spacing="-0.2">Ghosting Re-engage</text>
+      <text x="20" y="174" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">14-day multi-</text>
+      <text x="20" y="192" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">channel sequence,</text>
+      <text x="20" y="210" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">B2B-only outreach.</text>
+    </g>
+
+    <g transform="translate(940, 230)">
+      <rect width="200" height="220" rx="14" fill="#0E0E12" stroke="url(#cardBorder)" stroke-width="1"/>
+      <rect x="20" y="22" width="56" height="22" rx="11" fill="rgba(212,168,67,0.10)" stroke="rgba(212,168,67,0.32)" stroke-width="0.6"/>
+      <text x="48" y="37" font-family="'Geist', sans-serif" font-size="10" font-weight="600" letter-spacing="1.6" fill="#D4A843" text-anchor="middle">STEP 05</text>
+      <g transform="translate(20, 64)">
+        <circle cx="14" cy="14" r="13" fill="#D4A843" opacity="0.16"/>
+        <path d="M6 14 L12 21 L23 8" fill="none" stroke="#D4A843" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="20" y="146" font-family="'Instrument Serif', Georgia, serif" font-size="18" font-weight="400" fill="#F0F0F2" letter-spacing="-0.2">Closed Deal</text>
+      <text x="20" y="174" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">Production stack</text>
+      <text x="20" y="192" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">untouched (Window</text>
+      <text x="20" y="210" font-family="'Geist', sans-serif" font-size="12.5" fill="#9A9AAA">Book / PostalOne).</text>
+    </g>
+  </g>
+
+  <line x1="263" y1="340" x2="277" y2="340" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="275,336 281,340 275,344" fill="#D4A843"/>
+  <line x1="483" y1="340" x2="497" y2="340" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="495,336 501,340 495,344" fill="#D4A843"/>
+  <line x1="703" y1="340" x2="717" y2="340" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="715,336 721,340 715,344" fill="#D4A843"/>
+  <line x1="923" y1="340" x2="937" y2="340" stroke="#D4A843" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="935,336 941,340 935,344" fill="#D4A843"/>
+
+  <line x1="60" y1="475" x2="1140" y2="475" stroke="rgba(212,168,67,0.16)" stroke-width="0.6"/>
+  <text x="1140" y="495" font-family="'Instrument Serif', Georgia, serif" font-size="14" font-style="italic" fill="#9A9AAA" text-anchor="end">Compliance-aware automation, STIR/SHAKEN + CNAM registered.</text>
+</svg>

@@ -1,0 +1,20 @@
+[
+  {
+    "dealId": "ROOF-EST-501",
+    "homeownerName": "Nora Patel",
+    "propertyCity": "Arlington",
+    "estimateValue": 18400,
+    "estimateAgeDays": 4,
+    "contractSigned": false,
+    "lastContactOutcome": "sent estimate"
+  },
+  {
+    "dealId": "ROOF-EST-502",
+    "homeownerName": "Mateo Garcia",
+    "propertyCity": "Denton",
+    "estimateValue": 9800,
+    "estimateAgeDays": 14,
+    "contractSigned": false,
+    "lastContactOutcome": "left voicemail"
+  }
+]

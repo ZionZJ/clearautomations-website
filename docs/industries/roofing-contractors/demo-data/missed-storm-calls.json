@@ -1,0 +1,18 @@
+[
+  {
+    "callerName": "Jamal Price",
+    "phone": "+19725550129",
+    "callTime": "2026-04-18T19:18:00-05:00",
+    "voicemailText": "We had hail this afternoon and I think some shingles came off.",
+    "repeatCaller": false,
+    "serviceArea": "Frisco"
+  },
+  {
+    "callerName": "Nora Patel",
+    "phone": "+14695550163",
+    "callTime": "2026-04-18T21:36:00-05:00",
+    "voicemailText": "Water is dripping near a bedroom window after the storm.",
+    "repeatCaller": true,
+    "serviceArea": "Arlington"
+  }
+]

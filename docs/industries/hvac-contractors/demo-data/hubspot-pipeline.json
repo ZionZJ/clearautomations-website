@@ -1,0 +1,21 @@
+{
+  "pipelineName": "HVAC Revenue Recovery",
+  "stages": [
+    "New Lead",
+    "Callback Needed",
+    "Scheduled",
+    "Quoted",
+    "Follow-Up Active",
+    "Won",
+    "Lost"
+  ],
+  "properties": [
+    "service_type",
+    "urgency",
+    "service_area",
+    "system_age",
+    "estimate_value",
+    "last_follow_up_at",
+    "lost_reason"
+  ]
+}

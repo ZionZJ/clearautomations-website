@@ -1,0 +1,82 @@
+{
+  "name": "DEMO - Therapist Practice - 06 - Session-to-Claim Reconciliation Simulation - Disabled",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "therapist-demo-06-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = {\n  demoOnly: true,\n  sessions: [\n    { sessionId: 'FAKE-SESSION-4001', fakeClientId: 'FAKE-CLIENT-3001', date: '2026-04-20', clinicianId: 'DEMO-CLIN-01', fee: 145 },\n    { sessionId: 'FAKE-SESSION-4002', fakeClientId: 'FAKE-CLIENT-3002', date: '2026-04-21', clinicianId: 'DEMO-CLIN-02', fee: 165 },\n    { sessionId: 'FAKE-SESSION-4003', fakeClientId: 'FAKE-CLIENT-3003', date: '2026-04-22', clinicianId: 'DEMO-CLIN-01', fee: 145 }\n  ],\n  claims: [\n    { claimId: 'FAKE-CLAIM-5001', sessionId: 'FAKE-SESSION-4001', status: 'paid', paidAmount: 112 },\n    { claimId: 'FAKE-CLAIM-5002', sessionId: 'FAKE-SESSION-4002', status: 'denied', paidAmount: 0, denialReason: 'demo missing prior authorization' }\n  ]\n};\nreturn [{ json: data }];"
+      },
+      "id": "therapist-demo-06-fake-data",
+      "name": "Load Fake Sessions and Claims",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if ($json.demoOnly !== true) {\n  throw new Error('Demo guard blocked execution. This simulated workflow accepts fake data only.');\n}\nreturn [{ json: { ...$json, guard: 'passed-fake-data-only' } }];"
+      },
+      "id": "therapist-demo-06-guard",
+      "name": "Fake Data Guard",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const claimsBySession = new Map($json.claims.map((claim) => [claim.sessionId, claim]));\nconst findings = $json.sessions.map((session) => {\n  const claim = claimsBySession.get(session.sessionId);\n  if (!claim) {\n    return { type: 'missing-claim', sessionId: session.sessionId, modeledRecoveryValue: session.fee, action: 'Create claim review task' };\n  }\n  if (claim.status === 'denied') {\n    return { type: 'denied-claim', sessionId: session.sessionId, claimId: claim.claimId, modeledRecoveryValue: session.fee, denialReason: claim.denialReason, action: 'Create denial review task' };\n  }\n  return { type: 'matched-paid', sessionId: session.sessionId, claimId: claim.claimId, modeledRecoveryValue: 0, action: 'No action' };\n});\nreturn findings.map((finding) => ({ json: { ...finding, demoOnly: true, productionWarning: 'Requires BAA-covered EHR/billing access and approved retention settings before real use.' } }));"
+      },
+      "id": "therapist-demo-06-reconcile",
+      "name": "Simulate Reconciliation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Fake Sessions and Claims",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Fake Sessions and Claims": {
+      "main": [
+        [
+          {
+            "node": "Fake Data Guard",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fake Data Guard": {
+      "main": [
+        [
+          {
+            "node": "Simulate Reconciliation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

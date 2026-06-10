@@ -1,0 +1,20 @@
+{
+  "consults": [
+    {
+      "consultId": "CONSULT-DEMO-2101",
+      "contactName": "Taylor Reed",
+      "contactPhone": "+1-512-555-0101",
+      "contactEmail": "taylor.reed@example-demo.com",
+      "consultAt": "2026-05-04T10:30:00-05:00",
+      "channel": "phone"
+    },
+    {
+      "consultId": "CONSULT-DEMO-2102",
+      "contactName": "Avery Quinn",
+      "contactPhone": "+1-512-555-0102",
+      "contactEmail": "avery.quinn@example-demo.com",
+      "consultAt": "2026-05-04T15:00:00-05:00",
+      "channel": "video"
+    }
+  ]
+}

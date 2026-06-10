@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Postal Presort - 06 - Weekly Owner Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "presort-demo-06-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst callbackHitRate = metrics.inboundLeads ? Math.round((metrics.callbacksUnder45s / metrics.inboundLeads) * 100) : 0;\nconst conversionRate = metrics.discoveryScheduled ? Math.round((metrics.dealsClosedWon / metrics.discoveryScheduled) * 100) : 0;\nconst digest = `Postal Presort Weekly Digest\\nPeriod: ${metrics.period}\\n\\nInbound leads: ${metrics.inboundLeads}\\nCallbacks under 45s: ${metrics.callbacksUnder45s} (${callbackHitRate}%)\\nDiscovery calls scheduled: ${metrics.discoveryScheduled}\\nDeals closed won: ${metrics.dealsClosedWon} (${conversionRate}% of discovery)\\n\\nStale deals (>14d): ${metrics.staleDeals}\\nReview opportunities: ${metrics.reviewOpportunities}\\nReviews requested: ${metrics.reviewsRequested}\\nWorkflow failures: ${metrics.workflowFailures}`;\nreturn [{ json: { ...metrics, callbackHitRate, conversionRate, digest } }];"
+      },
+      "id": "presort-demo-06-build",
+      "name": "Build Weekly Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Weekly Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

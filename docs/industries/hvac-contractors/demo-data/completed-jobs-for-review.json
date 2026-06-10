@@ -1,0 +1,35 @@
+[
+  {
+    "jobId": "JOB-9001",
+    "customerName": "Lena Brooks",
+    "email": "lena.brooks@example.com",
+    "phone": "+19405550177",
+    "jobType": "AC repair",
+    "completedAt": "2026-07-12",
+    "technicianStatus": "happy customer",
+    "reviewEligible": true,
+    "reviewOptOut": false
+  },
+  {
+    "jobId": "JOB-9002",
+    "customerName": "Marcus Hill",
+    "email": "marcus.hill@example.com",
+    "phone": "+12145550202",
+    "jobType": "maintenance tune-up",
+    "completedAt": "2026-07-12",
+    "technicianStatus": "needs manager follow-up",
+    "reviewEligible": false,
+    "reviewOptOut": false
+  },
+  {
+    "jobId": "JOB-9003",
+    "customerName": "Tasha Reed",
+    "email": "tasha.reed@example.com",
+    "phone": "+14695550218",
+    "jobType": "AC repair",
+    "completedAt": "2026-07-13",
+    "technicianStatus": "happy customer",
+    "reviewEligible": true,
+    "reviewOptOut": true
+  }
+]

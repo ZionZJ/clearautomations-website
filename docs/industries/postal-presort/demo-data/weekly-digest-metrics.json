@@ -1,0 +1,13 @@
+{
+  "period": "2026-07-08 to 2026-07-14",
+  "inboundLeads": 18,
+  "callbacksUnder45s": 16,
+  "discoveryScheduled": 11,
+  "discoveryHeld": 9,
+  "dealsClosedWon": 3,
+  "staleDeals": 4,
+  "reviewOpportunities": 5,
+  "reviewsRequested": 3,
+  "outboundCallsAttempted": 0,
+  "workflowFailures": 0
+}

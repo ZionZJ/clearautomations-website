@@ -1,0 +1,20 @@
+[
+  {
+    "jobId": "CLAIM-401",
+    "homeownerName": "Tanya Brooks",
+    "claimStatus": "claim opened",
+    "adjusterAppointmentDate": "2026-04-22",
+    "inspectionCompleted": true,
+    "estimateSent": false,
+    "lastTouchDays": 2
+  },
+  {
+    "jobId": "CLAIM-402",
+    "homeownerName": "Robert Chen",
+    "claimStatus": "waiting on adjuster",
+    "adjusterAppointmentDate": null,
+    "inspectionCompleted": true,
+    "estimateSent": true,
+    "lastTouchDays": 8
+  }
+]

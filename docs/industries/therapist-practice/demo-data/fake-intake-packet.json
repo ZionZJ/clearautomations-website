@@ -1,0 +1,37 @@
+{
+  "demoOnly": true,
+  "intakePackets": [
+    {
+      "fakeClientId": "FAKE-CLIENT-3001",
+      "preferredSchedule": "weekday mornings",
+      "requestedServiceCategory": "individual therapy demo category",
+      "payerCategory": "commercial demo payer",
+      "preferredModality": "telehealth",
+      "matchedClinician": null
+    },
+    {
+      "fakeClientId": "FAKE-CLIENT-3002",
+      "preferredSchedule": "evenings",
+      "requestedServiceCategory": "couples therapy demo category",
+      "payerCategory": "private pay demo",
+      "preferredModality": "in person",
+      "matchedClinician": null
+    }
+  ],
+  "clinicians": [
+    {
+      "clinicianId": "DEMO-CLIN-01",
+      "name": "Demo Clinician One",
+      "availability": "weekday mornings",
+      "modalities": ["telehealth", "in person"],
+      "serviceCategories": ["individual therapy demo category"]
+    },
+    {
+      "clinicianId": "DEMO-CLIN-02",
+      "name": "Demo Clinician Two",
+      "availability": "evenings",
+      "modalities": ["in person"],
+      "serviceCategories": ["couples therapy demo category"]
+    }
+  ]
+}

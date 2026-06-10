@@ -1,0 +1,46 @@
+[
+  {
+    "engagementId": "DEMO-ENG-legal-001",
+    "matterType": "personal-injury",
+    "engagementCloseDate": "2026-07-08",
+    "outcomeSatisfaction": "happy",
+    "clientWouldRefer": true,
+    "reviewOptOut": false,
+    "reviewLink": "https://g.page/r/lone-star-pi-group-review",
+    "preferredContactMethod": "email",
+    "clientEmailHash": "DEMO-CLIENT-001-HASH"
+  },
+  {
+    "engagementId": "DEMO-ENG-legal-002",
+    "matterType": "family",
+    "engagementCloseDate": "2026-07-04",
+    "outcomeSatisfaction": "happy",
+    "clientWouldRefer": true,
+    "reviewOptOut": false,
+    "reviewLink": "https://g.page/r/lone-star-pi-group-review",
+    "preferredContactMethod": "email",
+    "clientEmailHash": "DEMO-CLIENT-002-HASH"
+  },
+  {
+    "engagementId": "DEMO-ENG-legal-003",
+    "matterType": "personal-injury",
+    "engagementCloseDate": "2026-07-01",
+    "outcomeSatisfaction": "neutral",
+    "clientWouldRefer": false,
+    "reviewOptOut": false,
+    "reviewLink": null,
+    "preferredContactMethod": "email",
+    "clientEmailHash": "DEMO-CLIENT-003-HASH"
+  },
+  {
+    "engagementId": "DEMO-ENG-legal-004",
+    "matterType": "estate",
+    "engagementCloseDate": "2026-07-09",
+    "outcomeSatisfaction": "happy",
+    "clientWouldRefer": true,
+    "reviewOptOut": true,
+    "reviewLink": null,
+    "preferredContactMethod": "email",
+    "clientEmailHash": "DEMO-CLIENT-004-HASH"
+  }
+]

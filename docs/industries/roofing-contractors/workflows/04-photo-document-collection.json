@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Roofing Contractors - 04 - Photo Document Collection",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "roofing-demo-04-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $json;\nconst checklist = [];\nif (!lead.photosAvailable) checklist.push('Send ground-level exterior photo checklist.');\nif (lead.claimOpened && !lead.claimNumberAvailable) checklist.push('Ask whether claim number is available, without requesting full claim documents.');\nif (!lead.adjusterAppointmentSet) checklist.push('Ask if adjuster appointment has been scheduled.');\nif (lead.safePhotoReminderNeeded) checklist.push('Include safety reminder: do not climb on roof.');\nreturn [{ json: { leadId: lead.leadId, checklist, nextAction: checklist.length ? 'Send document checklist.' : 'No document request needed today.' } }];"
+      },
+      "id": "roofing-demo-04-build",
+      "name": "Build Document Checklist",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Document Checklist", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

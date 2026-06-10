@@ -1,0 +1,52 @@
+{
+  "name": "DEMO - Legal Intake - 01 - Conflict-Cleared Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-legal-intake-conflict-cleared",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "legal-demo-01-webhook",
+      "name": "Conflict-Check Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst minimumInfoFields = ['callerName', 'callerPhone', 'state', 'caseTypeBucket'];\nconst missingFields = minimumInfoFields.filter((f) => !payload[f]);\nif (missingFields.length > 0) {\n  return [{ json: { error: 'incomplete-minimum-info', missingFields, abort: true, nextAction: 'Re-prompt caller for missing fields before conflict check.' } }];\n}\n// Demo simulation: production calls firm CMS API. Demo branches on `simulateResult` field.\nconst simulateResult = `${payload.simulateResult ?? 'clear'}`.toLowerCase();\nconst opposingParties = Array.isArray(payload.opposingParties) ? payload.opposingParties : [];\nlet outcome;\nif (simulateResult === 'conflict') outcome = 'conflict';\nelse if (simulateResult === 'manual-fallback') outcome = 'manual-fallback';\nelse outcome = 'clear';\nconst nextAction = {\n  clear: 'Route to intake coordinator queue. CRM stage = conflict-cleared. Schedule callback within 4 business hours.',\n  conflict: 'CRM stage = closed-conflict-declined. Send polite decline email. Do NOT collect more information. Do NOT explain conflict nature.',\n  'manual-fallback': 'Pause workflow. Email intake coordinator with collected fields for manual conflict check.'\n};\nconst leadId = `DEMO-LEGAL-${Date.now()}`;\nreturn [{ json: { leadId, outcome, nextAction: nextAction[outcome], cmsApiCall: { endpoint: '[FIRM_CMS]_API_BASE_URL/matters/conflict-check', method: 'POST', payload: { callerName: payload.callerName, opposingParties, state: payload.state, caseTypeBucket: payload.caseTypeBucket } }, minimumInfo: { callerName: payload.callerName, callerPhone: payload.callerPhone, state: payload.state, caseTypeBucket: payload.caseTypeBucket, opposingParties }, factPatternCollected: false } }];"
+      },
+      "id": "legal-demo-01-gate",
+      "name": "Run Conflict-Check Gate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "legal-demo-01-response",
+      "name": "Return Gate Decision",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Conflict-Check Webhook": {
+      "main": [[{ "node": "Run Conflict-Check Gate", "type": "main", "index": 0 }]]
+    },
+    "Run Conflict-Check Gate": {
+      "main": [[{ "node": "Return Gate Decision", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

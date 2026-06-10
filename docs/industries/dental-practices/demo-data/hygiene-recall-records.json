@@ -1,0 +1,18 @@
+[
+  {
+    "patientId": "FAKE-REC-201",
+    "displayName": "Fake Recall A",
+    "lastHygieneDate": "2025-10-20",
+    "monthsOverdue": 1,
+    "contactAllowed": true,
+    "preferredChannel": "sms"
+  },
+  {
+    "patientId": "FAKE-REC-202",
+    "displayName": "Fake Recall B",
+    "lastHygieneDate": "2025-03-15",
+    "monthsOverdue": 8,
+    "contactAllowed": true,
+    "preferredChannel": "email"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "customerName": "Marisol Reyes",
+  "phone": "+12145550193",
+  "email": "marisol.reyes@example.com",
+  "serviceAddressCity": "Frisco",
+  "zip": "75034",
+  "serviceType": "no-cool emergency",
+  "systemType": "central AC",
+  "systemAge": "12 years",
+  "urgency": "house is 86 degrees and rising",
+  "vulnerableOccupant": true,
+  "preferredCallbackWindow": "as soon as possible",
+  "source": "website-form"
+}

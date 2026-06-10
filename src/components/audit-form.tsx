@@ -1,8 +1,16 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import {
+  ContactConsent,
+  Field,
+  HoneypotField,
+  PrivacyNote,
+  inputClass,
+  selectClass,
+} from "@/components/form-fields";
 
-const WEBHOOK_URL = "https://n8n.zionjohn.com/webhook/clearautomations-audit";
+const LEAD_ENDPOINT = "/api/leads/free-audit";
 
 export function AuditForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -18,10 +26,15 @@ export function AuditForm() {
       challenge: (form.elements.namedItem("challenge") as HTMLSelectElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      contactConsent: (form.elements.namedItem("contactConsent") as HTMLInputElement)
+        .checked,
+      websiteUrlConfirm: (
+        form.elements.namedItem("websiteUrlConfirm") as HTMLInputElement
+      ).value,
     };
 
     try {
-      const res = await fetch(WEBHOOK_URL, {
+      const res = await fetch(LEAD_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -54,46 +67,68 @@ export function AuditForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <input
-        type="text"
-        name="business"
-        placeholder="Business name"
-        required
-        className="bg-white/5 border border-white/10 rounded px-4 py-3 text-[15px] text-white placeholder:text-[var(--navy-muted)] focus:outline-none focus:border-[var(--amber)] transition-colors"
-      />
-      <input
-        type="url"
-        name="website"
-        placeholder="Website URL"
-        required
-        className="bg-white/5 border border-white/10 rounded px-4 py-3 text-[15px] text-white placeholder:text-[var(--navy-muted)] focus:outline-none focus:border-[var(--amber)] transition-colors"
-      />
-      <select
-        name="challenge"
-        required
-        className="bg-white/5 border border-white/10 rounded px-4 py-3 text-[15px] text-[var(--navy-muted)] focus:outline-none focus:border-[var(--amber)] transition-colors"
-        defaultValue=""
-      >
-        <option value="" disabled>Biggest lead gen challenge</option>
-        <option value="slow-followup">Slow follow-up on leads</option>
-        <option value="no-online-presence">Weak online presence</option>
-        <option value="wasting-ad-spend">Wasting money on ads</option>
-        <option value="manual-processes">Too many manual processes</option>
-        <option value="other">Something else</option>
-      </select>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        className="bg-white/5 border border-white/10 rounded px-4 py-3 text-[15px] text-white placeholder:text-[var(--navy-muted)] focus:outline-none focus:border-[var(--amber)] transition-colors"
-      />
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Phone (optional)"
-        className="bg-white/5 border border-white/10 rounded px-4 py-3 text-[15px] text-white placeholder:text-[var(--navy-muted)] focus:outline-none focus:border-[var(--amber)] transition-colors"
-      />
+      <HoneypotField />
+      <Field label="Business name">
+        <input
+          type="text"
+          name="business"
+          placeholder="Clearview HVAC"
+          required
+          className={inputClass}
+        />
+      </Field>
+      <Field label="Website URL">
+        <input
+          type="url"
+          name="website"
+          placeholder="https://example.com"
+          required
+          className={inputClass}
+        />
+      </Field>
+      <Field label="Biggest lead generation challenge">
+        <select
+          name="challenge"
+          required
+          className={selectClass}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select one
+          </option>
+          <option value="slow-followup">Slow follow-up on leads</option>
+          <option value="no-online-presence">Weak online presence</option>
+          <option value="wasting-ad-spend">Wasting money on ads</option>
+          <option value="manual-processes">Too many manual processes</option>
+          <option value="other">Something else</option>
+        </select>
+      </Field>
+      <Field label="Email">
+        <input
+          type="email"
+          name="email"
+          placeholder="you@company.com"
+          required
+          className={inputClass}
+        />
+      </Field>
+      <Field label="Phone (optional)">
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Business phone"
+          className={inputClass}
+        />
+      </Field>
+      <ContactConsent>
+        I agree that ClearAutomations may contact me about this audit by email,
+        phone call, and text message, including calls and texts placed with
+        automated or AI voice technology. Message and data rates may apply.
+        Reply STOP or tell us to stop to opt out. I understand this form is for
+        business workflow information, not sensitive customer, patient,
+        payment, or legal details.
+      </ContactConsent>
+      <PrivacyNote />
       <button
         type="submit"
         disabled={status === "submitting"}

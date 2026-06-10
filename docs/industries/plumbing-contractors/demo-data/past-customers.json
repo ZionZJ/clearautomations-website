@@ -1,0 +1,66 @@
+[
+  {
+    "customerId": "PC-2001",
+    "customerName": "Ophelia Grant",
+    "email": "ophelia.grant@example.com",
+    "phone": "+17135550121",
+    "serviceArea": "Houston",
+    "waterHeaterAge": "11 years",
+    "lastWaterHeaterService": "2024-08-19",
+    "monthsSinceLastDrainService": 5,
+    "optInSource": "service-request-form-2024-08"
+  },
+  {
+    "customerId": "PC-2002",
+    "customerName": "Reuben Acosta",
+    "email": "reuben.acosta@example.com",
+    "phone": "+12815550147",
+    "serviceArea": "Katy",
+    "waterHeaterAge": "4 years",
+    "lastWaterHeaterService": "2025-03-02",
+    "monthsSinceLastDrainService": 14,
+    "optInSource": "inbound-call-2025-05"
+  },
+  {
+    "customerId": "PC-2003",
+    "customerName": "Sigrid Halvorsen",
+    "email": "sigrid.halvorsen@example.com",
+    "phone": "+18325550183",
+    "serviceArea": "Sugar Land",
+    "waterHeaterAge": "9 years",
+    "lastWaterHeaterService": "2023-11-12",
+    "monthsSinceLastDrainService": 20
+  },
+  {
+    "customerId": "PC-2004",
+    "customerName": "Tobias Mercer",
+    "email": "tobias.mercer@example.com",
+    "phone": "+17135550178",
+    "serviceArea": "Pearland",
+    "waterHeaterAge": "3 years",
+    "lastWaterHeaterService": "2026-01-22",
+    "monthsSinceLastDrainService": 6,
+    "optInSource": "post-job-survey-2026-01"
+  },
+  {
+    "customerId": "PC-2005",
+    "customerName": "Marguerite LeBlanc",
+    "email": "marguerite.leblanc@example.com",
+    "phone": "+12815550162",
+    "serviceArea": "Spring",
+    "waterHeaterAge": "13 years",
+    "lastWaterHeaterService": "2022-06-30",
+    "monthsSinceLastDrainService": 9
+  },
+  {
+    "customerId": "PC-2006",
+    "customerName": "Desmond Ikeda",
+    "email": "desmond.ikeda@example.com",
+    "phone": "+18325550157",
+    "serviceArea": "Cypress",
+    "waterHeaterAge": "8 years",
+    "lastWaterHeaterService": "2024-04-15",
+    "monthsSinceLastDrainService": 13,
+    "optInSource": "service-request-form-2024-04"
+  }
+]

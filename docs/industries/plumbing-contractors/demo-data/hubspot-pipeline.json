@@ -1,0 +1,20 @@
+{
+  "pipelineName": "Plumbing Revenue Recovery",
+  "stages": [
+    "New Lead",
+    "Scheduled",
+    "Quoted",
+    "Won",
+    "Lost"
+  ],
+  "properties": [
+    "service_type",
+    "urgency_tier",
+    "safety_emergency",
+    "service_area",
+    "estimate_value",
+    "last_follow_up_at",
+    "lost_reason",
+    "opt_in_source"
+  ]
+}

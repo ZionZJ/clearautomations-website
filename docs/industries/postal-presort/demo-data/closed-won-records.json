@@ -1,0 +1,54 @@
+[
+  {
+    "dealId": "DEMO-DEAL-presort-001",
+    "companyName": "Northwood Statements LLC",
+    "contactName": "Priya Anderson",
+    "workEmail": "priya.anderson@example.com",
+    "workPhone": "+13125550168",
+    "closedAt": "2026-07-07T15:30:00-05:00",
+    "daysSinceClosed": 7,
+    "estimateValue": 4800,
+    "customerSatisfaction": "high",
+    "reviewOptOut": false,
+    "reviewLink": "https://g.page/r/lone-star-mail-services-review"
+  },
+  {
+    "dealId": "DEMO-DEAL-presort-002",
+    "companyName": "Cedar Bend Bookkeeping",
+    "contactName": "Marcus Lee",
+    "workEmail": "marcus.lee@example.com",
+    "workPhone": "+13125550211",
+    "closedAt": "2026-07-04T11:00:00-05:00",
+    "daysSinceClosed": 10,
+    "estimateValue": 2400,
+    "customerSatisfaction": "high",
+    "reviewOptOut": false,
+    "reviewLink": "https://g.page/r/lone-star-mail-services-review"
+  },
+  {
+    "dealId": "DEMO-DEAL-presort-003",
+    "companyName": "Plainview Property Management",
+    "contactName": "Yelena Romanova",
+    "workEmail": "yelena.romanova@example.com",
+    "workPhone": "+13125550289",
+    "closedAt": "2026-06-30T09:15:00-05:00",
+    "daysSinceClosed": 14,
+    "estimateValue": 3600,
+    "customerSatisfaction": "neutral",
+    "reviewOptOut": false,
+    "reviewLink": null
+  },
+  {
+    "dealId": "DEMO-DEAL-presort-004",
+    "companyName": "Westside Health Records",
+    "contactName": "Tomás García",
+    "workEmail": "tomas.garcia@example.com",
+    "workPhone": "+13125550334",
+    "closedAt": "2026-07-07T14:00:00-05:00",
+    "daysSinceClosed": 7,
+    "estimateValue": 7200,
+    "customerSatisfaction": "high",
+    "reviewOptOut": true,
+    "reviewLink": null
+  }
+]

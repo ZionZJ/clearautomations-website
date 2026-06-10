@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Dental Practices - 07 - Post-Visit Review Request - Demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dental-demo-07-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((visit) => {\n  const status = `${visit.frontDeskStatus ?? ''}`.toLowerCase();\n  const eligible = visit.reviewEligible === true && status.includes('happy');\n  return { json: { ...visit, reviewAction: eligible ? 'send-review-request' : 'office-manager-follow-up-first' } };\n});"
+      },
+      "id": "dental-demo-07-filter",
+      "name": "Filter Review Requests",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Filter Review Requests", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

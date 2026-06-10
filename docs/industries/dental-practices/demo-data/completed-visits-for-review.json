@@ -1,0 +1,18 @@
+[
+  {
+    "visitId": "VISIT-DEMO-401",
+    "displayName": "Fake Visit A",
+    "visitType": "hygiene",
+    "completedAt": "2026-05-10",
+    "frontDeskStatus": "happy visit",
+    "reviewEligible": true
+  },
+  {
+    "visitId": "VISIT-DEMO-402",
+    "displayName": "Fake Visit B",
+    "visitType": "restorative",
+    "completedAt": "2026-05-10",
+    "frontDeskStatus": "billing question",
+    "reviewEligible": false
+  }
+]

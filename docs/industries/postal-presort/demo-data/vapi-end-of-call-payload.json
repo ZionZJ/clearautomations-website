@@ -1,0 +1,13 @@
+{
+  "callId": "DEMO-CALL-presort-20260714-001",
+  "leadId": "DEMO-PRESORT-1721000000000",
+  "vapiAgent": "inbound-callback",
+  "callerName": "Priya Anderson",
+  "callerPhone": "+13125550168",
+  "durationSeconds": 184,
+  "callStartAt": "2026-07-14T17:42:30-05:00",
+  "callEndAt": "2026-07-14T17:45:34-05:00",
+  "transcript": "Hi Priya, this is the AI assistant calling on behalf of Lone Star Mail Services. This call may be recorded for quality. Thanks for filling out our form. I see you mentioned about ten to twenty-five thousand pieces of First-Class mail per month and that postage cost is your biggest pain. Are you the right person to talk to about Northwood Statements' mail spend? Yes, I run the operations side. Great. We help mailroom directors at companies your size cut postage twenty to sixty percent through workshare presort. Would Tuesday at 2 pm or Thursday at 10 am work for a fifteen-minute discovery call with our business-development lead? Tuesday 2 pm works. Confirmed. The team will email a calendar invite. Thanks for reaching out, Priya.",
+  "outcome_hint": "qualified",
+  "recordingUrl": "https://demo.example.com/recordings/DEMO-CALL-presort-20260714-001.mp3"
+}

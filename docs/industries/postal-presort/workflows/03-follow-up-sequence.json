@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Postal Presort - 03 - Follow-Up Email Sequence",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "presort-demo-03-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((deal) => {\n  const daysSinceTrigger = Number(deal.daysSinceTrigger ?? 0);\n  let cadence;\n  if (daysSinceTrigger === 0) cadence = 'D0-immediate';\n  else if (daysSinceTrigger >= 2 && daysSinceTrigger < 5) cadence = 'D2-reminder';\n  else if (daysSinceTrigger >= 5 && daysSinceTrigger < 7) cadence = 'D5-final';\n  else if (daysSinceTrigger >= 7) cadence = 'mark-stale';\n  else cadence = 'wait';\n  const messageBody = {\n    'D0-immediate': 'Thanks for reaching out — sharing the savings calculator + a short overview of how presort works.',\n    'D2-reminder': 'Wanted to make sure the savings calculator landed. Happy to walk through it on a 15-min call.',\n    'D5-final': 'Last note from me — if the timing is wrong, no problem. Reply STOP to opt out, or pick a time at the link.',\n    'mark-stale': null,\n    wait: null\n  };\nconst lostReason = cadence === 'mark-stale' ? (deal.lostReason ?? 'no-response') : null;\n  return { json: { ...deal, cadence, messageBody: messageBody[cadence], lostReason, nextAction: cadence === 'mark-stale' ? 'CRM stage = closed-lost; tag lostReason' : cadence === 'wait' ? 'No message today.' : 'Send approved Resend template.' } };\n});"
+      },
+      "id": "presort-demo-03-classify",
+      "name": "Classify Email Cadence",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Classify Email Cadence", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

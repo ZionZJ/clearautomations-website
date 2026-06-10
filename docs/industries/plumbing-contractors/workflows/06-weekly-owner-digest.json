@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Plumbing Contractors - 06 - Weekly Owner Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "plumbing-demo-06-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst bookingRate = metrics.newLeads ? Math.round((metrics.bookedJobs / metrics.newLeads) * 100) : 0;\nconst digest = `Bayou City Pipe & Drain Weekly Digest\\nPeriod: ${metrics.period}\\nNew leads: ${metrics.newLeads}\\nBooked jobs: ${metrics.bookedJobs} (${bookingRate}%)\\nMissed calls captured: ${metrics.missedCalls}\\nEmergency leads: ${metrics.emergencyLeads}\\nSafety escalations: ${metrics.safetyEscalations}\\nStale estimates: ${metrics.staleEstimates}\\nReview opportunities: ${metrics.reviewOpportunities}\\nReviews requested: ${metrics.reviewsRequested}\\nReactivation outreach due: ${metrics.reactivationDue}\\nOpt-outs honored: ${metrics.optOutsHonored}\\nWorkflow failures: ${metrics.workflowFailures}`;\nreturn [{ json: { ...metrics, bookingRate, digest } }];"
+      },
+      "id": "plumbing-demo-06-build",
+      "name": "Build Owner Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Owner Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "callerName": "Demo Caller One",
+    "phone": "+15125550121",
+    "callTime": "2026-05-12T08:14:00-05:00",
+    "voicemailText": "I am looking for a new dental office and wanted to ask about appointments.",
+    "newPatientIntent": true,
+    "repeatCaller": false
+  },
+  {
+    "callerName": "Demo Caller Two",
+    "phone": "+15125550122",
+    "callTime": "2026-05-12T12:07:00-05:00",
+    "voicemailText": "I missed your call and need the office to call me back.",
+    "newPatientIntent": false,
+    "repeatCaller": true
+  }
+]

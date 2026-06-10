@@ -1,0 +1,14 @@
+{
+  "subVertical": "plumbing",
+  "period": "2026-07-08 to 2026-07-14",
+  "newLeads": 38,
+  "bookedJobs": 22,
+  "missedCalls": 9,
+  "safetyEscalations": 2,
+  "staleEstimates": 5,
+  "reviewOpportunities": 14,
+  "reviewsRequested": 9,
+  "recurringRenewalsDue": 0,
+  "recurringReactivationsSent": 0,
+  "workflowFailures": 0
+}

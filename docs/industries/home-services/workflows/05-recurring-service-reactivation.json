@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Home Services - 05 - Recurring Service Reactivation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "homesvc-demo-05-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Demo input: pin the sample array from ../demo-data/recurring-customers.json\n// HARD GATE: records without optInSource are excluded from sending and counted (TCPA).\nconst input = Array.isArray($json) ? $json : [$json];\nconst cadenceDaysBySubVertical = { 'pest-control': 90, landscaping: 30 };\nconst results = [];\nlet skippedNoOptIn = 0;\nfor (const customer of input) {\n  const subVertical = `${customer.subVertical ?? 'other'}`.toLowerCase();\n  const cadenceDays = cadenceDaysBySubVertical[subVertical];\n  if (!cadenceDays) {\n    results.push({ json: { ...customer, subVertical, reactivationAction: 'not-applicable', reason: `Recurring service reactivation not applicable for ${subVertical}.` } });\n    continue;\n  }\n  const optInSource = `${customer.optInSource ?? ''}`.trim();\n  if (!optInSource) {\n    skippedNoOptIn += 1;\n    results.push({ json: { ...customer, subVertical, reactivationAction: 'skipped-no-opt-in', reason: 'No optInSource on file. Hard gate: the workflow refuses to send without a consent record.' } });\n    continue;\n  }\n  const lastServiceDate = new Date(customer.lastServiceDate ?? 0);\n  const daysSinceService = Math.floor((Date.now() - lastServiceDate.getTime()) / 86400000);\n  const due = daysSinceService >= cadenceDays;\n  results.push({ json: { ...customer, subVertical, daysSinceService, cadenceDays, reactivationAction: due ? 'send-reactivation' : 'wait', reason: due ? 'Past recurring interval. Send opt-in-gated reactivation message with unsubscribe language, inside quiet hours and frequency caps.' : 'Within recurring interval. No message.' } });\n}\nresults.push({ json: { summary: true, totalRecords: input.length, skippedNoOptIn, sendCount: results.filter((r) => r.json.reactivationAction === 'send-reactivation').length } });\nreturn results;"
+      },
+      "id": "homesvc-demo-05-gate",
+      "name": "Gate And Segment Reactivations",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Gate And Segment Reactivations", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

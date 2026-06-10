@@ -1,0 +1,19 @@
+{
+  "date": "2026-05-02",
+  "phase1": {
+    "newBusinessLeads": 18,
+    "medianLeadResponseMinutes": 2,
+    "consultsBooked": 11,
+    "consultReminderTouches": 24,
+    "directoryTasksOpen": 4
+  },
+  "simulatedPhase2": {
+    "fakeIntakePacketsRouted": 9,
+    "fakeEligibilityChecksQueued": 7
+  },
+  "simulatedPhase3": {
+    "fakeUnmatchedSessions": 1,
+    "fakeDeniedClaims": 1,
+    "modeledRecoveryValue": 310
+  }
+}

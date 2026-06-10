@@ -1,12 +1,17 @@
 import { HeroVisual } from "@/components/hero-visual";
 import { AuditForm } from "@/components/audit-form";
+import { ChecklistForm } from "@/components/checklist-form";
+import { StackAuditForm } from "@/components/stack-audit-form";
 import { FadeIn } from "@/components/fade-in";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteNav } from "@/components/site-nav";
+import { siteConfig } from "@/lib/site-config";
 
 const FAQ_DATA = [
-  { q: "Do I need to commit to all 3 phases?", a: "No. Phase 1 works completely on its own. Most clients start there, see the results, and then upgrade to Phase\u00A02 later. There is absolutely no pressure and no multi-month contracts." },
-  { q: "What if I already have a website?", a: "We audit it and upgrade what needs fixing \u2014 SEO, forms, speed, mobile experience. We don\u2019t rebuild from scratch unless it\u2019s absolutely necessary." },
-  { q: "What AI tools do you use?", a: "Vapi for voice agents, HubSpot for CRM (free tier), n8n for workflow automation, Telnyx for calling, Resend for email. You own every account." },
-  { q: "How long until I see results?", a: "First AI-qualified lead typically within 1-3 weeks of Phase 1 launch. The review campaign starts producing within the first 10 days." },
+  { q: "Do I have to commit to a big build up front?", a: "No. You start with the $1,000 AI Assessment, a paid diagnosis you own. From there you decide whether to build, and the $1,000 credits toward it. No pressure, no multi-month contracts." },
+  { q: "What if I already have a website?", a: "We audit it and upgrade what needs fixing: SEO, forms, speed, mobile experience. We don\u2019t rebuild from scratch unless it\u2019s absolutely necessary." },
+  { q: "What AI tools do you use?", a: "Retell AI for the voice layer, HubSpot for CRM (free tier), n8n for workflow automation, Telnyx for calling, Resend for email. Every account is opened in your name. You own all of it." },
+  { q: "How long until I see results?", a: "First AI-qualified lead typically within 1-3 weeks of launch. By month 3 you get an ROI report showing the booked jobs and recovered revenue the system actually generated." },
   { q: "What happens if I stop working with you?", a: "Everything keeps running. You own the website, the CRM, the AI agent, the workflows. We hand over all credentials and documentation." },
   { q: "Is the AI going to sound robotic?", a: "No. Modern voice AI is conversational and context-aware. We customize the voice, script, and tone to match your brand. We\u2019ll send you a sample call before launch." },
 ];
@@ -14,76 +19,7 @@ const FAQ_DATA = [
 export default function Home() {
   return (
     <>
-      {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060608]/95 backdrop-blur-sm border-b border-[var(--rule)]">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex items-center justify-between h-16">
-
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5 group">
-            <svg className="w-[22px] h-[22px] text-[var(--amber)] group-hover:scale-105 transition-transform" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 8 A10 10 0 1 0 22 24" />
-              <path d="M10 24 L16 8 L22 24" />
-              <path d="M12.2 18 L19.8 18" />
-            </svg>
-            <span className="font-[var(--font-display)] text-[18px] tracking-tight">
-              <span className="text-[var(--ink)] font-bold"><span className="text-[var(--amber)]">C</span>lear</span>
-              <span className="text-[var(--ink-dim)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
-            </span>
-          </a>
-
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#phases" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Phases</a>
-            <a href="#stack-audit" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Stack Audit</a>
-            <a href="#results" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Results</a>
-            <a href="#faq" className="text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">FAQ</a>
-          </div>
-
-          <div className="flex items-center gap-3">
-            {/* Phone */}
-            <a
-              href="tel:+1XXXXXXXXXX"
-              className="hidden sm:inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors"
-            >
-              <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 3H3a1 1 0 0 0-1 1v1a9 9 0 0 0 9 9h1a1 1 0 0 0 1-1v-3l-3-1-1.5 1.5A7 7 0 0 1 5.5 7.5L7 6 6 3z" />
-              </svg>
-              (XXX) XXX-XXXX
-            </a>
-
-            {/* CTA */}
-            <a
-              href="#audit"
-              className="text-[13px] font-medium text-[var(--amber)] border border-[rgba(212,168,67,0.3)] px-4 py-2 rounded hover:bg-[rgba(212,168,67,0.1)] transition-colors"
-            >
-              Get a Free Audit
-            </a>
-
-            {/* Mobile hamburger */}
-            <details className="md:hidden relative group">
-              <summary className="list-none cursor-pointer flex items-center justify-center w-9 h-9 rounded border border-[rgba(255,255,255,0.1)] hover:border-[var(--ink-dim)] transition-colors">
-                <svg className="w-4 h-4 text-[var(--ink-soft)] group-open:hidden" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <line x1="2" y1="4" x2="14" y2="4" />
-                  <line x1="2" y1="8" x2="14" y2="8" />
-                  <line x1="2" y1="12" x2="14" y2="12" />
-                </svg>
-                <svg className="w-4 h-4 text-[var(--ink-soft)] hidden group-open:block" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <line x1="4" y1="4" x2="12" y2="12" />
-                  <line x1="12" y1="4" x2="4" y2="12" />
-                </svg>
-              </summary>
-              <div className="absolute right-0 top-full mt-2 w-48 bg-[var(--surface)] border border-[var(--rule)] rounded-lg py-2 shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
-                <a href="tel:+1XXXXXXXXXX" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">(XXX) XXX-XXXX</a>
-                <div className="border-t border-[var(--rule)] my-1" />
-                <a href="#phases" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">Phases</a>
-                <a href="#stack-audit" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">Stack Audit</a>
-                <a href="#results" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">Results</a>
-                <a href="#faq" className="block px-4 py-2.5 text-[14px] text-[var(--ink-soft)] hover:text-[var(--amber)] hover:bg-[rgba(212,168,67,0.06)] transition-colors">FAQ</a>
-              </div>
-            </details>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* 1. HERO */}
       <section className="pt-24 pb-14 sm:pt-32 sm:pb-20">
@@ -91,19 +27,20 @@ export default function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-6">
-                AI automation for small business
+                The AI employee for your front desk
               </p>
               <h1 className="font-[var(--font-display)] text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.08] tracking-tight text-[var(--ink)] mb-6">
-                Your business runs on
+                Your leads are slipping
                 <br />
-                manual processes.
+                away while you sleep.
                 <br />
-                <span className="text-[var(--ink-dim)]">We replace them.</span>
+                <span className="text-[var(--ink-dim)]">We fix that.</span>
               </h1>
               <p className="text-[clamp(1rem,1.8vw,1.15rem)] leading-[1.7] text-[var(--ink-soft)] max-w-[540px] mb-10">
-                AI phone agents that call leads back in minutes. Automated
-                follow-ups that never forget. CRM systems that track every
-                opportunity. Built for businesses that don&apos;t have a tech team.
+                An AI employee that handles your front-desk work: calls leads back
+                in under two minutes, never forgets a follow-up, runs your CRM.
+                You own the automation. We deliver the outcome.
+                Built for businesses that don&apos;t have a tech team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -119,6 +56,13 @@ export default function Home() {
                   See How It Works
                 </a>
               </div>
+              <p className="mt-5 text-[14px] text-[var(--ink-dim)] max-w-[540px]">
+                or start with the{" "}
+                <a href="#stack-audit" className="text-[var(--amber)] hover:underline">
+                  $1,000 AI Assessment
+                </a>
+                : we map exactly where leads leak and what to build. Credits toward your build.
+              </p>
             </div>
             <div className="hidden lg:block">
               <HeroVisual />
@@ -162,6 +106,12 @@ export default function Home() {
               </FadeIn>
             ))}
           </div>
+
+          <FadeIn delay={400}>
+            <p className="mt-10 text-[clamp(1rem,1.8vw,1.1rem)] leading-[1.7] text-[var(--ink-dim)] max-w-[640px] border-l-2 border-[rgba(212,168,67,0.3)] pl-6">
+              Every month without a system, you&apos;re burning ad spend and losing the customers who were ready to buy. Your competitors are already automating. The gap widens every week.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -170,13 +120,13 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <FadeIn>
             <p className="text-[13px] font-medium text-[var(--navy-muted)] tracking-wide uppercase mb-4">
-              Three phases. Each stands alone.
+              One clear starting point. Grow as it proves out.
             </p>
             <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-12">
-              Phase 1 works on its own.
+              Start with the Assessment.
               <br />
               <span className="text-[var(--navy-muted)]">
-                Phase 2 amplifies it. Phase 3 scales it.
+                Then we build your AI employee. Then you grow.
               </span>
             </h2>
           </FadeIn>
@@ -184,19 +134,19 @@ export default function Home() {
           <div className="flex flex-col gap-4">
             {[
               {
-                phase: "Phase 1", name: "Capture", setup: "$2,500", monthly: "$350/mo", timeline: "Week 1\u20133", result: "First AI-qualified lead",
-                items: ["Website redesign + local SEO", "AI inbound voice agent", "Smart contact form", "CRM setup + pipeline", "Google Review campaign", "Automated email follow-ups"],
+                phase: "Start here", name: "AI Assessment", setup: "$1,000", monthly: "credits to build", timeline: "5 business days", result: "Know exactly where leads leak, and what to build",
+                items: ["Full audit of your lead flow: calls, forms, follow-up, CRM", "Quantified dollar figure on what slow follow-up is costing you", "A prioritized \u201cwhat to build first\u201d plan you own", "45-minute discovery call to map your workflows", "Delivered as a clear report, not a sales pitch", "Credits 100% toward your build within 60 days"],
                 featured: true,
-                roi: "One new client typically covers the entire Phase 1 investment.",
+                roi: "A paid diagnosis, not a free sales call. The $1,000 comes off your build.",
               },
               {
-                phase: "Phase 2", name: "Convert", setup: "$1,500", monthly: "+$500/mo", timeline: "Week 4\u20136", result: "100 warm calls/day",
-                items: ["Outbound AI calling agent", "SMS warm-up sequences", "Voicemail drop campaigns", "Call transcript logging", "Number reputation (STIR/SHAKEN)", "No-answer email fallbacks"],
+                phase: "Then we build", name: "Speed-to-Lead AI Employee", setup: "Scoped in Assessment", monthly: "Scoped in Assessment", timeline: "2\u20134 weeks", result: "Every lead answered + booked in under 2 minutes",
+                items: ["AI voice + text agent answers every inquiry instantly", "4+ integrations wired in (CRM / calendar / SMS / phone)", "Missed-call text-back + owner alerts", "Follow-up + 14-day re-engagement sequences", "Built on tools you already own", "You own all of it. Fire us and keep everything"],
                 featured: false,
               },
               {
-                phase: "Phase 3", name: "Scale", setup: "$1,000", monthly: "+$150/mo", timeline: "Week 7+", result: "Predictable pipeline",
-                items: ["Cold outbound (attorney-cleared)", "Lead lists (DNC-scrubbed)", "Google Ads management", "Weekly performance reporting", "Monthly script optimization", "Full CRM analytics"],
+                phase: "Then you grow", name: "The full AI Employee", setup: "Scoped as you scale", monthly: "Scoped as you scale", timeline: "Ongoing", result: "Takes on more of the work your team does by hand",
+                items: ["Outbound + multi-channel follow-up", "Scheduling + pipeline automation", "Performance reporting + monthly optimization", "New workflows added as you grow", "Never more than you need", "The model most clients move to"],
                 featured: false,
               },
             ].map((phase) => (
@@ -232,7 +182,7 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* ROI callout for Phase 1 */}
+                      {/* ROI callout for the featured (Assessment) card */}
                       {"roi" in phase && phase.roi && (
                         <p className="hidden md:block text-[13px] text-[var(--amber)] mt-4 italic">{phase.roi}</p>
                       )}
@@ -248,7 +198,7 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* ROI callout for Phase 1 — mobile */}
+                  {/* ROI callout for the featured (Assessment) card — mobile */}
                   {"roi" in phase && phase.roi && (
                     <p className="md:hidden text-[13px] text-[var(--amber)] mt-4 italic">{phase.roi}</p>
                   )}
@@ -258,7 +208,19 @@ export default function Home() {
           </div>
 
           <p className="text-[14px] text-[var(--navy-muted)] mt-6">
-            Platform costs included in retainer. No hidden fees. Cancel any phase, any time.
+            No hidden fees. No multi-month contracts. You own everything we build.
+          </p>
+          <p className="text-[14px] text-[var(--navy-text)] mt-3 max-w-[640px]">
+            And we don&apos;t install it and disappear. By month 3 you get a simple ROI
+            report: the booked jobs and recovered revenue your AI employee actually
+            generated. That&apos;s how you know it&apos;s working, not just running.
+          </p>
+          <p className="text-[14px] text-[var(--navy-muted)] mt-3">
+            Need only the phone layer? See the{" "}
+            <a href="/services/voice-agent-setup" className="text-[var(--amber)] hover:underline">
+              AI Front-Desk Employee Setup
+            </a>
+            .
           </p>
         </div>
       </section>
@@ -268,10 +230,10 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <FadeIn>
             <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-4">
-              Add to any phase
+              Capabilities of the build
             </p>
             <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
-              Standalone automations you can add anytime.
+              What your AI employee can handle.
             </h2>
           </FadeIn>
 
@@ -279,19 +241,16 @@ export default function Home() {
             {[
               {
                 name: "Smart Booking",
-                price: "$199/mo",
                 desc: "Clients book themselves. You stop playing phone tag.",
                 items: ["Online booking page", "SMS + email reminders", "No-show follow-ups", "Calendar sync (Google/Outlook)"],
               },
               {
                 name: "24/7 Chat AI",
-                price: "$249/mo",
                 desc: "An AI that answers questions and qualifies leads while you sleep.",
                 items: ["Website chat widget", "SMS conversation bot", "Trained on your business", "Auto-books appointments"],
               },
               {
                 name: "Social Autopilot",
-                price: "$149/mo",
                 desc: "Your social presence runs itself.",
                 items: ["Post scheduling (FB/IG/Google)", "Content calendar", "Google Business updates", "Monthly reporting"],
               },
@@ -299,7 +258,7 @@ export default function Home() {
               <FadeIn key={addon.name} delay={i * 100}>
                 <div className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--surface)]">
                   <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--ink)] mb-1">{addon.name}</h3>
-                  <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">{addon.price}</p>
+                  <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">Scoped in your build</p>
                   <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] mb-5">{addon.desc}</p>
                   <ul className="space-y-2.5">
                     {addon.items.map((item) => (
@@ -315,8 +274,76 @@ export default function Home() {
           </div>
 
           <p className="text-[14px] text-[var(--ink-dim)] mt-6">
-            Each add-on works independently. No phase commitment required.
+            These are capabilities your AI employee can take on. They get scoped into your build, not sold as separate products to manage.
           </p>
+        </div>
+      </section>
+
+      {/* 3b2. CREATIVE SERVICES */}
+      <section id="creative" className="py-12 sm:py-16 border-t border-[var(--rule)]">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
+          <FadeIn>
+            <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-4">
+              Content &amp; brand assets
+            </p>
+            <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-3">
+              Need content to fuel the system?
+            </h2>
+            <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] max-w-[540px] mb-10">
+              AI-generated brand assets, edited videos, and a full content engine, built with the same automation-first approach.
+            </p>
+          </FadeIn>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                name: "Brand Asset Sprint",
+                price: "$500",
+                desc: "Campaign visuals and launch assets that support a specific offer or lead magnet.",
+                items: ["AI-assisted from your brand book", "Social media ready sizes", "Consistent style across all assets", "Built for campaigns, not decoration"],
+                href: "#audit",
+                cta: "Scope in audit",
+              },
+              {
+                name: "Video Edit Package",
+                price: "$300\u2013800",
+                desc: "Proof clips, short explainers, and sales enablement videos tied to a lead-generation path.",
+                items: ["Basic: trim + subtitles + color", "Standard: full edit + motion graphics", "Premium: reusable style direction", "Includes raw file handoff"],
+                href: "#audit",
+                cta: "Scope in audit",
+              },
+              {
+                name: "Founder Content System",
+                price: "$2,000\u20135,000/mo",
+                desc: "Turn founder knowledge into consistent content without building a media team.",
+                items: ["Weekly content ideas", "Post drafts + short-form scripts", "Repurposing across channels", "Monthly performance review"],
+                href: "/services/founder-content-system",
+                cta: "View service",
+              },
+            ].map((service, i) => (
+              <FadeIn key={service.name} delay={i * 100}>
+                <div className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--surface)]">
+                  <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--ink)] mb-1">{service.name}</h3>
+                  <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">{service.price}</p>
+                  <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] mb-5">{service.desc}</p>
+                  <ul className="space-y-2.5">
+                    {service.items.map((item) => (
+                      <li key={item} className="text-[13px] text-[var(--ink-soft)] flex gap-2.5 items-start">
+                        <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={service.href}
+                    className="inline-flex mt-6 text-[13px] font-semibold text-[var(--amber)] hover:underline"
+                  >
+                    {service.cta}
+                  </a>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -333,21 +360,21 @@ export default function Home() {
                     Not sure what you need?
                   </p>
                   <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-2">
-                    Tech Stack Audit
+                    AI Assessment
                   </h2>
                   <p className="font-[var(--font-display)] text-[1.3rem] text-[var(--amber)] mb-6">
-                    $750 one-time
+                    $1,000 one-time, credits toward your build
                   </p>
                   <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] mb-6">
-                    We review every tool your business pays for, map your workflows, find the waste, and deliver a clear recommendation &mdash; what to keep, what to cut, and what to automate.
+                    A paid, in-depth diagnosis, not a sales call. We map exactly where leads leak across your front desk, quantify what it&apos;s costing you, and hand you a prioritized build plan you own.
                   </p>
 
                   <ul className="space-y-3 mb-8">
                     {[
-                      "Full inventory of your current tools + monthly spend",
+                      "Full audit of your lead flow: calls, forms, follow-up, CRM, after-hours",
                       "45-minute discovery call to map your workflows",
-                      "Waste & overlap analysis \u2014 most clients find $100-300/mo in redundant tools",
-                      "Recommended tech stack sized for your business + 3 priority automations with estimated ROI",
+                      "Quantified dollar figure on what slow / missed follow-up is costing you",
+                      "A prioritized \u201cwhat to build first\u201d plan, yours whether or not you hire us",
                     ].map((item) => (
                       <li key={item} className="text-[14px] text-[var(--ink-soft)] flex gap-3 items-start">
                         <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
@@ -357,17 +384,10 @@ export default function Home() {
                   </ul>
 
                   <p className="text-[14px] text-[var(--ink-dim)] mb-6">
-                    Delivered as a PDF report within 5 business days. No commitment to build anything &mdash; but 60% of audit clients move to Phase 1.
+                    Delivered within 5 business days. No commitment to build, and the $1,000 credits 100% toward your build if you move forward within 60 days.
                   </p>
 
-                  <a
-                    href="TALLY_STACK_AUDIT_FORM_URL"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
-                  >
-                    Request a Stack Audit
-                  </a>
+                  <StackAuditForm />
                 </div>
               </div>
             </FadeIn>
@@ -383,7 +403,7 @@ export default function Home() {
               The transformation
             </p>
             <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
-              What changes after Phase 1
+              What changes once your AI employee is live
             </h2>
           </FadeIn>
 
@@ -399,14 +419,14 @@ export default function Home() {
                   <tr className="border-b-2 border-[rgba(212,168,67,0.3)]">
                     <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-dim)] uppercase tracking-wide">Scenario</th>
                     <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-dim)] uppercase tracking-wide">Today</th>
-                    <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">After Phase 1</th>
+                    <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">With your AI employee</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { scenario: "Lead submits form at 7pm Friday", today: "Sits in inbox until Monday", after: "AI calls back within 5 minutes" },
+                    { scenario: "Lead submits form at 7pm Friday", today: "Sits in inbox until Monday", after: "AI calls back in under 2 minutes" },
                     { scenario: "Follow-up on old leads", today: "Manual spreadsheet, forgotten", after: "Automated 14-day re-engagement" },
-                    { scenario: "Google reviews", today: "3 reviews, 3.2 stars", after: "15+ reviews, 4.5 stars in 60 days" },
+                    { scenario: "Post-job review requests", today: "Asked when someone remembers", after: "Automatic, filtered by job type" },
                     { scenario: "Tracking leads", today: "Sticky notes + email threads", after: "CRM with stage tracking + history" },
                     { scenario: "Response to missed call", today: "Maybe call back tomorrow", after: "Automatic SMS + voicemail + email within 2 min" },
                   ].map((row, i) => (
@@ -424,27 +444,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4b. TESTIMONIAL */}
+      {/* 4b. ILLUSTRATIVE RESULT */}
       <section className="py-12 sm:py-16 bg-[var(--surface)] border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="max-w-[720px] mx-auto text-center">
             <FadeIn>
-              <svg className="w-8 h-8 text-[var(--amber)] mx-auto mb-6 opacity-40" viewBox="0 0 32 32" fill="currentColor">
-                <path d="M6 18h4l-2 8h4l4-12V6H6v12zm14 0h4l-2 8h4l4-12V6H20v12z" />
-              </svg>
-              <blockquote className="font-[var(--font-display)] text-[clamp(1.2rem,2.5vw,1.6rem)] leading-[1.5] text-[var(--ink)] mb-8">
-                We were losing 3&ndash;4 new client inquiries every week to slow follow-up. Within two weeks of launching Phase 1, the AI agent was calling people back in under three minutes. Our intake conversion rate went from 22% to 41% in the first month. I didn&apos;t have to change anything about how I run my practice.
-              </blockquote>
-              <div className="flex items-center justify-center gap-4">
-                {/* Placeholder avatar */}
-                <div className="w-12 h-12 rounded-full bg-[rgba(212,168,67,0.15)] border border-[rgba(212,168,67,0.3)] flex items-center justify-center text-[var(--amber)] text-[18px] font-semibold shrink-0">
-                  DR
-                </div>
-                <div className="text-left">
-                  <p className="text-[15px] font-semibold text-[var(--ink)]">Dr. Rachel Torres</p>
-                  <p className="text-[13px] text-[var(--ink-dim)]">Licensed Therapist &middot; Restore Counseling, Austin TX</p>
-                </div>
-              </div>
+              <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-4">
+                Illustrative model
+              </p>
+              <h2 className="font-[var(--font-display)] text-[clamp(1.5rem,3vw,2.2rem)] font-bold leading-[1.15] tracking-tight text-[var(--ink)] mb-5">
+                A modest response-time lift can pay for the system.
+              </h2>
+              <p className="text-[15px] text-[var(--ink-soft)] leading-[1.8]">
+                For a service business receiving 40 qualified inquiries a month,
+                saving just 4 leads from slow follow-up can cover the build before
+                the longer-term automation gains start compounding.
+              </p>
+              <p className="text-[12px] text-[var(--ink-faint)] mt-6">
+                Illustrative example, not client data.
+              </p>
             </FadeIn>
           </div>
         </div>
@@ -455,9 +473,9 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {[
-              { headline: "You own everything.", body: "Your website, your CRM, your AI agent, your data. Fire us and keep it all. We build on open platforms you control \u2014 no lock-in, no proprietary systems, no hostage situations." },
-              { headline: "First lead in 1\u20133 weeks.", body: "Not a 6-month roadmap. Phase 1 produces results before Phase 2 starts. The system pays for itself with a single new client." },
-              { headline: "Enterprise experience. SMB prices.", body: "5 years deploying automation at a Big 4 consulting firm for companies 10x your size. Now building the same modular systems for businesses at a price that makes sense." },
+              { headline: "You own everything.", body: "Your website, your CRM, your AI agent, your data. Fire us and keep it all. We build on open platforms you control: no lock-in, no proprietary systems, no hostage situations." },
+              { headline: "Live in 2\u20134 weeks.", body: "Not a 6-month roadmap. You start with a paid Assessment, we build, and the system pays for itself with a single new client. By month 3 you see the ROI in writing." },
+              { headline: "The big platforms aren't built for you.", body: "The big AI platforms are built for big operations. I personally build and run yours, and you can call me. Enterprise-grade systems, sized for your business, at a price that makes sense." },
             ].map((d, i) => (
               <FadeIn key={d.headline} delay={i * 100}>
                 <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--amber)] mb-3 leading-tight">{d.headline}</h3>
@@ -465,6 +483,38 @@ export default function Home() {
               </FadeIn>
             ))}
           </div>
+
+          {/* Empathy + authority */}
+          <FadeIn>
+            <div className="mt-12 pt-10 border-t border-[rgba(255,255,255,0.06)] max-w-[720px]">
+              <p className="text-[15px] text-[var(--ink-soft)] leading-[1.8] mb-4">
+                You didn&apos;t start your business to manage tech stacks and chase down
+                leads. You started it because you&apos;re great at what you do. Somewhere
+                between the missed calls, the forgotten follow-ups, and the tools that
+                promise everything, the growth stalled. We&apos;ve sat across the table
+                from owners in exactly that spot.
+              </p>
+              <p className="text-[15px] text-[var(--ink-soft)] leading-[1.8]">
+                Before ClearAutomations, our founder spent 5 years at RSM deploying AP
+                automation platforms (Basware, Coupa) for mid-market and enterprise
+                clients. The same systems large companies pay six figures to implement,
+                adapted and priced for small businesses.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span className="text-[11px] text-[var(--ink-faint)] uppercase tracking-widest mr-1">
+                  Built on
+                </span>
+                {["HubSpot", "n8n", "Retell AI", "Telnyx", "Resend"].map((tool) => (
+                  <span
+                    key={tool}
+                    className="text-[12px] text-[var(--ink-dim)] border border-[rgba(255,255,255,0.12)] rounded px-2.5 py-1"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
 
           {/* Founder */}
           <FadeIn>
@@ -474,13 +524,13 @@ export default function Home() {
                 ZJ
               </div>
               <div>
-                <p className="text-[16px] font-semibold text-[var(--ink)] mb-1">Zion John</p>
+                <p className="text-[16px] font-semibold text-[var(--ink)] mb-1">{siteConfig.founderName}</p>
                 <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] max-w-[520px]">
-                  5 years building automation systems at RSM (Big 4 consulting) for enterprise clients. Now I build the same systems for small businesses at a fraction of the cost. Based in Texas.
+                  5 years building enterprise AP and workflow automation systems at RSM. Now I build the same modular systems for small businesses at a fraction of the cost. Based in Texas.
                 </p>
                 <div className="flex gap-4 mt-3">
-                  <a href="https://linkedin.com/in/ZionJohn" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
-                  <a href="mailto:zion@clearautomations.com" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Email</a>
+                  <a href={siteConfig.linkedInUrl} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
+                  <a href={`mailto:${siteConfig.contactEmail}`} className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Email</a>
                 </div>
               </div>
             </div>
@@ -528,16 +578,23 @@ export default function Home() {
                   of your business.
                 </h2>
                 <p className="text-[var(--navy-text)] text-[15px] leading-[1.7] max-w-[440px] mb-6">
-                  We&apos;ll review your website, SEO, lead flow, and follow-up process. You&apos;ll get a video walkthrough of exactly what&apos;s broken and how to fix it &mdash; free, no obligation.
+                  We&apos;ll review your website, SEO, lead flow, and follow-up process. You&apos;ll get a video walkthrough of exactly what&apos;s broken and how to fix it. Free, no obligation.
                 </p>
                 <p className="text-[var(--navy-muted)] text-[13px]">Typically delivered within 48 hours.</p>
                 <p className="text-[var(--navy-muted)] text-[13px] mt-4">
-                  Already have tools in place?{" "}
+                  Ready to go deeper?{" "}
                   <a href="#stack-audit" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
-                    Start with a $750 Tech Stack Audit
-                  </a>{" "}
-                  instead.
+                    Start with the $1,000 AI Assessment
+                  </a>
+                  . It credits toward your build.
                 </p>
+                <div className="mt-6 pt-6 border-t border-white/10">
+                  <p className="text-[var(--navy-text)] text-[14px] font-medium mb-2">Not ready to talk yet?</p>
+                  <p className="text-[var(--navy-muted)] text-[13px] leading-[1.6] max-w-[400px]">
+                    Grab our free 5-Minute Stack Audit Checklist, a self-assessment that shows you where your lead capture process is leaking revenue.
+                  </p>
+                  <ChecklistForm />
+                </div>
               </div>
             </FadeIn>
 
@@ -546,35 +603,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. FOOTER */}
-      <footer className="border-t border-[var(--rule)] py-8">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <svg className="w-5 h-5 text-[var(--amber)]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 8 A10 10 0 1 0 22 24" />
-                <path d="M10 24 L16 8 L22 24" />
-                <path d="M12.2 18 L19.8 18" />
-              </svg>
-              <span className="font-[var(--font-display)] text-[17px] tracking-tight">
-                <span className="text-[var(--ink)] font-bold"><span className="text-[var(--amber)]">C</span>lear</span>
-                <span className="text-[var(--ink-dim)] font-medium"><span className="text-[var(--amber)]">A</span>utomations</span>
-              </span>
-            </div>
-            <p className="text-[13px] text-[var(--ink-dim)]">
-              Built by Zion John &middot; AI automation for small business
-            </p>
-          </div>
-          <div className="flex gap-6">
-            <a href="tel:+1XXXXXXXXXX" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">(XXX) XXX-XXXX</a>
-            <a href="mailto:zion@clearautomations.com" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">Email</a>
-            <a href="https://linkedin.com/in/ZionJohn" target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
-          </div>
-        </div>
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10 mt-6 pt-6 border-t border-[var(--rule)]">
-          <p className="text-[12px] text-[var(--ink-faint)]">&copy; 2026 Clear Automations. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* FAQ Schema (JSON-LD) */}
       <script

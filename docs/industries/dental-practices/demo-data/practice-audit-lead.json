@@ -1,0 +1,13 @@
+{
+  "practiceName": "Cedar Bend Dental Studio",
+  "contactName": "Morgan Lee",
+  "workEmail": "morgan@example-dental.test",
+  "workPhone": "+15125550112",
+  "website": "https://cedarbend-demo.test",
+  "providerCount": "2-3",
+  "monthlyPatientVolume": "400-800",
+  "currentTools": "PMS, reminder tool, shared inbox",
+  "biggestLeak": "no-shows",
+  "phiAcknowledgement": true,
+  "source": "clearautomations-industries-dental-practices"
+}

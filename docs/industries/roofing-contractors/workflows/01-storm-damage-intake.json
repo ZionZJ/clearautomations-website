@@ -1,0 +1,52 @@
+{
+  "name": "DEMO - Roofing Contractors - 01 - Storm Damage Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-roofing-storm-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "roofing-demo-01-webhook",
+      "name": "Storm Damage Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst text = JSON.stringify(payload).toLowerCase();\nconst urgentTerms = ['leak', 'water', 'missing shingles', 'hail', 'wind', 'storm', 'tarp'];\nconst urgencyScore = urgentTerms.filter((term) => text.includes(term)).length + (payload.activeLeak ? 3 : 0) + (payload.photosAvailable ? 1 : 0);\nconst priority = urgencyScore >= 4 ? 'inspection-needed' : urgencyScore >= 2 ? 'same-day-callback' : 'normal-follow-up';\nreturn [{ json: { leadId: `DEMO-ROOF-${Date.now()}`, priority, urgencyScore, nextAction: priority === 'inspection-needed' ? 'Route to inspection scheduler.' : 'Create office callback task.', lead: payload } }];"
+      },
+      "id": "roofing-demo-01-score",
+      "name": "Score Storm Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "roofing-demo-01-response",
+      "name": "Return Lead Routing",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Storm Damage Webhook": {
+      "main": [[{ "node": "Score Storm Lead", "type": "main", "index": 0 }]]
+    },
+    "Score Storm Lead": {
+      "main": [[{ "node": "Return Lead Routing", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

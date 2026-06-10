@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-15",
+  "overnightInbound": 3,
+  "overnightCallbacksFired": 3,
+  "callsScheduledToday": 0,
+  "discoveryCallsToday": 2,
+  "ghostingTouchesDueToday": 1,
+  "blockers": [
+    "Telnyx CNAM registration pending review (target clear by 2026-07-18)"
+  ]
+}

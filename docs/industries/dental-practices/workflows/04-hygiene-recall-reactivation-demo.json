@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Dental Practices - 04 - Hygiene Recall Reactivation - Demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dental-demo-04-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((record) => {\n  const months = Number(record.monthsOverdue ?? 0);\n  const segment = months >= 6 ? 'high-priority-recall' : months >= 1 ? 'standard-recall' : 'not-overdue';\n  const nextAction = record.contactAllowed ? `Send approved ${segment} message via ${record.preferredChannel ?? 'office channel'}.` : 'Do not contact.';\n  return { json: { ...record, segment, nextAction } };\n});"
+      },
+      "id": "dental-demo-04-segment",
+      "name": "Segment Recall Records",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Segment Recall Records", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

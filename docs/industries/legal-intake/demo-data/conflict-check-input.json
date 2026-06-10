@@ -1,0 +1,10 @@
+{
+  "callerName": "Diane Whitfield",
+  "callerPhone": "+15125550172",
+  "state": "TX",
+  "caseTypeBucket": "accident",
+  "opposingParties": ["RoadStar Logistics LLC"],
+  "vapiCallId": "DEMO-CALL-legal-20260714-001",
+  "submittedAt": "2026-07-14T19:08:00-05:00",
+  "simulateResult": "clear"
+}

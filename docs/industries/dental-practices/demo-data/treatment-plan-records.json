@@ -1,0 +1,20 @@
+[
+  {
+    "planId": "TP-DEMO-301",
+    "displayName": "Fake Treatment Plan A",
+    "planCategory": "restorative",
+    "estimatedValue": 3200,
+    "daysSincePresented": 7,
+    "financingDiscussed": true,
+    "followUpStatus": "not contacted"
+  },
+  {
+    "planId": "TP-DEMO-302",
+    "displayName": "Fake Treatment Plan B",
+    "planCategory": "implant consult",
+    "estimatedValue": 8500,
+    "daysSincePresented": 21,
+    "financingDiscussed": false,
+    "followUpStatus": "left voicemail"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "leadId": "DEMO-PRESORT-1721000000000",
+    "companyName": "Northwood Statements LLC",
+    "contactName": "Priya Anderson",
+    "workEmail": "priya.anderson@example.com",
+    "outcome": "email-only",
+    "daysSinceTrigger": 0,
+    "lostReason": null
+  },
+  {
+    "leadId": "DEMO-PRESORT-1721000000001",
+    "companyName": "Cedar Bend Bookkeeping",
+    "contactName": "Marcus Lee",
+    "workEmail": "marcus.lee@example.com",
+    "outcome": "no-answer",
+    "daysSinceTrigger": 2,
+    "lostReason": null
+  },
+  {
+    "leadId": "DEMO-PRESORT-1721000000002",
+    "companyName": "Riverview Utilities",
+    "contactName": "Adaeze Okafor",
+    "workEmail": "adaeze.okafor@example.com",
+    "outcome": "email-only",
+    "daysSinceTrigger": 5,
+    "lostReason": null
+  },
+  {
+    "leadId": "DEMO-PRESORT-1721000000003",
+    "companyName": "Highland Credit Union",
+    "contactName": "Sven Halvorsen",
+    "workEmail": "sven.halvorsen@example.com",
+    "outcome": "email-only",
+    "daysSinceTrigger": 8,
+    "lostReason": "no-response"
+  }
+]

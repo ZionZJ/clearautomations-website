@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Legal Intake - 08 - Weekly Firm Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "legal-demo-08-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst conflictClearanceRate = metrics.totalIntakes ? Math.round((metrics.conflictCleared / metrics.totalIntakes) * 100) : 0;\nconst slaHitRate = metrics.conflictCleared ? Math.round((metrics.callbacksUnder4h / metrics.conflictCleared) * 100) : 0;\nconst engagementRate = metrics.discoveryHeld ? Math.round((metrics.engaged / metrics.discoveryHeld) * 100) : 0;\nconst digest = `Legal Intake Weekly Digest\\nFirm: ${metrics.firmName}\\nPeriod: ${metrics.period}\\n\\nTotal intakes: ${metrics.totalIntakes}\\nConflict-cleared: ${metrics.conflictCleared} (${conflictClearanceRate}%)\\nConflicts declined: ${metrics.conflictsDeclined}\\nCallbacks under 4h SLA: ${metrics.callbacksUnder4h} (${slaHitRate}%)\\n\\nDiscovery scheduled: ${metrics.discoveryScheduled}\\nDiscovery held: ${metrics.discoveryHeld}\\nEngagements signed: ${metrics.engaged} (${engagementRate}% of held discoveries)\\n\\nReview opportunities: ${metrics.reviewOpportunities}\\nReviews requested: ${metrics.reviewsRequested}\\nWorkflow failures: ${metrics.workflowFailures}\\n\\nNote: Aggregate metrics only. No prospective-client information appears in this digest.`;\nreturn [{ json: { ...metrics, conflictClearanceRate, slaHitRate, engagementRate, digest } }];"
+      },
+      "id": "legal-demo-08-build",
+      "name": "Build Firm Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Firm Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

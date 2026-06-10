@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Dental Practices - 03 - Cancellation and No-Show Recovery - Demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dental-demo-03-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((record) => {\n  const days = Number(record.lastTouchDays ?? 0);\n  const canContact = record.contactAllowed === true;\n  let nextAction = 'Do not contact.';\n  if (canContact && record.status === 'no-show') nextAction = days >= 1 ? 'Send approved reschedule follow-up.' : 'Create same-day office callback task.';\n  if (canContact && record.status === 'late cancellation') nextAction = 'Add to short-notice reschedule queue.';\n  return { json: { ...record, nextAction } };\n});"
+      },
+      "id": "dental-demo-03-classify",
+      "name": "Classify Recovery Action",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Classify Recovery Action", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

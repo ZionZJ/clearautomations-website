@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - HVAC Contractors - 04 - Post-Job Review Request",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "hvac-demo-04-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((job) => {\n  const eligible = job.reviewEligible === true && `${job.technicianStatus ?? ''}`.toLowerCase().includes('happy');\n  const optOut = job.reviewOptOut === true;\n  return { json: { ...job, reviewAction: (eligible && !optOut) ? 'send-review-request' : 'manager-follow-up-first', reviewSkipReason: optOut ? 'review-opt-out' : null } };\n});"
+      },
+      "id": "hvac-demo-04-filter",
+      "name": "Filter Review Requests",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Filter Review Requests", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

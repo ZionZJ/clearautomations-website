@@ -1,0 +1,24 @@
+{
+  "leads": [
+    {
+      "leadId": "DEMO-THER-1001",
+      "practiceName": "Cedar Park Counseling Collective",
+      "contactName": "Morgan Ellis",
+      "workPhone": "+1-512-555-0198",
+      "workEmail": "morgan.ellis@example-demo.com",
+      "source": "Website audit form",
+      "adminPain": "slow-lead-response",
+      "submittedAt": "2026-05-02T14:10:00-05:00"
+    },
+    {
+      "leadId": "DEMO-THER-1002",
+      "practiceName": "Hill Country Therapy Group",
+      "contactName": "Jamie Porter",
+      "workPhone": "+1-512-555-0144",
+      "workEmail": "jamie.porter@example-demo.com",
+      "source": "Directory outreach",
+      "adminPain": "consult-no-shows",
+      "submittedAt": "2026-05-02T17:40:00-05:00"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Roofing Contractors - 03 - Roof Inspection Scheduler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "roofing-demo-03-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const lead = $json.lead ?? {};\nconst slots = $json.availableSlots ?? [];\nconst preferred = `${lead.preferredInspectionWindow ?? ''}`.toLowerCase();\nconst matchedSlot = slots.find((slot) => preferred.includes('afternoon') && Number(`${slot.startsAt}`.slice(11, 13)) >= 12) ?? slots[0] ?? null;\nreturn [{ json: { leadId: lead.leadId, homeownerName: lead.homeownerName, routing: matchedSlot ? 'slot-available' : 'dispatcher-callback', matchedSlot, nextAction: matchedSlot ? 'Offer inspection slot for office approval.' : 'Create dispatcher callback task.' } }];"
+      },
+      "id": "roofing-demo-03-match",
+      "name": "Match Inspection Slot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Match Inspection Slot", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

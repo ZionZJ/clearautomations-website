@@ -1,0 +1,22 @@
+[
+  {
+    "dealId": "HVAC-DEMO-301",
+    "customerName": "Dana Patel",
+    "serviceArea": "Allen",
+    "estimateType": "full system replacement",
+    "estimateValue": 14200,
+    "quoteAgeDays": 5,
+    "lastContactOutcome": "sent quote",
+    "financingMentioned": true
+  },
+  {
+    "dealId": "HVAC-DEMO-302",
+    "customerName": "Hector Ramos",
+    "serviceArea": "Richardson",
+    "estimateType": "ductwork repair",
+    "estimateValue": 2900,
+    "quoteAgeDays": 15,
+    "lastContactOutcome": "left voicemail",
+    "financingMentioned": false
+  }
+]

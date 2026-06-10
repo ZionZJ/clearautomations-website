@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Home Services - 03 - Estimate Follow-Up",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "homesvc-demo-03-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Demo input: pin the sample array from ../demo-data/open-estimates.json\nconst input = Array.isArray($json) ? $json : [$json];\nconst lostReasonEnum = ['price', 'timing', 'competitor', 'no-response', 'scope'];\nreturn input.map((estimate) => {\n  const quoteAgeDays = Number(estimate.quoteAgeDays ?? 0);\n  const estimateValue = Number(estimate.estimateValue ?? 0);\n  const status = `${estimate.status ?? 'open'}`.toLowerCase();\n  const rawLostReason = `${estimate.lostReason ?? ''}`.toLowerCase();\n  const lostReason = lostReasonEnum.includes(rawLostReason) ? rawLostReason : null;\n  let cadenceStep;\n  if (status === 'lost') cadenceStep = 'tag-lost-reason';\n  else if (quoteAgeDays >= 14) cadenceStep = 'final-touch-d14';\n  else if (quoteAgeDays >= 7) cadenceStep = 'sms-touch-d7';\n  else if (quoteAgeDays >= 3) cadenceStep = 'email-touch-d3';\n  else cadenceStep = 'wait';\n  const financeReminderEligible = estimateValue >= 7500;\n  let nextAction;\n  if (cadenceStep === 'wait') nextAction = 'No message today.';\n  else if (cadenceStep === 'tag-lost-reason') nextAction = `Write lostReason (${lostReason ?? 'unset'}) to HubSpot; no further messages.`;\n  else if (financeReminderEligible) nextAction = 'Send approved follow-up touch with contractor-approved financing reminder copy.';\n  else nextAction = 'Send approved follow-up touch.';\n  return { json: { ...estimate, quoteAgeDays, estimateValue, cadenceStep, lostReason, financeReminderEligible, nextAction } };\n});"
+      },
+      "id": "homesvc-demo-03-classify",
+      "name": "Classify Estimate Follow-Up",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Classify Estimate Follow-Up", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

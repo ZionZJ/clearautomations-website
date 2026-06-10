@@ -1,0 +1,30 @@
+{
+  "openSlots": [
+    {
+      "slotId": "SLOT-DEMO-1",
+      "startsAt": "2026-05-14T10:00:00-05:00",
+      "durationMinutes": 60,
+      "slotType": "hygiene"
+    },
+    {
+      "slotId": "SLOT-DEMO-2",
+      "startsAt": "2026-05-14T14:00:00-05:00",
+      "durationMinutes": 90,
+      "slotType": "restorative"
+    }
+  ],
+  "eligibleContacts": [
+    {
+      "displayName": "Fake Recall A",
+      "eligibleFor": "hygiene",
+      "contactAllowed": true,
+      "lastTouchDays": 14
+    },
+    {
+      "displayName": "Fake Treatment Plan A",
+      "eligibleFor": "restorative",
+      "contactAllowed": true,
+      "lastTouchDays": 7
+    }
+  ]
+}

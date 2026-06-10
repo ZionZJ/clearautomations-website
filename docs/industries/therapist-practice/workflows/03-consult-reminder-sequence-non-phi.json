@@ -1,0 +1,61 @@
+{
+  "name": "DEMO - Therapist Practice - 03 - Consult Reminder Sequence - Non-PHI",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "therapist-demo-03-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const consults = [\n  { consultId: 'CONSULT-DEMO-2101', contactName: 'Taylor Reed', contactPhone: '+1-512-555-0101', contactEmail: 'taylor.reed@example-demo.com', consultAt: '2026-05-04T10:30:00-05:00', channel: 'phone' },\n  { consultId: 'CONSULT-DEMO-2102', contactName: 'Avery Quinn', contactPhone: '+1-512-555-0102', contactEmail: 'avery.quinn@example-demo.com', consultAt: '2026-05-04T15:00:00-05:00', channel: 'video' }\n];\nreturn consults.map((consult) => ({ json: consult }));"
+      },
+      "id": "therapist-demo-03-consults",
+      "name": "Load Demo Consults",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const genericFooter = 'Reply STOP to opt out. Do not send personal health information by text.';\nreturn $input.all().flatMap((item) => {\n  const consult = item.json;\n  const base = {\n    consultId: consult.consultId,\n    contactName: consult.contactName,\n    contactPhone: consult.contactPhone,\n    contactEmail: consult.contactEmail,\n    consultAt: consult.consultAt,\n    demoOnly: true\n  };\n  return [\n    { json: { ...base, reminderType: '24-hour', message: `Reminder: your introductory consult with Cedar Park Counseling Collective is tomorrow. If you need to reschedule, reply to this message or call the office. ${genericFooter}` } },\n    { json: { ...base, reminderType: '2-hour', message: `Reminder: your introductory consult is coming up soon. Please use the confirmed consult channel and contact the office if plans changed. ${genericFooter}` } }\n  ];\n});"
+      },
+      "id": "therapist-demo-03-reminders",
+      "name": "Create Generic Reminders",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Demo Consults",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Demo Consults": {
+      "main": [
+        [
+          {
+            "node": "Create Generic Reminders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

@@ -1,0 +1,15 @@
+{
+  "firmName": "Lone Star Personal Injury Group",
+  "period": "2026-07-08 to 2026-07-14",
+  "totalIntakes": 28,
+  "conflictCleared": 22,
+  "conflictsDeclined": 4,
+  "manualFallbacks": 2,
+  "callbacksUnder4h": 19,
+  "discoveryScheduled": 16,
+  "discoveryHeld": 13,
+  "engaged": 4,
+  "reviewOpportunities": 3,
+  "reviewsRequested": 2,
+  "workflowFailures": 0
+}

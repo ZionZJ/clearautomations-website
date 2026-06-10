@@ -1,0 +1,52 @@
+{
+  "name": "DEMO - HVAC Contractors - 01 - Emergency Service Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-hvac-emergency-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "hvac-demo-01-webhook",
+      "name": "Emergency Service Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst text = JSON.stringify(payload).toLowerCase();\nconst emergencyTerms = ['no-cool', 'no cool', 'not cooling', 'stopped cooling', 'heat', '86 degrees', 'vulnerable', 'elderly', 'baby'];\nconst emergencyScore = emergencyTerms.filter((term) => text.includes(term)).length + (payload.vulnerableOccupant ? 2 : 0);\nconst priority = emergencyScore >= 3 ? 'urgent-callback' : emergencyScore >= 1 ? 'same-day-review' : 'normal-office-follow-up';\nreturn [{ json: { leadId: `DEMO-HVAC-${Date.now()}`, priority, emergencyScore, nextAction: priority === 'urgent-callback' ? 'Create dispatcher callback task now.' : 'Add to service request queue.', lead: payload } }];"
+      },
+      "id": "hvac-demo-01-score",
+      "name": "Score Urgency",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "hvac-demo-01-response",
+      "name": "Return Routing Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Emergency Service Webhook": {
+      "main": [[{ "node": "Score Urgency", "type": "main", "index": 0 }]]
+    },
+    "Score Urgency": {
+      "main": [[{ "node": "Return Routing Result", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

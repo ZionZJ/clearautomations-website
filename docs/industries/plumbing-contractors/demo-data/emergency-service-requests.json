@@ -1,0 +1,74 @@
+[
+  {
+    "customerName": "Yolanda Pierce",
+    "phone": "+17135550141",
+    "email": "yolanda.pierce@example.com",
+    "serviceAddressCity": "Houston",
+    "zip": "77008",
+    "serviceType": "emergency",
+    "problemDescription": "There is a strong gas smell near the water heater closet.",
+    "urgencyNotes": "Caller is still inside the house with two kids.",
+    "preferredCallbackWindow": "immediately",
+    "source": "retell-voice-agent"
+  },
+  {
+    "customerName": "Russell Okonkwo",
+    "phone": "+18325550167",
+    "email": "russell.okonkwo@example.com",
+    "serviceAddressCity": "Pearland",
+    "zip": "77584",
+    "serviceType": "emergency",
+    "problemDescription": "Sewage backup coming up through both showers and a floor drain.",
+    "urgencyNotes": "Started an hour ago and is getting worse.",
+    "preferredCallbackWindow": "immediately",
+    "source": "retell-voice-agent"
+  },
+  {
+    "customerName": "Priya Raman",
+    "phone": "+12815550118",
+    "email": "priya.raman@example.com",
+    "serviceAddressCity": "Katy",
+    "zip": "77449",
+    "serviceType": "emergency",
+    "problemDescription": "Burst pipe in the wall behind the laundry room, main is shut off so we have no water.",
+    "urgencyNotes": "Water was spraying before we shut the main.",
+    "preferredCallbackWindow": "as soon as possible",
+    "source": "website-form"
+  },
+  {
+    "customerName": "Gordon Whitfield",
+    "phone": "+17135550192",
+    "email": "gordon.whitfield@example.com",
+    "serviceAddressCity": "Sugar Land",
+    "zip": "77479",
+    "serviceType": "repair",
+    "problemDescription": "Active leak under the kitchen sink, I have a bucket under it for now.",
+    "urgencyNotes": "Manageable today but I do not want to wait all week.",
+    "preferredCallbackWindow": "today",
+    "source": "website-form"
+  },
+  {
+    "customerName": "Camille Duplantis",
+    "phone": "+18325550174",
+    "email": "camille.duplantis@example.com",
+    "serviceAddressCity": "Cypress",
+    "zip": "77433",
+    "serviceType": "estimate",
+    "problemDescription": "Looking for a quote on a whole-home repipe, house is on 1970s galvanized pipe.",
+    "urgencyNotes": "No rush, gathering estimates this month.",
+    "preferredCallbackWindow": "weekday afternoons",
+    "source": "website-form"
+  },
+  {
+    "customerName": "Mateo Salazar",
+    "phone": "+12815550136",
+    "email": "mateo.salazar@example.com",
+    "serviceAddressCity": "Spring",
+    "zip": "77379",
+    "serviceType": "maintenance",
+    "problemDescription": "Annual drain cleaning and inspection for a rental property.",
+    "urgencyNotes": "Anytime in the next few weeks works.",
+    "preferredCallbackWindow": "mornings",
+    "source": "website-form"
+  }
+]

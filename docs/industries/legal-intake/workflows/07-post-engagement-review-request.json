@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Legal Intake - 07 - Post-Engagement Review Request",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "legal-demo-07-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((engagement) => {\n  const happy = `${engagement.outcomeSatisfaction ?? ''}`.toLowerCase() === 'happy' || engagement.clientWouldRefer === true;\n  const optOut = engagement.reviewOptOut === true;\n  const eligible = happy && !optOut;\n  return { json: { ...engagement, reviewAction: eligible ? 'send-review-request' : 'manager-follow-up-first', reviewLink: eligible ? engagement.reviewLink ?? 'https://g.page/r/firm-review-placeholder' : null, complianceNote: 'No compensation offered for reviews. Bar rules vary by state — verify per firm.' } };\n});"
+      },
+      "id": "legal-demo-07-filter",
+      "name": "Filter Engagement Reviews",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Filter Engagement Reviews", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

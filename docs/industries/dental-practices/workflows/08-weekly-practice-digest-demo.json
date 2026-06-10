@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Dental Practices - 08 - Weekly Practice Digest - Demo",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "dental-demo-08-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst callbackRate = metrics.missedCalls ? Math.round((metrics.newPatientCallbacks / metrics.missedCalls) * 100) : 0;\nconst digest = `Dental Weekly Practice Digest\\nPeriod: ${metrics.period}\\nMissed calls: ${metrics.missedCalls}\\nNew-patient callbacks: ${metrics.newPatientCallbacks} (${callbackRate}%)\\nNo-shows: ${metrics.noShows}\\nLate cancellations: ${metrics.lateCancellations}\\nRecall opportunities: ${metrics.recallOpportunities}\\nTreatment plans needing follow-up: ${metrics.treatmentPlansNeedingFollowUp}\\nSchedule gaps: ${metrics.scheduleGaps}\\nReview opportunities: ${metrics.reviewOpportunities}\\nWorkflow failures: ${metrics.workflowFailures}`;\nreturn [{ json: { ...metrics, callbackRate, digest } }];"
+      },
+      "id": "dental-demo-08-build",
+      "name": "Build Practice Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Practice Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

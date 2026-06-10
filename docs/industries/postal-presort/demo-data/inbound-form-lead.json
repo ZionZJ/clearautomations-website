@@ -1,0 +1,16 @@
+{
+  "vertical": "postal-presort",
+  "source": "clearautomations-industries-postal-presort",
+  "companyName": "Northwood Statements LLC",
+  "contactName": "Priya Anderson",
+  "workEmail": "priya.anderson@example.com",
+  "workPhone": "+13125550168",
+  "website": "https://example.com",
+  "monthlyPieceVolume": "10k-25k",
+  "mailClassMix": "first-class",
+  "currentMailPrep": "in-house",
+  "workshareInterest": "all",
+  "phiStatus": "some-phi",
+  "biggestPain": "postage-cost",
+  "submittedAt": "2026-07-14T17:42:00-05:00"
+}

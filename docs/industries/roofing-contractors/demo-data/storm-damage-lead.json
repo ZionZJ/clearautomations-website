@@ -1,0 +1,14 @@
+{
+  "homeownerName": "Tanya Brooks",
+  "phone": "+12145550118",
+  "email": "tanya.brooks@example.com",
+  "propertyCity": "Plano",
+  "zip": "75024",
+  "damageType": "hail and missing shingles",
+  "stormDate": "2026-04-18",
+  "activeLeak": false,
+  "photosAvailable": true,
+  "claimOpened": false,
+  "preferredInspectionWindow": "weekday afternoon",
+  "source": "website-storm-form"
+}

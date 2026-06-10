@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Roofing Contractors - 05 - Insurance Claim Follow-Up",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "roofing-demo-05-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((record) => {\n  const days = Number(record.lastTouchDays ?? 0);\n  let nextAction = 'No follow-up needed today.';\n  if (!record.adjusterAppointmentDate) nextAction = 'Ask homeowner if adjuster appointment has been scheduled.';\n  else if (record.inspectionCompleted && !record.estimateSent) nextAction = 'Create estimate preparation task.';\n  else if (days >= 7) nextAction = 'Send owner-approved claim status follow-up.';\n  return { json: { ...record, nextAction } };\n});"
+      },
+      "id": "roofing-demo-05-route",
+      "name": "Route Claim Follow-Up",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Route Claim Follow-Up", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

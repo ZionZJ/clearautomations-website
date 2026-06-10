@@ -1,0 +1,61 @@
+{
+  "name": "DEMO - Therapist Practice - 07 - Demo Dashboard Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "therapist-demo-07-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: {\n  date: '2026-05-02',\n  phase1: { newBusinessLeads: 18, medianLeadResponseMinutes: 2, consultsBooked: 11, consultReminderTouches: 24, directoryTasksOpen: 4 },\n  simulatedPhase2: { fakeIntakePacketsRouted: 9, fakeEligibilityChecksQueued: 7 },\n  simulatedPhase3: { fakeUnmatchedSessions: 1, fakeDeniedClaims: 1, modeledRecoveryValue: 310 }\n} }];"
+      },
+      "id": "therapist-demo-07-metrics",
+      "name": "Load Demo Metrics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const p1 = $json.phase1;\nconst p2 = $json.simulatedPhase2;\nconst p3 = $json.simulatedPhase3;\nconst digest = [\n  `Cedar Park Counseling Collective demo digest for ${$json.date}`,\n  `Phase 1 non-PHI: ${p1.newBusinessLeads} business leads, ${p1.medianLeadResponseMinutes} minute median response, ${p1.consultsBooked} consults booked.`,\n  `Directory maintenance: ${p1.directoryTasksOpen} open public-profile tasks.`,\n  `Simulated Phase 2: ${p2.fakeIntakePacketsRouted} fake intake packets routed and ${p2.fakeEligibilityChecksQueued} fake eligibility checks queued.`,\n  `Simulated Phase 3: ${p3.fakeUnmatchedSessions} fake unmatched session, ${p3.fakeDeniedClaims} fake denied claim, $${p3.modeledRecoveryValue} modeled recovery value.`,\n  'Demo only. Do not present simulated metrics as client results.'\n].join('\\n');\nreturn [{ json: { digest, demoOnly: true } }];"
+      },
+      "id": "therapist-demo-07-digest",
+      "name": "Create Demo Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Demo Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Demo Metrics": {
+      "main": [
+        [
+          {
+            "node": "Create Demo Digest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

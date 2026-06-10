@@ -1,0 +1,27 @@
+{
+  "pipelineName": "Postal Presort Lead Funnel",
+  "stages": [
+    "New Inquiry",
+    "Callback Scheduled",
+    "Discovery Scheduled",
+    "Discovery Held",
+    "Quoted",
+    "Won",
+    "Closed Lost"
+  ],
+  "properties": [
+    "monthly_piece_volume",
+    "mail_class_mix",
+    "current_mail_prep",
+    "workshare_interest",
+    "phi_status",
+    "biggest_pain",
+    "industry_segment",
+    "lead_source",
+    "discovery_call_at",
+    "estimate_value",
+    "lost_reason",
+    "review_opt_out",
+    "last_outbound_at"
+  ]
+}

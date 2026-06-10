@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - HVAC Contractors - 05 - Maintenance Plan Reactivation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "hvac-demo-05-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nlet skippedNoConsent = 0;\nconst rows = [];\nfor (const member of input) {\n  if (!member.optInSource) {\n    skippedNoConsent += 1;\n    continue;\n  }\n  const expired = member.planStatus === 'expired';\n  const systemAge = Number(`${member.systemAge ?? '0'}`.replace(/\\D/g, ''));\n  const segment = expired ? 'renewal-campaign' : systemAge >= 8 ? 'replacement-watchlist' : 'next-season-tune-up';\n  rows.push({ json: { ...member, segment, nextAction: expired ? 'Send renewal offer.' : 'Schedule seasonal reminder.' } });\n}\nrows.push({ json: { summary: true, processed: rows.length, skippedNoConsent, note: 'Records without optInSource are excluded from all sends. FCC one-to-one consent: no purchased or shared lists.' } });\nreturn rows;"
+      },
+      "id": "hvac-demo-05-segment",
+      "name": "Segment Maintenance Members",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Segment Maintenance Members", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

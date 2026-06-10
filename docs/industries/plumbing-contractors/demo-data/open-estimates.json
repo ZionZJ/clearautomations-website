@@ -1,0 +1,57 @@
+[
+  {
+    "dealId": "PLB-DEMO-301",
+    "customerName": "Renata Vasquez",
+    "serviceArea": "Houston",
+    "estimateType": "whole-home repipe (PEX)",
+    "estimateValue": 9800,
+    "quoteAgeDays": 6,
+    "lastContactOutcome": "sent quote",
+    "financingMentioned": true,
+    "lostReason": null
+  },
+  {
+    "dealId": "PLB-DEMO-302",
+    "customerName": "Calvin Ngo",
+    "serviceArea": "Katy",
+    "estimateType": "tankless water heater replacement",
+    "estimateValue": 6400,
+    "quoteAgeDays": 15,
+    "lastContactOutcome": "left voicemail",
+    "financingMentioned": false,
+    "lostReason": null
+  },
+  {
+    "dealId": "PLB-DEMO-303",
+    "customerName": "Sherice Daniels",
+    "serviceArea": "Pearland",
+    "estimateType": "sewer line replacement",
+    "estimateValue": 12500,
+    "quoteAgeDays": 3,
+    "lastContactOutcome": "sent quote",
+    "financingMentioned": true,
+    "lostReason": null
+  },
+  {
+    "dealId": "PLB-DEMO-304",
+    "customerName": "Hugo Esparza",
+    "serviceArea": "Sugar Land",
+    "estimateType": "fixture install (two bathrooms)",
+    "estimateValue": 1850,
+    "quoteAgeDays": 18,
+    "lastContactOutcome": "no reply to two emails",
+    "financingMentioned": false,
+    "lostReason": "no-response"
+  },
+  {
+    "dealId": "PLB-DEMO-305",
+    "customerName": "Bettina Kowalski",
+    "serviceArea": "Spring",
+    "estimateType": "tank water heater replacement",
+    "estimateValue": 2300,
+    "quoteAgeDays": 8,
+    "lastContactOutcome": "asked to think it over",
+    "financingMentioned": false,
+    "lostReason": null
+  }
+]

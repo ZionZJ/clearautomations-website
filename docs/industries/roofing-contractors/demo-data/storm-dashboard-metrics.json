@@ -1,0 +1,12 @@
+{
+  "period": "2026-04-18 to 2026-04-24",
+  "stormLeads": 68,
+  "missedCalls": 21,
+  "inspectionsBooked": 39,
+  "claimsActive": 24,
+  "missingDocuments": 9,
+  "openEstimates": 14,
+  "unsignedContracts": 6,
+  "reviewOpportunities": 11,
+  "workflowFailures": 1
+}

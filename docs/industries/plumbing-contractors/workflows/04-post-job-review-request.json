@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Plumbing Contractors - 04 - Post-Job Review Request",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "plumbing-demo-04-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst reviewableJobTypes = ['water heater install', 'water heater replacement', 'repipe', 'sewer line repair', 'sewer line replacement', 'drain cleaning', 'fixture install', 'leak repair'];\nreturn input.map((job) => {\n  const jobType = `${job.jobType ?? ''}`.toLowerCase();\n  const status = `${job.technicianStatus ?? ''}`.toLowerCase();\n  let reviewAction;\n  if (job.reviewOptOut === true) {\n    reviewAction = 'excluded-review-opt-out';\n  } else if (!reviewableJobTypes.some((type) => jobType.includes(type))) {\n    reviewAction = 'excluded-job-type';\n  } else if (status.includes('unhappy') || status.includes('complaint') || status.includes('manager')) {\n    reviewAction = 'manager-follow-up-first';\n  } else {\n    reviewAction = 'send-review-request';\n  }\n  return { json: { ...job, reviewAction } };\n});"
+      },
+      "id": "plumbing-demo-04-filter",
+      "name": "Filter Review Requests",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Filter Review Requests", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

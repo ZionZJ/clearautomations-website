@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Plumbing Contractors - 05 - Past-Customer Reactivation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "plumbing-demo-05-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst eligible = [];\nlet skippedNoOptIn = 0;\nfor (const customer of input) {\n  if (!customer.optInSource) {\n    skippedNoOptIn += 1;\n    continue;\n  }\n  const heaterAgeYears = Number(`${customer.waterHeaterAge ?? '0'}`.replace(/\\D/g, ''));\n  const monthsSinceDrain = Number(customer.monthsSinceLastDrainService ?? 0);\n  let segment;\n  if (heaterAgeYears >= 8) segment = 'water-heater-replacement-watch';\n  else if (monthsSinceDrain >= 12) segment = 'drain-service-due';\n  else segment = 'no-campaign-this-cycle';\n  const nextAction = segment === 'water-heater-replacement-watch'\n    ? 'Send approved water-heater aging check-in.'\n    : segment === 'drain-service-due'\n      ? 'Send approved drain-service cadence reminder.'\n      : 'No outreach this cycle.';\n  eligible.push({ json: { ...customer, segment, nextAction } });\n}\neligible.push({ json: { reactivationSummary: true, eligibleCount: eligible.length, skippedNoOptIn, gate: 'Records without optInSource are excluded. FCC one-to-one consent: consent is not shared across brands or bought as leads, and no purchased lists enter this flow.' } });\nreturn eligible;"
+      },
+      "id": "plumbing-demo-05-segment",
+      "name": "Segment Past Customers (Opt-In Gate)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Segment Past Customers (Opt-In Gate)", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

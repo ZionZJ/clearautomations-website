@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Legal Intake - 02 - Missed Call Callback Queue",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "legal-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst weights = { 'personal-injury': 5, 'mass-tort': 5, family: 3, immigration: 3, criminal: 4, estate: 2, employment: 3, other: 1 };\nconst rows = input.map((call) => {\n  const text = `${call.voicemailText ?? ''}`.toLowerCase();\n  const caseTypeHint = `${call.caseTypeHint ?? 'other'}`.toLowerCase();\n  const practiceWeight = weights[caseTypeHint] ?? 1;\n  const urgencySignals = ['accident today', 'just happened', 'arrested', 'served papers', 'injunction', 'imminent', 'emergency'];\n  const urgencyHits = urgencySignals.filter((term) => text.includes(term)).length;\n  const repeatBonus = call.repeatCaller ? 1 : 0;\n  const priorityScore = practiceWeight + urgencyHits + repeatBonus;\n  return { ...call, priorityScore, queue: priorityScore >= 6 ? 'call-now' : priorityScore >= 4 ? 'call-within-4h' : 'next-business-day' };\n});\nreturn rows.sort((a, b) => b.priorityScore - a.priorityScore).map((row) => ({ json: row }));"
+      },
+      "id": "legal-demo-02-prioritize",
+      "name": "Prioritize by Practice Area + Urgency",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Prioritize by Practice Area + Urgency", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

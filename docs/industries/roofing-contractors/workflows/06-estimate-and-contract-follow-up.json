@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Roofing Contractors - 06 - Estimate and Contract Follow-Up",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "roofing-demo-06-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((deal) => {\n  const age = Number(deal.estimateAgeDays ?? 0);\n  const value = Number(deal.estimateValue ?? 0);\n  let cadence = 'wait';\n  if (deal.contractSigned) cadence = 'complete';\n  else if (age >= 14) cadence = 'manager-review';\n  else if (age >= 3) cadence = 'follow-up-now';\n  const messageTheme = value >= 15000 ? 'replacement-value-and-timing' : 'inspection-summary-and-next-step';\n  return { json: { ...deal, cadence, messageTheme, nextAction: cadence === 'wait' ? 'No message today.' : cadence === 'complete' ? 'No follow-up needed.' : 'Send approved estimate or contract follow-up.' } };\n});"
+      },
+      "id": "roofing-demo-06-classify",
+      "name": "Classify Estimate Follow-Up",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Classify Estimate Follow-Up", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

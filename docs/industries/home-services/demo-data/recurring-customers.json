@@ -1,0 +1,139 @@
+[
+  {
+    "customerId": "RC-2001",
+    "customerName": "Sofia Marek",
+    "email": "sofia.marek@example.com",
+    "phone": "+12145550401",
+    "subVertical": "pest-control",
+    "serviceCadence": "quarterly",
+    "lastServiceDate": "2026-02-12",
+    "optInSource": "website-form-2025-08-03",
+    "optInDate": "2025-08-03"
+  },
+  {
+    "customerId": "RC-2002",
+    "customerName": "Devon Carmichael",
+    "email": "devon.carmichael@example.com",
+    "phone": "+19725550402",
+    "subVertical": "pest-control",
+    "serviceCadence": "quarterly",
+    "lastServiceDate": "2026-04-28",
+    "optInSource": "service-agreement-signup-2026-01-15",
+    "optInDate": "2026-01-15"
+  },
+  {
+    "customerId": "RC-2003",
+    "customerName": "Lupita Ferreira",
+    "email": "lupita.ferreira@example.com",
+    "phone": "+12145550403",
+    "subVertical": "pest-control",
+    "serviceCadence": "quarterly",
+    "lastServiceDate": "2026-01-20"
+  },
+  {
+    "customerId": "RC-2004",
+    "customerName": "Avery Sandoval",
+    "email": "avery.sandoval@example.com",
+    "phone": "+18175550404",
+    "subVertical": "pest-control",
+    "serviceCadence": "quarterly",
+    "lastServiceDate": "2026-03-02",
+    "optInSource": "inbound-call-2025-11-19",
+    "optInDate": "2025-11-19"
+  },
+  {
+    "customerId": "RC-2005",
+    "customerName": "Ngozi Achebe",
+    "email": "ngozi.achebe@example.com",
+    "phone": "+12145550405",
+    "subVertical": "pest-control",
+    "serviceCadence": "quarterly",
+    "lastServiceDate": "2026-05-22",
+    "optInSource": "website-form-2026-02-09",
+    "optInDate": "2026-02-09"
+  },
+  {
+    "customerId": "RC-2006",
+    "customerName": "Russ Hollander",
+    "email": "russ.hollander@example.com",
+    "phone": "+19725550406",
+    "subVertical": "pest-control",
+    "serviceCadence": "quarterly",
+    "lastServiceDate": "2025-12-04",
+    "optInSource": "service-agreement-signup-2025-06-30",
+    "optInDate": "2025-06-30"
+  },
+  {
+    "customerId": "RC-2007",
+    "customerName": "Marisol Quintanilla",
+    "email": "marisol.quintanilla@example.com",
+    "phone": "+12145550407",
+    "subVertical": "landscaping",
+    "serviceCadence": "monthly-seasonal",
+    "lastServiceDate": "2026-04-15",
+    "optInSource": "website-form-2025-03-22",
+    "optInDate": "2025-03-22"
+  },
+  {
+    "customerId": "RC-2008",
+    "customerName": "Brent Oyelaran",
+    "email": "brent.oyelaran@example.com",
+    "phone": "+18175550408",
+    "subVertical": "landscaping",
+    "serviceCadence": "monthly-seasonal",
+    "lastServiceDate": "2026-05-30",
+    "optInSource": "inbound-call-2026-03-11",
+    "optInDate": "2026-03-11"
+  },
+  {
+    "customerId": "RC-2009",
+    "customerName": "Carla Voss",
+    "email": "carla.voss@example.com",
+    "phone": "+12145550409",
+    "subVertical": "landscaping",
+    "serviceCadence": "monthly-seasonal",
+    "lastServiceDate": "2026-03-27"
+  },
+  {
+    "customerId": "RC-2010",
+    "customerName": "Theo Brandvold",
+    "email": "theo.brandvold@example.com",
+    "phone": "+19725550410",
+    "subVertical": "landscaping",
+    "serviceCadence": "monthly-seasonal",
+    "lastServiceDate": "2026-04-02",
+    "optInSource": "service-agreement-signup-2025-04-18",
+    "optInDate": "2025-04-18"
+  },
+  {
+    "customerId": "RC-2011",
+    "customerName": "Imani Sesay",
+    "email": "imani.sesay@example.com",
+    "phone": "+12145550411",
+    "subVertical": "landscaping",
+    "serviceCadence": "monthly-seasonal",
+    "lastServiceDate": "2026-06-01",
+    "optInSource": "website-form-2026-02-27",
+    "optInDate": "2026-02-27"
+  },
+  {
+    "customerId": "RC-2012",
+    "customerName": "Pete Castellano",
+    "email": "pete.castellano@example.com",
+    "phone": "+18175550412",
+    "subVertical": "landscaping",
+    "serviceCadence": "monthly-seasonal",
+    "lastServiceDate": "2026-02-19"
+  },
+  {
+    "customerId": "RC-2013",
+    "customerName": "Helen Drummond",
+    "email": "helen.drummond@example.com",
+    "phone": "+12145550413",
+    "subVertical": "plumbing",
+    "serviceCadence": "none",
+    "lastServiceDate": "2026-01-08",
+    "optInSource": "inbound-call-2026-01-08",
+    "optInDate": "2026-01-08"
+  }
+]

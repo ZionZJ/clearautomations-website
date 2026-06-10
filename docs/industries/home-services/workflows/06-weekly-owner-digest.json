@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Home Services - 06 - Weekly Owner Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "homesvc-demo-06-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst subVertical = `${metrics.subVertical ?? 'other'}`.toLowerCase();\nconst recurringEligible = subVertical === 'pest-control' || subVertical === 'landscaping';\nconst bookingRate = metrics.newLeads ? Math.round((metrics.bookedJobs / metrics.newLeads) * 100) : 0;\nconst recurringSection = recurringEligible\n  ? `Recurring renewals due: ${metrics.recurringRenewalsDue ?? 0}\\nRecurring reactivations sent: ${metrics.recurringReactivationsSent ?? 0}`\n  : `Recurring service reactivation: not applicable for ${subVertical}`;\nconst digest = `Home Services Weekly Digest\\nSub-vertical: ${subVertical}\\nPeriod: ${metrics.period}\\n\\nNew leads: ${metrics.newLeads}\\nBooked jobs: ${metrics.bookedJobs} (${bookingRate}%)\\nMissed calls: ${metrics.missedCalls}\\nSafety-branch escalations: ${metrics.safetyEscalations ?? 0}\\nStale estimates: ${metrics.staleEstimates}\\nReview opportunities: ${metrics.reviewOpportunities}\\nReviews requested: ${metrics.reviewsRequested}\\n\\n${recurringSection}\\n\\nWorkflow failures: ${metrics.workflowFailures}`;\nreturn [{ json: { ...metrics, recurringEligible, bookingRate, digest } }];"
+      },
+      "id": "homesvc-demo-06-build",
+      "name": "Build Owner Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Owner Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

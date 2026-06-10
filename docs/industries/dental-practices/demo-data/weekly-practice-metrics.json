@@ -1,0 +1,12 @@
+{
+  "period": "2026-05-06 to 2026-05-12",
+  "missedCalls": 18,
+  "newPatientCallbacks": 11,
+  "noShows": 6,
+  "lateCancellations": 5,
+  "recallOpportunities": 42,
+  "treatmentPlansNeedingFollowUp": 13,
+  "scheduleGaps": 9,
+  "reviewOpportunities": 15,
+  "workflowFailures": 1
+}

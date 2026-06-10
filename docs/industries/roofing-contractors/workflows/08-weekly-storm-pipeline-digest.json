@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Roofing Contractors - 08 - Weekly Storm Pipeline Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "roofing-demo-08-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const metrics = $json;\nconst inspectionRate = metrics.stormLeads ? Math.round((metrics.inspectionsBooked / metrics.stormLeads) * 100) : 0;\nconst digest = `Roofing Storm Pipeline Digest\\nPeriod: ${metrics.period}\\nStorm leads: ${metrics.stormLeads}\\nInspections booked: ${metrics.inspectionsBooked} (${inspectionRate}%)\\nMissed calls: ${metrics.missedCalls}\\nActive claims: ${metrics.claimsActive}\\nMissing documents: ${metrics.missingDocuments}\\nOpen estimates: ${metrics.openEstimates}\\nUnsigned contracts: ${metrics.unsignedContracts}\\nReview opportunities: ${metrics.reviewOpportunities}\\nWorkflow failures: ${metrics.workflowFailures}`;\nreturn [{ json: { ...metrics, inspectionRate, digest } }];"
+      },
+      "id": "roofing-demo-08-build",
+      "name": "Build Storm Digest",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Storm Digest", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

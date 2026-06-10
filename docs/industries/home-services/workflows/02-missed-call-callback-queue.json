@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Home Services - 02 - Missed Call Callback Queue",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "homesvc-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst rows = input.map((call) => {\n  const text = `${call.voicemailText ?? ''}`.toLowerCase();\n  const subVertical = `${call.subVertical ?? 'other'}`.toLowerCase();\n  const urgencyTerms = ['leak', 'flooding', 'no water', 'sparking', 'smoke', 'burning', 'tree on', 'power lines', 'sewage', 'gas smell', 'broken', 'stuck'];\n  const afterHours = /T(17|18|19|20|21|22|23):/.test(call.callTime ?? '');\n  const urgencyHits = urgencyTerms.filter((term) => text.includes(term)).length;\n  const priorityScore = (afterHours ? 1 : 0) + (urgencyHits * 2) + (call.repeatCaller ? 1 : 0);\n  return { ...call, subVertical, priorityScore, queue: priorityScore >= 4 ? 'call-now' : priorityScore >= 2 ? 'same-day' : 'next-business-block' };\n});\nreturn rows.sort((a, b) => b.priorityScore - a.priorityScore).map((row) => ({ json: row }));"
+      },
+      "id": "homesvc-demo-02-prioritize",
+      "name": "Prioritize Missed Calls",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Prioritize Missed Calls", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

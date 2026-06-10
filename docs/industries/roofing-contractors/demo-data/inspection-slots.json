@@ -1,0 +1,22 @@
+{
+  "lead": {
+    "leadId": "ROOF-DEMO-101",
+    "homeownerName": "Tanya Brooks",
+    "propertyCity": "Plano",
+    "damageType": "hail and missing shingles",
+    "priority": "inspection-needed",
+    "preferredInspectionWindow": "weekday afternoon"
+  },
+  "availableSlots": [
+    {
+      "slotId": "SLOT-1",
+      "startsAt": "2026-04-19T13:00:00-05:00",
+      "rep": "Avery"
+    },
+    {
+      "slotId": "SLOT-2",
+      "startsAt": "2026-04-19T16:00:00-05:00",
+      "rep": "Morgan"
+    }
+  ]
+}

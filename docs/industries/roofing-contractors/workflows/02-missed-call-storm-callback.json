@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Roofing Contractors - 02 - Missed Storm Call Callback",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "roofing-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst rows = input.map((call) => {\n  const text = `${call.voicemailText ?? ''}`.toLowerCase();\n  const damage = ['hail', 'storm', 'shingles', 'water', 'dripping', 'leak'].some((term) => text.includes(term));\n  const repeat = call.repeatCaller ? 2 : 0;\n  const priorityScore = (damage ? 3 : 0) + repeat;\n  return { ...call, priorityScore, queue: priorityScore >= 4 ? 'call-now' : 'next-office-block' };\n});\nreturn rows.sort((a, b) => b.priorityScore - a.priorityScore).map((row) => ({ json: row }));"
+      },
+      "id": "roofing-demo-02-prioritize",
+      "name": "Prioritize Storm Calls",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Prioritize Storm Calls", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

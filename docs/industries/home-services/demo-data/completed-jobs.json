@@ -1,0 +1,42 @@
+[
+  {
+    "jobId": "DEMO-JOB-homesvc-001",
+    "subVertical": "plumbing",
+    "customerName": "Marisol Vega",
+    "completedDate": "2026-07-08",
+    "technicianStatus": "happy customer; tipped technician",
+    "reviewEligible": true,
+    "reviewOptOut": false,
+    "jobValue": 480
+  },
+  {
+    "jobId": "DEMO-JOB-homesvc-002",
+    "subVertical": "electrical",
+    "customerName": "Beth Nguyen",
+    "completedDate": "2026-07-09",
+    "technicianStatus": "happy",
+    "reviewEligible": true,
+    "reviewOptOut": false,
+    "jobValue": 4800
+  },
+  {
+    "jobId": "DEMO-JOB-homesvc-003",
+    "subVertical": "garage-doors",
+    "customerName": "Henrik Larsen",
+    "completedDate": "2026-07-10",
+    "technicianStatus": "neutral; complained about scheduling delay",
+    "reviewEligible": false,
+    "reviewOptOut": false,
+    "jobValue": 280
+  },
+  {
+    "jobId": "DEMO-JOB-homesvc-004",
+    "subVertical": "pest-control",
+    "customerName": "Adaeze Okafor",
+    "completedDate": "2026-07-11",
+    "technicianStatus": "happy customer; recurring quarterly subscription",
+    "reviewEligible": true,
+    "reviewOptOut": true,
+    "jobValue": 145
+  }
+]

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Geist, system-ui, -apple-system, sans-serif">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#0E0E12"/>
+      <stop offset="100%" stop-color="#060608"/>
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A22"/>
+      <stop offset="100%" stop-color="#0F0F14"/>
+    </linearGradient>
+    <linearGradient id="urgentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2A1E10"/>
+      <stop offset="100%" stop-color="#1A1208"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#D4A843"/>
+    </marker>
+    <marker id="arrowhead-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a7a5b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="600" y="40" font-family="Instrument Serif, Georgia, serif" font-size="28" fill="#F0F0F2" text-anchor="middle" letter-spacing="-0.5">How the Admin-Augmented Front Desk Works</text>
+  <text x="600" y="65" font-size="13" fill="#9a9aa0" text-anchor="middle" letter-spacing="-0.1">Phase 1A — Admin handles calls, system handles everything else</text>
+
+  <!-- ===== ROW 1 ===== -->
+
+  <!-- Card 1: Form Submission -->
+  <g filter="url(#cardShadow)">
+    <rect x="40" y="110" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="64" cy="134" r="14" fill="#D4A843"/>
+    <text x="64" y="139" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">1</text>
+    <text x="266" y="138" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">T+0</text>
+    <text x="64" y="182" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Form Submission</text>
+    <text x="64" y="218" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="64" dy="0">Prospective client reaches out</tspan>
+      <tspan x="64" dy="16">via the new contact form on</tspan>
+      <tspan x="64" dy="16">embracingminds.com</tspan>
+    </text>
+  </g>
+
+  <!-- Card 2: System Validates -->
+  <g filter="url(#cardShadow)">
+    <rect x="320" y="110" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="344" cy="134" r="14" fill="#D4A843"/>
+    <text x="344" y="139" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">2</text>
+    <text x="546" y="138" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">T+5 sec</text>
+    <text x="344" y="182" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">System Validates</text>
+    <text x="344" y="218" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="344" dy="0">Non-PHI confirmed. Crisis-</tspan>
+      <tspan x="344" dy="16">keywords and honeypot</tspan>
+      <tspan x="344" dy="16">scanned in seconds</tspan>
+    </text>
+  </g>
+
+  <!-- Card 3: Priority Routing -->
+  <g filter="url(#cardShadow)">
+    <rect x="600" y="110" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="624" cy="134" r="14" fill="#D4A843"/>
+    <text x="624" y="139" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">3</text>
+    <text x="826" y="138" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">T+10 sec</text>
+    <text x="624" y="182" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Priority Routing</text>
+    <text x="624" y="218" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="624" dy="0">Tagged URGENT (crisis),</tspan>
+      <tspan x="624" dy="16">HIGH (Spanish / sliding-scale),</tspan>
+      <tspan x="624" dy="16">or Standard</tspan>
+    </text>
+  </g>
+
+  <!-- Card 4: Admin Notified -->
+  <g filter="url(#cardShadow)">
+    <rect x="880" y="110" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="904" cy="134" r="14" fill="#D4A843"/>
+    <text x="904" y="139" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">4</text>
+    <text x="1106" y="138" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">T+10 sec</text>
+    <text x="904" y="182" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Admin Notified</text>
+    <text x="904" y="218" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="904" dy="0">Email + SMS + HubSpot task</tspan>
+      <tspan x="904" dy="16">land with everything she needs</tspan>
+      <tspan x="904" dy="16">to call back</tspan>
+    </text>
+  </g>
+
+  <!-- Row 1 arrows -->
+  <line x1="295" y1="195" x2="315" y2="195" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="575" y1="195" x2="595" y2="195" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="855" y1="195" x2="875" y2="195" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- ===== CRISIS-BRANCH (subtle, from Stage 3) ===== -->
+  <g>
+    <!-- Dotted line from card 3 bottom down to badge -->
+    <path d="M 725 285 L 725 320" stroke="#8a7a5b" stroke-width="1" stroke-dasharray="3 4" fill="none"/>
+    <line x1="725" y1="320" x2="725" y2="335" stroke="#8a7a5b" stroke-width="1" stroke-dasharray="3 4" marker-end="url(#arrowhead-dim)"/>
+    <!-- Badge -->
+    <rect x="635" y="335" width="180" height="22" rx="11" fill="url(#urgentGrad)" stroke="#8a7a5b" stroke-width="0.5"/>
+    <text x="725" y="350" font-size="10.5" fill="#D4A843" text-anchor="middle" letter-spacing="-0.1">When URGENT: Zamaria CC'd</text>
+  </g>
+
+  <!-- ===== WRAP CONNECTOR (Card 4 → Card 5, curved) ===== -->
+  <path d="M 1005 285 Q 1180 285, 1180 370 Q 1180 460, 1130 460 L 1135 460" stroke="#D4A843" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- ===== ROW 2 (right-to-left to make the flow loop visible) ===== -->
+
+  <!-- Card 5: Admin Calls Back -->
+  <g filter="url(#cardShadow)">
+    <rect x="880" y="370" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="904" cy="394" r="14" fill="#D4A843"/>
+    <text x="904" y="399" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">5</text>
+    <text x="1106" y="398" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">&lt; T+30 min*</text>
+    <text x="904" y="442" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Admin Calls Back</text>
+    <text x="904" y="478" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="904" dy="0">In English or Spanish.</tspan>
+      <tspan x="904" dy="16">~10-min intake call using</tspan>
+      <tspan x="904" dy="16">the playbook</tspan>
+    </text>
+  </g>
+
+  <!-- Card 6: Consult Booked -->
+  <g filter="url(#cardShadow)">
+    <rect x="600" y="370" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="624" cy="394" r="14" fill="#D4A843"/>
+    <text x="624" y="399" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">6</text>
+    <text x="826" y="398" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">End of call</text>
+    <text x="624" y="442" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Consult Booked</text>
+    <text x="624" y="478" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="624" dy="0">15-min consult scheduled on</tspan>
+      <tspan x="624" dy="16">matched clinician's</tspan>
+      <tspan x="624" dy="16">SimplePractice calendar</tspan>
+    </text>
+  </g>
+
+  <!-- Card 7: Reminders Fire -->
+  <g filter="url(#cardShadow)">
+    <rect x="320" y="370" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="344" cy="394" r="14" fill="#D4A843"/>
+    <text x="344" y="399" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">7</text>
+    <text x="546" y="398" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">Before consult</text>
+    <text x="344" y="442" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Reminders Fire</text>
+    <text x="344" y="478" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="344" dy="0">Automatic 24-hour + 2-hour</tspan>
+      <tspan x="344" dy="16">reminders in the caller's</tspan>
+      <tspan x="344" dy="16">language, in the practice voice</tspan>
+    </text>
+  </g>
+
+  <!-- Card 8: Friday Metrics -->
+  <g filter="url(#cardShadow)">
+    <rect x="40" y="370" width="250" height="170" rx="12" fill="url(#cardGrad)" stroke="#2a2a32" stroke-width="0.5"/>
+    <circle cx="64" cy="394" r="14" fill="#D4A843"/>
+    <text x="64" y="399" font-size="13" font-weight="600" fill="#060608" text-anchor="middle">8</text>
+    <text x="266" y="398" font-size="11" fill="#D4A843" text-anchor="end" letter-spacing="-0.1">Friday AM</text>
+    <text x="64" y="442" font-family="Instrument Serif, Georgia, serif" font-size="17" fill="#F0F0F2" letter-spacing="-0.2">Weekly Metrics</text>
+    <text x="64" y="478" font-size="11.5" fill="#c8c8cc" letter-spacing="-0.1">
+      <tspan x="64" dy="0">Friday email to the practice:</tspan>
+      <tspan x="64" dy="16">inquiries, conversion, response</tspan>
+      <tspan x="64" dy="16">times, no-show rate</tspan>
+    </text>
+  </g>
+
+  <!-- Row 2 arrows (right-to-left) -->
+  <line x1="875" y1="455" x2="855" y2="455" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="595" y1="455" x2="575" y2="455" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="315" y1="455" x2="295" y2="455" stroke="#D4A843" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- ===== LEGEND ===== -->
+  <g>
+    <line x1="40" y1="566" x2="64" y2="566" stroke="#8a7a5b" stroke-width="1" stroke-dasharray="3 4"/>
+    <text x="74" y="570" font-size="10.5" fill="#9a9aa0" letter-spacing="-0.1">Crisis-keyword path loops in the practice owner</text>
+    <text x="40" y="590" font-size="10.5" fill="#9a9aa0" letter-spacing="-0.1">* On-hours target: 5 min URGENT/HIGH · 30 min Standard. Off-hours: queues to next business morning.</text>
+    <text x="1160" y="590" font-size="10.5" fill="#9a9aa0" text-anchor="end" letter-spacing="-0.1">ClearAutomations · Phase 1A Admin-Augmented</text>
+  </g>
+</svg>

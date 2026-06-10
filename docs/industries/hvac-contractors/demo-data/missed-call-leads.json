@@ -1,0 +1,18 @@
+[
+  {
+    "callerName": "Andre Collins",
+    "phone": "+19725550122",
+    "callTime": "2026-07-14T19:42:00-05:00",
+    "voicemailText": "Our upstairs AC stopped cooling and the kids rooms are hot.",
+    "repeatCaller": false,
+    "serviceArea": "McKinney"
+  },
+  {
+    "callerName": "Beth Nguyen",
+    "phone": "+14695550144",
+    "callTime": "2026-07-14T21:08:00-05:00",
+    "voicemailText": "I need a quote for replacing two units next month.",
+    "repeatCaller": true,
+    "serviceArea": "Plano"
+  }
+]

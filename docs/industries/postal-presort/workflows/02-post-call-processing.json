@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Postal Presort - 02 - Post-Call Processing (5-Way Branch)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "presort-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json;\nconst transcript = `${payload.transcript ?? ''}`.toLowerCase();\nconst durationSeconds = Number(payload.durationSeconds ?? 0);\nconst dncSignal = transcript.includes('do not call') || transcript.includes('remove me') || transcript.includes('stop calling');\nconst notInterested = transcript.includes('not interested') || transcript.includes('no thanks');\nconst emailOnly = transcript.includes('email me') || transcript.includes('just email');\nconst noAnswer = durationSeconds < 8 || transcript.length < 30;\nlet outcome;\nif (dncSignal) outcome = 'DNC';\nelse if (noAnswer) outcome = 'no-answer';\nelse if (notInterested) outcome = 'not-interested';\nelse if (emailOnly) outcome = 'email-only';\nelse outcome = 'qualified';\nconst nextAction = {\n  qualified: 'CRM stage = discovery-scheduled; calendar invite sent',\n  'no-answer': 'Retry scheduler queues for next business day',\n  'not-interested': 'CRM stage = closed-lost-not-interested; capture reason',\n  'email-only': 'Trigger 3-touch email sequence (W03)',\n  DNC: 'Block number in Vapi + flag in HubSpot do_not_contact'\n};\nreturn [{ json: { ...payload, outcome, nextAction: nextAction[outcome], downstreamWorkflow: outcome === 'email-only' ? '03-follow-up-sequence' : null } }];"
+      },
+      "id": "presort-demo-02-branch",
+      "name": "5-Way Branching",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "5-Way Branching", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

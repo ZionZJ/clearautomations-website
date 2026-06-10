@@ -1,0 +1,52 @@
+[
+  {
+    "jobId": "JOB-7001",
+    "customerName": "Lavonne Whitaker",
+    "email": "lavonne.whitaker@example.com",
+    "phone": "+17135550152",
+    "jobType": "water heater install",
+    "completedAt": "2026-07-16",
+    "technicianStatus": "happy customer",
+    "reviewOptOut": false
+  },
+  {
+    "jobId": "JOB-7002",
+    "customerName": "Emiliano Torres",
+    "email": "emiliano.torres@example.com",
+    "phone": "+12815550139",
+    "jobType": "drain cleaning",
+    "completedAt": "2026-07-16",
+    "technicianStatus": "unhappy about cleanup, needs manager follow-up",
+    "reviewOptOut": false
+  },
+  {
+    "jobId": "JOB-7003",
+    "customerName": "Greta Lindqvist",
+    "email": "greta.lindqvist@example.com",
+    "phone": "+18325550148",
+    "jobType": "repipe",
+    "completedAt": "2026-07-17",
+    "technicianStatus": "happy customer",
+    "reviewOptOut": true
+  },
+  {
+    "jobId": "JOB-7004",
+    "customerName": "Dexter Boone",
+    "email": "dexter.boone@example.com",
+    "phone": "+17135550164",
+    "jobType": "warranty callback",
+    "completedAt": "2026-07-17",
+    "technicianStatus": "happy customer",
+    "reviewOptOut": false
+  },
+  {
+    "jobId": "JOB-7005",
+    "customerName": "Anika Chaudhry",
+    "email": "anika.chaudhry@example.com",
+    "phone": "+12815550195",
+    "jobType": "fixture install",
+    "completedAt": "2026-07-18",
+    "technicianStatus": "happy customer",
+    "reviewOptOut": false
+  }
+]

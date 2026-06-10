@@ -1,0 +1,61 @@
+{
+  "name": "DEMO - Therapist Practice - 04 - Directory Health Check",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "therapist-demo-04-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const profiles = [\n  { channel: 'Psychology Today', url: 'https://example.com/cedar-park-psychology-today', lastReviewed: '2026-03-28', bookingLinkStatus: 'outdated', availabilityStatus: 'needs update', phoneStatus: 'ok', specialtiesStatus: 'ok' },\n  { channel: 'Zencare', url: 'https://example.com/cedar-park-zencare', lastReviewed: '2026-04-10', bookingLinkStatus: 'ok', availabilityStatus: 'ok', phoneStatus: 'ok', specialtiesStatus: 'needs update' },\n  { channel: 'Headway', url: 'https://example.com/cedar-park-headway', lastReviewed: '2026-02-22', bookingLinkStatus: 'missing', availabilityStatus: 'needs update', phoneStatus: 'ok', specialtiesStatus: 'ok' }\n];\nreturn profiles.map((profile) => ({ json: profile }));"
+      },
+      "id": "therapist-demo-04-profiles",
+      "name": "Load Demo Profiles",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map((item) => {\n  const profile = item.json;\n  const tasks = [];\n  if (profile.bookingLinkStatus !== 'ok') tasks.push(`Fix booking link: ${profile.bookingLinkStatus}`);\n  if (profile.availabilityStatus !== 'ok') tasks.push(`Update availability: ${profile.availabilityStatus}`);\n  if (profile.phoneStatus !== 'ok') tasks.push(`Review phone number: ${profile.phoneStatus}`);\n  if (profile.specialtiesStatus !== 'ok') tasks.push(`Review specialty language: ${profile.specialtiesStatus}`);\n  return {\n    json: {\n      channel: profile.channel,\n      url: profile.url,\n      lastReviewed: profile.lastReviewed,\n      status: tasks.length ? 'needs-action' : 'ok',\n      actionCount: tasks.length,\n      tasks,\n      owner: 'Practice admin demo owner',\n      due: 'Next monthly directory review',\n      demoOnly: true\n    }\n  };\n});"
+      },
+      "id": "therapist-demo-04-actions",
+      "name": "Create Directory Actions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Demo Profiles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Demo Profiles": {
+      "main": [
+        [
+          {
+            "node": "Create Directory Actions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

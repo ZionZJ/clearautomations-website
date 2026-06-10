@@ -1,0 +1,33 @@
+{
+  "pipelineName": "Legal Intake Funnel",
+  "stages": [
+    "New Intake",
+    "Conflict-Cleared",
+    "Conflict-Declined",
+    "Coordinator Callback Queue",
+    "Discovery Scheduled",
+    "Discovery Held",
+    "Engaged",
+    "Closed Lost"
+  ],
+  "properties": [
+    "case_type_bucket",
+    "state_of_matter",
+    "opposing_parties",
+    "practice_area",
+    "lead_source",
+    "callback_sla_target_at",
+    "conflict_check_at",
+    "conflict_check_outcome",
+    "engagement_letter_sent_at",
+    "engagement_signed_at",
+    "outcome_satisfaction",
+    "review_opt_out",
+    "client_would_refer"
+  ],
+  "complianceNotes": [
+    "No fact-pattern fields. Per ABA Rule 1.18, fact pattern is collected post-conflict-clearance by the intake coordinator inside the firm CMS — never in HubSpot.",
+    "No prospective-client privileged information. Aggregate analytics only.",
+    "Retention per firm policy and state bar rules; typically 7-10 years for closed matters."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "DEMO - Postal Presort - 01 - Inbound Form Callback",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-postal-presort-form-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "presort-demo-01-webhook",
+      "name": "Inbound Form Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst volumeTier = `${payload.monthlyPieceVolume ?? ''}`.toLowerCase();\nconst phiSignal = `${payload.phiStatus ?? ''}`.toLowerCase();\nconst priorityScore = (volumeTier.includes('25k') ? 3 : volumeTier.includes('10k') ? 2 : volumeTier.includes('2k') ? 1 : 0) + (phiSignal.includes('mostly') ? 1 : 0);\nconst leadId = `DEMO-PRESORT-${Date.now()}`;\nconst smsWarmUp = `Hi ${(payload.contactName ?? 'there').split(' ')[0]}, this is ${payload.companyName ?? 'the team'}'s automated assistant. We received your inquiry and are calling in about 30 seconds. — Lone Star Mail Services`;\nreturn [{ json: { leadId, priority: priorityScore >= 2 ? 'high' : priorityScore >= 1 ? 'medium' : 'standard', smsWarmUp, callbackDelaySeconds: 30, vapiAgent: 'inbound-callback', nextAction: 'Send SMS warm-up, schedule Vapi callback in 30 seconds.', lead: payload } }];"
+      },
+      "id": "presort-demo-01-prepare",
+      "name": "Prepare Callback Record",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "presort-demo-01-response",
+      "name": "Return Callback Plan",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Inbound Form Webhook": {
+      "main": [[{ "node": "Prepare Callback Record", "type": "main", "index": 0 }]]
+    },
+    "Prepare Callback Record": {
+      "main": [[{ "node": "Return Callback Plan", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

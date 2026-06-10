@@ -1,0 +1,41 @@
+{
+  "demoOnly": true,
+  "sessions": [
+    {
+      "sessionId": "FAKE-SESSION-4001",
+      "fakeClientId": "FAKE-CLIENT-3001",
+      "date": "2026-04-20",
+      "clinicianId": "DEMO-CLIN-01",
+      "fee": 145
+    },
+    {
+      "sessionId": "FAKE-SESSION-4002",
+      "fakeClientId": "FAKE-CLIENT-3002",
+      "date": "2026-04-21",
+      "clinicianId": "DEMO-CLIN-02",
+      "fee": 165
+    },
+    {
+      "sessionId": "FAKE-SESSION-4003",
+      "fakeClientId": "FAKE-CLIENT-3003",
+      "date": "2026-04-22",
+      "clinicianId": "DEMO-CLIN-01",
+      "fee": 145
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "FAKE-CLAIM-5001",
+      "sessionId": "FAKE-SESSION-4001",
+      "status": "paid",
+      "paidAmount": 112
+    },
+    {
+      "claimId": "FAKE-CLAIM-5002",
+      "sessionId": "FAKE-SESSION-4002",
+      "status": "denied",
+      "paidAmount": 0,
+      "denialReason": "demo missing prior authorization"
+    }
+  ]
+}

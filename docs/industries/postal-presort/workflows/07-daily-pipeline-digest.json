@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Postal Presort - 07 - Daily Pipeline Digest",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "presort-demo-07-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const snapshot = $json;\nconst overnightSummary = `${snapshot.overnightInbound ?? 0} inbound overnight (${snapshot.overnightCallbacksFired ?? 0} callbacks fired)`;\nconst todayQueue = `${snapshot.callsScheduledToday ?? 0} outbound calls in queue, ${snapshot.discoveryCallsToday ?? 0} discovery calls scheduled`;\nconst blockers = (snapshot.blockers ?? []).length === 0 ? 'No blockers.' : snapshot.blockers.join('; ');\nconst digest = `Postal Presort Daily Snapshot\\nDate: ${snapshot.date}\\n\\n${overnightSummary}\\n${todayQueue}\\n\\nBlockers: ${blockers}`;\nreturn [{ json: { ...snapshot, digest } }];"
+      },
+      "id": "presort-demo-07-build",
+      "name": "Build Daily Snapshot",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Build Daily Snapshot", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

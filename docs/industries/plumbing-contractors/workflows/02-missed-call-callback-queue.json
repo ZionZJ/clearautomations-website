@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Plumbing Contractors - 02 - Missed Call Callback Queue",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "plumbing-demo-02-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nconst rows = input.map((call) => {\n  const text = `${call.voicemailText ?? ''}`.toLowerCase();\n  const callTime = `${call.callTime ?? ''}`;\n  const afterHours = /T(17|18|19|20|21|22|23):/.test(callTime);\n  const datePart = callTime.slice(0, 10);\n  const day = datePart.length === 10 ? new Date(`${datePart}T12:00:00Z`).getUTCDay() : null;\n  const weekend = day === 0 || day === 6;\n  const safetyFlag = ['gas smell', 'smell gas', 'gas leak', 'sewage', 'flooding'].some((term) => text.includes(term));\n  const emergency = ['burst pipe', 'pipe burst', 'no water', 'water heater', 'water everywhere'].some((term) => text.includes(term));\n  const priorityScore = (safetyFlag ? 5 : 0) + (emergency ? 3 : 0) + (afterHours ? 1 : 0) + (weekend ? 1 : 0) + (call.repeatCaller ? 1 : 0);\n  const queue = safetyFlag ? 'human-now' : priorityScore >= 3 ? 'call-now' : 'next-business-block';\n  return { ...call, afterHours, weekend, safetyFlag, priorityScore, queue };\n});\nreturn rows.sort((a, b) => b.priorityScore - a.priorityScore).map((row) => ({ json: row }));"
+      },
+      "id": "plumbing-demo-02-prioritize",
+      "name": "Prioritize Missed Calls",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Prioritize Missed Calls", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

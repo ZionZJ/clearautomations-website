@@ -1,0 +1,114 @@
+{
+  "name": "DEMO - Plumbing Contractors - 01 - Emergency Service Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-plumbing-emergency-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "plumbing-demo-01-webhook",
+      "name": "Emergency Intake Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst text = `${payload.serviceType ?? ''} ${payload.problemDescription ?? ''} ${payload.urgencyNotes ?? ''}`.toLowerCase();\n\nconst gasTerms = ['gas smell', 'smell gas', 'smells like gas', 'gas leak'];\nconst safetyTerms = [...gasTerms, 'sewage backup', 'sewage backing up', 'raw sewage', 'sewage', 'major flooding', 'flooding', 'water pouring through'];\nconst emergencyTerms = ['burst pipe', 'pipe burst', 'no water', 'water heater failed', 'water heater leaking', 'water heater burst', 'no hot water at all'];\nconst highTerms = ['active leak', 'leaking', 'partial outage', 'only one bathroom', 'low pressure everywhere'];\nconst quoteTerms = ['repipe', 'water heater replacement', 'replace the water heater', 'tankless', 'sewer line', 'fixture', 'estimate', 'quote'];\n\nconst hit = (terms) => terms.some((term) => text.includes(term));\n\nlet tier;\nif (hit(safetyTerms)) tier = 'safety-emergency';\nelse if (hit(emergencyTerms)) tier = 'emergency';\nelse if (hit(highTerms)) tier = 'high';\nelse if (hit(quoteTerms)) tier = 'quote';\nelse tier = 'routine';\n\nconst safetyEmergency = tier === 'safety-emergency';\nconst gasInvolved = hit(gasTerms);\n\nconst routingByTier = {\n  'safety-emergency': 'immediate-human',\n  emergency: 'immediate-human-callback',\n  high: 'fast-callback',\n  quote: 'stage-2-follow-up',\n  routine: 'scheduled-nurture'\n};\n\nlet nextAction;\nif (safetyEmergency) {\n  nextAction = gasInvolved\n    ? 'Escalate to on-call human now. Voice script has already told the caller to leave the area and call the gas utility, or 911 if anyone is in danger. Never queue.'\n    : 'Escalate to on-call human now. AI never holds sewage or flooding calls. Never queue.';\n} else if (tier === 'emergency') {\n  nextAction = 'Create immediate human callback task.';\n} else if (tier === 'high') {\n  nextAction = 'Create fast callback task, prioritized in the queue.';\n} else if (tier === 'quote') {\n  nextAction = 'Create estimate record for Stage 2 follow-up.';\n} else {\n  nextAction = 'Add to scheduled service and nurture queue.';\n}\n\nreturn [{\n  json: {\n    leadId: `DEMO-PLB-${Date.now()}`,\n    tier,\n    safetyEmergency,\n    gasInvolved,\n    routing: routingByTier[tier],\n    voiceAgent: 'plumbing-bayou-city-intake',\n    nextAction,\n    lead: payload\n  }\n}];"
+      },
+      "id": "plumbing-demo-01-score",
+      "name": "Score Urgency (5-Tier Taxonomy)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "plumbing-demo-01-safety-check",
+              "leftValue": "={{ $json.safetyEmergency }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "plumbing-demo-01-safety-branch",
+      "name": "Safety Emergency?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [480, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { ...$json, queue: 'never-ai-queue', escalation: 'on-call-human-now', escalationNote: 'Safety emergency. AI never holds gas, sewage, or flooding calls. Route to a human immediately.' } }];"
+      },
+      "id": "plumbing-demo-01-human",
+      "name": "Immediate Human Escalation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, -140]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { ...$json, queue: 'ai-managed-queue', escalation: 'per-dispatch-handoff-map' } }];"
+      },
+      "id": "plumbing-demo-01-standard",
+      "name": "Standard Routing",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 140]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "plumbing-demo-01-response",
+      "name": "Return Routing Result",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [960, 0]
+    }
+  ],
+  "connections": {
+    "Emergency Intake Webhook": {
+      "main": [[{ "node": "Score Urgency (5-Tier Taxonomy)", "type": "main", "index": 0 }]]
+    },
+    "Score Urgency (5-Tier Taxonomy)": {
+      "main": [[{ "node": "Safety Emergency?", "type": "main", "index": 0 }]]
+    },
+    "Safety Emergency?": {
+      "main": [
+        [{ "node": "Immediate Human Escalation", "type": "main", "index": 0 }],
+        [{ "node": "Standard Routing", "type": "main", "index": 0 }]
+      ]
+    },
+    "Immediate Human Escalation": {
+      "main": [[{ "node": "Return Routing Result", "type": "main", "index": 0 }]]
+    },
+    "Standard Routing": {
+      "main": [[{ "node": "Return Routing Result", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

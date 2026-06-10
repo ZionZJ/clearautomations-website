@@ -1,0 +1,12 @@
+{
+  "period": "2026-07-08 to 2026-07-14",
+  "newLeads": 43,
+  "missedCalls": 12,
+  "emergencyLeads": 18,
+  "bookedJobs": 24,
+  "staleEstimates": 7,
+  "reviewOpportunities": 16,
+  "reviewsRequested": 11,
+  "maintenanceRenewalsDue": 22,
+  "workflowFailures": 1
+}

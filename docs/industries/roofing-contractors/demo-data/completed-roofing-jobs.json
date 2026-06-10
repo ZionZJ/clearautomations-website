@@ -1,0 +1,22 @@
+[
+  {
+    "jobId": "ROOF-JOB-801",
+    "homeownerName": "Lena Brooks",
+    "email": "lena.brooks@example.com",
+    "phone": "+19405550177",
+    "jobType": "roof replacement",
+    "completedAt": "2026-04-12",
+    "managerStatus": "happy homeowner",
+    "reviewEligible": true
+  },
+  {
+    "jobId": "ROOF-JOB-802",
+    "homeownerName": "Marcus Hill",
+    "email": "marcus.hill@example.com",
+    "phone": "+12145550202",
+    "jobType": "leak repair",
+    "completedAt": "2026-04-12",
+    "managerStatus": "needs punch-list follow-up",
+    "reviewEligible": false
+  }
+]

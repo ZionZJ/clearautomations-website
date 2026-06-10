@@ -1,0 +1,31 @@
+[
+  {
+    "customerId": "M-1001",
+    "customerName": "Sofia Miller",
+    "email": "sofia.miller@example.com",
+    "phone": "+12145550901",
+    "planStatus": "expired",
+    "lastTuneUpDate": "2025-10-03",
+    "systemAge": "9 years",
+    "optInSource": "maintenance-plan-signup-2024-06"
+  },
+  {
+    "customerId": "M-1002",
+    "customerName": "Evan Shaw",
+    "email": "evan.shaw@example.com",
+    "phone": "+19725550902",
+    "planStatus": "active",
+    "lastTuneUpDate": "2026-03-18",
+    "systemAge": "4 years",
+    "optInSource": "tune-up-booking-2026-03"
+  },
+  {
+    "customerId": "M-1003",
+    "customerName": "Priya Raman",
+    "email": "priya.raman@example.com",
+    "phone": "+14695550903",
+    "planStatus": "expired",
+    "lastTuneUpDate": "2024-09-22",
+    "systemAge": "11 years"
+  }
+]

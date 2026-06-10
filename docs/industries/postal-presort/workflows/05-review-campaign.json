@@ -1,0 +1,32 @@
+{
+  "name": "DEMO - Postal Presort - 05 - Review Campaign",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "presort-demo-05-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = Array.isArray($json) ? $json : [$json];\nreturn input.map((closedWon) => {\n  const satisfaction = `${closedWon.customerSatisfaction ?? ''}`.toLowerCase();\n  const optOut = closedWon.reviewOptOut === true;\n  const eligible = !optOut && (satisfaction === 'high' || satisfaction === 'positive');\n  const daysSinceClosed = Number(closedWon.daysSinceClosed ?? 0);\n  let touch;\n  if (!eligible) touch = 'manager-route';\n  else if (daysSinceClosed === 7) touch = 'D7-email';\n  else if (daysSinceClosed === 10) touch = 'D10-sms';\n  else if (daysSinceClosed === 14) touch = 'D14-final-email';\n  else touch = 'wait';\n  return { json: { ...closedWon, touch, reviewLink: eligible ? closedWon.reviewLink ?? 'https://g.page/r/REVIEW-LINK-PLACEHOLDER' : null, nextAction: touch === 'manager-route' ? 'Escalate to office manager for follow-up first.' : touch === 'wait' ? 'No touch today.' : 'Send approved review request.' } };\n});"
+      },
+      "id": "presort-demo-05-filter",
+      "name": "Filter & Schedule Review Touches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [[{ "node": "Filter & Schedule Review Touches", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

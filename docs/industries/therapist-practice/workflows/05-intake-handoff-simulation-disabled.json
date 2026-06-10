@@ -1,0 +1,82 @@
+{
+  "name": "DEMO - Therapist Practice - 05 - Intake Handoff Simulation - Disabled",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "therapist-demo-05-manual",
+      "name": "Manual Demo Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = {\n  demoOnly: true,\n  intakePackets: [\n    { fakeClientId: 'FAKE-CLIENT-3001', preferredSchedule: 'weekday mornings', requestedServiceCategory: 'individual therapy demo category', payerCategory: 'commercial demo payer', preferredModality: 'telehealth' },\n    { fakeClientId: 'FAKE-CLIENT-3002', preferredSchedule: 'evenings', requestedServiceCategory: 'couples therapy demo category', payerCategory: 'private pay demo', preferredModality: 'in person' }\n  ],\n  clinicians: [\n    { clinicianId: 'DEMO-CLIN-01', name: 'Demo Clinician One', availability: 'weekday mornings', modalities: ['telehealth', 'in person'], serviceCategories: ['individual therapy demo category'] },\n    { clinicianId: 'DEMO-CLIN-02', name: 'Demo Clinician Two', availability: 'evenings', modalities: ['in person'], serviceCategories: ['couples therapy demo category'] }\n  ]\n};\nreturn [{ json: data }];"
+      },
+      "id": "therapist-demo-05-fake-intake",
+      "name": "Load Fake Intake Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if ($json.demoOnly !== true) {\n  throw new Error('Demo guard blocked execution. This simulated workflow accepts fake data only.');\n}\nreturn [{ json: { ...$json, guard: 'passed-fake-data-only' } }];"
+      },
+      "id": "therapist-demo-05-guard",
+      "name": "Fake Data Guard",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const clinicians = $json.clinicians;\nconst routed = $json.intakePackets.map((packet) => {\n  const match = clinicians.find((clinician) => clinician.availability === packet.preferredSchedule && clinician.modalities.includes(packet.preferredModality) && clinician.serviceCategories.includes(packet.requestedServiceCategory));\n  return {\n    ...packet,\n    matchedClinician: match ? match.name : 'manual review required',\n    nextStep: match ? 'demo handoff packet ready' : 'demo routing review',\n    productionWarning: 'Requires BAA, insurance, hosting, vendor approvals, risk analysis, and retention policy before real use.'\n  };\n});\nreturn routed.map((item) => ({ json: item }));"
+      },
+      "id": "therapist-demo-05-route",
+      "name": "Simulate Intake Routing",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 0]
+    }
+  ],
+  "connections": {
+    "Manual Demo Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load Fake Intake Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Fake Intake Data": {
+      "main": [
+        [
+          {
+            "node": "Fake Data Guard",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fake Data Guard": {
+      "main": [
+        [
+          {
+            "node": "Simulate Intake Routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

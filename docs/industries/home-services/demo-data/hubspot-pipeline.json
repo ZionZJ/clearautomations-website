@@ -1,0 +1,29 @@
+{
+  "pipelineName": "Home Services Lead Funnel",
+  "stages": [
+    "New Lead",
+    "Callback Queue",
+    "Scheduled",
+    "Quoted",
+    "Follow-Up Active",
+    "Won",
+    "Lost"
+  ],
+  "properties": [
+    "sub_vertical",
+    "service_area",
+    "monthly_lead_volume",
+    "after_hours_coverage",
+    "current_tools",
+    "biggest_leak",
+    "license_info",
+    "service_type",
+    "urgency",
+    "estimate_value",
+    "lost_reason",
+    "review_eligible",
+    "review_opt_out",
+    "recurring_service_eligible",
+    "last_service_date"
+  ]
+}

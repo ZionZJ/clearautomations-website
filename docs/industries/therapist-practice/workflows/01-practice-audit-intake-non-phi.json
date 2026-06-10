@@ -1,0 +1,68 @@
+{
+  "name": "DEMO - Therapist Practice - 01 - Practice Audit Intake - Non-PHI",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo-therapist-practice-audit",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "therapist-demo-01-webhook",
+      "name": "Practice Audit Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const payload = $json.body ?? $json;\nconst forbiddenTerms = ['patient', 'client name', 'symptom', 'diagnosis', 'insurance', 'member id', 'appointment reason', 'clinical note', 'psychotherapy note'];\nconst haystack = JSON.stringify(payload).toLowerCase();\nconst flaggedTerms = forbiddenTerms.filter((term) => haystack.includes(term));\nconst accepted = flaggedTerms.length === 0 && payload.phiAcknowledgement === true;\nreturn [{\n  json: {\n    accepted,\n    leadId: accepted ? `DEMO-THER-${Date.now()}` : null,\n    flaggedTerms,\n    message: accepted ? 'Accepted demo non-PHI practice audit lead.' : 'Rejected for demo review. Remove patient-specific details before submitting.',\n    lead: accepted ? {\n      practiceName: payload.practiceName,\n      contactName: payload.contactName,\n      workEmail: payload.workEmail,\n      workPhone: payload.workPhone,\n      website: payload.website,\n      providerCount: payload.providerCount,\n      ehrTools: payload.ehrTools,\n      adminPain: payload.adminPain,\n      monthlyVolume: payload.monthlyVolume,\n      source: payload.source ?? 'therapist-practice-audit'\n    } : payload\n  }\n}];"
+      },
+      "id": "therapist-demo-01-validate",
+      "name": "Validate Non-PHI Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "therapist-demo-01-response",
+      "name": "Return Lead Review",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "Practice Audit Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Non-PHI Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Non-PHI Payload": {
+      "main": [
+        [
+          {
+            "node": "Return Lead Review",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

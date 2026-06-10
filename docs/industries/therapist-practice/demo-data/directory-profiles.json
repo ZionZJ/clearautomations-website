@@ -1,0 +1,31 @@
+{
+  "profiles": [
+    {
+      "channel": "Psychology Today",
+      "url": "https://example.com/cedar-park-psychology-today",
+      "lastReviewed": "2026-03-28",
+      "bookingLinkStatus": "outdated",
+      "availabilityStatus": "needs update",
+      "phoneStatus": "ok",
+      "specialtiesStatus": "ok"
+    },
+    {
+      "channel": "Zencare",
+      "url": "https://example.com/cedar-park-zencare",
+      "lastReviewed": "2026-04-10",
+      "bookingLinkStatus": "ok",
+      "availabilityStatus": "ok",
+      "phoneStatus": "ok",
+      "specialtiesStatus": "needs update"
+    },
+    {
+      "channel": "Headway",
+      "url": "https://example.com/cedar-park-headway",
+      "lastReviewed": "2026-02-22",
+      "bookingLinkStatus": "missing",
+      "availabilityStatus": "needs update",
+      "phoneStatus": "ok",
+      "specialtiesStatus": "ok"
+    }
+  ]
+}

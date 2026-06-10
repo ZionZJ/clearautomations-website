@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-Minute Stack Audit Checklist | Clear Automations</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Geist:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: #060608;
+      color: #F0F0F2;
+      padding: 48px 32px;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+    }
+
+    .logo {
+      color: #D4A843;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: rgba(240, 240, 242, 0.5);
+      font-size: 15px;
+    }
+
+    .intro {
+      font-size: 15px;
+      color: rgba(240, 240, 242, 0.7);
+      margin-bottom: 36px;
+      padding: 20px 24px;
+      border-left: 2px solid rgba(212, 168, 67, 0.3);
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: #D4A843;
+      margin-bottom: 16px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgba(212, 168, 67, 0.4);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-content strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .check-content p {
+      font-size: 13px;
+      color: rgba(240, 240, 242, 0.5);
+    }
+
+    .scoring {
+      margin-top: 40px;
+      padding: 24px;
+      border: 1px solid rgba(212, 168, 67, 0.25);
+      border-radius: 8px;
+    }
+
+    .scoring h2 {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #D4A843;
+      margin-bottom: 16px;
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 14px;
+    }
+
+    .score-row:last-child { border-bottom: none; }
+
+    .score-label { color: rgba(240, 240, 242, 0.7); }
+    .score-value { color: #D4A843; font-weight: 600; }
+
+    .cta {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(212, 168, 67, 0.2);
+    }
+
+    .cta h2 {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      font-size: 14px;
+      color: rgba(240, 240, 242, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: #D4A843;
+      color: #060608;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: rgba(240, 240, 242, 0.3);
+    }
+
+    @media print {
+      body { background: white; color: #1a1a1a; }
+      .checkbox { border-color: #999; }
+      .section-title, .scoring h2, .cta h2, .logo { color: #8B6914; }
+      .check-content p, .subtitle, .intro, .cta p { color: #666; }
+      .score-value { color: #8B6914; }
+      .cta a { background: #8B6914; color: white; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo"><span style="color:#D4A843">C</span>lear<span style="color:#D4A843">A</span>utomations</div>
+    <h1>5-Minute Stack Audit Checklist</h1>
+    <p class="subtitle">Score your lead capture and follow-up system in 7 questions.</p>
+  </div>
+
+  <div class="intro">
+    Answer each question honestly. Check the box if the statement is true for your business today. At the end, count your checks to see where you stand. Most businesses score 2-3 out of 7 on their first pass.
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Lead Response</h2>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>1. Every inbound lead gets a response within 5 minutes.</strong>
+        <p>After-hours, weekends, and holidays included. If a lead fills out a form at 9 PM Friday, someone (or something) reaches out before they close the browser tab.</p>
+      </div>
+    </div>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>2. Missed calls trigger an automatic follow-up.</strong>
+        <p>When you miss a call, the lead automatically gets a text, email, or voicemail drop within 2 minutes. No manual effort required.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">CRM &amp; Tracking</h2>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>3. Every lead is tracked in a CRM with stage progression.</strong>
+        <p>Not a spreadsheet. Not sticky notes. A real CRM where you can see every contact, every touchpoint, and every deal stage at a glance.</p>
+      </div>
+    </div>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>4. You know your lead-to-customer conversion rate.</strong>
+        <p>If someone asked "what percentage of your leads become paying customers?" you could answer immediately with a real number, not a guess.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Follow-Up System</h2>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>5. Cold leads get a multi-touch re-engagement sequence.</strong>
+        <p>Leads that didn't convert on first contact get an automated 14-day sequence (email, SMS, call) without anyone on your team remembering to follow up manually.</p>
+      </div>
+    </div>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>6. You have at least 10 Google reviews with a 4.5+ star rating.</strong>
+        <p>An active review campaign asks every satisfied customer for a review automatically. Your online reputation is growing without manual outreach.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Ownership</h2>
+
+    <div class="check-item">
+      <div class="checkbox"></div>
+      <div class="check-content">
+        <strong>7. You own all your tools, data, and workflows.</strong>
+        <p>If you fired your agency or tech vendor tomorrow, would everything keep running? You hold the credentials, the code, and the data. No lock-in.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="scoring">
+    <h2>Score Yourself</h2>
+    <div class="score-row">
+      <span class="score-label">6-7 checks</span>
+      <span class="score-value">Your stack is solid. You're ahead of 90% of SMBs.</span>
+    </div>
+    <div class="score-row">
+      <span class="score-label">4-5 checks</span>
+      <span class="score-value">Good foundation. A few automations could double your efficiency.</span>
+    </div>
+    <div class="score-row">
+      <span class="score-label">2-3 checks</span>
+      <span class="score-value">You're leaving money on the table. This is where most businesses are.</span>
+    </div>
+    <div class="score-row">
+      <span class="score-label">0-1 checks</span>
+      <span class="score-value">Every lead is a coin flip. The good news: small changes make a big impact here.</span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Want us to run this audit for you?</h2>
+    <p>We'll review your website, lead flow, and follow-up process &mdash; and deliver a personalized video walkthrough of exactly what to fix. Free, no obligation.</p>
+    <a href="https://clearautomations.com#audit">Get Your Free AI Audit</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 Clear Automations &middot; clearautomations.com
+  </div>
+
+</body>
+</html>
