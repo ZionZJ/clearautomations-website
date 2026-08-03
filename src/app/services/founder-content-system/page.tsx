@@ -29,7 +29,7 @@ export default function FounderContentSystemPage() {
 
       <PageSection title="Pricing">
         <p>
-          Typical retainers run <strong>$2,000-$5,000/month</strong>. Setup is
+          Typical retainers run <strong>$1,500-4,000/month</strong>. Setup is
           scoped after the audit when the content sources, approval cadence,
           brand voice, channels, and repurposing needs are clear.
         </p>

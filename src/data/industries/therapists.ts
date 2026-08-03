@@ -67,8 +67,8 @@ export const therapistsIndustry: Industry = {
       {
         phase: "Phase 1A",
         name: "Admin-Augmented Front Desk",
-        setup: "$1,500-$2,500",
-        monthly: "$200-$300/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "2 weeks",
         result: "Your admin gets the lead in seconds; the system handles the rest",
         status: "Available now - non-PHI only",
@@ -87,8 +87,8 @@ export const therapistsIndustry: Industry = {
       {
         phase: "Phase 1B",
         name: "AI Front Desk",
-        setup: "$3,500-$5,000",
-        monthly: "$400-$600/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "3 weeks",
         result: "Autonomous 24/7 callback in under 2 minutes",
         status: "Available now - non-PHI only",
@@ -105,8 +105,8 @@ export const therapistsIndustry: Industry = {
       {
         phase: "Phase 2",
         name: "Intake to First Session",
-        setup: "$7,500",
-        monthly: "$750/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "Limited pilot",
         result: "BAA-covered intake and routing",
         status: "Limited pilot after BAA readiness",
@@ -123,8 +123,8 @@ export const therapistsIndustry: Industry = {
       {
         phase: "Phase 3",
         name: "Revenue Recovery",
-        setup: "$12,000",
-        monthly: "$1,500/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "Q3 2026 target",
         result: "Session-to-claim reconciliation",
         status: "Planned for group practices",

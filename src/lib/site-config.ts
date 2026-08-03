@@ -7,7 +7,9 @@ export const siteConfig = {
   contactEmail: "zion@clearautomations.com",
   legalEntity: "[TODO_LEGAL_ENTITY]",
   mailingAddress: "[TODO_MAILING_ADDRESS]",
-  phoneDisplay: "[TODO_PHONE]",
+  phoneDisplay: "(832) 299-5110",
+  phoneHref: "tel:+18322995110",
+  bookingUrl: "https://cal.com/clearautomations/discovery",
   founderName: "Zion John",
   linkedInUrl: "https://linkedin.com/in/ZionJohn",
 };

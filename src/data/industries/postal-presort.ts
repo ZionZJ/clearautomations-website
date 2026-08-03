@@ -92,8 +92,8 @@ export const postalPresortIndustry: Industry = {
       {
         phase: "Phase 1",
         name: "Inbound Audit & Speed-to-Lead",
-        setup: "$2,500",
-        monthly: "$350/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "2-3 weeks",
         result: "30-45 second response to inbound inquiries",
         status: "Available now - production workflow",
@@ -111,8 +111,8 @@ export const postalPresortIndustry: Industry = {
       {
         phase: "Phase 2",
         name: "Warm Outbound + Re-engagement",
-        setup: "$1,500",
-        monthly: "$500/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "2 weeks",
         result: "Past inquiries and proximity leads worked daily",
         status: "Ready after Phase 1 stabilization",
@@ -129,8 +129,8 @@ export const postalPresortIndustry: Industry = {
       {
         phase: "Phase 3",
         name: "Cold Outbound (Attorney-Cleared)",
-        setup: "$1,000",
-        monthly: "$150/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "1-2 weeks after attorney clearance",
         result: "Cold pipeline running on B2B-exemption framework",
         status: "Hard-gated on attorney sign-off",

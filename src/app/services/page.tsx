@@ -15,7 +15,9 @@ const services = [
     title: "AI Front-Desk Employee Setup + Retainer",
     href: "/services/voice-agent-setup",
     promise: "Never let a qualified call die in voicemail.",
-    price: "Scoped in your $1,000 AI Assessment",
+    price: "Typically $3,000-10,000 setup, then $1,500-3,000/mo",
+    priceNote:
+      "Exact scope and price come out of your $1,000 AI Assessment, which credits 100% toward the build.",
     body:
       "Managed AI phone intake, missed-call recovery, routing, CRM logging, launch testing, and monthly tuning for service businesses.",
     items: [
@@ -31,7 +33,9 @@ const services = [
     href: "/services/founder-content-system",
     promise:
       "Turn founder knowledge into consistent content without building a media team.",
-    price: "$2,000-$5,000/mo",
+    price: "Typically $1,500-4,000/mo",
+    priceNote:
+      "Build-and-hand-over option available: a one-time engine build, then a lighter monthly retainer.",
     body:
       "An AI-assisted content operating system for founders who need ideas, drafts, short-form scripts, repurposing, and a sane publishing rhythm.",
     items: [
@@ -82,9 +86,14 @@ export default function ServicesPage() {
                 <p className="text-[15px] text-[var(--ink)] leading-[1.6] mb-3">
                   {service.promise}
                 </p>
-                <p className="font-[var(--font-display)] text-[1.2rem] text-[var(--amber)] mb-5">
+                <p className="font-[var(--font-display)] text-[1.2rem] text-[var(--amber)] mb-2">
                   {service.price}
                 </p>
+                {service.priceNote && (
+                  <p className="text-[13px] text-[var(--ink-dim)] leading-[1.6] mb-5">
+                    {service.priceNote}
+                  </p>
+                )}
                 <p className="text-[14px] text-[var(--ink-soft)] leading-[1.7] mb-6">
                   {service.body}
                 </p>

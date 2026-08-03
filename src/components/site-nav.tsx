@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { primaryNavLinks } from "@/lib/site-config";
+import { primaryNavLinks, siteConfig } from "@/lib/site-config";
 
 type NavLink = {
   href: string;
@@ -51,9 +51,12 @@ export function SiteLogo() {
 
 export function SiteNav({
   links = defaultLinks,
-  ctaHref = "/#audit",
-  ctaLabel = "Get a Free Audit",
+  ctaHref = siteConfig.bookingUrl,
+  ctaLabel = "Book a Call",
 }: SiteNavProps) {
+  // Industry pages override ctaHref with in-page anchors; only external
+  // links (the booking URL) should open in a new tab.
+  const isExternalCta = ctaHref.startsWith("http");
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#060608]/95 backdrop-blur-sm border-b border-[var(--rule)]">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex items-center justify-between h-16">
@@ -74,6 +77,8 @@ export function SiteNav({
         <div className="flex items-center gap-3">
           <a
             href={ctaHref}
+            target={isExternalCta ? "_blank" : undefined}
+            rel={isExternalCta ? "noopener noreferrer" : undefined}
             className="text-[13px] font-medium text-[var(--amber)] border border-[rgba(212,168,67,0.3)] px-4 py-2 rounded hover:bg-[rgba(212,168,67,0.1)] transition-colors"
           >
             {ctaLabel}

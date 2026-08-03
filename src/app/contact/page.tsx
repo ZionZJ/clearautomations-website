@@ -17,15 +17,31 @@ export default function ContactPage() {
     >
       <PageSection title="Direct contact">
         <p>
+          Book a 20-minute call:{" "}
+          <a
+            className="text-[var(--amber)] underline"
+            href={siteConfig.bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            cal.com/clearautomations/discovery
+          </a>
+        </p>
+        <p>
           Email:{" "}
           <a className="text-[var(--amber)] underline" href={`mailto:${siteConfig.contactEmail}`}>
             {siteConfig.contactEmail}
           </a>
         </p>
         {!isPlaceholder(siteConfig.phoneDisplay) && (
-          <p>Phone: {siteConfig.phoneDisplay}</p>
+          <p>
+            Phone:{" "}
+            <a className="text-[var(--amber)] underline" href={siteConfig.phoneHref}>
+              {siteConfig.phoneDisplay}
+            </a>
+          </p>
         )}
-        <p>Expected response: within 1-2 business days for new inquiries.</p>
+        <p>Expected response: same business day for new inquiries.</p>
       </PageSection>
 
       <PageSection title="Business identity">

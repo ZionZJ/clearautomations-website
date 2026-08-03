@@ -91,8 +91,8 @@ export const dentalPracticesIndustry: Industry = {
       {
         phase: "Phase 1",
         name: "New-Patient Lead Recovery",
-        setup: "$4,500",
-        monthly: "$450/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "2-4 weeks",
         result: "Faster response to missed calls and public inquiries",
         status: "Available now - non-PHI only",
@@ -110,8 +110,8 @@ export const dentalPracticesIndustry: Industry = {
       {
         phase: "Phase 2",
         name: "No-Show and Recall Recovery",
-        setup: "$7,500",
-        monthly: "$750/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "Limited pilot",
         result: "Fewer empty chairs and cleaner hygiene follow-up",
         status: "Fake-data demo until BAA readiness",
@@ -128,8 +128,8 @@ export const dentalPracticesIndustry: Industry = {
       {
         phase: "Phase 3",
         name: "Treatment Plan Recovery",
-        setup: "$9,500",
-        monthly: "$1,250/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "Limited pilot",
         result: "More diagnosed work moved into scheduled care",
         status: "Fake-data demo until clinical boundary review",

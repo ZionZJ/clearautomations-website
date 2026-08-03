@@ -44,20 +44,26 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="#audit"
+                  href={siteConfig.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
+                >
+                  Book a 20-Minute Call
+                </a>
+                <a
+                  href="#audit"
+                  className="inline-flex items-center justify-center text-[15px] font-medium text-[var(--ink-soft)] py-3.5 px-8 border border-[rgba(255,255,255,0.12)] rounded hover:border-[var(--ink-dim)] transition-colors"
                 >
                   Get a Free AI Audit
                 </a>
-                <a
-                  href="#phases"
-                  className="inline-flex items-center justify-center text-[15px] font-medium text-[var(--ink-soft)] py-3.5 px-8 border border-[rgba(255,255,255,0.12)] rounded hover:border-[var(--ink-dim)] transition-colors"
-                >
-                  See How It Works
-                </a>
               </div>
               <p className="mt-5 text-[14px] text-[var(--ink-dim)] max-w-[540px]">
-                or start with the{" "}
+                Prefer to talk now? Call{" "}
+                <a href={siteConfig.phoneHref} className="text-[var(--amber)] hover:underline">
+                  {siteConfig.phoneDisplay}
+                </a>
+                . Or start with the{" "}
                 <a href="#stack-audit" className="text-[var(--amber)] hover:underline">
                   $1,000 AI Assessment
                 </a>
@@ -314,7 +320,7 @@ export default function Home() {
               },
               {
                 name: "Founder Content System",
-                price: "$2,000\u20135,000/mo",
+                price: "$1,500\u20134,000/mo",
                 desc: "Turn founder knowledge into consistent content without building a media team.",
                 items: ["Weekly content ideas", "Post drafts + short-form scripts", "Repurposing across channels", "Monthly performance review"],
                 href: "/services/founder-content-system",

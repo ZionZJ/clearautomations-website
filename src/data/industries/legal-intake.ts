@@ -91,8 +91,8 @@ export const legalIntakeIndustry: Industry = {
       {
         phase: "Phase 1",
         name: "Conflict-Cleared Intake",
-        setup: "$4,500",
-        monthly: "$450/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "3-5 weeks",
         result: "After-hours inquiries cleared and routed inside 4 business hours",
         status: "Available now - attorney sign-off required",
@@ -111,8 +111,8 @@ export const legalIntakeIndustry: Industry = {
       {
         phase: "Phase 2",
         name: "Case-Type Routing + Document Collection",
-        setup: "$7,500",
-        monthly: "$750/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "3 weeks",
         result: "Conflict-cleared leads routed by practice area + state licensure",
         status: "Ready after Phase 1 stabilization",
@@ -129,8 +129,8 @@ export const legalIntakeIndustry: Industry = {
       {
         phase: "Phase 3",
         name: "Lifecycle Communications",
-        setup: "$9,500",
-        monthly: "$1,250/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "3 weeks",
         result: "Engagement letters signed faster, SOL tracked, reviews collected",
         status: "Ready after Phase 2 stabilization",

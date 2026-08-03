@@ -91,8 +91,8 @@ export const roofingContractorsIndustry: Industry = {
       {
         phase: "Phase 1",
         name: "Storm Lead Capture",
-        setup: "$3,500",
-        monthly: "$450/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "2-3 weeks",
         result: "Faster callbacks and more booked inspections",
         status: "Available now - demo workflow ready",
@@ -110,8 +110,8 @@ export const roofingContractorsIndustry: Industry = {
       {
         phase: "Phase 2",
         name: "Claim and Document Follow-Up",
-        setup: "$2,500",
-        monthly: "$650/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "2 weeks",
         result: "Fewer stalled claim and documentation steps",
         status: "Ready after CRM and claim-process review",
@@ -128,8 +128,8 @@ export const roofingContractorsIndustry: Industry = {
       {
         phase: "Phase 3",
         name: "Estimate, Contract, and Review Recovery",
-        setup: "$2,000",
-        monthly: "$500/mo",
+        setup: "Scoped in Assessment",
+        monthly: "Scoped in Assessment",
         timeline: "1-2 weeks",
         result: "More open estimates moved to signed work",
         status: "Add after lead and claim flows are stable",
