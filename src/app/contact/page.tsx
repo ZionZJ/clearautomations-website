@@ -5,15 +5,15 @@ import { isPlaceholder, siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact | ClearAutomations",
   description:
-    "Contact ClearAutomations for AI automation audits and small-business workflow builds.",
+    "Contact ClearAutomations for a Missed-Call Snapshot, Revenue-Recovery Blueprint, or Front Desk Revenue Recovery engagement.",
 };
 
 export default function ContactPage() {
   return (
     <SimplePage
       eyebrow="Contact"
-      title="Start with a free audit."
-      description="The fastest path is the free audit form on the homepage. Use this page when you need direct contact details."
+      title="Start with a free Missed-Call Snapshot."
+      description="The fastest path is the Snapshot form on the homepage. Use this page when you need direct contact details."
     >
       <PageSection title="Direct contact">
         <p>

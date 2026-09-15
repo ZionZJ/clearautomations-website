@@ -1,9 +1,7 @@
 import { ComplianceBadges } from "@/components/compliance-badges";
+import { AuditForm } from "@/components/audit-form";
 import { DentalPracticeAuditForm } from "@/components/dental-practice-audit-form";
 import { FadeIn } from "@/components/fade-in";
-import { HomeServicesAuditForm } from "@/components/home-services-audit-form";
-import { HvacContractorAuditForm } from "@/components/hvac-contractor-audit-form";
-import { PlumbingContractorAuditForm } from "@/components/plumbing-contractor-audit-form";
 import { LegalIntakeAuditForm } from "@/components/legal-intake-audit-form";
 import { PostalPresortAuditForm } from "@/components/postal-presort-audit-form";
 import { RoofingContractorAuditForm } from "@/components/roofing-contractor-audit-form";
@@ -397,9 +395,10 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
                   {siteConfig.founderName}
                 </p>
                 <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] max-w-[560px]">
-                  5 years building enterprise AP and workflow automation
-                  systems at RSM. Now building modular automation systems for
-                  small businesses and regulated practices in Texas.
+                  5 years embedding with enterprise finance teams at RSM,
+                  deploying AP automation into stacks they already ran. Now
+                  doing the same for home-service companies in Texas: diagnose
+                  the leak, deploy the recovery workflow, and stay until it works.
                 </p>
                 <div className="flex gap-4 mt-3">
                   <a
@@ -510,12 +509,8 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
 }
 
 function AuditFormSlot({ kind }: { kind: Industry["form"]["kind"] }) {
-  if (kind === "hvac-contractor") {
-    return <HvacContractorAuditForm />;
-  }
-
-  if (kind === "plumbing-contractor") {
-    return <PlumbingContractorAuditForm />;
+  if (["hvac-contractor", "plumbing-contractor", "home-services"].includes(kind)) {
+    return <AuditForm />;
   }
 
   if (kind === "roofing-contractor") {
@@ -532,10 +527,6 @@ function AuditFormSlot({ kind }: { kind: Industry["form"]["kind"] }) {
 
   if (kind === "legal-intake") {
     return <LegalIntakeAuditForm />;
-  }
-
-  if (kind === "home-services") {
-    return <HomeServicesAuditForm />;
   }
 
   return <TherapistPracticeAuditForm />;

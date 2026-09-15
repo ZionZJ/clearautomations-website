@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { primaryNavLinks, siteConfig } from "@/lib/site-config";
+import { primaryNavLinks } from "@/lib/site-config";
 
 type NavLink = {
   href: string;
@@ -51,8 +51,8 @@ export function SiteLogo() {
 
 export function SiteNav({
   links = defaultLinks,
-  ctaHref = siteConfig.bookingUrl,
-  ctaLabel = "Book a Call",
+  ctaHref = "/#audit",
+  ctaLabel = "Free Missed-Call Snapshot",
 }: SiteNavProps) {
   // Industry pages override ctaHref with in-page anchors; only external
   // links (the booking URL) should open in a new tab.

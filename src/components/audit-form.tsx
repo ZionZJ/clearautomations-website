@@ -55,11 +55,11 @@ export function AuditForm() {
       <div className="py-8 text-center">
         <div className="text-[var(--amber)] text-3xl mb-4">&#10003;</div>
         <h3 className="font-[var(--font-display)] text-[1.4rem] font-bold text-white mb-2">
-          Audit requested.
+          Snapshot requested.
         </h3>
         <p className="text-[var(--navy-text)] text-[15px] leading-[1.7]">
-          You&apos;ll receive a personalized video walkthrough within 48 hours
-          at the email you provided.
+          You&apos;ll receive your one-page Missed-Call Snapshot within one
+          business day at the email you provided.
         </p>
       </div>
     );
@@ -86,7 +86,7 @@ export function AuditForm() {
           className={inputClass}
         />
       </Field>
-      <Field label="Biggest lead generation challenge">
+      <Field label="Current front-desk challenge">
         <select
           name="challenge"
           required
@@ -96,10 +96,10 @@ export function AuditForm() {
           <option value="" disabled>
             Select one
           </option>
-          <option value="slow-followup">Slow follow-up on leads</option>
-          <option value="no-online-presence">Weak online presence</option>
-          <option value="wasting-ad-spend">Wasting money on ads</option>
-          <option value="manual-processes">Too many manual processes</option>
+          <option value="missed-calls">Missed or unanswered calls</option>
+          <option value="slow-followup">Slow follow-up on new leads</option>
+          <option value="open-estimates">Open estimates not followed up</option>
+          <option value="after-hours">After-hours coverage</option>
           <option value="other">Something else</option>
         </select>
       </Field>
@@ -121,10 +121,9 @@ export function AuditForm() {
         />
       </Field>
       <ContactConsent>
-        I agree that ClearAutomations may contact me about this audit by email,
-        phone call, and text message, including calls and texts placed with
-        automated or AI voice technology. Message and data rates may apply.
-        Reply STOP or tell us to stop to opt out. I understand this form is for
+        I agree that ClearAutomations may contact me about this Snapshot by
+        email and, if I provided a phone number, by phone or text. Message and
+        data rates may apply. Reply STOP or tell us to stop to opt out. I understand this form is for
         business workflow information, not sensitive customer, patient,
         payment, or legal details.
       </ContactConsent>
@@ -134,7 +133,7 @@ export function AuditForm() {
         disabled={status === "submitting"}
         className="bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors mt-2 disabled:opacity-70"
       >
-        {status === "submitting" ? "Sending..." : "Request My Free Audit"}
+        {status === "submitting" ? "Sending..." : "Request My Free Snapshot"}
       </button>
 
       {status === "error" && (

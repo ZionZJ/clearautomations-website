@@ -5,7 +5,7 @@ export const plumbingContractorsIndustry: Industry = {
   name: "Plumbing Contractors",
   form: {
     kind: "plumbing-contractor",
-    ctaLabel: "Plumbing Audit",
+    ctaLabel: "Free Missed-Call Snapshot",
   },
   landingCopy: {
     addonsEyebrow: "Add to the build",
@@ -49,13 +49,13 @@ export const plumbingContractorsIndustry: Industry = {
     title: "When water is coming through the ceiling, they call the next plumber.",
     mutedTitle: "We answer before they hang up.",
     body:
-      "ClearAutomations is the front desk for plumbing contractors. We build the AI employee that answers every call, recovers missed leads, follows up on estimates, and keeps reviews coming, for companies that win on speed when the emergency hits.",
-    primaryCta: "Request a Plumbing Workflow Audit",
+      "ClearAutomations manages missed-call recovery, lead response, estimate follow-up, booking, and CRM/FSM workflows for plumbing companies. We check the systems you already have before adding custom infrastructure.",
+    primaryCta: "Request a Free Missed-Call Snapshot",
     secondaryCta: "See How It Works",
     stats: [
-      { value: "2 min", label: "target callback task" },
-      { value: "85%", label: "of voicemail callers never call back" },
-      { value: "$285-1,200", label: "value of each missed call" },
+      { value: "1 page", label: "public-data Snapshot" },
+      { value: "1 day", label: "typical delivery" },
+      { value: "$0", label: "starting price" },
     ],
   },
   problems: {
@@ -65,7 +65,7 @@ export const plumbingContractorsIndustry: Industry = {
       {
         num: "01",
         text:
-          "Burst-pipe and no-water calls come in nights and weekends, when the job is biggest and the caller is most ready to book whoever answers first. Emergency plumbing calls close at 12-16%, the highest rate in the trades, but only for the company that picks up.",
+          "Burst-pipe and no-water calls come in nights and weekends, when the caller is highly motivated to reach someone. The size and value of that gap should be measured from the shop's own call and booking records.",
       },
       {
         num: "02",
@@ -82,17 +82,17 @@ export const plumbingContractorsIndustry: Industry = {
       "The first build focuses on lead response, emergency routing, and owner visibility. It does not replace your dispatcher, field-service platform, or licensed-plumber judgment.",
   },
   phases: {
-    eyebrow: "Start with the $1,000 AI Assessment.",
-    title: "First we map your revenue leak. Then we build.",
+    eyebrow: "Start with a free Snapshot, then validate with the $1,000 Blueprint.",
+    title: "First we observe. Then we verify. Then we build.",
     mutedTitle: "Emergency capture, then follow-up, then retention.",
     note:
-      "Everything starts with the $1,000 AI Assessment. We quantify exactly how many calls you're missing and what each is worth, then build from there. The fee credits toward the build. The build below is what your AI front desk looks like for plumbing, scoped in your Assessment with 4+ integrations wired in (phone, CRM, SMS, and your calendar or field-service platform). By month 3 you get a simple ROI report: the booked jobs and recovered revenue the system actually generated. Production launch requires real phone, CRM, dispatch, and opt-in settings to be reviewed first.",
+      "The free Missed-Call Snapshot uses public information and names the data needed to validate the opportunity. The $1,000 Revenue-Recovery Blueprint then maps the real workflow, baseline, ROI range, implementation, and measurement plan. Its full fee credits toward implementation within 60 days.",
     items: [
       {
         phase: "Build · Stage 1",
         name: "Emergency Call Capture",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "2-3 weeks",
         result: "Faster callbacks and fewer lost emergency jobs",
         status: "The core build - demo workflow ready",
@@ -111,8 +111,8 @@ export const plumbingContractorsIndustry: Industry = {
       {
         phase: "Build · Stage 2",
         name: "Estimate Follow-Up",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "2 weeks",
         result: "More quotes turned into booked jobs",
         status: "Added after CRM and quote process review",
@@ -129,8 +129,8 @@ export const plumbingContractorsIndustry: Industry = {
       {
         phase: "Build · Stage 3",
         name: "Retention and Reviews",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "1-2 weeks",
         result: "More repeat work and stronger local proof",
         status: "Added after emergency and quote flows are stable",
@@ -150,7 +150,7 @@ export const plumbingContractorsIndustry: Industry = {
   addons: [
     {
       name: "Dispatch Handoff Map",
-      price: "Add-on - scoped in Assessment",
+      price: "Component - scoped in Blueprint",
       desc:
         "Document exactly when automation should route to dispatcher, owner, on-call plumber, or normal office follow-up.",
       items: [
@@ -162,7 +162,7 @@ export const plumbingContractorsIndustry: Industry = {
     },
     {
       name: "Review Recovery Sprint",
-      price: "Add-on - scoped in Assessment",
+      price: "Component - scoped in Blueprint",
       desc:
         "Turn completed jobs into a simple, compliant review request system with owner visibility.",
       items: [
@@ -174,7 +174,7 @@ export const plumbingContractorsIndustry: Industry = {
     },
     {
       name: "Past-Customer Reactivation",
-      price: "Add-on - scoped in Assessment",
+      price: "Component - scoped in Blueprint",
       desc:
         "Import old customers or service members and build a reactivation workflow around equipment age and service cadence.",
       items: [
@@ -258,9 +258,9 @@ export const plumbingContractorsIndustry: Industry = {
   },
   resultsModel: {
     eyebrow: "Illustrative results",
-    title: "What a 150-lead/month plumbing shop could recover",
+    title: "What the Blueprint measures before and after launch",
     note:
-      "Shops that fix speed-to-lead typically recover 28-30% of lost leads. At $285-1,200 per missed call, that models out to thousands in monthly recovered revenue for a 150-lead shop. This is a planning model, not a case study.",
+      "This is a workflow model, not client data. Any revenue range is calculated from the shop's own calls, estimates, bookings, and average job values during the Blueprint.",
     rows: [
       {
         metric: "After-hours emergency calls",
@@ -306,16 +306,16 @@ export const plumbingContractorsIndustry: Industry = {
         "Yes, after opt-in, unsubscribe language, sender setup, and frequency caps are configured. The demo keeps those rules visible instead of burying them.",
     },
     {
-      q: "What does the audit form collect?",
+      q: "What does the Snapshot form collect?",
       a:
-        "Only business workflow information: company, contact, service area, tools, lead volume, after-hours process, and the biggest revenue leak.",
+        "Business name, website, email, an optional phone number, and one front-desk challenge. The Snapshot itself uses public information and does not require customer data.",
     },
   ],
   cta: {
     eyebrow: "Start with the emergency lane",
-    title: "Request a plumbing workflow audit.",
+    title: "Request a free Missed-Call Snapshot.",
     body:
-      "We will review your lead intake, after-hours coverage, callback speed, estimate follow-up, review flow, and past-customer reactivation opportunities. The big platforms are built for big operations. I personally build and run yours, and you can call me.",
+      "We will use public information to review your published hours, call and booking paths, observable gaps, and the real operating data needed to validate the opportunity.",
     note:
       "Do not include payment details, private customer notes, gate codes, access instructions, or emergency details that should remain inside your dispatch system.",
   },

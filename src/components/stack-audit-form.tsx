@@ -60,11 +60,12 @@ export function StackAuditForm() {
       <div className="py-8 text-center">
         <div className="text-[var(--amber)] text-3xl mb-4">&#10003;</div>
         <h3 className="font-[var(--font-display)] text-[1.4rem] font-bold text-white mb-2">
-          Stack audit requested.
+          Revenue-Recovery Blueprint requested.
         </h3>
         <p className="text-[var(--navy-text)] text-[15px] leading-[1.7]">
           You&apos;ll get a calendar link for a 45-minute discovery call within
-          1 business day. Audit PDF arrives within 5 business days of the call.
+          1 business day. The Blueprint arrives within 5 business days of the
+          call and receipt of the required data.
         </p>
       </div>
     );
@@ -77,7 +78,7 @@ export function StackAuditForm() {
         onClick={() => setOpen(true)}
         className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
       >
-        Request a Stack Audit
+        Request a Revenue-Recovery Blueprint
       </button>
     );
   }
@@ -209,11 +210,10 @@ export function StackAuditForm() {
         />
       </Field>
       <ContactConsent>
-        I agree that ClearAutomations may contact me about this stack audit by
-        email, phone call, and text message, including calls and texts placed
-        with automated or AI voice technology. Message and data rates may
-        apply. Reply STOP or tell us to stop to opt out. I understand this form
-        is for business workflow information, not sensitive customer, patient,
+        I agree that ClearAutomations may contact me about this Blueprint by
+        email, phone call, and text message. Message and data rates may apply.
+        Reply STOP or tell us to stop to opt out. I understand this form is for
+        business workflow information, not sensitive customer, patient,
         payment, or legal details.
       </ContactConsent>
       <PrivacyNote />
@@ -223,7 +223,7 @@ export function StackAuditForm() {
         disabled={status === "submitting"}
         className="bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors mt-2 disabled:opacity-70"
       >
-        {status === "submitting" ? "Sending..." : "Request My AI Assessment ($1,000)"}
+        {status === "submitting" ? "Sending..." : "Request My Blueprint ($1,000)"}
       </button>
 
       {status === "error" && (

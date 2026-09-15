@@ -5,7 +5,7 @@ export const homeServicesIndustry: Industry = {
   name: "General Home Services",
   form: {
     kind: "home-services",
-    ctaLabel: "Lead-Funnel Audit",
+    ctaLabel: "Free Missed-Call Snapshot",
   },
   landingCopy: {
     addonsEyebrow: "Add to any phase",
@@ -50,7 +50,7 @@ export const homeServicesIndustry: Industry = {
     mutedTitle: "We build the funnel for any trade.",
     body:
       "Clear Automations builds lead-capture, estimate follow-up, and review-recovery workflows for plumbing, electrical, landscape, pest, garage door, fence, tree service, and other home-services trades that don't fit our HVAC or roofing SKUs.",
-    primaryCta: "Request a Lead-Funnel Audit",
+    primaryCta: "Request a Free Missed-Call Snapshot",
     secondaryCta: "See the Sub-Verticals",
     stats: [
       { value: "10", label: "sub-verticals supported" },
@@ -70,7 +70,7 @@ export const homeServicesIndustry: Industry = {
       {
         num: "02",
         text:
-          "Estimates get one manual follow-up, then disappear into texts and inboxes — losing 30-40% of quoted work.",
+          "Estimates can get one manual follow-up, then disappear into texts and inboxes. The Blueprint measures the actual open-estimate gap before recommending automation.",
       },
       {
         num: "03",
@@ -82,17 +82,17 @@ export const homeServicesIndustry: Industry = {
       "The first build focuses on lead capture and estimate follow-up. Sub-vertical-specific scripting handles plumbing emergencies, electrical hazards, tree-on-house safety branches, and recurring-service economics for pest and landscape.",
   },
   phases: {
-    eyebrow: "Start with the $1,000 AI Assessment.",
-    title: "First we diagnose. Then we build.",
+    eyebrow: "Start with a free Snapshot, then validate with the $1,000 Blueprint.",
+    title: "First we observe. Then we verify. Then we build.",
     mutedTitle: "Lead capture, then estimate follow-up, then retention.",
     note:
-      "Everything starts with the $1,000 AI Assessment — we map exactly where your leads leak and what to build first (it credits toward the build). The build below is what your AI employee looks like for home services, scoped in your Assessment. Weather lanes, insurance-claim follow-up, and storm-recall workflows are NOT in this build — those live in the HVAC and roofing builds. Home-services is intentionally lean.",
+      "The free Missed-Call Snapshot uses public information and names the data needed to validate the opportunity. The $1,000 Revenue-Recovery Blueprint then maps the real workflow, baseline, ROI range, implementation, and measurement plan. Its full fee credits toward implementation within 60 days.",
     items: [
       {
         phase: "Build · Stage 1",
         name: "Lead Capture",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "2-3 weeks",
         result: "Faster callbacks across business and after-hours",
         status: "The core build",
@@ -110,8 +110,8 @@ export const homeServicesIndustry: Industry = {
       {
         phase: "Build · Stage 2",
         name: "Estimate Follow-Up",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "2 weeks",
         result: "More quoted work moved to signed jobs",
         status: "Added once Stage 1 is stable",
@@ -127,8 +127,8 @@ export const homeServicesIndustry: Industry = {
       {
         phase: "Build · Stage 3",
         name: "Retention + Reviews",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "1-2 weeks",
         result: "Recurring services reactivated, reviews collected",
         status: "Added once Stages 1+2 are stable",
@@ -146,7 +146,7 @@ export const homeServicesIndustry: Industry = {
   addons: [
     {
       name: "Sub-Vertical Script Customization",
-      price: "$500 flat",
+      price: "Component - scoped in Blueprint",
       desc:
         "Heavily-tailored Retell script for niche sub-vertical not in the default 10. Examples: solar install, water-treatment, septic, well-drilling.",
       items: [
@@ -158,7 +158,7 @@ export const homeServicesIndustry: Industry = {
     },
     {
       name: "Second Sub-Vertical Support",
-      price: "$750 setup + $50/mo",
+      price: "Component - scoped in Blueprint",
       desc:
         "For dual-service shops (plumbing + electrical, landscape + pest, etc.) — adds a second sub-vertical agent to the same n8n instance.",
       items: [
@@ -170,7 +170,7 @@ export const homeServicesIndustry: Industry = {
     },
     {
       name: "ServiceTitan Integration",
-      price: "$1,500 setup + $150/mo",
+      price: "Component - scoped in Blueprint",
       desc:
         "API token integration for larger plumbing + electrical shops on ServiceTitan ($245-$500/tech/mo).",
       items: [
@@ -302,16 +302,16 @@ export const homeServicesIndustry: Industry = {
         "For pest control and landscape sub-verticals only: when a customer's last-service date crosses the recurring interval (quarterly pest, monthly landscape), an opt-in-gated reactivation message fires. Other sub-verticals (plumbing, electrical, garage doors, etc.) get a 'not applicable' note.",
     },
     {
-      q: "What does the audit form collect?",
+      q: "What does the Snapshot form collect?",
       a:
-        "Sub-vertical, company info, monthly lead volume, after-hours coverage, current FSM tools, biggest revenue leak, and optional state license number for plumbing / electrical / pest control.",
+        "Business name, website, email, an optional phone number, and one front-desk challenge. The Snapshot itself uses public information and does not require customer data.",
     },
   ],
   cta: {
     eyebrow: "Start with the lead-capture lane",
-    title: "Request a lead-funnel audit.",
+    title: "Request a free Missed-Call Snapshot.",
     body:
-      "We will review your inbound flow, after-hours coverage, callback speed, estimate follow-up, review collection, and (for pest/landscape) recurring-service reactivation.",
+      "We will use public information to review your published hours, call and booking paths, observable gaps, and the real operating data needed to validate the opportunity.",
     note:
       "Do not include payment details, customer access codes, gate codes, or anything that should remain inside your FSM.",
   },

@@ -1,6 +1,5 @@
 import { HeroVisual } from "@/components/hero-visual";
 import { AuditForm } from "@/components/audit-form";
-import { ChecklistForm } from "@/components/checklist-form";
 import { StackAuditForm } from "@/components/stack-audit-form";
 import { FadeIn } from "@/components/fade-in";
 import { SiteFooter } from "@/components/site-footer";
@@ -8,10 +7,10 @@ import { SiteNav } from "@/components/site-nav";
 import { siteConfig } from "@/lib/site-config";
 
 const FAQ_DATA = [
-  { q: "Do I have to commit to a big build up front?", a: "No. You start with the $1,000 AI Assessment, a paid diagnosis you own. From there you decide whether to build, and the $1,000 credits toward it. No pressure, no multi-month contracts." },
+  { q: "Do I have to commit to a big build up front?", a: "No. Start with the free Missed-Call Snapshot. If the public observations justify looking at real data, the $1,000 Revenue-Recovery Blueprint gives you a workflow map, ROI range, and implementation plan you own. The full $1,000 credits toward implementation within 60 days." },
   { q: "What if I already have a website?", a: "We audit it and upgrade what needs fixing: SEO, forms, speed, mobile experience. We don\u2019t rebuild from scratch unless it\u2019s absolutely necessary." },
   { q: "What AI tools do you use?", a: "Retell AI for the voice layer, HubSpot for CRM (free tier), n8n for workflow automation, Telnyx for calling, Resend for email. Every account is opened in your name. You own all of it." },
-  { q: "How long until I see results?", a: "First AI-qualified lead typically within 1-3 weeks of launch. By month 3 you get an ROI report showing the booked jobs and recovered revenue the system actually generated." },
+  { q: "How long until I see results?", a: "The free Snapshot is delivered within one business day. A paid Blueprint is delivered within five business days after discovery and receipt of the required data. Implementation timing depends on call volume, integrations, and workflow scope, and is confirmed in the Blueprint." },
   { q: "What happens if I stop working with you?", a: "Everything keeps running. You own the website, the CRM, the AI agent, the workflows. We hand over all credentials and documentation." },
   { q: "Is the AI going to sound robotic?", a: "No. Modern voice AI is conversational and context-aware. We customize the voice, script, and tone to match your brand. We\u2019ll send you a sample call before launch." },
 ];
@@ -27,35 +26,35 @@ export default function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-6">
-                The AI employee for your front desk
+                Managed front-desk revenue recovery
               </p>
               <h1 className="font-[var(--font-display)] text-[clamp(2.4rem,5.5vw,4rem)] font-bold leading-[1.08] tracking-tight text-[var(--ink)] mb-6">
-                Your leads are slipping
+                Recover missed calls
                 <br />
-                away while you sleep.
+                and stalled estimates.
                 <br />
-                <span className="text-[var(--ink-dim)]">We fix that.</span>
+                <span className="text-[var(--ink-dim)]">Measure what comes back.</span>
               </h1>
               <p className="text-[clamp(1rem,1.8vw,1.15rem)] leading-[1.7] text-[var(--ink-soft)] max-w-[540px] mb-10">
-                An AI employee that handles your front-desk work: calls leads back
-                in under two minutes, never forgets a follow-up, runs your CRM.
-                You own the automation. We deliver the outcome.
-                Built for businesses that don&apos;t have a tech team.
+                ClearAutomations connects call handling, lead response, estimate
+                follow-up, booking, and CRM workflows for HVAC and plumbing
+                companies. We use the systems you already have, manage what is
+                missing, and report against real operating data.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#audit"
+                  className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
+                >
+                  Get a Free Missed-Call Snapshot
+                </a>
                 <a
                   href={siteConfig.bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
-                >
-                  Book a 20-Minute Call
-                </a>
-                <a
-                  href="#audit"
                   className="inline-flex items-center justify-center text-[15px] font-medium text-[var(--ink-soft)] py-3.5 px-8 border border-[rgba(255,255,255,0.12)] rounded hover:border-[var(--ink-dim)] transition-colors"
                 >
-                  Get a Free AI Audit
+                  Book a 20-Minute Call
                 </a>
               </div>
               <p className="mt-5 text-[14px] text-[var(--ink-dim)] max-w-[540px]">
@@ -64,10 +63,10 @@ export default function Home() {
                   {siteConfig.phoneDisplay}
                 </a>
                 . Or start with the{" "}
-                <a href="#stack-audit" className="text-[var(--amber)] hover:underline">
-                  $1,000 AI Assessment
+                <a href="#blueprint" className="text-[var(--amber)] hover:underline">
+                  $1,000 Revenue-Recovery Blueprint
                 </a>
-                : we map exactly where leads leak and what to build. Credits toward your build.
+                : actual-data analysis, a workflow map, and a build plan you own.
               </p>
             </div>
             <div className="hidden lg:block">
@@ -129,10 +128,10 @@ export default function Home() {
               One clear starting point. Grow as it proves out.
             </p>
             <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-12">
-              Start with the Assessment.
+              Start with the Snapshot.
               <br />
               <span className="text-[var(--navy-muted)]">
-                Then we build your AI employee. Then you grow.
+                Validate with real data. Build only what earns its place.
               </span>
             </h2>
           </FadeIn>
@@ -140,19 +139,24 @@ export default function Home() {
           <div className="flex flex-col gap-4">
             {[
               {
-                phase: "Start here", name: "AI Assessment", setup: "$1,000", monthly: "credits to build", timeline: "5 business days", result: "Know exactly where leads leak, and what to build",
-                items: ["Full audit of your lead flow: calls, forms, follow-up, CRM", "Quantified dollar figure on what slow follow-up is costing you", "A prioritized \u201cwhat to build first\u201d plan you own", "45-minute discovery call to map your workflows", "Delivered as a clear report, not a sales pitch", "Credits 100% toward your build within 60 days"],
+                phase: "Start here", name: "Missed-Call Snapshot", setup: "Free", monthly: "—", timeline: "1 business day", result: "See the observable gaps before sharing internal data",
+                items: ["One page based on public information", "Published hours and booking-path review", "Observable gaps separated from assumptions", "No invented dollar-loss claim", "The data needed to validate the opportunity", "No comprehensive SEO review or custom video audit"],
                 featured: true,
-                roi: "A paid diagnosis, not a free sales call. The $1,000 comes off your build.",
+                roi: "A useful first look with no meeting required.",
               },
               {
-                phase: "Then we build", name: "Speed-to-Lead AI Employee", setup: "Scoped in Assessment", monthly: "Scoped in Assessment", timeline: "2\u20134 weeks", result: "Every lead answered + booked in under 2 minutes",
-                items: ["AI voice + text agent answers every inquiry instantly", "4+ integrations wired in (CRM / calendar / SMS / phone)", "Missed-call text-back + owner alerts", "Follow-up + 14-day re-engagement sequences", "Built on tools you already own", "You own all of it. Fire us and keep everything"],
+                phase: "Validate with real data", name: "Revenue-Recovery Blueprint", setup: "$1,000", monthly: "credits to build", timeline: "5 business days", result: "Know what is leaking, what can be recovered, and what to build",
+                items: ["One 45-minute workflow discovery", "Analysis of available call, lead, booking, and estimate data", "Current-state workflow map", "ROI range with assumptions shown", "Prioritized implementation and measurement plan", "Credits 100% toward implementation within 60 days"],
                 featured: false,
               },
               {
-                phase: "Then you grow", name: "The full AI Employee", setup: "Scoped as you scale", monthly: "Scoped as you scale", timeline: "Ongoing", result: "Takes on more of the work your team does by hand",
-                items: ["Outbound + multi-channel follow-up", "Scheduling + pipeline automation", "Performance reporting + monthly optimization", "New workflows added as you grow", "Never more than you need", "The model most clients move to"],
+                phase: "Then implement", name: "Front Desk Revenue Recovery", setup: "$5,000–10,000", monthly: "$1,500–3,000/mo", timeline: "Scoped in Blueprint", result: "Recover calls and estimates through a managed, measurable workflow",
+                items: ["After-hours and overflow call handling", "Missed-call and lead response", "Open-estimate follow-up", "CRM / FSM logging and human handoffs", "QA, reliability monitoring, and optimization", "Weekly performance reporting against the baseline"],
+                featured: false,
+              },
+              {
+                phase: "Expand after proof", name: "AI Employee Expansion", setup: "Scoped", monthly: "Typically $5,000/mo", timeline: "After visible ROI", result: "Add a quantified second workflow for qualified clients",
+                items: ["For high-volume or multi-location operations", "Begins only after the front-desk system is live", "Requires a measured business case", "Adds cross-channel or back-office workflows", "Uses existing systems before introducing custom tools", "Not sold as the front-door offer"],
                 featured: false,
               },
             ].map((phase) => (
@@ -214,19 +218,12 @@ export default function Home() {
           </div>
 
           <p className="text-[14px] text-[var(--navy-muted)] mt-6">
-            No hidden fees. No multi-month contracts. You own everything we build.
+            Clear scope, visible assumptions, client-owned accounts, and a documented handoff path.
           </p>
           <p className="text-[14px] text-[var(--navy-text)] mt-3 max-w-[640px]">
-            And we don&apos;t install it and disappear. By month 3 you get a simple ROI
-            report: the booked jobs and recovered revenue your AI employee actually
-            generated. That&apos;s how you know it&apos;s working, not just running.
-          </p>
-          <p className="text-[14px] text-[var(--navy-muted)] mt-3">
-            Need only the phone layer? See the{" "}
-            <a href="/services/voice-agent-setup" className="text-[var(--amber)] hover:underline">
-              AI Front-Desk Employee Setup
-            </a>
-            .
+            We baseline the current process before launch, then report response,
+            contact, booking, estimate-recovery, reliability, and revenue measures.
+            That is how you know the system is working, not merely running.
           </p>
         </div>
       </section>
@@ -239,26 +236,26 @@ export default function Home() {
               Capabilities of the build
             </p>
             <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
-              What your AI employee can handle.
+              What Front Desk Revenue Recovery can include.
             </h2>
           </FadeIn>
 
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                name: "Smart Booking",
-                desc: "Clients book themselves. You stop playing phone tag.",
-                items: ["Online booking page", "SMS + email reminders", "No-show follow-ups", "Calendar sync (Google/Outlook)"],
+                name: "Missed-Call Recovery",
+                desc: "Capture and route high-intent calls that would otherwise wait in voicemail.",
+                items: ["After-hours and overflow paths", "Missed-call text-back", "Human escalation", "Call summaries and owner alerts"],
               },
               {
-                name: "24/7 Chat AI",
-                desc: "An AI that answers questions and qualifies leads while you sleep.",
-                items: ["Website chat widget", "SMS conversation bot", "Trained on your business", "Auto-books appointments"],
+                name: "Lead & Estimate Follow-Up",
+                desc: "Move valid opportunities forward without relying on someone's memory.",
+                items: ["New-lead response", "Open-estimate reminders", "Appointment confirmations", "Stop and escalation rules"],
               },
               {
-                name: "Social Autopilot",
-                desc: "Your social presence runs itself.",
-                items: ["Post scheduling (FB/IG/Google)", "Content calendar", "Google Business updates", "Monthly reporting"],
+                name: "CRM / FSM Operations",
+                desc: "Keep the systems your team already uses accurate and actionable.",
+                items: ["Lead and job-stage updates", "Task and owner assignment", "Native-first integrations", "Performance and reliability reporting"],
               },
             ].map((addon, i) => (
               <FadeIn key={addon.name} delay={i * 100}>
@@ -280,81 +277,13 @@ export default function Home() {
           </div>
 
           <p className="text-[14px] text-[var(--ink-dim)] mt-6">
-            These are capabilities your AI employee can take on. They get scoped into your build, not sold as separate products to manage.
+            These are components of one managed engagement. They are scoped from the Blueprint, not sold as unrelated products.
           </p>
         </div>
       </section>
 
-      {/* 3b2. CREATIVE SERVICES */}
-      <section id="creative" className="py-12 sm:py-16 border-t border-[var(--rule)]">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <FadeIn>
-            <p className="text-[13px] font-medium text-[var(--ink-dim)] tracking-wide uppercase mb-4">
-              Content &amp; brand assets
-            </p>
-            <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-3">
-              Need content to fuel the system?
-            </h2>
-            <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] max-w-[540px] mb-10">
-              AI-generated brand assets, edited videos, and a full content engine, built with the same automation-first approach.
-            </p>
-          </FadeIn>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                name: "Brand Asset Sprint",
-                price: "$500",
-                desc: "Campaign visuals and launch assets that support a specific offer or lead magnet.",
-                items: ["AI-assisted from your brand book", "Social media ready sizes", "Consistent style across all assets", "Built for campaigns, not decoration"],
-                href: "#audit",
-                cta: "Scope in audit",
-              },
-              {
-                name: "Video Edit Package",
-                price: "$300\u2013800",
-                desc: "Proof clips, short explainers, and sales enablement videos tied to a lead-generation path.",
-                items: ["Basic: trim + subtitles + color", "Standard: full edit + motion graphics", "Premium: reusable style direction", "Includes raw file handoff"],
-                href: "#audit",
-                cta: "Scope in audit",
-              },
-              {
-                name: "Founder Content System",
-                price: "$1,500\u20134,000/mo",
-                desc: "Turn founder knowledge into consistent content without building a media team.",
-                items: ["Weekly content ideas", "Post drafts + short-form scripts", "Repurposing across channels", "Monthly performance review"],
-                href: "/services/founder-content-system",
-                cta: "View service",
-              },
-            ].map((service, i) => (
-              <FadeIn key={service.name} delay={i * 100}>
-                <div className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--surface)]">
-                  <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--ink)] mb-1">{service.name}</h3>
-                  <p className="font-[var(--font-display)] text-[1.1rem] text-[var(--amber)] mb-3">{service.price}</p>
-                  <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] mb-5">{service.desc}</p>
-                  <ul className="space-y-2.5">
-                    {service.items.map((item) => (
-                      <li key={item} className="text-[13px] text-[var(--ink-soft)] flex gap-2.5 items-start">
-                        <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={service.href}
-                    className="inline-flex mt-6 text-[13px] font-semibold text-[var(--amber)] hover:underline"
-                  >
-                    {service.cta}
-                  </a>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3c. TECH STACK AUDIT */}
-      <section id="stack-audit" className="py-12 sm:py-16 bg-[var(--surface)]">
+      {/* 3c. REVENUE-RECOVERY BLUEPRINT */}
+      <section id="blueprint" className="py-12 sm:py-16 bg-[var(--surface)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="max-w-[800px] mx-auto">
             <FadeIn>
@@ -366,21 +295,21 @@ export default function Home() {
                     Not sure what you need?
                   </p>
                   <h2 className="font-[var(--font-display)] text-[clamp(1.6rem,3vw,2.2rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-2">
-                    AI Assessment
+                    Revenue-Recovery Blueprint
                   </h2>
                   <p className="font-[var(--font-display)] text-[1.3rem] text-[var(--amber)] mb-6">
                     $1,000 one-time, credits toward your build
                   </p>
                   <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] mb-6">
-                    A paid, in-depth diagnosis, not a sales call. We map exactly where leads leak across your front desk, quantify what it&apos;s costing you, and hand you a prioritized build plan you own.
+                    A paid, actual-data diagnosis. We map the current front-desk workflow, establish a defensible leakage baseline, and hand you a prioritized implementation plan you own.
                   </p>
 
                   <ul className="space-y-3 mb-8">
                     {[
-                      "Full audit of your lead flow: calls, forms, follow-up, CRM, after-hours",
+                      "Analysis of available call, lead, booking, estimate, and CRM / FSM data",
                       "45-minute discovery call to map your workflows",
-                      "Quantified dollar figure on what slow / missed follow-up is costing you",
-                      "A prioritized \u201cwhat to build first\u201d plan, yours whether or not you hire us",
+                      "Current-state workflow map and ROI range with assumptions shown",
+                      "A prioritized implementation and measurement plan, yours whether or not you hire us",
                     ].map((item) => (
                       <li key={item} className="text-[14px] text-[var(--ink-soft)] flex gap-3 items-start">
                         <span className="text-[var(--amber)] mt-0.5 shrink-0">{"\u2500"}</span>
@@ -479,9 +408,9 @@ export default function Home() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {[
-              { headline: "You own everything.", body: "Your website, your CRM, your AI agent, your data. Fire us and keep it all. We build on open platforms you control: no lock-in, no proprietary systems, no hostage situations." },
-              { headline: "Live in 2\u20134 weeks.", body: "Not a 6-month roadmap. You start with a paid Assessment, we build, and the system pays for itself with a single new client. By month 3 you see the ROI in writing." },
-              { headline: "The big platforms aren't built for you.", body: "The big AI platforms are built for big operations. I personally build and run yours, and you can call me. Enterprise-grade systems, sized for your business, at a price that makes sense." },
+              { headline: "Native first.", body: "We check what ServiceTitan, Jobber, Housecall Pro, or your current stack can already do before adding custom infrastructure. You should not pay us to rebuild a feature you already own." },
+              { headline: "Measured from baseline.", body: "The Blueprint separates verified leakage from assumptions. After launch, reporting focuses on response, contact, booking, estimate recovery, reliability, and revenue." },
+              { headline: "Client-owned and documented.", body: "Accounts are opened in your name wherever practical, configurations are documented, and the engagement includes an orderly handoff path." },
             ].map((d, i) => (
               <FadeIn key={d.headline} delay={i * 100}>
                 <h3 className="font-[var(--font-display)] text-[1.3rem] font-bold text-[var(--amber)] mb-3 leading-tight">{d.headline}</h3>
@@ -502,9 +431,10 @@ export default function Home() {
               </p>
               <p className="text-[15px] text-[var(--ink-soft)] leading-[1.8]">
                 Before ClearAutomations, our founder spent 5 years at RSM deploying AP
-                automation platforms (Basware, Coupa) for mid-market and enterprise
-                clients. The same systems large companies pay six figures to implement,
-                adapted and priced for small businesses.
+                automation platforms (Basware, Coupa) into mid-market and enterprise
+                stacks. Not replacing what those companies ran. Embedding with their
+                teams and making AI work inside it. That is what happens here, at a
+                size and price a small business can actually use.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="text-[11px] text-[var(--ink-faint)] uppercase tracking-widest mr-1">
@@ -532,7 +462,7 @@ export default function Home() {
               <div>
                 <p className="text-[16px] font-semibold text-[var(--ink)] mb-1">{siteConfig.founderName}</p>
                 <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6] max-w-[520px]">
-                  5 years building enterprise AP and workflow automation systems at RSM. Now I build the same modular systems for small businesses at a fraction of the cost. Based in Texas.
+                  5 years embedding with mid-market and enterprise finance teams at RSM, deploying AP automation into stacks they already ran. I do the same thing for small businesses now: audit what you have, deploy AI into it, and stay until it works. Based in Texas.
                 </p>
                 <div className="flex gap-4 mt-3">
                   <a href={siteConfig.linkedInUrl} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[var(--ink-dim)] hover:text-[var(--amber)] transition-colors">LinkedIn</a>
@@ -572,35 +502,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. CTA — FREE AI AUDIT */}
+      {/* 7. CTA — FREE MISSED-CALL SNAPSHOT */}
       <section id="audit" className="bg-[var(--navy)] text-white py-16 sm:py-20">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="grid md:grid-cols-[1fr_400px] gap-12 items-start">
             <FadeIn>
               <div>
                 <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight mb-4">
-                  Get a free AI audit
+                  Get a free Missed-Call Snapshot
                   <br />
-                  of your business.
+                  for your business.
                 </h2>
                 <p className="text-[var(--navy-text)] text-[15px] leading-[1.7] max-w-[440px] mb-6">
-                  We&apos;ll review your website, SEO, lead flow, and follow-up process. You&apos;ll get a video walkthrough of exactly what&apos;s broken and how to fix it. Free, no obligation.
+                  We&apos;ll use public information to create a one-page view of your published hours, call and booking paths, observable gaps, and the real data needed to validate the opportunity. No meeting required.
                 </p>
-                <p className="text-[var(--navy-muted)] text-[13px]">Typically delivered within 48 hours.</p>
+                <p className="text-[var(--navy-muted)] text-[13px]">Typically delivered within one business day.</p>
                 <p className="text-[var(--navy-muted)] text-[13px] mt-4">
                   Ready to go deeper?{" "}
-                  <a href="#stack-audit" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
-                    Start with the $1,000 AI Assessment
+                  <a href="#blueprint" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
+                    Continue with the $1,000 Revenue-Recovery Blueprint
                   </a>
                   . It credits toward your build.
                 </p>
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-[var(--navy-text)] text-[14px] font-medium mb-2">Not ready to talk yet?</p>
-                  <p className="text-[var(--navy-muted)] text-[13px] leading-[1.6] max-w-[400px]">
-                    Grab our free 5-Minute Stack Audit Checklist, a self-assessment that shows you where your lead capture process is leaking revenue.
-                  </p>
-                  <ChecklistForm />
-                </div>
               </div>
             </FadeIn>
 

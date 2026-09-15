@@ -5,7 +5,7 @@ export const hvacContractorsIndustry: Industry = {
   name: "HVAC Contractors",
   form: {
     kind: "hvac-contractor",
-    ctaLabel: "HVAC Audit",
+    ctaLabel: "Free Missed-Call Snapshot",
   },
   landingCopy: {
     addonsEyebrow: "Add to the build",
@@ -49,13 +49,13 @@ export const hvacContractorsIndustry: Industry = {
     title: "Every missed AC call can become someone else's booked job.",
     mutedTitle: "We recover the lead before it cools off.",
     body:
-      "ClearAutomations is the front desk for HVAC contractors. We build the AI employee that answers every call, recovers missed leads, follows up on estimates, and keeps reviews coming, for companies that cannot afford slow response during Texas heat.",
-    primaryCta: "Request an HVAC Workflow Audit",
+      "ClearAutomations manages missed-call recovery, lead response, estimate follow-up, booking, and CRM/FSM workflows for HVAC companies. We check the systems you already have before adding custom infrastructure.",
+    primaryCta: "Request a Free Missed-Call Snapshot",
     secondaryCta: "See the Workflow Phases",
     stats: [
-      { value: "2 min", label: "target callback task" },
-      { value: "85%", label: "of voicemail callers never call back" },
-      { value: "$350+", label: "cost of one missed service call" },
+      { value: "1 page", label: "public-data Snapshot" },
+      { value: "1 day", label: "typical delivery" },
+      { value: "$0", label: "starting price" },
     ],
   },
   problems: {
@@ -65,12 +65,12 @@ export const hvacContractorsIndustry: Industry = {
       {
         num: "01",
         text:
-          "No-cool calls arrive after hours, on weekends, and during heat waves when every competitor is one tap away. The average shop misses 27% of its calls, and 85% of callers who hit voicemail never call back.",
+          "No-cool calls arrive after hours, on weekends, and during heat waves when every competitor is one tap away. The size of that gap varies by shop, so the Blueprint uses actual call records before assigning a dollar value.",
       },
       {
         num: "02",
         text:
-          "Estimate requests get quoted once, then disappear into inboxes, sticky notes, or a dispatcher memory stack. A missed service call costs $350 or more. A missed replacement call can cost $7,500 to $14,000.",
+          "Estimate requests can be quoted once, then disappear into inboxes, sticky notes, or a dispatcher memory stack. The value of that follow-up gap should be measured from the shop's own estimates and booked work.",
       },
       {
         num: "03",
@@ -82,17 +82,17 @@ export const hvacContractorsIndustry: Industry = {
       "The first build focuses on lead response, booking, and owner visibility. It does not replace your dispatcher, field-service platform, or technician judgment.",
   },
   phases: {
-    eyebrow: "Start with the $1,000 AI Assessment.",
-    title: "First we map your revenue leak. Then we build.",
+    eyebrow: "Start with a free Snapshot, then validate with the $1,000 Blueprint.",
+    title: "First we observe. Then we verify. Then we build.",
     mutedTitle: "Missed-call recovery, then follow-up, then retention.",
     note:
-      "Everything starts with the $1,000 AI Assessment. We quantify exactly how many calls you're missing and what each is worth, then build from there. The fee credits toward the build. The build below is what your AI front desk looks like for HVAC, scoped in your Assessment with 4+ integrations wired in (phone, CRM, SMS, and your calendar or field-service platform). By month 3 you get a simple ROI report: the booked jobs and recovered revenue the system actually generated. Production launch requires real phone, CRM, dispatch, and opt-in settings to be reviewed first.",
+      "The free Missed-Call Snapshot uses public information and names the data needed to validate the opportunity. The $1,000 Revenue-Recovery Blueprint then maps the real workflow, baseline, ROI range, implementation, and measurement plan. Its full fee credits toward implementation within 60 days.",
     items: [
       {
         phase: "Build · Stage 1",
         name: "Missed Call Recovery",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "2-3 weeks",
         result: "Faster callbacks and fewer lost emergency leads",
         status: "The core build - demo workflow ready",
@@ -111,8 +111,8 @@ export const hvacContractorsIndustry: Industry = {
       {
         phase: "Build · Stage 2",
         name: "Estimate Follow-Up",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "2 weeks",
         result: "More quotes turned into booked installs",
         status: "Added after CRM and quote process review",
@@ -129,8 +129,8 @@ export const hvacContractorsIndustry: Industry = {
       {
         phase: "Build · Stage 3",
         name: "Retention and Reviews",
-        setup: "Scoped in Assessment",
-        monthly: "Scoped in Assessment",
+        setup: "Within implementation",
+        monthly: "Within management",
         timeline: "1-2 weeks",
         result: "More repeat work and stronger local proof",
         status: "Added after emergency and quote flows are stable",
@@ -150,7 +150,7 @@ export const hvacContractorsIndustry: Industry = {
   addons: [
     {
       name: "Dispatch Handoff Map",
-      price: "Add-on - scoped in Assessment",
+      price: "Component - scoped in Blueprint",
       desc:
         "Document exactly when automation should route to dispatcher, owner, technician, or normal office follow-up.",
       items: [
@@ -162,7 +162,7 @@ export const hvacContractorsIndustry: Industry = {
     },
     {
       name: "Review Recovery Sprint",
-      price: "Add-on - scoped in Assessment",
+      price: "Component - scoped in Blueprint",
       desc:
         "Turn completed jobs into a simple, compliant review request system with owner visibility.",
       items: [
@@ -174,7 +174,7 @@ export const hvacContractorsIndustry: Industry = {
     },
     {
       name: "Maintenance Plan Reactivation",
-      price: "Add-on - scoped in Assessment",
+      price: "Component - scoped in Blueprint",
       desc:
         "Import old customers or maintenance members and build a seasonal reactivation workflow.",
       items: [
@@ -258,9 +258,9 @@ export const hvacContractorsIndustry: Industry = {
   },
   resultsModel: {
     eyebrow: "Illustrative results",
-    title: "What a 150-lead/month HVAC shop could recover",
+    title: "What the Blueprint measures before and after launch",
     note:
-      "Shops that fix speed-to-lead typically recover 28-30% of lost leads. At HVAC ticket sizes, that models out to $15,000 or more in monthly recovered revenue for a 150-lead shop. This is a planning model, not a case study.",
+      "This is a workflow model, not client data. Any revenue range is calculated from the shop's own calls, estimates, bookings, and average job values during the Blueprint.",
     rows: [
       {
         metric: "After-hours emergency calls",
@@ -306,16 +306,16 @@ export const hvacContractorsIndustry: Industry = {
         "Yes, after opt-in, unsubscribe language, sender setup, and frequency caps are configured. The demo keeps those rules visible instead of burying them.",
     },
     {
-      q: "What does the audit form collect?",
+      q: "What does the Snapshot form collect?",
       a:
-        "Only business workflow information: company, contact, service area, tools, lead volume, after-hours process, and the biggest revenue leak.",
+        "Business name, website, email, an optional phone number, and one front-desk challenge. The Snapshot itself uses public information and does not require customer data.",
     },
   ],
   cta: {
     eyebrow: "Start with the missed-call lane",
-    title: "Request an HVAC workflow audit.",
+    title: "Request a free Missed-Call Snapshot.",
     body:
-      "We will review your lead intake, after-hours coverage, callback speed, estimate follow-up, review flow, and maintenance plan opportunities. The big platforms are built for big operations. I personally build and run yours, and you can call me.",
+      "We will use public information to review your published hours, call and booking paths, observable gaps, and the real operating data needed to validate the opportunity.",
     note:
       "Do not include payment details, private customer notes, gate codes, access instructions, or emergency details that should remain inside your dispatch system.",
   },

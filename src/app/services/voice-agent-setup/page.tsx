@@ -3,82 +3,82 @@ import Link from "next/link";
 import { BulletList, PageSection, SimplePage } from "@/components/simple-page";
 
 export const metadata: Metadata = {
-  title: "AI Front-Desk Employee Setup + Retainer | ClearAutomations",
+  title: "Front Desk Revenue Recovery | ClearAutomations",
   description:
-    "Managed AI phone intake, missed-call recovery, routing, CRM logging, testing, and monthly tuning for small businesses.",
+    "Managed missed-call recovery, lead and estimate follow-up, CRM/FSM workflows, human handoffs, QA, and performance reporting for HVAC and plumbing companies.",
 };
 
-export default function VoiceAgentSetupPage() {
+export default function FrontDeskRevenueRecoveryPage() {
   return (
     <SimplePage
-      eyebrow="Featured service"
-      title="AI Front-Desk Employee Setup + Retainer"
-      description="Never let a qualified call die in voicemail. ClearAutomations builds and manages the phone layer of your AI employee: it answers, qualifies, routes, and documents calls with clear human handoff rules."
+      eyebrow="Principal engagement"
+      title="Front Desk Revenue Recovery"
+      description="Recover missed calls and stalled estimates through a managed workflow built around the systems your HVAC or plumbing company already uses."
     >
-      <PageSection title="What this includes">
+      <PageSection title="Typical scope">
         <BulletList
           items={[
-            "AI phone agent setup for your main intake, missed-call, or after-hours path.",
-            "Business-specific scripts, FAQs, routing logic, and escalation rules.",
-            "CRM logging for caller details, call summary, lead stage, and next task.",
-            "Missed-call text-back, owner alerts, voicemail summaries, and follow-up paths.",
-            "Launch testing with sample calls before the agent handles real callers.",
-            "Monthly transcript review, prompt tuning, and workflow cleanup.",
+            "After-hours and overflow call handling with explicit human handoffs.",
+            "Missed-call, new-lead, and open-estimate follow-up paths.",
+            "CRM/FSM logging, stage updates, owner assignment, alerts, and exception tasks.",
+            "Native-platform review before custom tools are added.",
+            "Launch QA, reliability monitoring, transcript/workflow review, and ongoing tuning.",
+            "Weekly reporting against the baseline established in the Blueprint.",
           ]}
         />
       </PageSection>
 
       <PageSection title="Pricing">
         <p>
-          This is the phone layer of the AI employee, scoped as a standalone build.
-          Exact setup and monthly pricing is scoped in your{" "}
-          <strong>$1,000 AI Assessment</strong>. We map your real call paths,
-          integrations, and compliance needs first, then quote a fixed number with
-          no surprises. The Assessment credits toward the build.
+          Implementation is typically <strong>$5,000–$10,000</strong>, followed
+          by <strong>$1,500–$3,000 per month</strong> for management. Price is
+          based on inbound volume, locations, integrations, channels, workflow
+          complexity, compliance, reporting, and support.
+        </p>
+        <p>
+          The scope comes from the <strong>$1,000 Revenue-Recovery Blueprint</strong>.
+          The full Blueprint fee credits toward an implementation agreement
+          signed within 60 days.
         </p>
       </PageSection>
 
-      <PageSection title="Best fit">
+      <PageSection title="Success measures">
         <BulletList
           items={[
-            "Service businesses that miss calls after hours or during busy windows.",
-            "Teams that need caller summaries and follow-up tasks in the CRM.",
-            "Owners who want coverage without handing caller experience to a black box.",
-            "Industries with urgent, high-intent inquiries like HVAC, roofing, dental, therapy, legal intake, and home services.",
+            "Lead response and contact time",
+            "Qualified conversations and appointments booked",
+            "Open estimates reactivated",
+            "Recovered revenue using client-confirmed job data",
+            "Workflow failure and escalation rate",
+            "Administrative time saved",
           ]}
         />
       </PageSection>
 
-      <PageSection title="Trust boundaries">
+      <PageSection title="Ownership and boundaries">
         <BulletList
           items={[
-            "AI voice agents should use approved disclosure language.",
-            "Human handoff and emergency fallback rules are defined before launch.",
-            "Regulated workflows need consent, recording, BAA, retention, and vendor review before production use.",
-            "The agent does not diagnose, provide legal advice, promise claim outcomes, or replace professional judgment.",
+            "Client-owned accounts wherever practical, with a documented handoff path.",
+            "Approved disclosure, recording, consent, retention, and escalation rules before launch.",
+            "No diagnosis, legal advice, claim-outcome promises, or replacement of professional judgment.",
+            "No promise of a specific recovered dollar amount before a real baseline exists.",
           ]}
         />
         <p>
-          See the public{" "}
-          <Link href="/trust" className="text-[var(--amber)]">
-            Trust
-          </Link>{" "}
-          page for the operating boundaries used across ClearAutomations voice,
-          SMS, email, and healthcare-ready workflows.
+          See the public <Link href="/trust" className="text-[var(--amber)]">Trust</Link> page for operating boundaries.
         </p>
       </PageSection>
 
       <PageSection title="Start here">
         <p>
-          The free audit maps your current call flow, missed-call handling,
-          routing rules, calendar or CRM needs, and the smallest useful launch
-          version.
+          Begin with the free Missed-Call Snapshot. It uses public information
+          to identify observable gaps and the data needed to validate them.
         </p>
         <Link
           href="/#audit"
           className="inline-flex items-center justify-center bg-[var(--amber)] text-[var(--stone)] text-[15px] font-semibold py-3.5 px-8 rounded hover:bg-[var(--amber-hover)] transition-colors"
         >
-          Get a Free Audit
+          Get a Free Missed-Call Snapshot
         </Link>
       </PageSection>
     </SimplePage>

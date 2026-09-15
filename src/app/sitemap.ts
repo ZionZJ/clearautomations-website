@@ -10,7 +10,6 @@ const staticRoutes = [
   "/privacy",
   "/proof",
   "/services",
-  "/services/founder-content-system",
   "/services/voice-agent-setup",
   "/terms",
   "/trust",

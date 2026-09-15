@@ -5,9 +5,9 @@ import { SiteNav } from "@/components/site-nav";
 import { industries } from "@/data/industries";
 
 export const metadata: Metadata = {
-  title: "Industries | Clear Automations",
+  title: "Home Services Industries | Clear Automations",
   description:
-    "Industry-specific AI automation systems from Clear Automations.",
+    "Front-desk revenue recovery for HVAC, plumbing, and home-service companies.",
 };
 
 export default function IndustriesPage() {
@@ -16,7 +16,7 @@ export default function IndustriesPage() {
       <SiteNav
         links={[
           { href: "/#phases", label: "Phases" },
-          { href: "/#stack-audit", label: "Stack Audit" },
+          { href: "/#blueprint", label: "Revenue-Recovery Blueprint" },
           { href: "/industries", label: "Industries" },
           { href: "/#faq", label: "FAQ" },
         ]}
@@ -27,15 +27,15 @@ export default function IndustriesPage() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <FadeIn>
             <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-6">
-              Industry playbooks
+              Home-service playbooks
             </p>
             <h1 className="font-[var(--font-display)] text-[clamp(2.4rem,5vw,3.8rem)] font-bold leading-[1.08] text-[var(--ink)] mb-6 max-w-[760px]">
-              Automation offers built around the way each business actually runs.
+              One revenue-recovery offer, adapted to the way your business runs.
             </h1>
             <p className="text-[clamp(1rem,1.8vw,1.15rem)] leading-[1.7] text-[var(--ink-soft)] max-w-[660px] mb-12">
-              Each vertical has its own workflow model, data boundary, sales
-              promise, and tooling policy. Start with the playbook that matches
-              the leak you can feel in the business.
+              ClearAutomations focuses on HVAC, plumbing, and adjacent
+              home-service companies. Every path starts with the same free
+              Missed-Call Snapshot and advances through the same offer ladder.
             </p>
           </FadeIn>
 
