@@ -1,6 +1,13 @@
 # ClearAutomations Website
 
-Public website for ClearAutomations. ClearAutomations builds the AI employee that runs a small business front desk: missed-call recovery, AI call answering, follow-up workflows, CRM setup, and client-owned automation systems.
+Public website for ClearAutomations. The business helps home-service companies recover revenue lost through missed calls, slow lead response, disconnected handoffs, and inconsistent follow-up.
+
+The public offer ladder is:
+
+1. Free Missed-Call Snapshot
+2. $1,000 Revenue-Recovery Blueprint, credited toward implementation when implementation starts within 60 days
+3. Front Desk Revenue Recovery at $5,000–$10,000 implementation plus $1,500–$3,000 monthly management
+4. Advanced Workflow Expansion after the initial system proves its value
 
 ## Local Commands
 
@@ -15,23 +22,18 @@ npm run build
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Main offer, phases, stack audit, proof, FAQ, free audit CTA |
-| `/services` | Service index for public productized offers |
-| `/services/voice-agent-setup` | AI Front-Desk Employee Setup + Retainer details |
-| `/services/founder-content-system` | Founder Content System details |
-| `/industries` | Industry playbook index |
-| `/industries/therapists` | Therapist-practice automation page |
-| `/industries/hvac-contractors` | HVAC contractor automation page |
-| `/industries/plumbing-contractors` | Plumbing contractor automation page |
-| `/industries/roofing-contractors` | Roofing contractor automation page |
-| `/industries/dental-practices` | Dental-practice automation page |
-| `/industries/postal-presort` | Postal presort and mailing services page |
-| `/industries/legal-intake` | Legal intake automation page |
-| `/industries/home-services` | General home-services automation page |
+| `/` | Canonical offer ladder, qualification, proof policy, FAQ, Snapshot, and Blueprint forms |
+| `/services` | Current revenue-recovery offer ladder |
+| `/services/voice-agent-setup` | Front Desk Revenue Recovery details |
+| `/services/founder-content-system` | Redirects visitors back to the current services ladder |
+| `/industries` | Live industry-page index |
+| `/industries/hvac-contractors` | HVAC revenue-recovery page |
+| `/industries/plumbing-contractors` | Plumbing revenue-recovery page |
+| `/industries/home-services` | General home-services revenue-recovery page |
 | `/about` | ClearAutomations brand and founder/operator positioning |
-| `/trust` | AI voice, SMS/email, healthcare, ownership, and security boundaries |
-| `/proof` | Modeled proof examples until client results are approved |
-| `/contact` | Public contact and business identity placeholders |
+| `/trust` | Voice, messaging, ownership, and security boundaries |
+| `/proof` | Evidence policy and validation process |
+| `/contact` | Public contact and business identity |
 | `/privacy` | Public privacy notice |
 | `/terms` | Public terms outline placeholder |
 | `/robots.txt` | Search crawler policy |
@@ -46,28 +48,24 @@ Client forms post to branded Next routes. These routes validate payload size, re
 | `/api/leads/free-audit` | `N8N_FREE_AUDIT_WEBHOOK_URL` |
 | `/api/leads/stack-audit` | `N8N_STACK_AUDIT_WEBHOOK_URL` |
 | `/api/leads/checklist` | `N8N_CHECKLIST_WEBHOOK_URL` |
-| `/api/leads/industry-audit` with `vertical=therapists` | `N8N_THERAPISTS_AUDIT_WEBHOOK_URL` |
 | `/api/leads/industry-audit` with `vertical=hvac-contractors` | `N8N_HVAC_AUDIT_WEBHOOK_URL` |
 | `/api/leads/industry-audit` with `vertical=plumbing-contractors` | `N8N_PLUMBING_AUDIT_WEBHOOK_URL` |
-| `/api/leads/industry-audit` with `vertical=roofing-contractors` | `N8N_ROOFING_AUDIT_WEBHOOK_URL` |
-| `/api/leads/industry-audit` with `vertical=dental-practices` | `N8N_DENTAL_AUDIT_WEBHOOK_URL` |
-| `/api/leads/industry-audit` with `vertical=postal-presort` | `N8N_POSTAL_PRESORT_AUDIT_WEBHOOK_URL` |
-| `/api/leads/industry-audit` with `vertical=legal-intake` | `N8N_LEGAL_INTAKE_AUDIT_WEBHOOK_URL` |
 | `/api/leads/industry-audit` with `vertical=home-services` | `N8N_HOME_SERVICES_AUDIT_WEBHOOK_URL` |
 
 Every variable in this table must exist in the hosting provider before deploy. A missing variable returns a 503 to the prospect and the lead is lost.
 
 Do not commit webhook URLs, access keys, tokens, or client data.
 
-## Business Placeholders To Finalize
+## Public Business Identity
 
-These are intentionally centralized in `src/lib/site-config.ts`:
+These values are centralized in `src/lib/site-config.ts`:
 
-- Legal entity: `[TODO_LEGAL_ENTITY]`
-- Mailing address: `[TODO_MAILING_ADDRESS]`
-- Phone: `[TODO_PHONE]`
+- Public brand: `ClearAutomations`
+- Legal entity: `Zion John Ventures LLC d/b/a ClearAutomations`
+- Public mailing address: `5900 Balcones Drive STE 100, Austin, TX 78731`
+- Public email: `zion@getclearautomations.com`
 
-Replace these before relying on the public terms/privacy/contact pages as final submission or sales assets.
+Use `zion@clearautomations.com` as the eventual primary public address only after it is migrated, authenticated, and actively monitored.
 
 ## Trust And Compliance Rules
 
@@ -84,13 +82,10 @@ Internal demo packs live in `docs/industries/`.
 
 Pre-client setup and demo readiness checklist: `docs/pre-client-setup-todo.md`.
 
-Active demos:
+Current public industries:
 
-- Therapist Practice
 - HVAC Contractors
 - Plumbing Contractors
-- Roofing Contractors
-- Dental Practices
 - Home Services
 
 Demo data is fake by design. Do not connect demo workflows to production client accounts without a signed client-specific scope and readiness review.
