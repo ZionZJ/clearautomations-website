@@ -47,9 +47,6 @@ export default function ContactPage() {
       <PageSection title="Business identity">
         <p>Public brand: {siteConfig.displayName}</p>
         <p>Based in Texas.</p>
-        {!isPlaceholder(siteConfig.legalEntity) && (
-          <p>Legal entity: {siteConfig.legalEntity}</p>
-        )}
         {!isPlaceholder(siteConfig.mailingAddress) && (
           <p>Mailing address: {siteConfig.mailingAddress}</p>
         )}

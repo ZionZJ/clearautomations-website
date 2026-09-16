@@ -61,9 +61,11 @@ Do not commit webhook URLs, access keys, tokens, or client data.
 These values are centralized in `src/lib/site-config.ts`:
 
 - Public brand: `ClearAutomations`
-- Legal entity: `Zion John Ventures LLC d/b/a ClearAutomations`
+- Public-facing name: `ClearAutomations`
 - Public mailing address: `5900 Balcones Drive STE 100, Austin, TX 78731`
 - Public email: `zion@getclearautomations.com`
+
+The underlying legal entity, `Zion John Ventures LLC d/b/a ClearAutomations`, is disclosed on the Privacy and Terms pages rather than in the general site footer or Contact page.
 
 Use `zion@clearautomations.com` as the eventual primary public address only after it is migrated, authenticated, and actively monitored.
 
