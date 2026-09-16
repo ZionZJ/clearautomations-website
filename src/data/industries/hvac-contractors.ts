@@ -82,68 +82,80 @@ export const hvacContractorsIndustry: Industry = {
       "The first build focuses on lead response, booking, and owner visibility. It does not replace your dispatcher, field-service platform, or technician judgment.",
   },
   phases: {
-    eyebrow: "Start with a free Snapshot, then validate with the $1,000 Blueprint.",
-    title: "First we observe. Then we verify. Then we build.",
-    mutedTitle: "Missed-call recovery, then follow-up, then retention.",
+    eyebrow: "One offer ladder",
+    title: "Observe the gap. Validate it with real data.",
+    mutedTitle: "Build only what the HVAC operation can support and measure.",
     note:
-      "The free Missed-Call Snapshot uses public information and names the data needed to validate the opportunity. The $1,000 Revenue-Recovery Blueprint then maps the real workflow, baseline, ROI range, implementation, and measurement plan. Its full fee credits toward implementation within 60 days.",
+      "Every engagement follows the same ladder. Implementation scope and price come from call volume, locations, integrations, and workflows rather than a feature menu.",
     items: [
       {
-        phase: "Build · Stage 1",
-        name: "Missed Call Recovery",
-        setup: "Within implementation",
-        monthly: "Within management",
-        timeline: "2-3 weeks",
-        result: "Faster callbacks and fewer lost emergency leads",
-        status: "The core build - demo workflow ready",
+        phase: "Start here",
+        name: "Free Missed-Call Snapshot",
+        setup: "Free",
+        monthly: "-",
+        timeline: "1 business day",
+        result: "See observable call and booking gaps before sharing internal data",
+        status: "Public information only",
+        items: [
+          "Published hours and after-hours path",
+          "Visible call and booking options",
+          "Observable gaps separated from assumptions",
+          "Real data needed to validate the opportunity",
+        ],
+        note:
+          "Focused only on observable front-desk revenue leakage, with no invented revenue-loss claim.",
+      },
+      {
+        phase: "Validate with real data",
+        name: "Revenue-Recovery Blueprint",
+        setup: "$1,000",
+        monthly: "-",
+        timeline: "5 business days",
+        result: "Know what is leaking, what can be recovered, and what to build",
+        status: "45-minute discovery and actual-data analysis",
         featured: true,
         items: [
-          "Emergency service intake form with urgency scoring",
-          "Missed-call callback queue for after-hours and overflow leads",
-          "Missed-call text-back SMS within seconds (live only after A2P 10DLC registration, with opt-out language)",
-          "Retell AI voice script for no-cool qualification and booking handoff",
-          "HubSpot pipeline for new lead, scheduled, quoted, won, and lost",
-          "Owner digest for response speed, booked jobs, and dropped leads",
+          "Call, lead, booking, and estimate baseline",
+          "Current-state workflow map",
+          "ROI range with assumptions shown",
+          "Prioritized implementation and measurement plan",
         ],
         note:
-          "The system prioritizes speed and routing. It should not promise availability, pricing, or technician diagnosis without your approved rules.",
+          "The full $1,000 credits toward implementation within 60 days.",
       },
       {
-        phase: "Build · Stage 2",
-        name: "Estimate Follow-Up",
-        setup: "Within implementation",
-        monthly: "Within management",
-        timeline: "2 weeks",
-        result: "More quotes turned into booked installs",
-        status: "Added after CRM and quote process review",
+        phase: "Principal engagement",
+        name: "Front Desk Revenue Recovery",
+        setup: "$5,000-$10,000",
+        monthly: "$1,500-$3,000",
+        timeline: "Scoped in Blueprint",
+        result: "A managed workflow tied to the verified HVAC baseline",
+        status: "Priced from volume, locations, integrations, and workflows",
         items: [
-          "Stale estimate follow-up sequence",
-          "Replacement quote reminders by system age and urgency",
-          "Finance-option reminder copy approved by the contractor",
-          "Lost-reason tagging for price, timing, competitor, or no response",
-          "Weekly quote recovery dashboard",
+          "Missed-call and overflow handling",
+          "New-lead and open-estimate follow-up",
+          "Approved human handoffs and exception tasks",
+          "Reliability and performance reporting",
         ],
         note:
-          "This phase works best when the company already tracks estimates or can export them from its field-service platform.",
+          "No production message or call path launches without approved consent, disclosure, escalation, and stop rules.",
       },
       {
-        phase: "Build · Stage 3",
-        name: "Retention and Reviews",
-        setup: "Within implementation",
-        monthly: "Within management",
-        timeline: "1-2 weeks",
-        result: "More repeat work and stronger local proof",
-        status: "Added after emergency and quote flows are stable",
+        phase: "Expansion after proof",
+        name: "Advanced Workflow Expansion",
+        setup: "Scoped",
+        monthly: "Typically $5,000",
+        timeline: "After visible ROI",
+        result: "Add a measured second workflow for a qualified operation",
+        status: "Not a front-door offer",
         items: [
-          "Maintenance plan renewal reminders",
-          "Post-job review requests by job type",
-          "Seasonal tune-up reactivation campaigns",
-          "Warranty follow-up and filter reminder sequences",
-          "Monthly owner report with wins, failures, and next actions",
-          "90-day ROI report, built in from day one",
+          "Requires baseline metrics and a stable original system",
+          "Reserved for higher-volume or multi-location operations",
+          "Adds one quantified workflow at a time",
+          "Keeps explicit human ownership and handoffs",
         ],
         note:
-          "Review and SMS workflows require opt-in, unsubscribe language, and realistic frequency caps before production use.",
+          "Expansion is proposed only when the original system has demonstrated value and the next workflow has a defensible business case.",
       },
     ],
   },
@@ -204,68 +216,19 @@ export const hvacContractorsIndustry: Industry = {
     {
       label: "Dispatch-platform friendly",
       detail:
-        "Designed to sit beside ServiceTitan, Housecall Pro, Jobber, FieldEdge, HubSpot, or a simple spreadsheet pipeline.",
+        "Designed to sit beside the client's current dispatch, booking, and lead-tracking systems, using native capabilities first.",
     },
   ],
-  toolsPolicy: {
-    title: "Tools we use around the HVAC booking workflow",
-    intro:
-      "The demo uses n8n as the automation backbone and can connect to the contractor-owned CRM, phone, email, and dispatch stack after account access is approved.",
-    approved: [
-      {
-        name: "Self-hosted n8n",
-        detail:
-          "Coordinates form intake, callback queues, follow-up sequences, review requests, and owner digests.",
-      },
-      {
-        name: "Retell AI (or approved voice agent)",
-        detail:
-          "Handles scripted lead capture and callback support without promising diagnosis, pricing, or technician availability.",
-      },
-      {
-        name: "HubSpot or existing CRM",
-        detail:
-          "Stores lead status, service type, urgency, quote stage, and follow-up tasks in the contractor's account.",
-      },
-      {
-        name: "Twilio, Telnyx, Resend, or Gmail",
-        detail:
-          "Used for production messaging only after sender identity, opt-in, and unsubscribe rules are configured.",
-      },
-    ],
-    blocked: [
-      {
-        name: "Unapproved personal cell routing",
-        detail:
-          "Avoid routing customer emergencies to a personal phone without hours, ownership, and backup rules.",
-      },
-      {
-        name: "AI pricing or diagnosis",
-        detail:
-          "The demo does not let AI quote repair prices, diagnose equipment, or promise dispatch windows without approved business rules.",
-      },
-      {
-        name: "Unregistered automated SMS",
-        detail:
-          "Even one automated text requires A2P 10DLC registration. Registration, opt-in records, and unsubscribe handling come first in every build; no SMS goes live before it.",
-      },
-      {
-        name: "Hidden lead ownership",
-        detail:
-          "ClearAutomations should not own the contractor's phone number, CRM, workflow exports, or customer list.",
-      },
-    ],
-  },
   resultsModel: {
-    eyebrow: "Illustrative results",
+    eyebrow: "Measurement plan",
     title: "What the Blueprint measures before and after launch",
     note:
-      "This is a workflow model, not client data. Any revenue range is calculated from the shop's own calls, estimates, bookings, and average job values during the Blueprint.",
+      "No performance or revenue claim is made before the shop's real calls, estimates, bookings, and job data establishes a baseline.",
     rows: [
       {
         metric: "After-hours emergency calls",
         today: "Voicemail, owner cell, or next-day callback",
-        modeled: "Callback task and routing in under 2 minutes",
+        modeled: "Response time, owner assignment, handoff, and outcome recorded",
       },
       {
         metric: "Missed estimate requests",
@@ -296,9 +259,9 @@ export const hvacContractorsIndustry: Industry = {
         "Yes, as an intake and routing layer. It should collect context, score urgency, and trigger the right callback path without promising diagnosis or availability.",
     },
     {
-      q: "Does this work with ServiceTitan, Jobber, or Housecall Pro?",
+      q: "Does this work with my current dispatch or field-service system?",
       a:
-        "The first build can run beside those systems. Direct integrations depend on the platform, account access, and API/export options.",
+        "The Blueprint reviews the system's native capabilities, account access, and available integrations before recommending any additional connection or workflow.",
     },
     {
       q: "Can it send SMS follow-ups?",

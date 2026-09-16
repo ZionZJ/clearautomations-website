@@ -10,6 +10,7 @@ import {
   selectClass,
   textareaClass,
 } from "@/components/form-fields";
+import { siteConfig } from "@/lib/site-config";
 
 const LEAD_ENDPOINT = "/api/leads/stack-audit";
 
@@ -139,16 +140,9 @@ export function StackAuditForm() {
               Industry
             </option>
             <option value="hvac">HVAC</option>
-            <option value="plumbing">Plumbing / Electrical</option>
-            <option value="roofing">Roofing / Construction</option>
-            <option value="landscaping">Landscaping / Lawn Care</option>
-            <option value="cleaning">Cleaning / Maid Service</option>
-            <option value="auto">Auto Repair / Detailing</option>
-            <option value="dental">Dental / Medical Practice</option>
-            <option value="legal">Legal / Accounting</option>
-            <option value="realestate">Real Estate / Property Mgmt</option>
-            <option value="fitness">Fitness / Wellness</option>
-            <option value="other">Other</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical</option>
+            <option value="home-services">Other home services</option>
           </select>
         </Field>
 
@@ -164,15 +158,15 @@ export function StackAuditForm() {
           </select>
         </Field>
 
-        <Field label="Monthly software / SaaS spend" className="sm:col-span-2">
+        <Field label="Approximate monthly inbound lead volume" className="sm:col-span-2">
           <select name="monthlySpend" required defaultValue="" className={selectClass}>
             <option value="" disabled>
-              Monthly software / SaaS spend
+              Monthly inbound leads
             </option>
-            <option value="0-500">Under $500/mo</option>
-            <option value="500-2000">$500-$2,000/mo</option>
-            <option value="2000-5000">$2,000-$5,000/mo</option>
-            <option value="5000+">$5,000+/mo</option>
+            <option value="under-50">Under 50</option>
+            <option value="50-200">50-200</option>
+            <option value="201-500">201-500</option>
+            <option value="500+">More than 500</option>
           </select>
         </Field>
       </div>
@@ -229,8 +223,8 @@ export function StackAuditForm() {
       {status === "error" && (
         <p className="text-center text-sm text-red-400">
           Something went wrong. Email{" "}
-          <a href="mailto:zion@clearautomations.com" className="underline">
-            zion@clearautomations.com
+          <a href={`mailto:${siteConfig.contactEmail}`} className="underline">
+            {siteConfig.contactEmail}
           </a>
         </p>
       )}

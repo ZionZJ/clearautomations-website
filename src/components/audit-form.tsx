@@ -9,6 +9,7 @@ import {
   inputClass,
   selectClass,
 } from "@/components/form-fields";
+import { siteConfig } from "@/lib/site-config";
 
 const LEAD_ENDPOINT = "/api/leads/free-audit";
 
@@ -139,8 +140,8 @@ export function AuditForm() {
       {status === "error" && (
         <p className="text-center text-sm text-red-400">
           Something went wrong. Email us directly at{" "}
-          <a href="mailto:zion@clearautomations.com" className="underline">
-            zion@clearautomations.com
+          <a href={`mailto:${siteConfig.contactEmail}`} className="underline">
+            {siteConfig.contactEmail}
           </a>
         </p>
       )}

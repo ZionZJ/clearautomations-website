@@ -4,9 +4,9 @@ export const siteConfig = {
   url: "https://clearautomations.com",
   description:
     "Managed front-desk revenue recovery for HVAC and plumbing companies: missed calls, lead response, estimate follow-up, booking, and CRM workflows measured against real operating data.",
-  contactEmail: "zion@clearautomations.com",
-  legalEntity: "[TODO_LEGAL_ENTITY]",
-  mailingAddress: "[TODO_MAILING_ADDRESS]",
+  contactEmail: "zion@getclearautomations.com",
+  legalEntity: "Zion John Ventures LLC d/b/a ClearAutomations",
+  mailingAddress: "5900 Balcones Drive STE 100, Austin, TX 78731",
   phoneDisplay: "(832) 299-5110",
   phoneHref: "tel:+18322995110",
   bookingUrl: "https://cal.com/clearautomations/discovery",

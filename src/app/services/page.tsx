@@ -6,7 +6,7 @@ import { SiteNav } from "@/components/site-nav";
 export const metadata: Metadata = {
   title: "Front Desk Revenue Recovery | ClearAutomations",
   description:
-    "The ClearAutomations offer ladder: a free Missed-Call Snapshot, $1,000 Revenue-Recovery Blueprint, managed implementation, and qualified AI Employee expansion.",
+    "The ClearAutomations offer ladder: a free Missed-Call Snapshot, $1,000 Revenue-Recovery Blueprint, managed implementation, and qualified workflow expansion.",
 };
 
 const offers = [
@@ -21,7 +21,7 @@ const offers = [
       "Published hours and after-hours path",
       "Visible call and booking options",
       "Observable gaps separated from assumptions",
-      "No comprehensive SEO review or custom video audit",
+      "Focused only on front-desk revenue leakage",
     ],
     href: "/#audit",
     cta: "Request the free Snapshot",
@@ -60,7 +60,7 @@ const offers = [
   },
   {
     label: "Expansion after proof",
-    title: "AI Employee Expansion",
+    title: "Advanced Workflow Expansion",
     price: "Typically $5,000/mo",
     timing: "After visible ROI",
     body:

@@ -6,7 +6,7 @@ type SiteFooterProps = {
 };
 
 export function SiteFooter({
-  tagline = "ClearAutomations: the AI employee that runs your front desk",
+  tagline = "ClearAutomations: managed front-desk revenue recovery",
 }: SiteFooterProps) {
   return (
     <footer className="border-t border-[var(--rule)] py-8">
@@ -46,6 +46,9 @@ export function SiteFooter({
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 mt-6 pt-6 border-t border-[var(--rule)]">
         <p className="text-[12px] text-[var(--ink-faint)]">
           &copy; 2026 ClearAutomations. All rights reserved.
+        </p>
+        <p className="text-[12px] text-[var(--ink-faint)] mt-2">
+          {siteConfig.legalEntity} &middot; {siteConfig.mailingAddress}
         </p>
       </div>
     </footer>

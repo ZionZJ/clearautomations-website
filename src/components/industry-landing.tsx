@@ -1,13 +1,8 @@
 import { ComplianceBadges } from "@/components/compliance-badges";
 import { AuditForm } from "@/components/audit-form";
-import { DentalPracticeAuditForm } from "@/components/dental-practice-audit-form";
 import { FadeIn } from "@/components/fade-in";
-import { LegalIntakeAuditForm } from "@/components/legal-intake-audit-form";
-import { PostalPresortAuditForm } from "@/components/postal-presort-audit-form";
-import { RoofingContractorAuditForm } from "@/components/roofing-contractor-audit-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
-import { TherapistPracticeAuditForm } from "@/components/therapist-practice-audit-form";
 import type { Industry } from "@/data/industries";
 import { siteConfig } from "@/lib/site-config";
 
@@ -40,8 +35,7 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
   const navLinks = [
     { href: `${basePath}#phases`, label: "Phases" },
     { href: `${basePath}#compliance`, label: "Compliance" },
-    { href: `${basePath}#tools`, label: "Tools" },
-    { href: `${basePath}#results`, label: "Results" },
+    { href: `${basePath}#results`, label: "Measurement" },
     { href: `${basePath}#faq`, label: "FAQ" },
   ];
 
@@ -292,30 +286,6 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
         </div>
       </section>
 
-      <section id="tools" className="py-12 sm:py-16 bg-[var(--surface)]">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <FadeIn>
-            <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-4">
-              Tools policy
-            </p>
-            <h2 className="font-[var(--font-display)] text-[clamp(1.7rem,3.2vw,2.4rem)] font-bold leading-[1.12] text-[var(--ink)] mb-4 max-w-[760px]">
-              {industry.toolsPolicy.title}
-            </h2>
-            <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] max-w-[760px] mb-10">
-              {industry.toolsPolicy.intro}
-            </p>
-          </FadeIn>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <PolicyColumn title="Allowed with prerequisites" items={industry.toolsPolicy.approved} />
-            <PolicyColumn
-              title={landingCopy.blockedPolicyTitle ?? "Not used for this workflow"}
-              items={industry.toolsPolicy.blocked}
-            />
-          </div>
-        </div>
-      </section>
-
       <section id="results" className="py-12 sm:py-16 border-t border-[var(--rule)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <FadeIn>
@@ -339,7 +309,7 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
                       Today
                     </th>
                     <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">
-                      Modeled System
+                      Verified after launch
                     </th>
                   </tr>
                 </thead>
@@ -475,7 +445,7 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
               </div>
             </FadeIn>
 
-            <AuditFormSlot kind={industry.form.kind} />
+            <AuditForm />
           </div>
         </div>
       </section>
@@ -505,57 +475,5 @@ export function IndustryLanding({ industry }: IndustryLandingProps) {
         }}
       />
     </>
-  );
-}
-
-function AuditFormSlot({ kind }: { kind: Industry["form"]["kind"] }) {
-  if (["hvac-contractor", "plumbing-contractor", "home-services"].includes(kind)) {
-    return <AuditForm />;
-  }
-
-  if (kind === "roofing-contractor") {
-    return <RoofingContractorAuditForm />;
-  }
-
-  if (kind === "dental-practice") {
-    return <DentalPracticeAuditForm />;
-  }
-
-  if (kind === "postal-presort") {
-    return <PostalPresortAuditForm />;
-  }
-
-  if (kind === "legal-intake") {
-    return <LegalIntakeAuditForm />;
-  }
-
-  return <TherapistPracticeAuditForm />;
-}
-
-function PolicyColumn({
-  title,
-  items,
-}: {
-  title: string;
-  items: { name: string; detail: string }[];
-}) {
-  return (
-    <div className="border border-[rgba(255,255,255,0.1)] rounded-lg p-6 sm:p-8 bg-[var(--stone)]">
-      <h3 className="font-[var(--font-display)] text-[1.35rem] text-[var(--ink)] font-bold mb-5">
-        {title}
-      </h3>
-      <div className="space-y-5">
-        {items.map((item) => (
-          <div key={item.name}>
-            <p className="text-[15px] text-[var(--amber)] font-semibold mb-1">
-              {item.name}
-            </p>
-            <p className="text-[14px] text-[var(--ink-soft)] leading-[1.6]">
-              {item.detail}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }

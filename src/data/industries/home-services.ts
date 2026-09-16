@@ -8,54 +8,54 @@ export const homeServicesIndustry: Industry = {
     ctaLabel: "Free Missed-Call Snapshot",
   },
   landingCopy: {
-    addonsEyebrow: "Add to any phase",
-    addonsTitle: "Sub-vertical and growth services around the core trades build.",
+    addonsEyebrow: "Possible build components",
+    addonsTitle: "Components selected from the verified workflow, not sold as separate products.",
     blockedPolicyTitle: "Not used inside your FSM",
     faqTitle: "Before the first lead is routed",
     footerTagline:
-      "ClearAutomations - lead-funnel automation for plumbing, electrical, landscape, pest, and other home-services trades",
+      "ClearAutomations - managed front-desk revenue recovery for home-service companies",
     proofCards: [
       {
-        headline: "Sub-vertical-aware AI agent.",
+        headline: "Service-aware intake.",
         body:
-          "Plumber, electrician, landscaper, pest control, garage door, fence/deck, tree service, junk removal, painter, pressure-washer — 10 sub-vertical agents share the same n8n workflows with parameterized scripts.",
+          "Questions, safety boundaries, urgency rules, and handoffs are approved for the services the company actually provides.",
       },
       {
-        headline: "FSM coexistence.",
+        headline: "Existing-system coexistence.",
         body:
-          "Jobber, Housecall Pro, ServiceTitan, FieldEdge, or spreadsheet — your tools stay where they are. The lead funnel hands off at deal-stage = won.",
+          "The Blueprint reviews native capabilities first, then defines where any additional workflow should hand off to the current operating system.",
       },
       {
-        headline: "Lean on purpose.",
+        headline: "Measured on purpose.",
         body:
-          "6 workflows instead of HVAC's 9 or roofing's 11. No weather lanes, no insurance-claim follow-up. Ships fast, costs less to maintain, fits any trade.",
+          "The implementation starts with the verified leak, names the owner of every exception, and reports against the client-approved baseline.",
       },
     ],
   },
   metadata: {
     title: "Home Services Lead-Funnel Automation | Clear Automations",
     description:
-      "Lead-funnel automation for plumbing, electrical, landscape, pest control, and other home-services trades. Sub-vertical-aware AI callback with FSM coexistence.",
+      "Managed missed-call, lead-response, estimate-follow-up, and booking workflows for plumbing, electrical, landscape, pest control, and other home-service companies.",
     openGraph: {
       title: "Home Services Automation | Clear Automations",
       description:
-        "Lead capture, estimate follow-up, and review automation for home-services trades. 10 sub-verticals supported.",
+        "Managed missed-call recovery, lead response, estimate follow-up, and booking workflows for home-service companies.",
       url: "https://clearautomations.com/industries/home-services",
       type: "website",
     },
   },
   hero: {
-    eyebrow: "Lead-funnel automation for home-services trades",
-    title: "Not HVAC. Not roofing. Still leaking leads.",
-    mutedTitle: "We build the funnel for any trade.",
+    eyebrow: "Front-desk revenue recovery for home services",
+    title: "Recover missed calls and stalled estimates.",
+    mutedTitle: "Measure what comes back.",
     body:
-      "Clear Automations builds lead-capture, estimate follow-up, and review-recovery workflows for plumbing, electrical, landscape, pest, garage door, fence, tree service, and other home-services trades that don't fit our HVAC or roofing SKUs.",
+      "ClearAutomations maps and manages missed-call, lead-response, estimate-follow-up, booking, and handoff workflows for home-service companies whose process does not fit the dedicated HVAC or plumbing path.",
     primaryCta: "Request a Free Missed-Call Snapshot",
     secondaryCta: "See the Sub-Verticals",
     stats: [
-      { value: "10", label: "sub-verticals supported" },
-      { value: "6", label: "workflows in the build target" },
-      { value: "100%", label: "contractor-owned accounts" },
+      { value: "Native", label: "existing systems reviewed first" },
+      { value: "Human", label: "approved handoffs and exceptions" },
+      { value: "Measured", label: "reporting against real data" },
     ],
   },
   problems: {
@@ -82,73 +82,89 @@ export const homeServicesIndustry: Industry = {
       "The first build focuses on lead capture and estimate follow-up. Sub-vertical-specific scripting handles plumbing emergencies, electrical hazards, tree-on-house safety branches, and recurring-service economics for pest and landscape.",
   },
   phases: {
-    eyebrow: "Start with a free Snapshot, then validate with the $1,000 Blueprint.",
-    title: "First we observe. Then we verify. Then we build.",
-    mutedTitle: "Lead capture, then estimate follow-up, then retention.",
+    eyebrow: "One offer ladder",
+    title: "Observe the gap. Validate it with real data.",
+    mutedTitle: "Build only what the home-service operation can support and measure.",
     note:
-      "The free Missed-Call Snapshot uses public information and names the data needed to validate the opportunity. The $1,000 Revenue-Recovery Blueprint then maps the real workflow, baseline, ROI range, implementation, and measurement plan. Its full fee credits toward implementation within 60 days.",
+      "Every engagement follows the same ladder. Implementation scope and price come from call volume, locations, integrations, and workflows rather than a feature menu.",
     items: [
       {
-        phase: "Build · Stage 1",
-        name: "Lead Capture",
-        setup: "Within implementation",
-        monthly: "Within management",
-        timeline: "2-3 weeks",
-        result: "Faster callbacks across business and after-hours",
-        status: "The core build",
+        phase: "Start here",
+        name: "Free Missed-Call Snapshot",
+        setup: "Free",
+        monthly: "-",
+        timeline: "1 business day",
+        result: "See observable call and booking gaps before sharing internal data",
+        status: "Public information only",
+        items: [
+          "Published hours and after-hours path",
+          "Visible call and booking options",
+          "Observable gaps separated from assumptions",
+          "Real data needed to validate the opportunity",
+        ],
+        note:
+          "Focused only on observable front-desk revenue leakage, with no invented revenue-loss claim.",
+      },
+      {
+        phase: "Validate with real data",
+        name: "Revenue-Recovery Blueprint",
+        setup: "$1,000",
+        monthly: "-",
+        timeline: "5 business days",
+        result: "Know what is leaking, what can be recovered, and what to build",
+        status: "45-minute discovery and actual-data analysis",
         featured: true,
         items: [
-          "Sub-vertical-aware audit form (10 sub-verticals + license-info field for plumbing/electrical/pest)",
-          "Sub-vertical Retell callback agent (10 pre-configured agents sharing the same workflow set)",
-          "Missed-call callback queue with sub-vertical urgency scoring",
-          "Post-job review filter with manager-route on negative",
-          "Weekly owner digest",
+          "Call, lead, booking, and estimate baseline",
+          "Current-state workflow map",
+          "ROI range with assumptions shown",
+          "Prioritized implementation and measurement plan",
         ],
         note:
-          "AI does not diagnose plumbing, electrical, tree, or pest issues. Safety branches route to 911 / utility company / professional response as appropriate.",
+          "The full $1,000 credits toward implementation within 60 days.",
       },
       {
-        phase: "Build · Stage 2",
-        name: "Estimate Follow-Up",
-        setup: "Within implementation",
-        monthly: "Within management",
-        timeline: "2 weeks",
-        result: "More quoted work moved to signed jobs",
-        status: "Added once Stage 1 is stable",
+        phase: "Principal engagement",
+        name: "Front Desk Revenue Recovery",
+        setup: "$5,000-$10,000",
+        monthly: "$1,500-$3,000",
+        timeline: "Scoped in Blueprint",
+        result: "A managed workflow tied to the verified operating baseline",
+        status: "Priced from volume, locations, integrations, and workflows",
         items: [
-          "3-touch email + 1-touch SMS estimate sequence",
-          "Lost-reason tagging (price / timing / competitor / no-response / scope)",
-          "Jobber webhook handoff at deal-stage = won (Housecall Pro alt at +$750)",
-          "HubSpot quote-recovery dashboard",
+          "Missed-call and overflow handling",
+          "New-lead and open-estimate follow-up",
+          "Approved human handoffs and exception tasks",
+          "Reliability and performance reporting",
         ],
         note:
-          "Estimate follow-up is sub-vertical-agnostic. The same workflow handles plumbing repair quotes, electrical panel upgrades, fence installs, and tree-removal estimates.",
+          "No production message or call path launches without approved consent, disclosure, safety, escalation, and stop rules.",
       },
       {
-        phase: "Build · Stage 3",
-        name: "Retention + Reviews",
-        setup: "Within implementation",
-        monthly: "Within management",
-        timeline: "1-2 weeks",
-        result: "Recurring services reactivated, reviews collected",
-        status: "Added once Stages 1+2 are stable",
+        phase: "Expansion after proof",
+        name: "Advanced Workflow Expansion",
+        setup: "Scoped",
+        monthly: "Typically $5,000",
+        timeline: "After visible ROI",
+        result: "Add a measured second workflow for a qualified operation",
+        status: "Not a front-door offer",
         items: [
-          "Post-job review request full sequence (manager-route on negative)",
-          "Recurring service reactivation (pest, landscape only)",
-          "Monthly owner report",
-          "Sub-vertical-specific recurring-cadence config",
+          "Requires baseline metrics and a stable original system",
+          "Reserved for higher-volume or multi-location operations",
+          "Adds one quantified workflow at a time",
+          "Keeps explicit human ownership and handoffs",
         ],
         note:
-          "Recurring service reactivation is enabled only for pest control + landscape sub-verticals. Other sub-verticals (plumbing, electrical, garage doors, etc.) get a 'not applicable' note in the dashboard.",
+          "Expansion is proposed only when the original system has demonstrated value and the next workflow has a defensible business case.",
       },
     ],
   },
   addons: [
     {
-      name: "Sub-Vertical Script Customization",
+      name: "Service-Specific Intake Rules",
       price: "Component - scoped in Blueprint",
       desc:
-        "Heavily-tailored Retell script for niche sub-vertical not in the default 10. Examples: solar install, water-treatment, septic, well-drilling.",
+        "Approved questions, urgency rules, safety boundaries, and handoffs for a specialized service line.",
       items: [
         "Sub-vertical-specific qualifying questions",
         "Custom safety branches",
@@ -157,24 +173,24 @@ export const homeServicesIndustry: Industry = {
       ],
     },
     {
-      name: "Second Sub-Vertical Support",
+      name: "Additional Service-Line Routing",
       price: "Component - scoped in Blueprint",
       desc:
-        "For dual-service shops (plumbing + electrical, landscape + pest, etc.) — adds a second sub-vertical agent to the same n8n instance.",
+        "For multi-service companies that need a second set of intake, ownership, and escalation rules.",
       items: [
-        "Second Retell agent config",
+        "Second service-line intake map",
         "Routing logic by service type",
         "Combined dashboard",
         "Cross-service review filter",
       ],
     },
     {
-      name: "ServiceTitan Integration",
+      name: "Operations-System Integration",
       price: "Component - scoped in Blueprint",
       desc:
-        "API token integration for larger plumbing + electrical shops on ServiceTitan ($245-$500/tech/mo).",
+        "Scoped connection to the client-approved scheduling, field-service, or CRM system when native capabilities and access allow it.",
       items: [
-        "ServiceTitan API token setup",
+        "Approved account connection",
         "Job-status writeback",
         "Custom field mapping",
         "Monthly sync monitoring",
@@ -188,9 +204,9 @@ export const homeServicesIndustry: Industry = {
         "SMS opt-in, unsubscribe language, calling-hours quiet windows, frequency caps. Same pattern as HVAC and roofing.",
     },
     {
-      label: "AI does not diagnose",
+      label: "The system does not diagnose",
       detail:
-        "Plumbing / electrical / tree / pest issues are diagnosed by humans. AI collects context, routes urgency, and triggers safety branches when needed.",
+        "Plumbing, electrical, tree, and pest issues are diagnosed by qualified humans. The workflow collects approved context, routes urgency, and triggers safety branches when needed.",
     },
     {
       label: "Optional license display",
@@ -200,83 +216,34 @@ export const homeServicesIndustry: Industry = {
     {
       label: "FSM coexistence",
       detail:
-        "Designed to sit beside Jobber, Housecall Pro, ServiceTitan, FieldEdge, or a simple spreadsheet pipeline. Lead funnel ends at deal-stage = won.",
+        "Designed to work beside the client's current operating system, using native capabilities first and an approved handoff point where needed.",
     },
   ],
-  toolsPolicy: {
-    title: "Tools we use around the trades funnel",
-    intro:
-      "The funnel uses self-hosted n8n as the backbone and connects to the contractor's CRM, phone, FSM, and messaging stack after access is approved. We do not write to or read from the FSM until the Stage 2 webhook handoff.",
-    approved: [
-      {
-        name: "Self-hosted n8n",
-        detail:
-          "Coordinates form intake, callback queues, estimate follow-up, review requests, recurring-service reactivation (pest/landscape), and owner digest.",
-      },
-      {
-        name: "Retell AI",
-        detail:
-          "About $0.07/min with roughly 600ms latency, SOC 2, and a self-service BAA. 10 sub-vertical agents share the n8n workflow set; only the system prompt + safety branches differ. Vapi stays a documented alternate for deep-custom builds.",
-      },
-      {
-        name: "HubSpot Free or existing CRM",
-        detail:
-          "Lead-funnel CRM (pre-job). 8-stage pipeline with sub-vertical, biggest-leak, and license-info custom properties.",
-      },
-      {
-        name: "Telnyx + Resend",
-        detail:
-          "Telnyx for voice + SMS with STIR/SHAKEN attestation. Resend for transactional email. Same as HVAC and roofing.",
-      },
-    ],
-    blocked: [
-      {
-        name: "Diagnosis or DIY recommendations from AI",
-        detail:
-          "Plumbing, electrical, tree, pest issues are diagnosed by qualified humans. AI does not recommend DIY repairs (water + electrical + gas + chemical safety).",
-      },
-      {
-        name: "Personal cell as primary callback target",
-        detail:
-          "Avoid routing customer emergencies to a personal phone without hours, ownership, and backup rules.",
-      },
-      {
-        name: "Vertical-specific weather or storm workflows",
-        detail:
-          "HVAC's heat-event lane and roofing's storm-recall live in their dedicated SKUs — not in the home-services catch-all.",
-      },
-      {
-        name: "Hidden lead ownership",
-        detail:
-          "ClearAutomations does not own the contractor's phone number, CRM, workflow exports, or customer list.",
-      },
-    ],
-  },
   resultsModel: {
-    eyebrow: "Illustrative results",
-    title: "What a typical home-services shop could recover",
+    eyebrow: "Measurement plan",
+    title: "What the Blueprint baselines and the managed system tracks",
     note:
-      "This is a planning model varying by sub-vertical, not a published case study. Replace with approved client numbers after a pilot.",
+      "No performance or revenue claim is made before the client's real call, lead, estimate, booking, and job data establishes a baseline.",
     rows: [
       {
         metric: "After-hours emergency calls (plumbing, electrical, tree)",
         today: "Voicemail, owner cell, or next-day callback",
-        modeled: "Sub-vertical-aware callback within 5 minutes",
+        modeled: "Response time, owner assignment, handoff, and outcome recorded",
       },
       {
         metric: "Estimate follow-up",
         today: "1 manual reply, then no structured follow-up",
-        modeled: "3 email + 1 SMS sequence with lost-reason tagging",
+        modeled: "Approved follow-up path with stop rules and outcome tracking",
       },
       {
         metric: "Recurring service renewals (pest, landscape)",
         today: "Seasonal reminders depending on staff capacity",
-        modeled: "Sub-vertical-cadence reactivation campaigns (quarterly pest, monthly landscape)",
+        modeled: "Eligibility, consent, touch history, and resulting booked work tracked",
       },
       {
         metric: "Reviews",
         today: "Whoever remembers to ask",
-        modeled: "Filtered post-job request with manager-route on negative",
+        modeled: "Approved request path with exceptions routed to a human",
       },
     ],
   },
@@ -284,7 +251,7 @@ export const homeServicesIndustry: Industry = {
     {
       q: "I'm a plumber. Can I use this?",
       a:
-        "Yes. Plumbing is one of the 10 supported sub-verticals, and plumbing companies also get a dedicated page at /industries/plumbing-contractors. The voice agent uses plumbing-specific qualifying questions (leak / clog / no-water / water-heater / fixture) and a plumbing-specific safety branch (active flooding, gas smell).",
+        "Yes. Plumbing companies can use the dedicated plumbing path, which includes plumbing-specific intake boundaries and immediate human escalation for gas, flooding, sewage, and no-water situations.",
     },
     {
       q: "I'm an HVAC contractor. Should I be on this page?",
@@ -292,9 +259,9 @@ export const homeServicesIndustry: Industry = {
         "No — HVAC contractors should use the HVAC SKU at /industries/hvac-contractors. That SKU includes Texas TDLR §75.71 license display, heat-event lanes, replacement-quote system-age triggers, and post-storm member recall — none of which are in this catch-all.",
     },
     {
-      q: "Will this replace my Jobber / Housecall Pro / ServiceTitan?",
+      q: "Will this replace my current operating system?",
       a:
-        "No. Your FSM stays where it is. The lead funnel is a separate layer that hands off at deal-stage = won. Stage 2 includes a webhook integration with Jobber (default) or Housecall Pro (alternate); ServiceTitan is a paid add-on.",
+        "Not by default. The Blueprint checks native capabilities first and defines any approved handoff or integration only after the current process, access, and data boundaries are understood.",
     },
     {
       q: "What does the 'recurring service reactivation' workflow do?",

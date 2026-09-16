@@ -8,11 +8,11 @@ import { siteConfig } from "@/lib/site-config";
 
 const FAQ_DATA = [
   { q: "Do I have to commit to a big build up front?", a: "No. Start with the free Missed-Call Snapshot. If the public observations justify looking at real data, the $1,000 Revenue-Recovery Blueprint gives you a workflow map, ROI range, and implementation plan you own. The full $1,000 credits toward implementation within 60 days." },
-  { q: "What if I already have a website?", a: "We audit it and upgrade what needs fixing: SEO, forms, speed, mobile experience. We don\u2019t rebuild from scratch unless it\u2019s absolutely necessary." },
-  { q: "What AI tools do you use?", a: "Retell AI for the voice layer, HubSpot for CRM (free tier), n8n for workflow automation, Telnyx for calling, Resend for email. Every account is opened in your name. You own all of it." },
+  { q: "What if I already have call, booking, or CRM software?", a: "The Blueprint starts by mapping what your current systems can already do. We use native capabilities first and recommend custom automation only where a measured gap remains." },
+  { q: "How do you choose the technology?", a: "Technology is selected after discovery based on call volume, locations, integrations, workflows, compliance needs, and the systems you already own. You are not locked into a predetermined software bundle." },
   { q: "How long until I see results?", a: "The free Snapshot is delivered within one business day. A paid Blueprint is delivered within five business days after discovery and receipt of the required data. Implementation timing depends on call volume, integrations, and workflow scope, and is confirmed in the Blueprint." },
-  { q: "What happens if I stop working with you?", a: "Everything keeps running. You own the website, the CRM, the AI agent, the workflows. We hand over all credentials and documentation." },
-  { q: "Is the AI going to sound robotic?", a: "No. Modern voice AI is conversational and context-aware. We customize the voice, script, and tone to match your brand. We\u2019ll send you a sample call before launch." },
+  { q: "What happens if I stop working with you?", a: "Client accounts are used wherever practical, and the implementation includes documentation and an orderly handoff path. Any continuing third-party service costs and platform limits are made clear before launch." },
+  { q: "Does this require an AI voice agent?", a: "No. The first system may use routing, text-back, staff tasks, booking, or CRM workflows without an AI voice layer. Voice automation is added only when the data, disclosure requirements, and human handoff plan support it." },
 ];
 
 export default function Home() {
@@ -92,7 +92,7 @@ export default function Home() {
               },
               {
                 num: "02",
-                text: "Your team spends 15 hours a week on follow-up calls that could be handled by a system that never forgets.",
+                text: "Lead and estimate follow-up depends on someone remembering the next touch, so valid opportunities can quietly stall.",
               },
               {
                 num: "03",
@@ -114,7 +114,7 @@ export default function Home() {
 
           <FadeIn delay={400}>
             <p className="mt-10 text-[clamp(1rem,1.8vw,1.1rem)] leading-[1.7] text-[var(--ink-dim)] max-w-[640px] border-l-2 border-[rgba(212,168,67,0.3)] pl-6">
-              Every month without a system, you&apos;re burning ad spend and losing the customers who were ready to buy. Your competitors are already automating. The gap widens every week.
+              Without a defined response and follow-up path, paid and organic leads can disappear between the first call, estimate, and booking decision.
             </p>
           </FadeIn>
         </div>
@@ -140,7 +140,7 @@ export default function Home() {
             {[
               {
                 phase: "Start here", name: "Missed-Call Snapshot", setup: "Free", monthly: "—", timeline: "1 business day", result: "See the observable gaps before sharing internal data",
-                items: ["One page based on public information", "Published hours and booking-path review", "Observable gaps separated from assumptions", "No invented dollar-loss claim", "The data needed to validate the opportunity", "No comprehensive SEO review or custom video audit"],
+                items: ["One page based on public information", "Published hours and booking-path review", "Observable gaps separated from assumptions", "No invented dollar-loss claim", "The data needed to validate the opportunity", "Focused only on front-desk revenue leakage"],
                 featured: true,
                 roi: "A useful first look with no meeting required.",
               },
@@ -155,7 +155,7 @@ export default function Home() {
                 featured: false,
               },
               {
-                phase: "Expand after proof", name: "AI Employee Expansion", setup: "Scoped", monthly: "Typically $5,000/mo", timeline: "After visible ROI", result: "Add a quantified second workflow for qualified clients",
+                phase: "Expand after proof", name: "Advanced Workflow Expansion", setup: "Scoped", monthly: "Typically $5,000/mo", timeline: "After measured results", result: "Add a quantified second workflow for qualified clients",
                 items: ["For high-volume or multi-location operations", "Begins only after the front-desk system is live", "Requires a measured business case", "Adds cross-channel or back-office workflows", "Uses existing systems before introducing custom tools", "Not sold as the front-door offer"],
                 featured: false,
               },
@@ -338,7 +338,7 @@ export default function Home() {
               The transformation
             </p>
             <h2 className="font-[var(--font-display)] text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.1] tracking-tight text-[var(--ink)] mb-10">
-              What changes once your AI employee is live
+              What changes once the recovery workflow is live
             </h2>
           </FadeIn>
 
@@ -354,16 +354,16 @@ export default function Home() {
                   <tr className="border-b-2 border-[rgba(212,168,67,0.3)]">
                     <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-dim)] uppercase tracking-wide">Scenario</th>
                     <th className="py-3 pr-8 text-[13px] font-semibold text-[var(--ink-dim)] uppercase tracking-wide">Today</th>
-                    <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">With your AI employee</th>
+                    <th className="py-3 text-[13px] font-semibold text-[var(--amber)] uppercase tracking-wide">With managed recovery</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { scenario: "Lead submits form at 7pm Friday", today: "Sits in inbox until Monday", after: "AI calls back in under 2 minutes" },
-                    { scenario: "Follow-up on old leads", today: "Manual spreadsheet, forgotten", after: "Automated 14-day re-engagement" },
-                    { scenario: "Post-job review requests", today: "Asked when someone remembers", after: "Automatic, filtered by job type" },
-                    { scenario: "Tracking leads", today: "Sticky notes + email threads", after: "CRM with stage tracking + history" },
-                    { scenario: "Response to missed call", today: "Maybe call back tomorrow", after: "Automatic SMS + voicemail + email within 2 min" },
+                    { scenario: "Lead arrives after hours", today: "Waits for the next manual inbox check", after: "Acknowledged and routed through the approved follow-up path" },
+                    { scenario: "Open estimate needs follow-up", today: "Timing depends on individual memory", after: "Scheduled touches with stop and escalation rules" },
+                    { scenario: "Customer needs a human", today: "Ownership is unclear", after: "Assigned to the approved person with context" },
+                    { scenario: "Tracking lead progress", today: "Scattered across calls, texts, and inboxes", after: "Visible stages, owners, outcomes, and exceptions" },
+                    { scenario: "Workflow fails", today: "Discovered after a lead complains", after: "Logged, surfaced, and assigned for correction" },
                   ].map((row, i) => (
                     <tr key={i} className="border-b border-[var(--rule)] last:border-b-0">
                       <td className="py-4 pr-8 text-[15px] font-medium text-[var(--ink)]">{row.scenario}</td>
@@ -379,36 +379,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4b. ILLUSTRATIVE RESULT */}
-      <section className="py-12 sm:py-16 bg-[var(--surface)] border-t border-[var(--rule)]">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
-          <div className="max-w-[720px] mx-auto text-center">
-            <FadeIn>
-              <p className="text-[13px] font-medium text-[var(--amber)] tracking-wide uppercase mb-4">
-                Illustrative model
-              </p>
-              <h2 className="font-[var(--font-display)] text-[clamp(1.5rem,3vw,2.2rem)] font-bold leading-[1.15] tracking-tight text-[var(--ink)] mb-5">
-                A modest response-time lift can pay for the system.
-              </h2>
-              <p className="text-[15px] text-[var(--ink-soft)] leading-[1.8]">
-                For a service business receiving 40 qualified inquiries a month,
-                saving just 4 leads from slow follow-up can cover the build before
-                the longer-term automation gains start compounding.
-              </p>
-              <p className="text-[12px] text-[var(--ink-faint)] mt-6">
-                Illustrative example, not client data.
-              </p>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
       {/* 5. WHY US + FOUNDER */}
       <section className="py-12 sm:py-16 bg-[var(--stone-dark)]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
           <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {[
-              { headline: "Native first.", body: "We check what ServiceTitan, Jobber, Housecall Pro, or your current stack can already do before adding custom infrastructure. You should not pay us to rebuild a feature you already own." },
+              { headline: "Native first.", body: "We check what your current call, booking, dispatch, and lead-management systems can already do before adding custom infrastructure. You should not pay us to rebuild a feature you already own." },
               { headline: "Measured from baseline.", body: "The Blueprint separates verified leakage from assumptions. After launch, reporting focuses on response, contact, booking, estimate recovery, reliability, and revenue." },
               { headline: "Client-owned and documented.", body: "Accounts are opened in your name wherever practical, configurations are documented, and the engagement includes an orderly handoff path." },
             ].map((d, i) => (
@@ -438,9 +414,9 @@ export default function Home() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="text-[11px] text-[var(--ink-faint)] uppercase tracking-widest mr-1">
-                  Built on
+                  Operating principles
                 </span>
-                {["HubSpot", "n8n", "Retell AI", "Telnyx", "Resend"].map((tool) => (
+                {["Native-first review", "Client-owned accounts", "Human handoffs", "Measured reporting"].map((tool) => (
                   <span
                     key={tool}
                     className="text-[12px] text-[var(--ink-dim)] border border-[rgba(255,255,255,0.12)] rounded px-2.5 py-1"
