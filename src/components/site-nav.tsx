@@ -14,7 +14,7 @@ type SiteNavProps = {
 
 const defaultLinks: NavLink[] = primaryNavLinks;
 
-function LogoMark({ className = "w-[22px] h-[22px]" }: { className?: string }) {
+function LogoMark({ className = "w-[28px] h-[28px]" }: { className?: string }) {
   return (
     <svg
       className={`${className} text-[var(--amber)] group-hover:scale-105 transition-transform`}
@@ -35,9 +35,9 @@ function LogoMark({ className = "w-[22px] h-[22px]" }: { className?: string }) {
 
 export function SiteLogo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 group">
+    <Link href="/" className="flex items-center gap-3 group">
       <LogoMark />
-      <span className="font-[var(--font-display)] text-[18px] tracking-tight">
+      <span className="font-[var(--font-display)] text-[21px] tracking-tight">
         <span className="text-[var(--ink)] font-bold">
           <span className="text-[var(--amber)]">C</span>lear
         </span>

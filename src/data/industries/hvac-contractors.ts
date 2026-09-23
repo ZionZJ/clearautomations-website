@@ -59,7 +59,7 @@ export const hvacContractorsIndustry: Industry = {
     ],
   },
   problems: {
-    eyebrow: "The leak is speed-to-lead",
+    eyebrow: "The leak is response time",
     title: "HVAC owners do not need more software. They need fewer dropped jobs.",
     items: [
       {

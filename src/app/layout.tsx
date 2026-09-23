@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "ClearAutomations | AI Systems for Small Business",
+  title: "ClearAutomations | Missed-Call Recovery for HVAC & Plumbing",
   description: siteConfig.description,
   alternates: {
     canonical: siteConfig.url,
@@ -13,18 +13,27 @@ export const metadata: Metadata = {
     icon: ["/favicon.ico", "/icon.svg"],
   },
   openGraph: {
-    title: "ClearAutomations | AI Systems for Small Business",
-    description: siteConfig.description,
+    title: "Recover missed calls and stalled estimates | ClearAutomations",
+    description:
+      "Managed front-desk revenue recovery for HVAC and plumbing companies. Start with a free Missed-Call Snapshot.",
     type: "website",
     url: siteConfig.url,
+    siteName: siteConfig.name,
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ClearAutomations AI systems for small business",
+        alt: "ClearAutomations: recover missed calls and stalled estimates for HVAC and plumbing companies",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Recover missed calls and stalled estimates | ClearAutomations",
+    description:
+      "Managed front-desk revenue recovery for HVAC and plumbing companies. Start with a free Missed-Call Snapshot.",
+    images: ["/og-image.png"],
   },
 };
 
@@ -32,8 +41,12 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteConfig.displayName,
+  legalName: "Zion John Ventures LLC",
   url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.png`,
   email: siteConfig.contactEmail,
+  telephone: "+1-832-299-5110",
+  areaServed: "Houston, TX",
   founder: {
     "@type": "Person",
     name: siteConfig.founderName,

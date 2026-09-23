@@ -319,7 +319,7 @@ export default function Home() {
                   </ul>
 
                   <p className="text-[14px] text-[var(--ink-dim)] mb-6">
-                    Delivered within 5 business days. No commitment to build, and the $1,000 credits 100% toward your build if you move forward within 60 days.
+                    Delivered within 5 business days after discovery and receipt of the required data. No commitment to build, and the $1,000 credits 100% toward your build if you move forward within 60 days.
                   </p>
 
                   <StackAuditForm />

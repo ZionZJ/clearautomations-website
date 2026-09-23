@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { BulletList, PageSection, SimplePage } from "@/components/simple-page";
 
 export const metadata: Metadata = {
-  title: "Trust & Boundaries | Clear Automations",
+  title: "Trust & Boundaries | ClearAutomations",
   description:
-    "ClearAutomations trust boundaries for AI voice, SMS, email, HIPAA/BAA readiness, client ownership, and data handling.",
+    "ClearAutomations boundaries for call handling, AI voice, SMS, email, client ownership, recordings, and data handling.",
 };
 
 export default function TrustPage() {
@@ -24,12 +24,13 @@ export default function TrustPage() {
         />
       </PageSection>
 
-      <PageSection title="AI voice boundaries">
+      <PageSection title="Call handling and AI voice boundaries">
         <BulletList
           items={[
-            "AI voice agents should identify the business and use approved disclosure language.",
-            "Human handoff rules are defined before launch.",
-            "AI voice agents do not diagnose, provide legal advice, promise claim outcomes, or replace professional judgment.",
+            "An AI voice layer is optional. Many systems start with routing, text-back, and staff tasks instead.",
+            "Where AI voice is used, it identifies the business and uses approved disclosure language.",
+            "Emergency situations such as gas, sewage, or flooding route to a person, not an automated path.",
+            "Automated call handling does not diagnose equipment, quote firm prices, or replace a technician's judgment.",
           ]}
         />
       </PageSection>
@@ -38,18 +39,19 @@ export default function TrustPage() {
         <BulletList
           items={[
             "Production outreach needs client-approved consent and opt-out language.",
+            "Business text messaging is registered and approved before it is used at volume.",
             "Marketing email must use accurate sender identity and non-deceptive subject lines.",
             "SMS workflows need opt-in, unsubscribe handling, quiet hours, and realistic frequency caps.",
           ]}
         />
       </PageSection>
 
-      <PageSection title="Healthcare and dental readiness">
+      <PageSection title="Recordings and customer data">
         <BulletList
           items={[
-            "Public forms are designed to stay non-PHI.",
-            "Patient-like demos use fake data until production controls are approved.",
-            "PHI workflows require the client-approved BAA path, vendor review, access controls, and retention settings before launch.",
+            "Call recording, transcript, and retention rules are agreed before launch.",
+            "Public forms collect business workflow information only, not payment or other sensitive customer details.",
+            "Access is limited to the people and systems that need it, and removed at handoff.",
           ]}
         />
       </PageSection>
@@ -65,4 +67,3 @@ export default function TrustPage() {
     </SimplePage>
   );
 }
-

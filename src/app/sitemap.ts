@@ -10,7 +10,7 @@ const staticRoutes = [
   "/privacy",
   "/proof",
   "/services",
-  "/services/voice-agent-setup",
+  "/services/front-desk-revenue-recovery",
   "/terms",
   "/trust",
 ];

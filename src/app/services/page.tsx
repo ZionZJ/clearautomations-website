@@ -55,7 +55,7 @@ const offers = [
       "Reliability monitoring and ongoing optimization",
       "Reporting against the verified baseline",
     ],
-    href: "/services/voice-agent-setup",
+    href: "/services/front-desk-revenue-recovery",
     cta: "View implementation details",
   },
   {

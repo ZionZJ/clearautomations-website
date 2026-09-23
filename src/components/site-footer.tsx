@@ -48,7 +48,7 @@ export function SiteFooter({
           &copy; 2026 ClearAutomations. All rights reserved.
         </p>
         <p className="text-[12px] text-[var(--ink-faint)] mt-2">
-          {siteConfig.name} &middot; {siteConfig.mailingAddress}
+          {siteConfig.legalEntity} &middot; {siteConfig.mailingAddress}
         </p>
       </div>
     </footer>

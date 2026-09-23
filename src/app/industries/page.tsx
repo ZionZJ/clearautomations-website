@@ -5,7 +5,7 @@ import { SiteNav } from "@/components/site-nav";
 import { industries } from "@/data/industries";
 
 export const metadata: Metadata = {
-  title: "Home Services Industries | Clear Automations",
+  title: "HVAC & Plumbing Industries | ClearAutomations",
   description:
     "Front-desk revenue recovery for HVAC, plumbing, and home-service companies.",
 };
@@ -13,15 +13,7 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-      <SiteNav
-        links={[
-          { href: "/#phases", label: "Phases" },
-          { href: "/#blueprint", label: "Revenue-Recovery Blueprint" },
-          { href: "/industries", label: "Industries" },
-          { href: "/#faq", label: "FAQ" },
-        ]}
-        ctaHref="/#audit"
-      />
+      <SiteNav />
 
       <main className="pt-24 pb-16 sm:pt-32 sm:pb-20">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">

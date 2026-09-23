@@ -2,31 +2,31 @@ import type { Metadata } from "next";
 import { PageSection, SimplePage } from "@/components/simple-page";
 
 export const metadata: Metadata = {
-  title: "Proof | Clear Automations",
+  title: "Proof | ClearAutomations",
   description:
-    "Modeled ClearAutomations examples and case-study policy before approved client results are public.",
+    "Modeled HVAC and plumbing revenue-recovery workflows and the ClearAutomations case-study policy.",
 };
 
 const examples = [
   {
-    title: "HVAC missed-call recovery",
+    title: "HVAC after-hours call recovery",
     body:
-      "Modeled example: after-hours service calls route into a callback queue, CRM record, and owner digest instead of waiting in voicemail.",
+      "Modeled example: an after-hours no-cool call gets an immediate acknowledgment, is routed to the on-call path or a morning callback queue, and lands in the CRM with an owner assigned instead of waiting in voicemail.",
   },
   {
-    title: "Roofing storm lead intake",
+    title: "Plumbing overflow and emergency routing",
     body:
-      "Modeled example: storm leads are captured, prioritized, and routed toward inspection scheduling with no claim-outcome promises.",
+      "Modeled example: when two calls arrive at once, the overflow caller is acknowledged and triaged. Gas, sewage, and flooding keywords route straight to a person rather than an automated path.",
   },
   {
-    title: "Dental no-show and recall recovery",
+    title: "Open-estimate follow-up",
     body:
-      "Modeled example: fake-data patient records show schedule gaps, no-shows, recall opportunities, and treatment-plan follow-up without public PHI collection.",
+      "Modeled example: replacement and repair estimates receive scheduled follow-up touches with stop and escalation rules, so quotes do not quietly stall after the first send.",
   },
   {
-    title: "Therapy consult response",
+    title: "Baseline and weekly reporting",
     body:
-      "Modeled example: non-PHI consult requests are organized for faster response while deeper intake and claims work stays behind BAA readiness.",
+      "Modeled example: response time, contact rate, appointments booked, and estimates reactivated are measured against the pre-launch baseline, with workflow failures logged and assigned.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function ProofPage() {
     <SimplePage
       eyebrow="Proof"
       title="Modeled examples until client results are approved."
-      description="ClearAutomations will only publish real client names, metrics, screenshots, or stories after written permission. Until then, this page uses clearly labeled modeled examples."
+      description="ClearAutomations will only publish real client names, metrics, screenshots, or stories after written permission. Until then, this page uses clearly labeled modeled examples. They illustrate the workflow, not a promised result."
     >
       <PageSection title="Modeled workflow examples">
         <div className="grid gap-4 md:grid-cols-2">
@@ -63,4 +63,3 @@ export default function ProofPage() {
     </SimplePage>
   );
 }
-

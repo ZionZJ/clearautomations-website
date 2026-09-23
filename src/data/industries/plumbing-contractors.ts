@@ -59,7 +59,7 @@ export const plumbingContractorsIndustry: Industry = {
     ],
   },
   problems: {
-    eyebrow: "The leak is speed-to-lead",
+    eyebrow: "The leak is response time",
     title: "Plumbing owners do not need more software. They need to stop missing emergencies.",
     items: [
       {
