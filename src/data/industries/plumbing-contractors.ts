@@ -40,7 +40,7 @@ export const plumbingContractorsIndustry: Industry = {
       title: "Plumbing Contractor Automation | ClearAutomations",
       description:
         "Automation systems that help Texas plumbing contractors respond faster, book more emergency jobs, and recover stale estimates.",
-      url: "https://clearautomations.com/industries/plumbing-contractors",
+      url: "https://www.clearautomations.com/industries/plumbing-contractors",
       type: "website",
     },
   },

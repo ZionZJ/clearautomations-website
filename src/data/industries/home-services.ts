@@ -40,7 +40,7 @@ export const homeServicesIndustry: Industry = {
       title: "Home Services Automation | Clear Automations",
       description:
         "Managed missed-call recovery, lead response, estimate follow-up, and booking workflows for home-service companies.",
-      url: "https://clearautomations.com/industries/home-services",
+      url: "https://www.clearautomations.com/industries/home-services",
       type: "website",
     },
   },

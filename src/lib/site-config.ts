@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "ClearAutomations",
   displayName: "ClearAutomations",
-  url: "https://clearautomations.com",
+  url: "https://www.clearautomations.com",
   description:
     "Managed front-desk revenue recovery for HVAC and plumbing companies: missed calls, lead response, estimate follow-up, booking, and CRM workflows measured against real operating data.",
   contactEmail: "zion@getclearautomations.com",

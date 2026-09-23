@@ -40,7 +40,7 @@ export const hvacContractorsIndustry: Industry = {
       title: "HVAC Contractor Automation | ClearAutomations",
       description:
         "Automation systems that help Texas HVAC contractors respond faster, book more urgent jobs, and recover stale estimates.",
-      url: "https://clearautomations.com/industries/hvac-contractors",
+      url: "https://www.clearautomations.com/industries/hvac-contractors",
       type: "website",
     },
   },
