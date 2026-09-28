@@ -25,7 +25,8 @@ export default function SummitAirDemoPage() {
         <BulletList
           items={[
             "Summit Air and its staff are fictional. No real HVAC company receives this request.",
-            "Submitting the form sends up to 2 texts and one AI phone call to the number you enter, only if you check the consent box.",
+            "Submitting the form requests one AI phone call to the number you enter.",
+            "Texts are optional. You get up to 2 texts about the request only if you check the text box.",
             "The caller identifies itself as an AI assistant. You can tell it to stop at any time.",
             "Reply STOP to any text to opt out, or HELP for help.",
             "SMS consent records are not shared with or sold to third parties.",

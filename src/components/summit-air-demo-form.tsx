@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
-  ContactConsent,
   Field,
   HoneypotField,
   inputClass,
@@ -56,7 +55,9 @@ export function SummitAirDemoForm() {
       serviceType: value("serviceType"),
       urgency: value("urgency"),
       notes: value("notes"),
-      consentGranted: (form.elements.namedItem("consent") as HTMLInputElement).checked,
+      // Submitting is the callback request (disclosed above the button). Texts are a separate, optional opt-in.
+      consentGranted: true,
+      smsConsent: (form.elements.namedItem("smsConsent") as HTMLInputElement).checked,
       companyWebsite: value("websiteUrlConfirm"),
     };
 
@@ -147,20 +148,30 @@ export function SummitAirDemoForm() {
         />
       </Field>
 
-      <ContactConsent name="consent">
-        I agree that ClearAutomations, which runs this Summit Air demo, may contact me about this
-        request by email, text and phone call, including messages and calls made with automated or
-        AI voice technology. Up to 2 texts per request. Message and data rates may apply. Reply STOP
-        to opt out or HELP for help, or tell the assistant to stop. See the{" "}
-        <a href="/privacy" className="text-[var(--amber)] underline">
-          privacy policy
-        </a>{" "}
-        and{" "}
-        <a href="/terms" className="text-[var(--amber)] underline">
-          terms
-        </a>
-        .
-      </ContactConsent>
+      {/* Optional by design: carriers reject SMS opt-in that is required to submit the form. */}
+      <label className="flex gap-3 items-start text-[13px] leading-[1.6] text-[var(--navy-text)]">
+        <input type="checkbox" name="smsConsent" className="mt-1 accent-[var(--amber)]" />
+        <span>
+          Optional: text me about this request. I agree that ClearAutomations, which runs this
+          Summit Air demo, may send up to 2 automated texts about this request to the number above.
+          Consent is not required to request a callback. Message and data rates may apply. Reply STOP
+          to opt out or HELP for help. See the{" "}
+          <a href="/privacy" className="text-[var(--amber)] underline">
+            privacy policy
+          </a>{" "}
+          and{" "}
+          <a href="/terms" className="text-[var(--amber)] underline">
+            terms
+          </a>
+          .
+        </span>
+      </label>
+
+      <p className="text-[12px] leading-[1.6] text-[var(--navy-muted)]">
+        By clicking Request callback, you ask ClearAutomations to call the number above about this
+        request using an AI voice assistant. The caller identifies itself as AI, and you can tell it
+        to stop at any time. We may also email you about this request.
+      </p>
 
       <HoneypotField />
 
