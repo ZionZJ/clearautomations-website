@@ -52,14 +52,14 @@ export default function SmsConsentPage() {
     <SimplePage
       eyebrow="SMS consent"
       title="How people opt in to ClearAutomations text messages."
-      description="ClearAutomations texts only people who request a Free Missed-Call Snapshot and separately agree to receive texts about that request. Text consent is optional, never pre-checked, and never combined with email or phone-call consent."
+      description="ClearAutomations texts only people who request a Free Missed-Call Snapshot and separately agree to receive texts about their Snapshot and related ClearAutomations services. Text consent is optional, never pre-checked, and never combined with email or phone-call consent."
     >
       <PageSection title="Program details">
         <BulletList
           items={[
             "Program name: ClearAutomations.",
-            "Messages relate only to the person's Free Missed-Call Snapshot request and its follow-up.",
-            "Up to three text messages per Snapshot request. Message frequency varies.",
+            "Messages relate to the person's Free Missed-Call Snapshot and related ClearAutomations services, including recurring automated marketing messages.",
+            "Up to 4 text messages per month. Message frequency varies.",
             "Message and data rates may apply.",
             "Reply STOP to opt out or HELP for help. Consent is not a condition of purchase.",
             "SMS opt-in information is not shared with third parties for marketing.",
@@ -91,10 +91,10 @@ export default function SmsConsentPage() {
           emails the Snapshot to the address provided and may call the phone
           number, if one is given, about the request and related
           ClearAutomations services. Text messages require a separate,
-          optional, unchecked checkbox and are limited to the Snapshot
-          request. The text checkbox shows the full SMS disclosure and links
-          to the Terms and Privacy Policy. A person can submit the form and
-          receive the Snapshot without checking it.
+          optional, unchecked checkbox. The text checkbox shows the full SMS
+          disclosure, including that some texts are marketing messages, and
+          links to the Terms and Privacy Policy. A person can submit the form
+          and receive the Snapshot without checking it.
         </p>
       </PageSection>
 

@@ -81,6 +81,8 @@ export function ContactConsent({
 
 // SMS consent must stay separate from email/call consent, optional, and unchecked
 // by default (carrier 10DLC rules). Do not merge this into ContactConsent.
+// This wording must match /terms#text-messaging, /sms-consent, the Meta lead form,
+// and the registered 10DLC campaign. Change all of them together.
 export function SmsConsent({ name = "smsConsent" }: { name?: string }) {
   return (
     <label className="flex gap-3 items-start text-[13px] leading-[1.6] text-[var(--navy-text)]">
@@ -91,11 +93,12 @@ export function SmsConsent({ name = "smsConsent" }: { name?: string }) {
         className="mt-1 accent-[var(--amber)]"
       />
       <span>
-        I agree to receive up to 3 text messages from ClearAutomations about my Free
-        Missed-Call Snapshot request. Message frequency varies. Message and data
-        rates may apply. Reply STOP to opt out or HELP for help. Consent is not a
-        condition of purchase. SMS opt-in information is not shared with third
-        parties for marketing.{" "}
+        I agree to receive text messages from ClearAutomations about my Free
+        Missed-Call Snapshot and related ClearAutomations services, including
+        recurring automated marketing texts. Up to 4 messages per month. Message
+        and data rates may apply. Reply STOP to opt out or HELP for help. Consent
+        is not a condition of purchase. SMS opt-in information is not shared with
+        third parties for marketing.{" "}
         <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--amber)] underline">
           Privacy Policy
         </a>{" "}

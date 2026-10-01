@@ -4,7 +4,6 @@ import { useState, type FormEvent } from "react";
 import {
   Field,
   HoneypotField,
-  PrivacyNote,
   SmsConsent,
   inputClass,
   normalizeWebsite,
@@ -124,12 +123,15 @@ export function AuditForm() {
         />
       </Field>
       <SmsConsent />
-      <PrivacyNote />
       <p className="text-[13px] leading-[1.6] text-[var(--navy-text)]">
         We&apos;ll email your Snapshot to the address above. If you add a phone
         number, we may also call you about this request and related
         ClearAutomations services. We only text you if you check the text
-        message box above, and only about your Snapshot.
+        message box above. See our{" "}
+        <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--amber)] underline">
+          Privacy Policy
+        </a>
+        .
       </p>
       <button
         type="submit"

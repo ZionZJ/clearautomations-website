@@ -6,7 +6,6 @@ import {
   HoneypotField,
   inputClass,
   normalizeWebsite,
-  PrivacyNote,
   selectClass,
   textareaClass,
   websiteInputProps,
@@ -202,10 +201,13 @@ export function StackAuditForm() {
           className={textareaClass}
         />
       </Field>
-      <PrivacyNote />
       <p className="text-[13px] leading-[1.6] text-[var(--navy-text)]">
         We&apos;ll email and call you at the details above to schedule your
-        discovery session.
+        discovery session. See our{" "}
+        <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--amber)] underline">
+          Privacy Policy
+        </a>
+        .
       </p>
 
       <button

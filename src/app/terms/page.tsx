@@ -58,12 +58,14 @@ export default function TermsPage() {
           <p>
             <strong>Program name:</strong> ClearAutomations. These terms apply
             when you check the optional text-message box on a ClearAutomations
-            form.
+            form, or answer Yes to the optional text-message question on a
+            ClearAutomations Facebook or Instagram lead form.
           </p>
           <BulletList
             items={[
-              "Messages relate only to your Free Missed-Call Snapshot request and its follow-up, such as confirming we received your request, letting you know your Snapshot is ready, and scheduling a follow-up conversation you asked for.",
-              "You will receive up to three text messages per Snapshot request. Message frequency varies.",
+              "Messages relate to your Free Missed-Call Snapshot and related ClearAutomations services. They include confirming we received your request, letting you know your Snapshot is ready, scheduling a walkthrough, and offers for ClearAutomations services such as the Revenue-Recovery Blueprint.",
+              "Some messages are recurring automated marketing messages.",
+              "You will receive up to four text messages per month. Message frequency varies.",
               "Message and data rates may apply.",
               "Consent to receive text messages is optional and is not a condition of purchase.",
               "Reply STOP at any time to opt out. You will receive one message confirming the opt-out and no further texts.",
