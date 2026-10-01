@@ -6,6 +6,7 @@ import {
   Field,
   HoneypotField,
   PrivacyNote,
+  SmsConsent,
   inputClass,
   selectClass,
 } from "@/components/form-fields";
@@ -29,6 +30,8 @@ export function AuditForm() {
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       contactConsent: (form.elements.namedItem("contactConsent") as HTMLInputElement)
         .checked,
+      // Separate, optional SMS consent. Only text this lead when this is true AND a phone was provided.
+      smsConsent: (form.elements.namedItem("smsConsent") as HTMLInputElement).checked,
       websiteUrlConfirm: (
         form.elements.namedItem("websiteUrlConfirm") as HTMLInputElement
       ).value,
@@ -123,11 +126,11 @@ export function AuditForm() {
       </Field>
       <ContactConsent>
         I agree that ClearAutomations may contact me about this Snapshot by
-        email and, if I provided a phone number, by phone or text. Message and
-        data rates may apply. Reply STOP or tell us to stop to opt out. I understand this form is for
-        business workflow information, not sensitive customer, patient,
-        payment, or legal details.
+        email and, if I provided a phone number, by phone call. I understand
+        this form is for business workflow information, not sensitive
+        customer, patient, payment, or legal details.
       </ContactConsent>
+      <SmsConsent />
       <PrivacyNote />
       <button
         type="submit"

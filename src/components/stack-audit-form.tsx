@@ -205,10 +205,9 @@ export function StackAuditForm() {
       </Field>
       <ContactConsent>
         I agree that ClearAutomations may contact me about this Blueprint by
-        email, phone call, and text message. Message and data rates may apply.
-        Reply STOP or tell us to stop to opt out. I understand this form is for
-        business workflow information, not sensitive customer, patient,
-        payment, or legal details.
+        email and phone call. I understand this form is for business workflow
+        information, not sensitive customer, patient, payment, or legal
+        details.
       </ContactConsent>
       <PrivacyNote />
 

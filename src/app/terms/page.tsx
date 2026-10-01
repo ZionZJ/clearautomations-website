@@ -53,6 +53,43 @@ export default function TermsPage() {
         />
       </PageSection>
 
+      <div id="text-messaging" className="scroll-mt-24">
+        <PageSection title="Text messaging terms">
+          <p>
+            <strong>Program name:</strong> ClearAutomations. These terms apply
+            when you check the optional text-message box on a ClearAutomations
+            form.
+          </p>
+          <BulletList
+            items={[
+              "Messages relate only to your Free Missed-Call Snapshot request and its follow-up, such as confirming we received your request, letting you know your Snapshot is ready, and scheduling a follow-up conversation you asked for.",
+              "You will receive up to three text messages per Snapshot request. Message frequency varies.",
+              "Message and data rates may apply.",
+              "Consent to receive text messages is optional and is not a condition of purchase.",
+              "Reply STOP at any time to opt out. You will receive one message confirming the opt-out and no further texts.",
+              "Reply HELP for help.",
+              "Carriers are not liable for delayed or undelivered messages.",
+              "SMS opt-in information is not shared with third parties for marketing.",
+            ]}
+          />
+          <p>
+            Support:{" "}
+            <a className="text-[var(--amber)] underline" href={`mailto:${siteConfig.contactEmail}`}>
+              {siteConfig.contactEmail}
+            </a>{" "}
+            or{" "}
+            <a className="text-[var(--amber)] underline" href={siteConfig.phoneHref}>
+              {siteConfig.phoneDisplay}
+            </a>
+            . See the{" "}
+            <a className="text-[var(--amber)] underline" href="/privacy">
+              Privacy Policy
+            </a>{" "}
+            for how ClearAutomations handles your information.
+          </p>
+        </PageSection>
+      </div>
+
       {(!isPlaceholder(siteConfig.legalEntity) ||
         !isPlaceholder(siteConfig.mailingAddress)) && (
         <PageSection title="Business details">
