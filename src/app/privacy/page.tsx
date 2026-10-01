@@ -54,18 +54,20 @@ export default function PrivacyPage() {
           marketing purposes.
         </p>
         <p>
-          Message and data rates may apply. You can opt out at any time by
-          replying STOP, or by telling us to stop in any reasonable way (a
-          reply, an email, or a voicemail). Opt-outs are honored within 10
-          business days.
+          Message and data rates may apply. Reply STOP to opt out of SMS. STOP
+          requests are processed automatically and no further text messages
+          will be sent, except for a confirmation of the opt-out. You may also
+          request removal by email, phone, or voicemail, and ClearAutomations
+          will process the request promptly.
         </p>
       </PageSection>
 
-      <PageSection title="Regulated data boundaries">
+      <PageSection title="Data boundaries">
         <BulletList
           items={[
-            "Healthcare and dental public forms are designed for business information only, not PHI.",
-            "Patient-like workflow demos use fake data until a client-specific compliance path is approved.",
+            "Public forms collect business workflow information only, not customer payment details, access codes, or other sensitive private data.",
+            "Workflow demos use sample data until a client approves the production setup.",
+            "Call recording, transcript, and retention rules are agreed with each client before launch.",
             "SMS, email, and AI voice workflows require client-approved consent, opt-out, disclosure, and escalation rules before production use.",
           ]}
         />
