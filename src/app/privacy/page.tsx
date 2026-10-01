@@ -35,18 +35,24 @@ export default function PrivacyPage() {
           The public site does not sell personal information.
         </p>
         <p>
-          If you submit a form, ClearAutomations may contact you by email,
-          phone call, or text message about your request. Texts are sent only
-          with your consent. Marketing email follow-up includes a way to opt
-          out.
+          If you submit a form, ClearAutomations may contact you by email or
+          phone call about your request and related ClearAutomations
+          services. Texts are sent only if you separately opt in. Marketing
+          email follow-up includes a way to opt out.
         </p>
       </PageSection>
 
       <PageSection title="Text messaging (SMS)">
         <p>
           ClearAutomations texts only people who contacted us directly and
-          agreed to be contacted. We do not text purchased or shared lead
-          lists.
+          separately opted in to texts. We do not text purchased or shared
+          lead lists.
+        </p>
+        <p>
+          If you opt in, you may receive customer-care texts about your Free
+          Missed-Call Snapshot and recurring automated marketing texts about
+          related ClearAutomations services, up to 4 messages per month. We
+          keep records of text opt-ins and opt-outs.
         </p>
         <p>
           SMS opt-in data and text messaging consent records are not shared

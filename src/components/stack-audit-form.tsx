@@ -201,6 +201,11 @@ export function StackAuditForm() {
           className={textareaClass}
         />
       </Field>
+      <p className="text-[12px] leading-[1.6] text-[var(--navy-muted)]">
+        Describe your process at a high level. Do not paste customer records,
+        passwords, payment information, access codes, or other confidential
+        information.
+      </p>
       <p className="text-[13px] leading-[1.6] text-[var(--navy-text)]">
         We&apos;ll email and call you at the details above to schedule your
         discovery session. See our{" "}

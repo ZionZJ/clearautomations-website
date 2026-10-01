@@ -83,6 +83,10 @@ export function ContactConsent({
 // by default (carrier 10DLC rules). Do not merge this into ContactConsent.
 // This wording must match /terms#text-messaging, /sms-consent, the Meta lead form,
 // and the registered 10DLC campaign. Change all of them together.
+// Bump the version whenever the wording below changes; n8n stores it as consent evidence.
+export const SMS_CONSENT_VERSION = "2026-10-01-offers";
+export const SMS_CONSENT_SCOPE = "snapshot_and_offers";
+
 export function SmsConsent({ name = "smsConsent" }: { name?: string }) {
   return (
     <label className="flex gap-3 items-start text-[13px] leading-[1.6] text-[var(--navy-text)]">

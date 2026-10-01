@@ -4,6 +4,8 @@ import { useState, type FormEvent } from "react";
 import {
   Field,
   HoneypotField,
+  SMS_CONSENT_SCOPE,
+  SMS_CONSENT_VERSION,
   SmsConsent,
   inputClass,
   normalizeWebsite,
@@ -30,6 +32,8 @@ export function AuditForm() {
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       // Separate, optional SMS consent. Only text this lead when this is true AND a phone was provided.
       smsConsent: (form.elements.namedItem("smsConsent") as HTMLInputElement).checked,
+      smsConsentVersion: SMS_CONSENT_VERSION,
+      smsConsentScope: SMS_CONSENT_SCOPE,
       websiteUrlConfirm: (
         form.elements.namedItem("websiteUrlConfirm") as HTMLInputElement
       ).value,
