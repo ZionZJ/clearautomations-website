@@ -2,13 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 import {
-  ContactConsent,
   Field,
   HoneypotField,
-  PrivacyNote,
   inputClass,
+  normalizeWebsite,
+  PrivacyNote,
   selectClass,
   textareaClass,
+  websiteInputProps,
 } from "@/components/form-fields";
 import { siteConfig } from "@/lib/site-config";
 
@@ -28,7 +29,7 @@ export function StackAuditForm() {
       contactName: (form.elements.namedItem("contactName") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
-      website: (form.elements.namedItem("website") as HTMLInputElement).value,
+      website: normalizeWebsite((form.elements.namedItem("website") as HTMLInputElement).value),
       industry: (form.elements.namedItem("industry") as HTMLSelectElement).value,
       employees: (form.elements.namedItem("employees") as HTMLSelectElement).value,
       monthlySpend: (form.elements.namedItem("monthlySpend") as HTMLSelectElement).value,
@@ -36,8 +37,6 @@ export function StackAuditForm() {
       leadProcess: (form.elements.namedItem("leadProcess") as HTMLTextAreaElement).value,
       frustrations: (form.elements.namedItem("frustrations") as HTMLTextAreaElement).value,
       automationGoals: (form.elements.namedItem("automationGoals") as HTMLTextAreaElement).value,
-      contactConsent: (form.elements.namedItem("contactConsent") as HTMLInputElement)
-        .checked,
       websiteUrlConfirm: (
         form.elements.namedItem("websiteUrlConfirm") as HTMLInputElement
       ).value,
@@ -124,11 +123,11 @@ export function StackAuditForm() {
             className={inputClass}
           />
         </Field>
-        <Field label="Website URL" className="sm:col-span-2">
+        <Field label="Website" className="sm:col-span-2">
           <input
-            type="url"
+            {...websiteInputProps}
             name="website"
-            placeholder="https://example.com"
+            placeholder="yourcompany.com"
             required
             className={inputClass}
           />
@@ -203,13 +202,11 @@ export function StackAuditForm() {
           className={textareaClass}
         />
       </Field>
-      <ContactConsent>
-        I agree that ClearAutomations may contact me about this Blueprint by
-        email and phone call. I understand this form is for business workflow
-        information, not sensitive customer, patient, payment, or legal
-        details.
-      </ContactConsent>
       <PrivacyNote />
+      <p className="text-[13px] leading-[1.6] text-[var(--navy-text)]">
+        We&apos;ll email and call you at the details above to schedule your
+        discovery session.
+      </p>
 
       <button
         type="submit"

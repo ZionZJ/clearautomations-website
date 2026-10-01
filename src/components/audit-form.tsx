@@ -2,13 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 import {
-  ContactConsent,
   Field,
   HoneypotField,
   PrivacyNote,
   SmsConsent,
   inputClass,
+  normalizeWebsite,
   selectClass,
+  websiteInputProps,
 } from "@/components/form-fields";
 import { siteConfig } from "@/lib/site-config";
 
@@ -24,12 +25,10 @@ export function AuditForm() {
     const form = e.currentTarget;
     const data = {
       business: (form.elements.namedItem("business") as HTMLInputElement).value,
-      website: (form.elements.namedItem("website") as HTMLInputElement).value,
+      website: normalizeWebsite((form.elements.namedItem("website") as HTMLInputElement).value),
       challenge: (form.elements.namedItem("challenge") as HTMLSelectElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
-      contactConsent: (form.elements.namedItem("contactConsent") as HTMLInputElement)
-        .checked,
       // Separate, optional SMS consent. Only text this lead when this is true AND a phone was provided.
       smsConsent: (form.elements.namedItem("smsConsent") as HTMLInputElement).checked,
       websiteUrlConfirm: (
@@ -81,11 +80,11 @@ export function AuditForm() {
           className={inputClass}
         />
       </Field>
-      <Field label="Website URL">
+      <Field label="Website">
         <input
-          type="url"
+          {...websiteInputProps}
           name="website"
-          placeholder="https://example.com"
+          placeholder="yourcompany.com"
           required
           className={inputClass}
         />
@@ -124,14 +123,12 @@ export function AuditForm() {
           className={inputClass}
         />
       </Field>
-      <ContactConsent>
-        I agree that ClearAutomations may contact me about this Snapshot by
-        email and, if I provided a phone number, by phone call. I understand
-        this form is for business workflow information, not sensitive
-        customer, patient, payment, or legal details.
-      </ContactConsent>
       <SmsConsent />
       <PrivacyNote />
+      <p className="text-[13px] leading-[1.6] text-[var(--navy-text)]">
+        We&apos;ll email your Snapshot to the address above. If you add a phone
+        number, we may also call you about this request.
+      </p>
       <button
         type="submit"
         disabled={status === "submitting"}

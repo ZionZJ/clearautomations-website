@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     standardLeadConfig({
       routeName: "free-audit",
       webhookEnvVar: "N8N_FREE_AUDIT_WEBHOOK_URL",
-      requiredFields: ["business", "website", "challenge", "email", "contactConsent"],
+      requiredFields: ["business", "website", "challenge", "email"],
     }),
   );
 }

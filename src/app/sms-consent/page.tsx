@@ -88,10 +88,11 @@ export default function SmsConsentPage() {
           <Link className="text-[var(--amber)] underline" href="/#audit">
             www.clearautomations.com/#audit
           </Link>{" "}
-          has a required checkbox for email and phone-call contact only, and a
-          separate, optional, unchecked checkbox for text messages. The text
-          checkbox shows the full SMS disclosure and links to the Terms and
-          Privacy Policy.
+          emails the Snapshot to the address provided and may call the phone
+          number if one is given. Text messages require a separate, optional,
+          unchecked checkbox. The text checkbox shows the full SMS disclosure
+          and links to the Terms and Privacy Policy. A person can submit the
+          form and receive the Snapshot without checking it.
         </p>
       </PageSection>
 

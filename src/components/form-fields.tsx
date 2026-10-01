@@ -28,6 +28,21 @@ export function Field({
   );
 }
 
+// Website fields accept "yourcompany.com" or a Google Business Profile link.
+// A plain type="url" input rejects anything without "https://", which blocks real prospects.
+export const websiteInputProps = {
+  type: "text",
+  inputMode: "url",
+  autoComplete: "url",
+  pattern: "\\S+\\.\\S+",
+  title: "Enter your website, like yourcompany.com, or a Google Business Profile link.",
+} as const;
+
+export function normalizeWebsite(raw: string) {
+  const value = raw.trim();
+  return /^https?:\/\//i.test(value) ? value : `https://${value}`;
+}
+
 export function HoneypotField() {
   return (
     <div className="hidden" aria-hidden="true">

@@ -21,7 +21,6 @@ export async function POST(request: Request) {
         "leadProcess",
         "frustrations",
         "automationGoals",
-        "contactConsent",
       ],
     }),
   );
