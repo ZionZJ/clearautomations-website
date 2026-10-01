@@ -89,10 +89,12 @@ export default function SmsConsentPage() {
             www.clearautomations.com/#audit
           </Link>{" "}
           emails the Snapshot to the address provided and may call the phone
-          number if one is given. Text messages require a separate, optional,
-          unchecked checkbox. The text checkbox shows the full SMS disclosure
-          and links to the Terms and Privacy Policy. A person can submit the
-          form and receive the Snapshot without checking it.
+          number, if one is given, about the request and related
+          ClearAutomations services. Text messages require a separate,
+          optional, unchecked checkbox and are limited to the Snapshot
+          request. The text checkbox shows the full SMS disclosure and links
+          to the Terms and Privacy Policy. A person can submit the form and
+          receive the Snapshot without checking it.
         </p>
       </PageSection>
 

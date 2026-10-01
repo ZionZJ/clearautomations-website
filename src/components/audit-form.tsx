@@ -127,7 +127,9 @@ export function AuditForm() {
       <PrivacyNote />
       <p className="text-[13px] leading-[1.6] text-[var(--navy-text)]">
         We&apos;ll email your Snapshot to the address above. If you add a phone
-        number, we may also call you about this request.
+        number, we may also call you about this request and related
+        ClearAutomations services. We only text you if you check the text
+        message box above, and only about your Snapshot.
       </p>
       <button
         type="submit"
