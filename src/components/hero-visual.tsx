@@ -1,368 +1,286 @@
-"use client";
+const lanes = [
+  {
+    label: "MISSED CALL",
+    detail: "After-hours lead",
+    tone: "#EF6A6A",
+    steps: [
+      { eyebrow: "INBOUND", lines: ["Call", "missed"] },
+      { eyebrow: "RESPONSE", lines: ["Customer", "acknowledged"] },
+      { eyebrow: "HANDOFF", lines: ["Human", "assigned"] },
+      { eyebrow: "RECORDED", lines: ["Booking path", "+ CRM logged"] },
+    ],
+  },
+  {
+    label: "OPEN ESTIMATE",
+    detail: "Follow-up due",
+    tone: "#D4A843",
+    steps: [
+      { eyebrow: "OPPORTUNITY", lines: ["Estimate", "still open"] },
+      { eyebrow: "SCHEDULED", lines: ["Follow-up", "sent"] },
+      { eyebrow: "ENGAGED", lines: ["Customer", "replied"] },
+      { eyebrow: "MEASURED", lines: ["Outcome", "tracked"] },
+    ],
+  },
+] as const;
 
-/**
- * Hero animation: 5-phase narrative
- * Phase 1 (0-30%):  Chaos — chaotic manual SMB feel. Call rings, Form/SMS get notifications, Email gets "LATE" badge.
- * Phase 2 (30-40%): Break — icons absorbed by the AI core as it appears. Screen dims.
- * Phase 3 (40-55%): AI Processing — core expands, scan wave.
- * Phase 4 (55-65%): Takeover — icons shoot out to grid, lines form outward.
- * Phase 5 (65-94%): Automation Storytelling
- * Phase 6 (94-100%): Seamless loop reset (Fade to black)
- * Total cycle: 12s
- */
+const cardX = [38, 153, 268, 383];
 
 export function HeroVisual() {
   return (
-    <div className="relative w-full max-w-[520px] mx-auto aspect-square select-none">
+    <div className="relative w-full max-w-[560px] mx-auto aspect-[13/11] select-none">
       <style>{`
-        /* ===== CHAOS ICONS ===== */
-        @keyframes icon-phone {
-          0%, 30% { opacity: 0.8; }
-          0%, 10%, 20%, 30% { transform: translate(45px, 55px) rotate(0deg); }
-          2%, 12%, 22% { transform: translate(43px, 55px) rotate(-15deg); }
-          4%, 14%, 24% { transform: translate(47px, 55px) rotate(15deg); }
-          6%, 16%, 26% { transform: translate(43px, 55px) rotate(-15deg); }
-          8%, 18%, 28% { transform: translate(47px, 55px) rotate(15deg); }
-          
-          40%, 55% { transform: translate(200px, 200px) rotate(0deg) scale(0.2); opacity: 0; }
-          65%, 94% { transform: translate(200px, 70px) rotate(0deg) scale(1); opacity: 1; }
-          98%, 100% { transform: translate(200px, 70px) rotate(0deg) scale(1); opacity: 0; }
-        }
-        @keyframes icon-msg {
-          0%, 30% { opacity: 0.7; }
-          0%, 10%, 20%, 30% { transform: translate(310px, 90px); }
-          5%, 15%, 25% { transform: translate(310px, 75px); }
-          
-          40%, 55% { transform: translate(200px, 200px) rotate(0deg) scale(0.2); opacity: 0; }
-          65%, 94% { transform: translate(324px, 150px) rotate(0deg) scale(1); opacity: 1; }
-          98%, 100% { transform: translate(324px, 150px) rotate(0deg) scale(1); opacity: 0; }
-        }
-        @keyframes icon-email {
-          0% { transform: translate(280px, 290px); opacity: 0.5; }
-          30% { transform: translate(280px, 260px); opacity: 0.8; }
-          
-          40%, 55% { transform: translate(200px, 200px) rotate(0deg) scale(0.2); opacity: 0; }
-          65%, 94% { transform: translate(277px, 307px) rotate(0deg) scale(1); opacity: 1; }
-          98%, 100% { transform: translate(277px, 307px) rotate(0deg) scale(1); opacity: 0; }
-        }
-        @keyframes icon-crm {
-          0%, 30% { transform: translate(80px, 280px); opacity: 0.2; }
-          
-          40%, 55% { transform: translate(200px, 200px) rotate(0deg) scale(0.2); opacity: 0; }
-          65%, 94% { transform: translate(123px, 307px) rotate(0deg) scale(1); opacity: 1; }
-          98%, 100% { transform: translate(123px, 307px) rotate(0deg) scale(1); opacity: 0; }
-        }
-        @keyframes icon-sms {
-          0%, 30% { opacity: 0.7; }
-          0%, 15%, 30% { transform: translate(60px, 120px) rotate(-5deg); }
-          7.5%, 22.5% { transform: translate(65px, 120px) rotate(5deg); }
-          
-          40%, 55% { transform: translate(200px, 200px) rotate(0deg) scale(0.2); opacity: 0; }
-          65%, 94% { transform: translate(76px, 150px) rotate(0deg) scale(1); opacity: 1; }
-          98%, 100% { transform: translate(76px, 150px) rotate(0deg) scale(1); opacity: 0; }
+        @keyframes recovery-step-two {
+          0%, 16%, 96%, 100% { opacity: 0.32; transform: translateY(4px); }
+          22%, 92% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== CHAOS NOTIFICATIONS ===== */
-        @keyframes badge-blink {
-          0%, 2% { opacity: 0; transform: scale(0); }
-          4%, 12% { opacity: 1; transform: scale(1); }
-          14%, 18% { opacity: 0; transform: scale(0); }
-          20%, 28% { opacity: 1; transform: scale(1); }
-          30%, 100% { opacity: 0; transform: scale(0); }
-        }
-        @keyframes missed-blink {
-          0%, 5% { opacity: 0; }
-          6%, 10% { opacity: 1; }
-          11%, 15% { opacity: 0; }
-          16%, 20% { opacity: 1; }
-          21%, 25% { opacity: 0; }
-          26%, 30% { opacity: 1; }
-          31%, 100% { opacity: 0; }
-        }
-        @keyframes late-blink {
-          0%, 10% { opacity: 0; }
-          15%, 25% { opacity: 1; }
-          30%, 100% { opacity: 0; }
+        @keyframes recovery-step-three {
+          0%, 34%, 96%, 100% { opacity: 0.32; transform: translateY(4px); }
+          40%, 92% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== AI CORE ===== */
-        @keyframes ai-core {
-          0%, 38% { opacity: 0; transform: scale(0); }
-          42% { opacity: 1; transform: scale(1.15); }
-          45%, 94% { opacity: 1; transform: scale(1); }
-          98%, 100% { opacity: 0; transform: scale(0); }
-        }
-        @keyframes scan-wave {
-          0%, 42% { r: 36; opacity: 0; }
-          44% { r: 36; opacity: 0.5; }
-          52%, 100% { r: 180; opacity: 0; }
-        }
-        @keyframes core-process-glow {
-          0%, 68% { filter: url(#glow); }
-          69%, 71% { filter: brightness(1.8) url(#glow); }
-          72%, 83% { filter: url(#glow); }
-          84%, 86% { filter: brightness(1.8) url(#glow); }
-          87%, 100% { filter: url(#glow); }
+        @keyframes recovery-step-four {
+          0%, 52%, 96%, 100% { opacity: 0.32; transform: translateY(4px); }
+          58%, 92% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== CORE FLASH (LEAD CAPTURED) ===== */
-        @keyframes core-green-overlay {
-          0%, 73% { opacity: 0; }
-          74% { opacity: 1; }
-          78% { opacity: 0; }
-          
-          79%, 88% { opacity: 0; }
-          89% { opacity: 1; }
-          93% { opacity: 0; }
-          100% { opacity: 0; }
-        }
-        @keyframes lead-captured-text {
-          0%, 73% { opacity: 0; transform: translate(200px, 150px); }
-          74% { opacity: 1; transform: translate(200px, 145px); }
-          78% { opacity: 0; transform: translate(200px, 140px); }
-          
-          79%, 88% { opacity: 0; transform: translate(200px, 150px); }
-          89% { opacity: 1; transform: translate(200px, 145px); }
-          93% { opacity: 0; transform: translate(200px, 140px); }
-          
-          100% { opacity: 0; transform: translate(200px, 150px); }
+        @keyframes recovery-link-one {
+          0%, 14%, 96%, 100% { stroke-dashoffset: 26; opacity: 0.18; }
+          22%, 92% { stroke-dashoffset: 0; opacity: 0.9; }
         }
 
-        /* ===== CONNECTION LINES ===== */
-        @keyframes line-draw {
-          0%, 55% { stroke-dashoffset: 150; opacity: 0; }
-          58% { opacity: 0.3; }
-          65%, 94% { stroke-dashoffset: 0; opacity: 0.4; }
-          98%, 100% { stroke-dashoffset: 150; opacity: 0; }
+        @keyframes recovery-link-two {
+          0%, 32%, 96%, 100% { stroke-dashoffset: 26; opacity: 0.18; }
+          40%, 92% { stroke-dashoffset: 0; opacity: 0.9; }
         }
 
-        /* ===== FLOW DOTS (AUTOMATION STORYTELLING) ===== */
-        /* Cycle 1: Form -> Core */
-        @keyframes flow-form {
-          0%, 65% { opacity: 0; }
-          65.1% { offset-distance: 100%; opacity: 0.8; fill: #D4A843; }
-          69% { offset-distance: 0%; opacity: 0.8; fill: #D4A843; }
-          69.1%, 100% { opacity: 0; }
-        }
-        /* Cycle 1: Core -> CRM & SMS */
-        @keyframes flow-crm-1 {
-          0%, 69% { opacity: 0; }
-          69.1% { offset-distance: 0%; opacity: 0.8; fill: #22C55E; }
-          73% { offset-distance: 100%; opacity: 0.8; fill: #22C55E; }
-          73.1%, 100% { opacity: 0; }
-        }
-        @keyframes flow-sms {
-          0%, 69% { opacity: 0; }
-          69.1% { offset-distance: 0%; opacity: 0.8; fill: #22C55E; }
-          73% { offset-distance: 100%; opacity: 0.8; fill: #22C55E; }
-          73.1%, 100% { opacity: 0; }
+        @keyframes recovery-link-three {
+          0%, 50%, 96%, 100% { stroke-dashoffset: 26; opacity: 0.18; }
+          58%, 92% { stroke-dashoffset: 0; opacity: 0.9; }
         }
 
-        /* Cycle 2: Phone -> Core */
-        @keyframes flow-phone {
-          0%, 80% { opacity: 0; }
-          80.1% { offset-distance: 100%; opacity: 0.8; fill: #D4A843; }
-          84% { offset-distance: 0%; opacity: 0.8; fill: #D4A843; }
-          84.1%, 100% { opacity: 0; }
-        }
-        /* Cycle 2: Core -> CRM & Email */
-        @keyframes flow-crm-2 {
-          0%, 84% { opacity: 0; }
-          84.1% { offset-distance: 0%; opacity: 0.8; fill: #22C55E; }
-          88% { offset-distance: 100%; opacity: 0.8; fill: #22C55E; }
-          88.1%, 100% { opacity: 0; }
-        }
-        @keyframes flow-email {
-          0%, 84% { opacity: 0; }
-          84.1% { offset-distance: 0%; opacity: 0.8; fill: #22C55E; }
-          88% { offset-distance: 100%; opacity: 0.8; fill: #22C55E; }
-          88.1%, 100% { opacity: 0; }
+        @keyframes recovery-current {
+          0%, 12%, 92%, 100% { opacity: 0.45; }
+          16%, 82% { opacity: 1; }
         }
 
-        /* ===== NODE PULSES (SYNERGIZED WITH DATA) ===== */
-        @keyframes pulse-form {
-          0%, 64% { r: 24; opacity: 0; stroke: #D4A843; }
-          65% { r: 24; opacity: 0.5; stroke: #D4A843; }
-          69% { r: 36; opacity: 0; stroke: #D4A843; }
-          100% { opacity: 0; stroke: #D4A843; }
-        }
-        @keyframes pulse-phone {
-          0%, 79% { r: 24; opacity: 0; stroke: #D4A843; }
-          80% { r: 24; opacity: 0.5; stroke: #D4A843; }
-          84% { r: 36; opacity: 0; stroke: #D4A843; }
-          100% { opacity: 0; stroke: #D4A843; }
-        }
-        @keyframes pulse-crm {
-          0%, 72% { r: 24; opacity: 0; stroke: #D4A843; }
-          73% { r: 24; opacity: 0.5; stroke: #22C55E; }
-          77% { r: 36; opacity: 0; stroke: #22C55E; }
-          78%, 87% { opacity: 0; }
-          88% { r: 24; opacity: 0.5; stroke: #22C55E; }
-          92% { r: 36; opacity: 0; stroke: #22C55E; }
-          100% { opacity: 0; }
-        }
-        @keyframes pulse-sms {
-          0%, 72% { r: 24; opacity: 0; stroke: #D4A843; }
-          73% { r: 24; opacity: 0.5; stroke: #22C55E; }
-          77% { r: 36; opacity: 0; stroke: #22C55E; }
-          100% { opacity: 0; }
-        }
-        @keyframes pulse-email {
-          0%, 87% { r: 24; opacity: 0; stroke: #D4A843; }
-          88% { r: 24; opacity: 0.5; stroke: #22C55E; }
-          92% { r: 36; opacity: 0; stroke: #22C55E; }
-          100% { opacity: 0; }
+        @keyframes recovery-outcome {
+          0%, 56%, 96%, 100% { opacity: 0.38; transform: translateY(5px); }
+          64%, 92% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== ORBITAL RING ===== */
-        @keyframes orbit-appear {
-          0%, 60% { opacity: 0; }
-          68%, 94% { opacity: 1; }
-          98%, 100% { opacity: 0; }
+        @keyframes recovery-check {
+          0%, 56%, 96%, 100% { stroke-dashoffset: 18; opacity: 0; }
+          64%, 92% { stroke-dashoffset: 0; opacity: 1; }
         }
 
-        /* ===== SEAMLESS LOOP RESET SCREEN OVERLAY ===== */
-        @keyframes screen-overlay {
-          0%, 4% { opacity: 1; }     /* Loop reset fade-in */
-          5%, 34% { opacity: 0; }
-          36% { opacity: 0.6; }      /* Cinematic dim before Break */
-          38%, 94% { opacity: 0; }
-          98%, 100% { opacity: 1; }  /* Loop reset fade-out to black */
+        @keyframes recovery-live {
+          0%, 100% { opacity: 0.45; }
+          50% { opacity: 1; }
         }
 
-        .hero-anim { animation-duration: 12s; animation-timing-function: cubic-bezier(0.16,1,0.3,1); animation-iteration-count: infinite; animation-fill-mode: both; }
-        .hero-anim-linear { animation-duration: 12s; animation-timing-function: linear; animation-iteration-count: infinite; animation-fill-mode: both; }
+        .recovery-step,
+        .recovery-link,
+        .recovery-outcome,
+        .recovery-check,
+        .recovery-live {
+          animation-duration: 8s;
+          animation-iteration-count: infinite;
+          animation-fill-mode: both;
+          animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .recovery-step-2 { animation-name: recovery-step-two; }
+        .recovery-step-3 { animation-name: recovery-step-three; }
+        .recovery-step-4 { animation-name: recovery-step-four; }
+        .recovery-link-1 { animation-name: recovery-link-one; }
+        .recovery-link-2 { animation-name: recovery-link-two; }
+        .recovery-link-3 { animation-name: recovery-link-three; }
+        .recovery-current { animation: recovery-current 8s ease-in-out infinite both; }
+        .recovery-outcome { animation-name: recovery-outcome; }
+        .recovery-check { animation-name: recovery-check; }
+        .recovery-live { animation-name: recovery-live; animation-duration: 2s; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .recovery-step,
+          .recovery-link,
+          .recovery-current,
+          .recovery-outcome,
+          .recovery-check,
+          .recovery-live {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            stroke-dashoffset: 0 !important;
+          }
+        }
       `}</style>
 
-      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full font-sans">
+      <svg
+        viewBox="0 0 520 440"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full font-sans"
+        aria-hidden="true"
+        focusable="false"
+      >
         <defs>
-          <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="glowSm"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <linearGradient id="recovery-panel" x1="30" y1="18" x2="488" y2="420" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#111116" />
+            <stop offset="1" stopColor="#08080B" />
+          </linearGradient>
+          <linearGradient id="recovery-gold" x1="40" y1="0" x2="480" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#9D7629" />
+            <stop offset="0.55" stopColor="#D4A843" />
+            <stop offset="1" stopColor="#F0D27B" />
+          </linearGradient>
+          <filter id="recovery-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="12" stdDeviation="18" floodColor="#000000" floodOpacity="0.45" />
+          </filter>
+          <filter id="recovery-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
 
-        {/* =======================================================
-            LAYER 1: CONNECTION LINES
-            (Drawn first so they are hidden behind the AI Core)
-        ======================================================= */}
-        {[
-          { x: 200, y: 70 },
-          { x: 324, y: 150 },
-          { x: 277, y: 307 },
-          { x: 123, y: 307 },
-          { x: 76, y: 150 },
-        ].map((n, i) => (
-          <line key={i} x1="200" y1="200" x2={n.x} y2={n.y}
-            stroke="#D4A843" strokeWidth="1"
-            strokeDasharray="150" strokeDashoffset="150"
-            className="hero-anim" style={{ animationName: "line-draw" }}
-          />
-        ))}
+        <rect x="8" y="8" width="504" height="424" rx="24" fill="url(#recovery-panel)" stroke="rgba(212,168,67,0.24)" filter="url(#recovery-shadow)" />
+        <path d="M34 74H486" stroke="rgba(212,168,67,0.16)" />
 
-        {/* =======================================================
-            LAYER 2: FLOW DOTS (AUTOMATION STORYTELLING)
-        ======================================================= */}
-        <circle r="3" filter="url(#glowSm)" className="hero-anim-linear" style={{ animationName: "flow-form", offsetPath: 'path("M200,200 L76,150")' }} />
-        <circle r="3" filter="url(#glowSm)" className="hero-anim-linear" style={{ animationName: "flow-crm-1", offsetPath: 'path("M200,200 L123,307")' }} />
-        <circle r="3" filter="url(#glowSm)" className="hero-anim-linear" style={{ animationName: "flow-sms", offsetPath: 'path("M200,200 L324,150")' }} />
-
-        <circle r="3" filter="url(#glowSm)" className="hero-anim-linear" style={{ animationName: "flow-phone", offsetPath: 'path("M200,200 L200,70")' }} />
-        <circle r="3" filter="url(#glowSm)" className="hero-anim-linear" style={{ animationName: "flow-crm-2", offsetPath: 'path("M200,200 L123,307")' }} />
-        <circle r="3" filter="url(#glowSm)" className="hero-anim-linear" style={{ animationName: "flow-email", offsetPath: 'path("M200,200 L277,307")' }} />
-
-        {/* =======================================================
-            LAYER 3: AI CORE & CAPTURED LEAD EFFECT
-        ======================================================= */}
-        <g className="hero-anim" style={{ animationName: "ai-core", transformOrigin: "200px 200px" }}>
-          {/* Solid background mask to hide lines inside the core */}
-          <circle cx="200" cy="200" r="36" fill="#060608" />
-          
-          <circle cx="200" cy="200" r="36" fill="rgba(212,168,67,0.1)" stroke="#D4A843" strokeWidth="1.5" className="hero-anim" style={{ animationName: "core-process-glow" }} />
-          <circle cx="200" cy="200" r="36" fill="rgba(34,197,94,0.2)" stroke="#22C55E" strokeWidth="2" filter="url(#glow)" className="hero-anim" style={{ animationName: "core-green-overlay" }} />
-          
-          <text x="200" y="197" textAnchor="middle" fill="#D4A843" fontSize="13" fontWeight="700" fontFamily="inherit" letterSpacing="0.15em">AI</text>
-          <text x="200" y="197" textAnchor="middle" fill="#22C55E" fontSize="13" fontWeight="700" fontFamily="inherit" letterSpacing="0.15em" className="hero-anim" style={{ animationName: "core-green-overlay" }}>AI</text>
-          <text x="200" y="212" textAnchor="middle" fill="rgba(212,168,67,0.5)" fontSize="8" fontFamily="inherit" letterSpacing="0.08em">CORE</text>
+        <g>
+          <circle cx="37" cy="38" r="12" fill="rgba(212,168,67,0.1)" stroke="rgba(212,168,67,0.48)" />
+          <path d="M31.5 40.5C35 46 40.5 48 45 43.5L41.5 40.5L38.5 42C36.5 41 34.8 39.3 34 37.4L35.6 34.5L32.7 31C28.8 34.4 29 36.8 31.5 40.5Z" stroke="#D4A843" strokeWidth="1.4" strokeLinejoin="round" />
+          <text x="58" y="34" fill="#F5F2EB" fontSize="12" fontWeight="700" letterSpacing="0.09em">MANAGED FRONT-DESK RECOVERY</text>
+          <text x="58" y="53" fill="#8F8D98" fontSize="10">Every opportunity gets an owner and a next step.</text>
         </g>
-        
-        <text x="0" y="0" textAnchor="middle" fill="#22C55E" fontSize="9" fontWeight="bold" fontFamily="inherit" letterSpacing="0.05em" filter="url(#glowSm)" className="hero-anim" style={{ animationName: "lead-captured-text" }}>+ NEW LEAD</text>
 
-        {/* =======================================================
-            LAYER 4: RINGS & WAVES
-        ======================================================= */}
-        <circle cx="200" cy="200" fill="none" stroke="#D4A843" strokeWidth="1" className="hero-anim-linear" style={{ animationName: "scan-wave" }} />
+        <g transform="translate(412 29)">
+          <circle cx="5" cy="6" r="4" fill="#53C77A" filter="url(#recovery-glow)" className="recovery-live" />
+          <text x="17" y="10" fill="#B7B4BE" fontSize="9" fontWeight="700" letterSpacing="0.12em">WORKFLOW</text>
+        </g>
 
-        <circle cx="200" cy="70" fill="none" strokeWidth="1" className="hero-anim-linear" style={{ animationName: "pulse-phone" }} />
-        <circle cx="324" cy="150" fill="none" strokeWidth="1" className="hero-anim-linear" style={{ animationName: "pulse-sms" }} />
-        <circle cx="277" cy="307" fill="none" strokeWidth="1" className="hero-anim-linear" style={{ animationName: "pulse-email" }} />
-        <circle cx="123" cy="307" fill="none" strokeWidth="1" className="hero-anim-linear" style={{ animationName: "pulse-crm" }} />
-        <circle cx="76" cy="150" fill="none" strokeWidth="1" className="hero-anim-linear" style={{ animationName: "pulse-form" }} />
+        {lanes.map((lane, laneIndex) => {
+          const headingY = laneIndex === 0 ? 96 : 232;
+          const cardY = laneIndex === 0 ? 110 : 246;
+          const connectorY = cardY + 35;
 
-        <circle cx="200" cy="200" r="130" stroke="rgba(212,168,67,0.08)" strokeWidth="1" className="hero-anim" style={{ animationName: "orbit-appear" }} />
-        <circle cx="200" cy="200" r="130" stroke="rgba(212,168,67,0.05)" strokeWidth="1" strokeDasharray="4 8" className="hero-anim animate-[spin_60s_linear_infinite]" style={{ animationName: "orbit-appear", transformOrigin: "200px 200px" }} />
+          return (
+            <g key={lane.label}>
+              <circle cx="39" cy={headingY - 4} r="3.5" fill={lane.tone} />
+              <text x="50" y={headingY} fill="#F5F2EB" fontSize="10" fontWeight="700" letterSpacing="0.11em">
+                {lane.label}
+              </text>
+              <text x="166" y={headingY} fill="#777580" fontSize="9">
+                {lane.detail}
+              </text>
 
-        {/* =======================================================
-            LAYER 5: THE CHAOTIC ICONS
-        ======================================================= */}
-        <g className="hero-anim" style={{ animationName: "icon-phone" }}>
-          <circle r="22" fill="#060608" />
-          <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <rect x="-5" y="-8" width="10" height="16" rx="2" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" />
-          <path d="M-1.5,-5 h3 M-2.5,4 h5" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
-          <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">Call</text>
-          <g className="hero-anim" style={{ animationName: "missed-blink" }}>
-            <text x="18" y="-12" textAnchor="middle" fill="#EF4444" fontSize="7" fontWeight="bold" fontFamily="inherit" filter="url(#glowSm)">MISSED</text>
+              {lane.steps.slice(0, -1).map((_, stepIndex) => (
+                <g key={`${lane.label}-link-${stepIndex}`}>
+                  <line
+                    x1={cardX[stepIndex] + 90}
+                    y1={connectorY}
+                    x2={cardX[stepIndex + 1]}
+                    y2={connectorY}
+                    stroke="rgba(212,168,67,0.18)"
+                    strokeWidth="1.5"
+                  />
+                  <line
+                    x1={cardX[stepIndex] + 90}
+                    y1={connectorY}
+                    x2={cardX[stepIndex + 1]}
+                    y2={connectorY}
+                    stroke="url(#recovery-gold)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeDasharray="26"
+                    strokeDashoffset="26"
+                    className={`recovery-link recovery-link-${stepIndex + 1}`}
+                  />
+                  <path
+                    d={`M${cardX[stepIndex + 1] - 5} ${connectorY - 3}L${cardX[stepIndex + 1]} ${connectorY}L${cardX[stepIndex + 1] - 5} ${connectorY + 3}`}
+                    stroke="rgba(212,168,67,0.6)"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+              ))}
+
+              {lane.steps.map((step, stepIndex) => {
+                const isFirst = stepIndex === 0;
+                const isLast = stepIndex === lane.steps.length - 1;
+                const dotColor = isFirst ? lane.tone : isLast ? "#53C77A" : "#D4A843";
+                const animationClass = isFirst ? "recovery-current" : `recovery-step recovery-step-${stepIndex + 1}`;
+
+                return (
+                  <g key={`${lane.label}-${step.eyebrow}`} className={animationClass}>
+                    <rect
+                      x={cardX[stepIndex]}
+                      y={cardY}
+                      width="90"
+                      height="70"
+                      rx="10"
+                      fill={isLast ? "rgba(83,199,122,0.06)" : "rgba(255,255,255,0.025)"}
+                      stroke={isLast ? "rgba(83,199,122,0.45)" : "rgba(212,168,67,0.22)"}
+                    />
+                    <circle cx={cardX[stepIndex] + 13} cy={cardY + 16} r="3" fill={dotColor} />
+                    <text
+                      x={cardX[stepIndex] + 22}
+                      y={cardY + 19}
+                      fill={isLast ? "#76D996" : "#AAA7B1"}
+                      fontSize="7.5"
+                      fontWeight="700"
+                      letterSpacing="0.08em"
+                    >
+                      {step.eyebrow}
+                    </text>
+                    <text x={cardX[stepIndex] + 12} y={cardY + 42} fill="#F5F2EB" fontSize="10.5" fontWeight="650">
+                      <tspan x={cardX[stepIndex] + 12}>{step.lines[0]}</tspan>
+                      <tspan x={cardX[stepIndex] + 12} dy="14">{step.lines[1]}</tspan>
+                    </text>
+                    {isLast && (
+                      <path
+                        d={`M${cardX[stepIndex] + 70} ${cardY + 16}l3 3 6-7`}
+                        stroke="#76D996"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeDasharray="18"
+                        strokeDashoffset="18"
+                        className="recovery-check"
+                      />
+                    )}
+                  </g>
+                );
+              })}
+
+              {laneIndex === 0 && <path d="M28 206H492" stroke="rgba(255,255,255,0.06)" />}
+            </g>
+          );
+        })}
+
+        <g className="recovery-outcome">
+          <rect x="28" y="338" width="464" height="70" rx="14" fill="rgba(212,168,67,0.055)" stroke="rgba(212,168,67,0.28)" />
+          <circle cx="51" cy="362" r="10" fill="rgba(83,199,122,0.1)" stroke="rgba(83,199,122,0.5)" />
+          <path d="M46.5 362l3 3 6-7" stroke="#76D996" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="70" y="358" fill="#F5F2EB" fontSize="10" fontWeight="700" letterSpacing="0.08em">VISIBLE OUTCOME</text>
+          <text x="70" y="376" fill="#A5A2AC" fontSize="10">Human ownership, system updates, and reporting stay connected.</text>
+
+          <g transform="translate(70 387)">
+            <rect width="92" height="12" rx="6" fill="rgba(255,255,255,0.035)" />
+            <text x="46" y="8.5" textAnchor="middle" fill="#777580" fontSize="6.5" fontWeight="700" letterSpacing="0.08em">HUMAN HANDOFF</text>
+          </g>
+          <g transform="translate(170 387)">
+            <rect width="82" height="12" rx="6" fill="rgba(255,255,255,0.035)" />
+            <text x="41" y="8.5" textAnchor="middle" fill="#777580" fontSize="6.5" fontWeight="700" letterSpacing="0.08em">CRM / FSM</text>
+          </g>
+          <g transform="translate(260 387)">
+            <rect width="111" height="12" rx="6" fill="rgba(255,255,255,0.035)" />
+            <text x="55.5" y="8.5" textAnchor="middle" fill="#777580" fontSize="6.5" fontWeight="700" letterSpacing="0.08em">MEASURED REPORTING</text>
           </g>
         </g>
-
-        <g className="hero-anim" style={{ animationName: "icon-msg" }}>
-          <circle r="22" fill="#060608" />
-          <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <path d="M-7,-5 L7,-5 L7,3 L2,3 L0,6 L-2,3 L-7,3 Z" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
-          <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">SMS</text>
-          <g className="hero-anim" style={{ animationName: "badge-blink", transformOrigin: "12px -12px" }}>
-            <circle cx="12" cy="-12" r="7" fill="#DC2626" />
-            <text x="12" y="-9.5" textAnchor="middle" fill="#fff" fontSize="6" fontWeight="bold" fontFamily="inherit">3</text>
-          </g>
-        </g>
-
-        <g className="hero-anim" style={{ animationName: "icon-sms" }}>
-          <circle r="22" fill="#060608" />
-          <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <path d="M-5,-6 L5,-6 L5,6 L-5,6 Z M-3,-3 L3,-3 M-3,0 L3,0 M-3,3 L1,3" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
-          <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">Form</text>
-          <g className="hero-anim" style={{ animationName: "badge-blink", transformOrigin: "12px -12px" }}>
-            <circle cx="12" cy="-12" r="7" fill="#DC2626" />
-            <text x="12" y="-9.5" textAnchor="middle" fill="#fff" fontSize="6" fontWeight="bold" fontFamily="inherit">!</text>
-          </g>
-        </g>
-
-        <g className="hero-anim" style={{ animationName: "icon-email" }}>
-          <circle r="22" fill="#060608" />
-          <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <path d="M-7,-4 L7,-4 L7,5 L-7,5 Z M-7,-4 L0,1 L7,-4" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="0.8" />
-          <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">Email</text>
-          {/* Late Badge */}
-          <g className="hero-anim" style={{ animationName: "late-blink" }}>
-            <rect x="6" y="-18" width="22" height="10" rx="3" fill="rgba(212,168,67,0.15)" stroke="rgba(212,168,67,0.5)" strokeWidth="0.5" />
-            <text x="17" y="-10.5" textAnchor="middle" fill="#D4A843" fontSize="5" fontWeight="bold" fontFamily="inherit">LATE</text>
-          </g>
-        </g>
-
-        <g className="hero-anim" style={{ animationName: "icon-crm" }}>
-          <circle r="22" fill="#060608" />
-          <circle r="22" fill="rgba(212,168,67,0.06)" stroke="rgba(212,168,67,0.2)" strokeWidth="1" />
-          <circle cx="-3" cy="-3" r="2" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" />
-          <path d="M-7,5 A4,3 0 0,1 1,5" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
-          <circle cx="4" cy="-1" r="2.5" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" />
-          <path d="M-1,6 A4.5,3.5 0 0,1 9,6" fill="none" stroke="rgba(212,168,67,0.5)" strokeWidth="1.2" strokeLinecap="round" />
-          <text y="15" textAnchor="middle" fill="#8A8A9A" fontSize="8" fontFamily="inherit">CRM</text>
-        </g>
-
-        {/* =======================================================
-            LAYER 6: LOOP RESET OVERLAY 
-            (Renders absolutely last to cover everything)
-        ======================================================= */}
-        <rect x="0" y="0" width="400" height="400" fill="#060608" className="hero-anim" style={{ animationName: "screen-overlay", pointerEvents: "none" }} />
       </svg>
     </div>
   );
