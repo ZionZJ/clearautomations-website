@@ -14,34 +14,42 @@ export const metadata: Metadata = {
 
 const metaScreens = [
   {
-    src: "/sms-consent/meta-form-1-intro-and-questions.png",
-    width: 551,
-    height: 1166,
+    src: "/sms-consent/meta-v2-1-intro.png",
+    width: 549,
+    height: 1163,
     label: "1. Form intro and the separate text-message question",
     caption:
-      "The form describes the free Missed-Call Snapshot, then asks \"May ClearAutomations text you about this Snapshot request?\" as its own question. It is not combined with email or phone consent.",
+      "The form describes the free Missed-Call Snapshot, then asks \"May ClearAutomations text you about your Snapshot and related services, including automated marketing offers?\" as its own question. It has no default answer and is not combined with email or phone consent.",
   },
   {
-    src: "/sms-consent/meta-form-2-contact-info.png",
-    width: 529,
-    height: 1006,
-    label: "2. Contact information and data use",
+    src: "/sms-consent/meta-v2-2-answer-no.png",
+    width: 547,
+    height: 1157,
+    label: "2. Declining texts still continues",
+    caption:
+      "The two answers are \"Yes, text me\" and \"No, email only\". Choosing \"No, email only\" lets the person continue and receive the Snapshot by email.",
+  },
+  {
+    src: "/sms-consent/meta-v2-3-contact-info.png",
+    width: 546,
+    height: 1015,
+    label: "3. Contact information and data use",
     caption:
       "Explains how contact details are used and states that selecting \"No\" to texts does not affect delivery of the Snapshot. Personal details in this test submission are redacted.",
   },
   {
-    src: "/sms-consent/meta-form-3-terms-and-sms-disclosure.png",
-    width: 548,
-    height: 590,
-    label: "3. Terms and SMS disclosure shown before Submit",
+    src: "/sms-consent/meta-v2-4-terms.png",
+    width: 545,
+    height: 625,
+    label: "4. Terms and SMS disclosure shown before Submit",
     caption:
-      "Discloses up to three texts per request, message and data rates, STOP and HELP, that text consent is not required, and links to the ClearAutomations Terms and Privacy Policy.",
+      "Discloses customer-care and recurring automated marketing texts about the Snapshot and related ClearAutomations services, up to 4 messages per month, message and data rates, STOP and HELP, that text consent is not required, and that SMS opt-in information is not shared with third parties for marketing. Links to the ClearAutomations Terms and Privacy Policy.",
   },
   {
-    src: "/sms-consent/meta-form-4-confirmation.png",
-    width: 539,
-    height: 639,
-    label: "4. Confirmation after Submit",
+    src: "/sms-consent/meta-v2-5-confirmation.png",
+    width: 544,
+    height: 637,
+    label: "5. Confirmation after Submit",
     caption:
       "Confirms the Snapshot will be emailed within one business day and that no call is required to receive it. Booking a call is offered only as an optional next step.",
   },
