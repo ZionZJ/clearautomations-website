@@ -30,9 +30,10 @@ export default function AboutPage() {
         <p>
           Every engagement starts with a free Missed-Call Snapshot built from
           public information. If the gaps justify a closer look, the $1,000
-          Revenue-Recovery Blueprint analyzes your real call, lead, and estimate
-          data and produces a plan you own. The Blueprint fee credits in full
-          toward implementation within 60 days.
+          Revenue-Recovery Blueprint starts with two exports, sets up one quick
+          win, and produces a plan you own. If it doesn&apos;t find at least
+          $1,000 a month in recoverable revenue, you get your money back. The
+          Blueprint fee credits in full toward implementation within 60 days.
         </p>
       </PageSection>
 

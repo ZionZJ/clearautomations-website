@@ -7,7 +7,7 @@ import { SiteNav } from "@/components/site-nav";
 import { siteConfig } from "@/lib/site-config";
 
 const FAQ_DATA = [
-  { q: "Do I have to commit to a big build up front?", a: "No. Start with the free Missed-Call Snapshot. If the public observations justify looking at real data, the $1,000 Revenue-Recovery Blueprint gives you a workflow map, ROI range, and implementation plan you own. The full $1,000 credits toward implementation within 60 days." },
+  { q: "Do I have to commit to a big build up front?", a: "No. Start with the free Missed-Call Snapshot. If the public observations justify looking at real data, the $1,000 Revenue-Recovery Blueprint starts with two exports, sets up one quick win, and gives you a workflow map, ROI range, and implementation plan you own. If it doesn't find at least $1,000 a month in recoverable revenue, you get your money back. The full fee credits toward implementation within 60 days." },
   { q: "What if I already have call, booking, or CRM software?", a: "The Blueprint starts by mapping what your current systems can already do. We use native capabilities first and recommend custom automation only where a measured gap remains." },
   { q: "How do you choose the technology?", a: "Technology is selected after discovery based on call volume, locations, integrations, workflows, compliance needs, and the systems you already own. You are not locked into a predetermined software bundle." },
   { q: "How long until I see results?", a: "The free Snapshot is delivered within one business day. A paid Blueprint is delivered within five business days after discovery and receipt of the required data. Implementation timing depends on call volume, integrations, and workflow scope, and is confirmed in the Blueprint." },
@@ -146,7 +146,7 @@ export default function Home() {
               },
               {
                 phase: "Validate with real data", name: "Revenue-Recovery Blueprint", setup: "$1,000", monthly: "credits to build", timeline: "5 business days", result: "Know what is leaking, what can be recovered, and what to build",
-                items: ["One 45-minute workflow discovery", "Analysis of available call, lead, booking, and estimate data", "Current-state workflow map", "ROI range with assumptions shown", "Prioritized implementation and measurement plan", "Credits 100% toward implementation within 60 days"],
+                items: ["One 45-minute discovery on a screen share", "Starts with two exports: 30 days of call logs and open estimates", "One quick win set up during the week", "Workflow map and ROI range with assumptions shown", "Finds $1,000+/month recoverable, or your money back", "Credits 100% toward implementation within 60 days"],
                 featured: false,
               },
               {
@@ -301,13 +301,14 @@ export default function Home() {
                     $1,000 one-time, credits toward your build
                   </p>
                   <p className="text-[15px] text-[var(--ink-soft)] leading-[1.7] mb-6">
-                    A paid, actual-data diagnosis. We map the current front-desk workflow, establish a defensible leakage baseline, and hand you a prioritized implementation plan you own.
+                    A paid diagnosis built on your real numbers, plus one fix that starts working right away. We map the current front-desk workflow, establish a defensible leakage baseline, and hand you a prioritized implementation plan you own.
                   </p>
 
                   <ul className="space-y-3 mb-8">
                     {[
-                      "Analysis of available call, lead, booking, estimate, and CRM / FSM data",
+                      "Starts with two exports: the last 30 days of call logs and your open estimates. We review the rest together on screen.",
                       "45-minute discovery call to map your workflows",
+                      "One quick win set up during the week, such as instant missed-call alerts or an open-estimate follow-up list",
                       "Current-state workflow map and ROI range with assumptions shown",
                       "A prioritized implementation and measurement plan, yours whether or not you hire us",
                     ].map((item) => (
@@ -319,7 +320,7 @@ export default function Home() {
                   </ul>
 
                   <p className="text-[14px] text-[var(--ink-dim)] mb-6">
-                    Delivered within 5 business days after discovery and receipt of the required data. No commitment to build, and the $1,000 credits 100% toward your build if you move forward within 60 days.
+                    Delivered within 5 business days after discovery and the two exports. If it doesn&apos;t find at least $1,000 a month in recoverable revenue, you get your money back. No commitment to build, and the $1,000 credits 100% toward your build if you move forward within 60 days.
                   </p>
 
                   <StackAuditForm />
@@ -498,7 +499,7 @@ export default function Home() {
                   <a href="#blueprint" className="text-[var(--amber)] hover:text-[var(--amber-hover)] transition-colors underline">
                     Continue with the $1,000 Revenue-Recovery Blueprint
                   </a>
-                  . It credits toward your build.
+                  . It credits toward your build and comes with a money-back guarantee.
                 </p>
               </div>
             </FadeIn>
